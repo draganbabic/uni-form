@@ -33,17 +33,17 @@
       
       .uniForm .textInput,
       .uniForm .blockLabels .textInput,
-      .uniForm .blockLabels .fileUpload{ width: 53%; /* Required property */ }
+      .uniForm .blockLabels .fileUpload{ width: 53%; /* <- Required property */ }
     
       .uniForm .selectInput,
       .uniForm select,
       .uniForm .blockLabels .selectInput,
-      .uniForm .blockLabels select{ width: 53.5%; /* Required property */ }
+      .uniForm .blockLabels select{ width: 53.5%; /* <- Required property */ }
       .uniForm textarea,
-      .uniForm .blockLabels textarea{ width: 53%; /* Required property */ height: 12em; }
+      .uniForm .blockLabels textarea{ width: 53%; /* <- Required property */ height: 12em; }
 
       .uniForm .formHint,
-      .uniForm .blockLabels .formHint{ width: 45%; /* Required property */ font-size: .9em; color: #777; position: relative; top: -.5em; }
+      .uniForm .blockLabels .formHint{ width: 45%; /* <- Required property */ font-size: .9em; color: #777; position: relative; top: -.5em; }
       
       .uniForm .multiField,
       .uniForm .blockLabels .multiField{ width: 53%; }
@@ -64,19 +64,19 @@
     .uniForm .inlineLabels .ctrlHolder{}
     
     .uniForm .inlineLabels label,
-    .uniForm .inlineLabels .label{ width: 45%; /* Required property */ margin: .3em 2% 0 0; /* Required property */ }
+    .uniForm .inlineLabels .label{ width: 45%; /* <- Required property */ margin: .3em 2% 0 0; /* <- Required property */ }
     
     .uniForm .inlineLabels .textInput,
-    .uniForm .inlineLabels .fileUpload{ width: 45%; /* Required property */ }
+    .uniForm .inlineLabels .fileUpload{ width: 45%; /* <- Required property */ }
     
     .uniForm .inlineLabels .selectInput,
-    .uniForm .inlineLabels select{ width: 45%; /* Required property */ }
+    .uniForm .inlineLabels select{ width: 45%; /* <- Required property */ }
     
-    .uniForm .inlineLabels textarea{  width: 45%; /* Required property */ height: 12em; }
+    .uniForm .inlineLabels textarea{  width: 45%; /* <- Required property */ height: 12em; }
 
     .uniForm .inlineLabels .formHint{ margin-top: 0; margin-left: 47%; font-size: .9em; color: #777; position: static; }
     
-    .uniForm .inlineLabels .multiField{ width: 45%; /* Required property */ margin: 0 0 .3em 0; }
+    .uniForm .inlineLabels .multiField{ width: 45%; /* <- Required property */ margin: 0 0 .3em 0; }
       .uniForm .inlineLabels .multiField .inlineLabel{ display: block; margin: 0 0 .5em 0; }
       .uniForm .inlineLabels .multiField .blockLabel{ float: left; width: 30%; margin: 0 3% 0 0; }
       .uniForm .inlineLabels .multiField .blockLabel .textInput,
@@ -90,9 +90,9 @@
 
 /* Columns (they are floated left by default) */
 .uniForm .col{
-  width: 47.9%; /* Required property */ margin-right: 2%; }
-.uniForm .col.first{ width: 49%; /* Required property */ float: left; clear: none; }
-.uniForm .col.last{ width: 49%; /* Required property */ float: right; clear: none; margin-right: 0; }
+  width: 47.9%; /* <- Required property */ margin-right: 2%; }
+.uniForm .col.first{ width: 49%; /* <- Required property */ float: left; clear: none; }
+.uniForm .col.last{ width: 49%; /* <- Required property */ float: right; clear: none; margin-right: 0; }
 
 /* Messages */
 .uniForm #errorMsg{ background: #ffdfdf; border: 1px solid #df7d7d; border-width: 1px 0; margin: 0 0 1.5em 0; padding: 10px; }
