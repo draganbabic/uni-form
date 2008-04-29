@@ -84,8 +84,8 @@
       .uniForm .inlineLabels .multiField .blockLabel select{ width: 100%; margin: .3em 0 0 0; }
 
 /* Focus pseudoclasses */
-.uniForm .ctrlHolder .textInput:focus{}
-.uniForm .ctrlHolder textarea:focus{}
+.uniForm .ctrlHolder .textInput:focus{ outline: none; /* Get rid of the 'glow' effect in WebKit */ }
+.uniForm .ctrlHolder textarea:focus{ outline: none; /* Get rid of the 'glow' effect in WebKit */ }
 .uniForm div.focused .formHint{ color: #000; }
 
 /* Columns (they are floated left by default) */
