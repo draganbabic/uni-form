@@ -25,17 +25,47 @@
 
     <!--[if lte ie 6]>
       <style type="text/css" media="screen">
+        /*
+        Move these to your IE specific stylesheet if possible
+        */
         .uniForm,
         .uniForm fieldset,
         .uniForm .ctrlHolder,
         .uniForm .formHint,
-        .uniForm:after,
-        .uniForm .buttonHolder:after, 
-        .uniForm .ctrlHolder:after, 
-        .uniForm .ctrlHolder .multiField:after,
-        .uniForm .inlineLabel:after{ /* Trigger hasLayout, move to your IE specific stylesheet if possible */
-          zoom:1;
-        }
+        .uniForm .buttonHolder, 
+        .uniForm .ctrlHolder .multiField,
+        .uniForm .inlineLabel{ zoom:1; }
+
+        .uniForm .inlineLabels label, .uniForm .inlineLabels .label,
+        .uniForm .blockLabels label, .uniForm .blockLabels .label,
+        .uniForm .inlineLabel span{ padding-bottom: .2em; }
+
+        .uniForm .inlineLabel input,
+        .uniForm .inlineLabels .inlineLabel input,
+        .uniForm .blockLabels .inlineLabel input{ margin-top: -.3em; }
+      </style>
+    <![endif]-->
+    
+    <!--[if gt ie 6]>
+      <style type="text/css" media="screen">
+        /*
+        Move these to your IE specific stylesheet if possible
+        */
+        .uniForm,
+        .uniForm fieldset,
+        .uniForm .ctrlHolder,
+        .uniForm .formHint,
+        .uniForm .buttonHolder, 
+        .uniForm .ctrlHolder .multiField,
+        .uniForm .inlineLabel{ zoom:1; }
+
+        .uniForm .inlineLabels label, .uniForm .inlineLabels .label,
+        .uniForm .blockLabels label, .uniForm .blockLabels .label,
+        .uniForm .inlineLabel span{ padding-bottom: .2em; }
+
+        .uniForm .inlineLabel input,
+        .uniForm .inlineLabels .inlineLabel input,
+        .uniForm .blockLabels .inlineLabel input{ margin-top: -.3em; }
       </style>
     <![endif]-->
 
@@ -65,7 +95,7 @@
       </div>
             
         <fieldset class="inlineLabels">
-          <legend>Required fields</legend>		
+          <legend>Required fields (using <code>.inlineLabels</code>)</legend>		
           
           <div class="ctrlHolder">
             <p class="formHint"><strong><em>*</em> Indicates a required field</strong></p>
@@ -96,7 +126,7 @@
 
           <div class="ctrlHolder">
             <p class="label">
-              <em>*</em> Date of Birth:
+              <em>*</em> Date of Birth
             </p>
             <div class="multiField">
               <label for="dob_month" class="blockLabel">Month <select id="dob_month" name="dob_month"><option value="1">January</option></select></label>
@@ -144,13 +174,11 @@
       
 
         <fieldset class="blockLabels">
-          <legend>Optional fields</legend>
-
-          <p>This fieldset has the class <code>blockLabels</code> applied to it, and as a result we get a different form layout.</p>
+          <legend>Optional fields ( using <code>.blockLabels</code>)</legend>
           
           <div class="ctrlHolder">
             <p class="label">
-              Date of Birth:
+              Date of Birth
             </p>
             <div class="multiField">
               <label for="dob_month2" class="blockLabel">Month <select id="dob_month2" name="dob_month2"><option value="1">January</option></select></label>
