@@ -1,28 +1,29 @@
 @import "uni-form-generic.css";
-/* Your styles below */
-/* Keep in mind that wherever you see "Required property" it means that the property must exist, adjust it's value to your liking */
+/* Keep in mind that wherever you see 'Required property' it means that the property must exist */
+
+/* ------------------------------------------------------------------------------ */
 
   /* Generals */
   .uniForm fieldset{}
-    .uniForm fieldset legend{ color: #000; font-weight: bold; font-size: 100%; margin: 0; padding: 1.5em 0; }
+    .uniForm fieldset legend{ color: #333; font-weight: bold; font-size: 100%; margin: 0; padding: 1.5em 0; }
     
     /* This is the main unit that contains our form elements */
     .uniForm .ctrlHolder{ padding: 7px; border-bottom: 1px solid #dfdfdf; }
     
-    .uniForm .buttonHolder{ clear: both; text-align: right; }
-      .uniForm .resetButton{}
-      .uniForm .submitButton{}
+    .uniForm .buttonHolder{ text-align: right; }
+      .uniForm .resetButton{ float: left; }
+      .uniForm .primaryAction{ font-weight: bold; }
     
-    /* This class gets added to the .ctrlHolder to highlight the row */
+    /* This class gets added to div.ctrlHolder to highlight the row */
     .uniForm .focused{ background: #fffcdf; }
-    
+      
+      /* .inlineLabel is used for inputs within labels - checkboxes and radio buttons */
       .uniForm .inlineLabel input,
       .uniForm .inlineLabels .inlineLabel input,
       .uniForm .blockLabels .inlineLabel input{ float: left; margin: 0 .4em 0 0; }
         .uniForm .inlineLabel span{ float: left; width: 90%; }
         
-
-    /* ########################################################################## */
+/* ------------------------------------------------------------------------------ */
 
     /* .blockLabels (default style, will be applied even if you don't class the parent element) */
     .uniForm .blockLabels .ctrlHolder{}
@@ -58,7 +59,7 @@
         .uniForm .blockLabels .multiField .blockLabel .selectInput,
         .uniForm .blockLabels .multiField .blockLabel select{ width: 100%; margin: .3em 0 0 0; }
 
-    /* ########################################################################## */
+/* ------------------------------------------------------------------------------ */
 
     /* .inlineLabels */
     .uniForm .inlineLabels .ctrlHolder{}
@@ -84,13 +85,13 @@
       .uniForm .inlineLabels .multiField .blockLabel select{ width: 100%; margin: .3em 0 0 0; }
 
 /* Focus pseudoclasses */
-.uniForm .ctrlHolder .textInput:focus{ outline: none; /* Get rid of the 'glow' effect in WebKit */ }
-.uniForm .ctrlHolder textarea:focus{ outline: none; /* Get rid of the 'glow' effect in WebKit */ }
-.uniForm div.focused .formHint{ color: #000; }
+.uniForm .ctrlHolder .textInput:focus{ outline: none; /* Get rid of the 'glow' effect in WebKit, optional */ }
+.uniForm .ctrlHolder textarea:focus{ outline: none; /* Get rid of the 'glow' effect in WebKit, optional */ }
+.uniForm div.focused .formHint{ color: #333; }
 
 /* Columns (they are floated left by default) */
-.uniForm .col{
-  width: 47.9%; /* <- Required property */ margin-right: 2%; }
+.uniForm .col{ width: 47.9%; /* <- Required property */ margin: 0 2% 20px 0; }
+/* Use .first and .last classes to control the layout/spacing of your columns */
 .uniForm .col.first{ width: 49%; /* <- Required property */ float: left; clear: none; }
 .uniForm .col.last{ width: 49%; /* <- Required property */ float: right; clear: none; margin-right: 0; }
 
@@ -106,3 +107,12 @@
 
 .uniForm #OKMsg{ background: #C8FFBF; border: 1px solid #A2EF95; border-width: 1px 0; margin: 0 0 1.5em 0; padding: 7px; }
   .uniForm #OKMsg p{ margin: 0; }
+
+/*
+IT IS STRONGLY ADVISED TO MAKE YOUR CHANGES AFTER THIS COMMENT BY REPEATING (COPYING) THE SELECTOR FROM ABOVE, 
+AND MODIFYING IT WITH YOUR OWN PROPERTIES/VALUES. THIS IS RECOMMENDED BECAUSE IF YOU HAPPEN TO RUN INTO TROUBLE, 
+YOU CAN VERY EASILY REVERT TO A GENERIC STYLE OF UNI-FORM. BEST OF LUCK... 
+*/
+
+/* ------------------------------------------------------------------------------ */
+
