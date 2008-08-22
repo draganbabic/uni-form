@@ -20,6 +20,10 @@
         .uniForm{ padding: 20px; background: #F2FAFF; -webkit-border-radius: 7px; }
           .uniForm fieldset{ margin: 0 0 1.5em 0; }
             .uniForm .inlineLabel em{ left: 10px !important; }
+            
+          .uniForm .inlineLabels .ctrlHolder .multiField.phoneNum .blockLabel{ width: auto; }
+            .uniForm .inlineLabels .ctrlHolder .multiField .blockLabel #phone_ccode.textInput,
+            .uniForm .inlineLabels .ctrlHolder .multiField .blockLabel #phone_area.textInput{ width: 4em; }
 
     </style>
 
@@ -52,7 +56,7 @@
 
   <body>
 
-    <p><a href="http://dnevnikeklektika.com/uni-form/" title="Visit The Uni-Form demo page online"><img src="img/uni-form-logo.png" width="179" height="72" alt="" /></a></p>
+    <h1><a href="http://dnevnikeklektika.com/uni-form/" title="Visit The Uni-Form demo page online"><img src="img/uni-form-logo.png" width="179" height="72" alt="" /></a></h1>
 
     <form action="/" class="uniForm">
 
@@ -110,6 +114,17 @@
               <label for="dob_year" class="blockLabel">Year <select id="dob_year" name="dob_year"><option value="1">1908</option></select></label>
             </div>
             <p class="formHint">Don't lie!</p>
+          </div>
+          
+          <div class="ctrlHolder">
+            <p class="label">
+              <em>*</em> Phone Number
+            </p>
+            <div class="multiField phoneNum"> <!-- I have added a class .phoneNum as a hook to this .multiField so I can target it's children precisely, but it's not a part of Uni-Form -->
+              <label for="phone_ccode" class="blockLabel">Country <input type="text" id="phone_ccode" name="phone_ccode" size="20" value="" class="textInput" /></label>
+              <label for="phone_area" class="blockLabel">Area <input type="text" id="phone_area" name="phone_area" size="20" value="" class="textInput" /></label>
+              <label for="phone_num" class="blockLabel">Phone number<input type="text" id="phone_num" name="phone_num" size="20" value="" class="textInput" /></label>
+            </div>
           </div>
 
           <div class="ctrlHolder error">
