@@ -1,5 +1,5 @@
-Uni-Form by Dragan Babic  - http://dnevnikeklektika.com/ , http://draganbabic.com/
-Some rights reserved - http://creativecommons.org/licenses/by-sa/2.5/
+Uni-Form by Dragan Babic [Superawesome Industries]  - http: //sprawsm.com/uni-form/
+Some rights reserved - http: //creativecommons.org/licenses/by-sa/2.5/
 
 Thank you for downloading Uni-Form!
 
@@ -32,7 +32,7 @@ GETTING STARTED:
 NOTE: Uni-Form will work out of the box, but in order to get real control over your design and form layout, it requires a good amount of familliarity with CSS and of course - you'll have to dive into the code. It is primarily a tool for developers. 
 
   - Linking the files:
-    1) Download the most recent version of Uni-Form from http://dnevnikeklektika.com/uni-form/
+    1) Download the most recent version of Uni-Form from http://sprawsm.com/uni-form/
     2) Unpack and upload to your server into appropriate directories (e.g. place the css files in a dir called „css”, JavaScript files into a dir called „js”...)
     3) Now you need to link the uni-form.css with you html document, you do that with this piece of code: 
          <style type="text/css" media="screen"> 
