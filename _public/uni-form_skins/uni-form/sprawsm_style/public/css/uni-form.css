@@ -112,6 +112,8 @@
 
 /*default color-sheme of uni-form*/
 .uniForm{ background:#2D1719; color:#feeff0;}
+label em,
+.label em{ color: #de56a1; }
 
 
 /*error message color scheme*/
@@ -144,5 +146,5 @@
 
 
 /*button holder color scheme*/
-.uniForm .buttonHolder{background:#2D1719; border-top:1px solid #2D1719; border-width:1px 0; border-bottom: 1px solid #2D1719;}
+.uniForm .buttonHolder{ }
 
