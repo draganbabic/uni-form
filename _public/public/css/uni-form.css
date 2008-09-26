@@ -99,7 +99,7 @@
 .uniForm #errorMsg{ background: #ffdfdf; border: 1px solid #df7d7d; border-width: 1px 0; margin: 0 0 1.5em 0; padding: 7px; }
 .uniForm .error{ background: #ffdfdf; border: 1px solid #df7d7d; border-width: 1px 0; }
 
-  .uniForm #errorMsg dt, .uniForm #errorMsg h3{ margin: 0 0 .5em 0; font-size: 100%; line-height: 100%; font-weight: bold; }
+  .uniForm #errorMsg dt, .uniForm #errorMsg h3{ margin: 0 0 .5em 0; font-size: 100%; line-height: 100%; font-weight: bold; color: #af4c4c; }
   .uniForm #errorMsg dd{ margin: 0; padding: 0; }
     .uniForm #errorMsg ol{ margin: 0; padding: 0; }
       .uniForm #errorMsg ol li{ margin: 0; padding: 2px; list-style-position: inside; border-bottom: 1px dotted #df7d7d; position: relative; }
