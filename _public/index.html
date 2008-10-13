@@ -16,34 +16,14 @@
 
     </style>
 
-    <!--[if lte ie 6]>
+    <!--[if lte ie 7]>
       <style type="text/css" media="screen">
-        .uniForm,
-        .uniForm fieldset,
-        .uniForm .ctrlHolder,
-        .uniForm .formHint,
-        .uniForm:after,
-        .uniForm .buttonHolder:after, 
-        .uniForm .ctrlHolder:after, 
-        .uniForm .ctrlHolder .multiField:after,
-        .uniForm .inlineLabel:after{ /* Trigger hasLayout, move to your IE specific stylesheet if possible */
-          zoom:1;
-        }
-      </style>
-    <![endif]-->
-    <!--[if gt ie 6]>
-      <style type="text/css" media="screen">
-        .uniForm,
-        .uniForm fieldset,
-        .uniForm .ctrlHolder,
-        .uniForm .formHint,
-        .uniForm:after,
-        .uniForm .buttonHolder:after, 
-        .uniForm .ctrlHolder:after, 
-        .uniForm .ctrlHolder .multiField:after,
-        .uniForm .inlineLabel:after{ /* Trigger hasLayout, move to your IE specific stylesheet if possible */
-          zoom:1;
-        }
+        /*
+        Move these to your IE6/7 specific stylesheet if possible
+        */
+        .uniForm, .uniForm fieldset, .uniForm .ctrlHolder, .uniForm .formHint, .uniForm .buttonHolder, .uniForm .ctrlHolder .multiField, .uniForm .inlineLabel{ zoom:1; }
+        .uniForm .inlineLabels label, .uniForm .inlineLabels .label, .uniForm .blockLabels label, .uniForm .blockLabels .label, .uniForm .inlineLabel span{ padding-bottom: .2em; }
+        .uniForm .inlineLabel input, .uniForm .inlineLabels .inlineLabel input, .uniForm .blockLabels .inlineLabel input{ margin-top: -.3em; }
       </style>
     <![endif]-->
 
