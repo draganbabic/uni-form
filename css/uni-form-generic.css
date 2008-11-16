@@ -99,12 +99,15 @@
     .uniForm label em,
     .uniForm .label em,
     .uniForm .blockLabels label em,
-    .uniForm .blockLabels .label em{ position: absolute; left: -7px; }
+    .uniForm .blockLabels .label em{ float: left; width: 10px; margin: 0 0 0 -10px; }
     
     /* Required fields asterisk styling for .inlineLabels */
     .uniForm .inlineLabels label em,
-    .uniForm .inlineLabels .label em{ display: block; position: absolute; left: auto; right: 0; font-style: normal; font-weight: bold; }
-    .uniForm .inlineLabel em{ position: absolute; left: 7px; }
+    .uniForm .inlineLabels .label em{ display: block; float: none; margin: 0; position: absolute; right: 0; font-style: normal; font-weight: bold; }
+    
+    .uniForm .inlineLabel em,
+    .uniForm .blockLabels .inlineLabel em,
+    .uniForm .inlineLabels .inlineLabel em{ float: left; width: 10px; margin: 0 0 0 -27px; }
 
 /* ------------------------------------------------------------------------------ */
 
