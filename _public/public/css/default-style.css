@@ -119,6 +119,8 @@ h1{
   position:absolute; top:97px; left:102%;
 }
 
+.twitter{ position: absolute; top: 40px; left: -190px; text-align: right; width: 170px; color: #8399b2; }
+
 .intro{
   position:absolute; top:97px; left:-204px;
   width:190px;
