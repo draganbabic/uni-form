@@ -56,7 +56,8 @@
       .uniForm .multiField,
       .uniForm .blockLabels .multiField{ width: 53%; }
         .uniForm .multiField .inlineLabel,
-        .uniForm .blockLabels .multiField .inlineLabel{ display: block; margin: 0 0 .5em 0; }
+        .uniForm .blockLabels .multiField .inlineLabel{ display: inline; margin: 0 12px 0 0; }
+          .uniForm .blockLabels .multiField .inlineLabel input{ display: inline; float: none; margin: 0; }
         .uniForm .multiField .blockLabel,
         .uniForm .blockLabels .multiField .blockLabel{ width: 30%; margin: 0 10px 0 0; }
         .uniForm .multiField .blockLabel .textInput,
