@@ -21,6 +21,8 @@
           .uniForm .inlineLabels .ctrlHolder .multiField.phoneNum .blockLabel{ width: auto; }
             .uniForm .inlineLabels .ctrlHolder .multiField .blockLabel #phone_ccode.textInput,
             .uniForm .inlineLabels .ctrlHolder .multiField .blockLabel #phone_area.textInput{ width: 4em; }
+        
+        #footer{ text-align: center; color: #777; }
 
     </style>
 
@@ -69,7 +71,7 @@
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrlHolder error" id="error1">
           <label for="bl_email_m"><em>*</em> One line input field (medium)</label>
           <input name="bl_email_m" id="bl_email_m" value="" size="35" maxlength="50" type="text" class="textInput medium"/>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
@@ -204,7 +206,7 @@
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
 
-        <div class="ctrlHolder">
+        <div class="ctrlHolder error" id="error2">
           <p class="label">
             <em>*</em> Multifield with select boxes
           </p>
@@ -260,7 +262,7 @@
     </form>
 
     <div id="footer">
-      <p>Uni-Form is created by <a href="http://sprawsm.com/" title="Superawesome Industries">Dragan Babić</a> 2006.-2008. Please share this technique with others including its source. Give respect and get it back.</p>
+      <p>Uni-Form is created by <a href="http://sprawsm.com/" title="Superawesome Industries">Dragan Babić</a>. Please share this technique with others including its source. Give respect and get it back.</p>
     </div>
 
   </body>
