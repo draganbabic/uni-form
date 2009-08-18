@@ -223,7 +223,7 @@
     .uniForm .inlineLabels textarea{ width: 64%; /* <- Required property */ }
     .uniForm .inlineLabels textarea{ height: 12em; }
 
-    .uniForm .inlineLabels .formHint{ margin-top: 0; margin-left: 34%; font-size: .9em; color: #777; position: static; }
+    .uniForm .inlineLabels .formHint{ width: auto; /* <- Required property */ margin-top: 0; margin-left: 34%; font-size: .9em; color: #777; position: static; }
     
     .uniForm .inlineLabels .multiField{ width: 66%; /* <- Required property */ margin: 0 0 .3em 0; }
       .uniForm .inlineLabels .multiField .inlineLabel{ display: block; margin: 0 0 .5em 0; }
