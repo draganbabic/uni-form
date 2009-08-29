@@ -39,7 +39,8 @@
       .uniForm label,
       .uniForm .label,
       .uniForm .blockLabels label,
-      .uniForm .blockLabels .label{ display: block; float: none; padding: 0; line-height: 100%; width: auto; }
+      .uniForm .blockLabels .label{ display: block; float: none; padding: 0; line-height: 100%; width: auto; cursor: pointer; }
+      .uniForm button{ cursor: pointer; }
 
       /* Float the input elements */
       .uniForm .textInput,
@@ -150,8 +151,9 @@
     .uniForm .ctrlHolder{ padding: 12px; border-bottom: 1px solid #c3d7e6; }
     
     .uniForm .buttonHolder{ text-align: right; margin: 1.5em 0 0 0; }
-      .uniForm .resetButton, .uniForm .secondaryAction{ float: left; }
       .uniForm .primaryAction{ font-weight: bold; }
+      .uniForm .resetButton, .uniForm .secondaryAction{ float: left; }
+      .uniForm button.secondaryAction{ background: transparent; border: none; color: #00F; /* Match the color of your links */ margin: 0; padding: 0; text-decoration: underline; }
       
     
     /* This class gets added to div.ctrlHolder to highlight the row */
