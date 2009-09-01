@@ -160,7 +160,7 @@
     
     .uniForm .buttonHolder{ text-align: right; margin: 1.5em 0 0 0; }
       .uniForm .primaryAction{ font-weight: bold; }
-      .uniForm .resetButton, .uniForm .secondaryAction{ float: left; }
+      .uniForm .resetButton, .uniForm .secondaryAction{ float: left; text-align: left; background-color: yellow; }
       .uniForm button.secondaryAction{ background: transparent; border: none; color: #006280; /* Match the color of your links */ margin: 0; padding: 0; text-decoration: underline; }
       
     
@@ -172,6 +172,9 @@
       .uniForm .inlineLabels .inlineLabel input,
       .uniForm .blockLabels .inlineLabel input{ float: left; margin: 0 .4em 0 0; }
         .uniForm .inlineLabel span{ float: left; width: 90%; }
+      
+      /* .inlineLabel within .buttonHolder (useful for TOS checkboxes) */
+      .uniForm .buttonHolder .inlineLabel{ float: left; text-align: left; }
       
       /* Classes to control the widths of the fields */
       .uniForm .small { width: 30% !important; }
