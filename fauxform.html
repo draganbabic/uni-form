@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
   <head>
 
-    <title>Uni-Form</title>
+    <title>Uni–Form</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Type" content="text/html" />
@@ -16,12 +16,16 @@
       body{ margin:30px auto; width:75%; font: normal normal 12px/1.8em "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", sans-serif; }
         a img{ border:none; }
       
+      a:link, a:visited{ color: #006280; }
+      a:hover{ text-decoration: none; }
+      
         .uniForm{ padding: 20px; background: #F2FAFF; -webkit-border-radius: 7px; }
             
           .uniForm .inlineLabels .ctrlHolder .multiField.phoneNum .blockLabel{ width: auto; }
             .uniForm .inlineLabels .ctrlHolder .multiField .blockLabel #phone_ccode.textInput,
             .uniForm .inlineLabels .ctrlHolder .multiField .blockLabel #phone_area.textInput{ width: 4em; }
         
+        .intro{ font-size: 1.25em; line-height: 1.25; margin: 3em 0; color: #555; letter-spacing: -1px; }
         #footer{ text-align: center; color: #777; }
 
     </style>
@@ -45,6 +49,10 @@
   <body>
 
     <h1><a href="http://dnevnikeklektika.com/uni-form/" title="Visit The Uni-Form demo page online"><img src="img/uni-form-logo.png" width="179" height="72" alt="" /></a></h1>
+    
+    <p class="intro">
+      This is an example form demonstrating all of the units currently available in two different formats — <code>.blockLabels</code> and <code>.inlineLabels</code> — along with suggested message handling and form actions — primary which is the button and secondary which is represented as a link. 
+    </p>
 
     <form action="/" class="uniForm">
 
