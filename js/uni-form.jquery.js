@@ -1,3 +1,5 @@
+// Author: Ilija Studen for the purposes of Uni–Form
+
 jQuery.fn.uniform = function(settings) {
   settings = jQuery.extend({
     valid_class    : 'valid',

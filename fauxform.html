@@ -13,14 +13,14 @@
       @import "css/uni-form.css";
       
       /* You don't need these, they are here to tune up the page */
-      body{ margin:30px auto; width:75%; font: normal normal 12px/1.8em "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", sans-serif; }
+      body{ margin:30px auto; width:55%; font: normal normal 12px/1.8em "Lucida Sans Unicode", "Lucida Grande", "Verdana", Arial, sans-serif; color: #343434; }
         a img{ border:none; }
       
       a:link, a:visited{ color: #006280; }
       a:hover{ text-decoration: none; }
       
         .uniForm{ padding: 20px; background: #F2FAFF; -webkit-border-radius: 7px; }
-            
+          
           .uniForm .inlineLabels .ctrlHolder .multiField.phoneNum .blockLabel{ width: auto; }
             .uniForm .inlineLabels .ctrlHolder .multiField .blockLabel #phone_ccode.textInput,
             .uniForm .inlineLabels .ctrlHolder .multiField .blockLabel #phone_area.textInput{ width: 4em; }
@@ -74,25 +74,25 @@
         <legend>Block Labels (no class applied to show defaulting to blockLabels layout)</legend>
         
         <div class="ctrlHolder">
-          <label for="bl_email_s"><em>*</em> One line input field (small)</label>
+          <label for="bl_email_s"><em>*</em> Small input field</label>
           <input name="bl_email_s" id="bl_email_s" value="" size="35" maxlength="50" type="text" class="textInput small"/>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
         
         <div class="ctrlHolder error" id="error1">
-          <label for="bl_email_m"><em>*</em> One line input field (medium)</label>
+          <label for="bl_email_m"><em>*</em> Medium input field</label>
           <input name="bl_email_m" id="bl_email_m" value="" size="35" maxlength="50" type="text" class="textInput medium"/>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
         
         <div class="ctrlHolder">
-          <label for="bl_email_l"><em>*</em> One line input field (large/default)</label>
+          <label for="bl_email_l"><em>*</em> Large input field</label>
           <input name="bl_email_l" id="bl_email_l" value="" size="35" maxlength="50" type="text" class="textInput large"/>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
         
         <div class="ctrlHolder">
-          <label for="bl_email_a"><em>*</em> One line input field (auto, set width through <code>size=""</code> attribute)</label>
+          <label for="bl_email_a"><em>*</em> Autosized input field</label>
           <input name="bl_email_a" id="bl_email_a" value="" size="15" maxlength="50" type="text" class="textInput auto"/>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
@@ -122,11 +122,11 @@
           <p class="label">
             <em>*</em> Multifield with select boxes
           </p>
-          <div class="multiField">
-            <label for="bl_dob_month" class="blockLabel"><span>Month</span> <select id="bl_dob_month" name="bl_dob_month"><option value="1">January</option></select></label>
-            <label for="bl_dob_day" class="blockLabel"><span>Day</span> <select id="bl_dob_day" name="bl_dob_day"><option value="1">1</option></select></label>
-            <label for="bl_dob_year" class="blockLabel"><span>Year</span> <select id="bl_dob_year" name="bl_dob_year"><option value="1">1908</option></select></label>
-          </div>
+          <ul>
+            <li><label for="bl_dob_month"><span>Month</span> <select id="bl_dob_month" name="bl_dob_month"><option value="1">January</option></select></label></li>
+            <li><label for="bl_dob_day"><span>Day</span> <select id="bl_dob_day" name="bl_dob_day"><option value="1">1</option></select></label></li>
+            <li><label for="bl_dob_year"><span>Year</span> <select id="bl_dob_year" name="bl_dob_year"><option value="1">1908</option></select></label></li>
+          </ul>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
         
@@ -134,11 +134,11 @@
           <p class="label">
             <em>*</em> Multifield with text inputs
           </p>
-          <div class="multiField">
-            <label for="bl_home_phone" class="blockLabel"><span>Home</span> <input type="text" name="bl_home_phone" id="bl_home_phone" class="textInput"/></label>
-            <label for="bl_work_phone" class="blockLabel"><span>Work</span> <input type="text" name="bl_work_phone" id="bl_work_phone" class="textInput"/></label>
-            <label for="bl_cell_phone" class="blockLabel"><span>Mobile</span> <input type="text" id="bl_cell_phone" class="textInput"/></label>
-          </div>
+          <ul>
+            <li><label for="bl_home_phone"><span>Home</span> <input type="text" name="bl_home_phone" id="bl_home_phone" class="textInput"/></label></li>
+            <li><label for="bl_work_phone"><span>Work</span> <input type="text" name="bl_work_phone" id="bl_work_phone" class="textInput"/></label></li>
+            <li><label for="bl_cell_phone"><span>Mobile</span> <input type="text" id="bl_cell_phone" class="textInput"/></label></li>
+          </ul>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
 
@@ -146,21 +146,18 @@
           <p class="label">
             <em>*</em> Multifield with radios
           </p>
-          <div class="multiField">
-            <label for="bl_gender_male" class="inlineLabel"><input name="bl_gender" id="bl_gender_male" value="1" type="radio" checked="checked"/> <span>Male</span></label>
-            <label for="bl_gender_female" class="inlineLabel"><input name="bl_gender" id="bl_gender_female" value="1" type="radio"/> <span>Female</span></label>
-          </div>
+          <ul>
+            <li><label for="bl_gender_male"><input name="bl_gender" id="bl_gender_male" value="1" type="radio" checked="checked"/> <span>Male</span></label></li>
+            <li><label for="bl_gender_female"><input name="bl_gender" id="bl_gender_female" value="1" type="radio"/> <span>Female</span></label></li>
+          </ul>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
         
-        <div class="ctrlHolder">
-          <p class="label">
-            <em>*</em> Multifield with checkboxes
-          </p>
-          <div class="multiField">
-            <label for="bl_tos_agree" class="inlineLabel"><input name="bl_tos" id="bl_tos_agree" value="1" type="checkbox" checked="checked"/> <span>I have read and agree with the <a href="#">terms and conditions</a></span></label>
-            <label for="bl_tos_gambling" class="inlineLabel"><input name="bl_tos" id="bl_tos_gambling" value="1" type="checkbox"/> <span>I will use the uploaded funds for non-gambling purposes</span></label>
-          </div>
+        <div class="ctrlHolder noLabel">
+          <ul class="blockLabels">
+            <li><label for="bl_tos_agree"><input name="bl_tos" id="bl_tos_agree" value="1" type="checkbox" checked="checked"/> <span>I have read and agree with the <a href="#">terms and conditions</a></span></label></li>
+            <li><label for="bl_tos_gambling"><input name="bl_tos" id="bl_tos_gambling" value="1" type="checkbox"/> <span>I will use the uploaded funds for non-gambling purposes</span></label></li>
+          </ul>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
 
@@ -170,26 +167,26 @@
         <legend>Inline Labels</legend>		
         
         <div class="ctrlHolder">
-          <label for="il_email_s"><em>*</em> One line input field (small)</label>
-          <input name="il_email_s" id="il_email_s" value="" size="35" maxlength="50" type="text" class="textInput small"/>
+          <label for="bl_email_s"><em>*</em> Small input field</label>
+          <input name="bl_email_s" id="bl_email_s" value="" size="35" maxlength="50" type="text" class="textInput small"/>
+          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+        </div>
+        
+        <div class="ctrlHolder error" id="error1">
+          <label for="bl_email_m"><em>*</em> Medium input field</label>
+          <input name="bl_email_m" id="bl_email_m" value="" size="35" maxlength="50" type="text" class="textInput medium"/>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
         
         <div class="ctrlHolder">
-          <label for="il_email_m"><em>*</em> One line input field (medium)</label>
-          <input name="il_email_m" id="il_email_m" value="" size="35" maxlength="50" type="text" class="textInput medium"/>
+          <label for="bl_email_l"><em>*</em> Large input field</label>
+          <input name="bl_email_l" id="bl_email_l" value="" size="35" maxlength="50" type="text" class="textInput large"/>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
         
         <div class="ctrlHolder">
-          <label for="il_email_l"><em>*</em> One line input field (large/default)</label>
-          <input name="il_email_l" id="il_email_l" value="" size="35" maxlength="50" type="text" class="textInput large"/>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
-        </div>
-        
-        <div class="ctrlHolder">
-          <label for="il_email_a"><em>*</em> One line input field (auto, set width through <code>size=""</code> attribute)</label>
-          <input name="il_email_a" id="il_email_a" value="" size="15" maxlength="50" type="text" class="textInput auto"/>
+          <label for="bl_email_a"><em>*</em> Autosized input field</label>
+          <input name="bl_email_a" id="bl_email_a" value="" size="15" maxlength="50" type="text" class="textInput auto"/>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
         
@@ -218,11 +215,11 @@
           <p class="label">
             <em>*</em> Multifield with select boxes
           </p>
-          <div class="multiField">
-            <label for="il_dob_month" class="blockLabel"><span>Month</span> <select id="il_dob_month" name="il_dob_month"><option value="1">January</option></select></label>
-            <label for="il_dob_day" class="blockLabel"><span>Day</span> <select id="il_dob_day" name="il_dob_day"><option value="1">1</option></select></label>
-            <label for="il_dob_year" class="blockLabel"><span>Year</span> <select id="il_dob_year" name="il_dob_year"><option value="1">1908</option></select></label>
-          </div>
+          <ul>
+            <li><label for="il_dob_month"><span>Month</span> <select id="il_dob_month" name="il_dob_month"><option value="1">January</option></select></label></li>
+            <li><label for="il_dob_day"><span>Day</span> <select id="il_dob_day" name="il_dob_day"><option value="1">1</option></select></label></li>
+            <li><label for="il_dob_year"><span>Year</span> <select id="il_dob_year" name="il_dob_year"><option value="1">1908</option></select></label></li>
+          </ul>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
         
@@ -230,11 +227,11 @@
           <p class="label">
             <em>*</em> Multifield with text inputs
           </p>
-          <div class="multiField">
-            <label for="il_home_phone" class="blockLabel"><span>Home</span> <input type="text" name="il_home_phone" id="il_home_phone" class="textInput"/></label>
-            <label for="il_work_phone" class="blockLabel"><span>Work</span> <input type="text" name="il_work_phone" id="il_work_phone" class="textInput"/></label>
-            <label for="il_cell_phone" class="blockLabel"><span>Mobile</span> <input type="text" id="il_cell_phone" class="textInput"/></label>
-          </div>
+          <ul>
+            <li><label for="il_home_phone"><span>Home</span> <input type="text" name="il_home_phone" id="il_home_phone" class="textInput"/></label></li>
+            <li><label for="il_work_phone"><span>Work</span> <input type="text" name="il_work_phone" id="il_work_phone" class="textInput"/></label></li>
+            <li><label for="il_cell_phone"><span>Mobile</span> <input type="text" id="il_cell_phone" class="textInput"/></label></li>
+          </ul>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
 
@@ -242,21 +239,18 @@
           <p class="label">
             <em>*</em> Multifield with radios
           </p>
-          <div class="multiField">
-            <label for="il_gender_male" class="inlineLabel"><input name="il_gender" id="il_gender_male" value="1" type="radio" checked="checked"/> <span>Male</span></label>
-            <label for="il_gender_female" class="inlineLabel"><input name="il_gender" id="il_gender_female" value="1" type="radio"/> <span>Female</span></label>
-          </div>
+          <ul>
+            <li><label for="il_gender_male"><input name="il_gender" id="il_gender_male" value="1" type="radio" checked="checked"/> <span>Male</span></label></li>
+            <li><label for="il_gender_female"><input name="il_gender" id="il_gender_female" value="1" type="radio"/> <span>Female</span></label></li>
+          </ul>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
         
-        <div class="ctrlHolder">
-          <p class="label">
-            <em>*</em> Multifield with checkboxes
-          </p>
-          <div class="multiField">
-            <label for="il_tos_agree" class="inlineLabel"><input name="il_tos" id="il_tos_agree" value="1" type="checkbox" checked="checked"/> <span>I have read and agree with the <a href="#">terms and conditions</a></span></label>
-            <label for="il_tos_gambling" class="inlineLabel"><input name="il_tos" id="il_tos_gambling" value="1" type="checkbox"/> <span>I will use the uploaded funds for non-gambling purposes</span></label>
-          </div>
+        <div class="ctrlHolder noLabel">
+          <ul class="blockLabels">
+            <li><label for="il_tos_agree" class="inlineLabel"><input name="il_tos" id="il_tos_agree" value="1" type="checkbox" checked="checked"/> <span>I have read and agree with the <a href="#">terms and conditions</a></span></label></li>
+            <li><label for="il_tos_gambling" class="inlineLabel"><input name="il_tos" id="il_tos_gambling" value="1" type="checkbox"/> <span>I will use the uploaded funds for non-gambling purposes</span></label></li>
+          </ul>
           <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
         </div>
 
