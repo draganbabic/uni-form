@@ -22,35 +22,30 @@
    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
    OTHER DEALINGS IN THE SOFTWARE.
-   
+
    ------------------------------------------------------------------------------ */
-
-
-
-/* ------------------------------------------------------------------------------ */
 /* #############################   GENERALS   ################################### */
 /* ------------------------------------------------------------------------------ */
 
 .uniForm{ margin: 0; padding: 0; position: relative; z-index: 1; } /* reset stuff */
-
+  
   /* Some generals and more resets */
   .uniForm fieldset{ border: none; margin: 0; padding: 0; }
     .uniForm fieldset legend{ margin: 0; padding: 0; }
-
+    
     /* This are the main units that contain form elements */
     .uniForm .ctrlHolder,
     .uniForm .buttonHolder{ margin: 0; padding: 0; clear: both; }
-
+    
     /* Clear all floats */ 
     .uniForm:after,
       .uniForm .buttonHolder:after, 
       .uniForm .ctrlHolder:after, 
         .uniForm .ctrlHolder .multiField:after,
           .uniForm .inlineLabel:after{ content: "."; display: block; height: 0; line-height: 0; font-size: 0; clear: both; min-height: 0; visibility: hidden; }
-    
-    /* Standardize the look of the input fields and textareas */
-    .uniForm .textInput,
-    .uniForm textarea{ padding: 3px; border: 1px solid #aaa; }
+      
+      .uniForm label,
+      .uniForm button{ cursor: pointer; }
 
 /* ------------------------------------------------------------------------------ */
 /* ##########################   DEFAULT LAYOUT   ################################ */
@@ -59,25 +54,23 @@
 /* ------------------------------------------------------------------------------ */
 
       .uniForm label,
-      .uniForm .label{ display: block; float: none; margin: 0 0 .5em 0; padding: 0; line-height: 100%; width: auto; cursor: pointer; }
-      .uniForm button{ cursor: pointer; }
-
+      .uniForm .label{ display: block; float: none; margin: 0 0 .5em 0; padding: 0; line-height: 100%; width: auto; }
+      
       /* Float the input elements */
       .uniForm .textInput,
       .uniForm .fileUpload,
       .uniForm .selectInput,
       .uniForm select,
       .uniForm textarea{ float: left; width: 53%; margin: 0; }
-      .uniForm textarea{ height: 12em; }
       
       /* Postition the hints */
-      .uniForm .formHint{ float: right; width: 43%; margin: .25em 0 0 0; clear: none; font-size: .85em; color: #777; }
+      .uniForm .formHint{ float: right; width: 43%; margin: .25em 0 0 0; clear: none; }
       
       /* Position the elements inside combo boxes (multiple selects/checkboxes/radio buttons per unit) */
       .uniForm ul{ float: left; width: 53%; margin: 0; padding: 0; }
-        .uniForm ul li{ float: left; width: 30%; margin: 0 3% 0 0; list-style: none; }
+        .uniForm ul li{ float: left; width: 30%; margin: 0 3% .5em 0; list-style: none; }
         /* An option to list each item in its own line */
-        .uniForm ul.blockLabels li{ float: none; width: 100%; margin: 0 0 .5em 0; }
+        .uniForm ul.blockLabels li{ float: none; width: 100%; }
           .uniForm ul li label{ margin: 0; float: none; display: block; overflow: visible; }
             .uniForm ul .textInput,
             .uniForm ul .selectInput,
@@ -106,13 +99,11 @@
       .uniForm .inlineLabels textarea{ float: left; width: 64%; }
 
     /* Postition the hints */
-    .uniForm .inlineLabels .formHint{ float: none; width: auto; margin-top: 0; margin-left: 34%; font-size: .9em; color: #777; position: static; }
+    .uniForm .inlineLabels .formHint{ clear: both; float: none; width: auto; margin-top: 0; margin-left: 34%; position: static; }
     
     /* Position the elements inside combo boxes (multiple selects/checkboxes/radio buttons per unit) */
     .uniForm .inlineLabels ul{ float: left; width: 66%; }
     .uniForm .inlineLabels ul li{}
-    /* An option to list each item in its own line */
-    .uniForm .inlineLabels ul.blockLabels li{ margin: .3em 0 .5em 0; }
       .uniForm .inlineLabels ul li label{ float: none; width: auto; display: block; }
         .uniForm .inlineLabels ul li label input{}
         .uniForm .inlineLabels ul li label .textInput,
@@ -121,43 +112,26 @@
     
     /* Required fields asterisk styling */
     .uniForm .inlineLabels label em,
-    .uniForm .inlineLabels .label em{ display: block; float: none; margin: 0; position: absolute; right: 0; font-style: normal; font-weight: bold; }
+    .uniForm .inlineLabels .label em{ display: block; float: none; margin: 0; position: absolute; right: 0; }
 
 /* ----------------------------------------------------------------------------- */
-/* ########################## Additional Stuff# ################################ */
+/* ########################### Additional Stuff ################################ */
 /* ----------------------------------------------------------------------------- */
 
   /* Generals */
-  .uniForm fieldset{}
-    .uniForm legend{ color: inherit; font-weight: bold; font-size: 100%; margin: 0; padding: 1.5em 0; }
+    .uniForm legend{ color: inherit; }
     
-    /* This is the main unit that contains our form elements */
-    .uniForm .ctrlHolder{ padding: 1em; }
-    
-    .uniForm .buttonHolder{ text-align: right; margin: 1.5em 0 0 0; }
-      .uniForm .primaryAction{ font-weight: bold; }
-      .uniForm .resetButton, .uniForm .secondaryAction{ float: left; text-align: left; }
-      .uniForm button.secondaryAction{ background: transparent; border: none; color: #006280; /* Match the color of your links */ margin: 0; padding: 0; text-decoration: underline; }      
-    
-    /* This class gets added to div.ctrlHolder to highlight the row */
-    .uniForm .focused{ background: #fffcdf; }
+      .uniForm .secondaryAction{ float: left; }
       
       /* .inlineLabel is used for inputs within labels - checkboxes and radio buttons */
       .uniForm .inlineLabel input,
       .uniForm .inlineLabels .inlineLabel input,
       .uniForm .blockLabels .inlineLabel input,
-      /* class .inlineLabel is no longer required */
-      .uniForm label input{ float: none; display: inline; margin: 0; }
-      /* IE shows borders & padding on checkboxes and radio buttons if they are declared on an input element, remove them */
-      /* Legacy/Inheritance fix */
-      .uniForm .inlineLabel input,
-      .uniForm .inlineLabels .inlineLabel input{ border: none; padding: 0; margin: 0; }
+      /* class .inlineLabel is depreciated */
+      .uniForm label input{ float: none; display: inline; margin: 0; padding: 0; border: none; }
             
       .uniForm .buttonHolder .inlineLabel,
       .uniForm .buttonHolder label{ float: left; margin: .5em 0 0 0; width: auto; max-width: 60%; text-align: left; }
-      
-      /* Alternative to .formHint */
-      .uniForm label small{ font-size: .75em; color: #777; }
       
       /* When you don't want to use a label */
       .uniForm .inlineLabels .noLabel ul{ margin-left: 34%; /* Match to width of label + gap to field */ }
@@ -171,55 +145,6 @@
       .uniForm .medium,
       .uniForm .auto{ margin-right: 4px; }
 
-/* Focus pseudoclasses */
-.uniForm .ctrlHolder .textInput:focus{ outline: none; /* Get rid of the 'glow' effect in WebKit, optional */ }
-.uniForm .ctrlHolder textarea:focus{ outline: none; /* Get rid of the 'glow' effect in WebKit, optional */ }
-.uniForm div.focused .formHint{ color: #333; }
-
 /* Columns */
 .uniForm .col{ float: left; }
-.uniForm .col.first{}
-.uniForm .col.last{}
-.uniForm .col{ width: 47.9%; margin: 0 2% 20px 0; }
-/* Use .first and .last classes to control the layout/spacing of your columns */
-.uniForm .col.first{ width: 49%; float: left; clear: none;                   }
-.uniForm .col.last { width: 49%; float: right; clear: none; margin-right: 0; }
-
-/* Messages */
-.uniForm #errorMsg,
-.uniForm .error{
-}
-  .uniForm #errorMsg dt,
-  .uniForm #errorMsg h3{
-  }
-  .uniForm #errorMsg dd{
-  }
-    .uniForm #errorMsg ol{
-    }
-      .uniForm #errorMsg ol li{
-      }
-  .uniForm .errorField{
-  }
-
-.uniForm #OKMsg{
-}
-.uniForm #errorMsg{ background: #ffdfdf; border: 1px solid #df7d7d; border-width: 1px 0; margin: 0 0 1.5em 0; padding: 7px; }
-.uniForm .error{ background: #ffdfdf; border: 1px solid #df7d7d; border-width: 1px 0; }
-
-  .uniForm #errorMsg dt, .uniForm #errorMsg h3{ margin: 0 0 .5em 0; font-size: 100%; line-height: 100%; font-weight: bold; }
-  .uniForm #errorMsg dd{ margin: 0; padding: 0; }
-    .uniForm #errorMsg ol{ margin: 0; padding: 0; }
-      .uniForm #errorMsg ol li{ margin: 0; padding: 2px; list-style-position: inside; border-bottom: 1px dotted #df7d7d; position: relative; }
-    .uniForm .errorField{ color: #af4c4c; margin: 0 0 6px 0; padding: 4px; background: #ffbfbf; }
-
-.uniForm #OKMsg{ background: #C8FFBF; border: 1px solid #A2EF95; border-width: 1px 0; margin: 0 0 1.5em 0; padding: 7px; }
-  .uniForm #OKMsg p{ margin: 0; }
-
-/*
-IT IS STRONGLY ADVISED TO MAKE YOUR CHANGES AFTER THIS COMMENT (OR EVEN BETTER WITHIN A SEPARATE STYLESHEET) 
-BY REPEATING (COPYING) THE SELECTOR FROM ABOVE, AND MODIFYING IT WITH YOUR OWN PROPERTIES/VALUES. THIS IS 
-RECOMMENDED BECAUSE IF YOU HAPPEN TO RUN INTO TROUBLE, YOU CAN VERY EASILY REVERT TO A GENERIC STYLE OF UNI-FORM. 
-BEST OF LUCK... 
-*/
-
-/* ------------------------------------------------------------------------------ */
+.uniForm .col{ width: 50%; }

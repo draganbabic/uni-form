@@ -13,31 +13,71 @@
       @import "css/uni-form.css";
       
       /* You don't need these, they are here to tune up the page */
-      body{ margin:30px auto; width:55%; font: normal normal 12px/1.8em "Lucida Sans Unicode", "Lucida Grande", "Verdana", Arial, sans-serif; color: #343434; }
-        a img{ border:none; }
-      
-      a:link, a:visited{ color: #006280; }
-      a:hover{ text-decoration: none; }
-      
-        .uniForm{ padding: 20px; background: #F2FAFF; -webkit-border-radius: 7px; }
+      html{ color: #343434; background: #bcc2c6 url(bg.png); font-size: 14px; line-height: 1.5; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Verdana, sans-serif; text-shadow: 1px 1px 0 rgba(255,255,255,.35); }
+        body{}
           
-          .uniForm .inlineLabels .ctrlHolder .multiField.phoneNum .blockLabel{ width: auto; }
-            .uniForm .inlineLabels .ctrlHolder .multiField .blockLabel #phone_ccode.textInput,
-            .uniForm .inlineLabels .ctrlHolder .multiField .blockLabel #phone_area.textInput{ width: 4em; }
-        
-        .intro{ font-size: 1.25em; line-height: 1.25; margin: 3em 0; color: #555; letter-spacing: -1px; }
-        #footer{ text-align: center; color: #777; }
+          a:link,
+          a:visited{ text-decoration: none; color: #254a86; }
+          a:hover,
+          a:focus  { text-decoration: underline; }
+          
+          h1,h2,h3,ul,ol,p{ margin: 1.5em 0; }
+          
+          h1{ margin: 42px auto 28px auto; width: 284px; }
+          h2{ font-size: 1.25em; }
+          .uniForm h2{ margin: 1em 0 1em 1.15em; }
+          fieldset h3{ margin: 1.5em -28px; padding: 14px 28px; line-height: 1; background: #efefef; }
+          
+          .uniForm{ width: 55%; background: #fff; margin: 28px auto; padding: 28px;
+                    /* CSS3 */
+                    border-radius:         12px;
+                    -webkit-border-radius: 12px;
+                    -moz-border-radius:    12px;
+                    -o-border-radius:      12px;
+                    -khtml-border-radius:  12px;
+                  }
+            
+            .header{ margin: -28px -28px 28px -28px; padding: 1px 28px; background: #efefef; border-bottom: 1px solid #dfdfdf; position: relative;
+                     /* CSS3 */
+                     border-top-left-radius:          10px;
+                     border-top-right-radius:         10px;
+                     -webkit-border-top-left-radius:  10px;
+                     -webkit-border-top-right-radius: 10px;
+                     -moz-border-radius-topleft:      10px;
+                     -moz-border-radius-topright:     10px;
+                   }
+              .header h2{ margin: 1.5em 0 0 0; }
+              .header p { margin-top: 0; font-size: 12px; color: #777; }
+                .header .cta{ position: absolute; bottom: 26px; right: 28px; text-align: right; font-weight: bold; background: #194789; padding: 7px 14px;
+                              /* CSS3 */
+                              border-radius:         4px;
+                              -webkit-border-radius: 4px;
+                              -moz-border-radius:    4px;
+                              -o-border-radius:      4px;
+                              -khtml-border-radius:  4px;
+                              text-shadow: -1px -1px 0 rgba(0,0,0,.25);
+                            }
+                .header .cta:link,
+                .header .cta:visited{ color: #fff; }
+                .header .cta:focus,
+                .header .cta:hover{ text-decoration: none;
+                                    /* CSS3 */
+                                    box-shadow:         0 0 9px rgba(0,163,255,1);
+                                    -webkit-box-shadow: 0 0 9px rgba(0,163,255,1);
+                                    -moz-box-shadow:    0 0 9px rgba(0,163,255,1);
+                                  }
+                .header .cta:active{ bottom: 25px; }
+          
+          .intro { width: 55%; margin: 28px auto; text-align: center; font-size: 1.15em; }
+          #footer{ width: 55%; margin: 28px auto; text-align: center; font-size: .75em; color: #777; }
 
     </style>
+    <link href="css/default.uni-form.css" media="screen" rel="stylesheet" />
 
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
-        /*
-        Move these to your IE6/7 specific stylesheet if possible
-        */
-        .uniForm, .uniForm fieldset, .uniForm .ctrlHolder, .uniForm .formHint, .uniForm .buttonHolder, .uniForm .ctrlHolder .multiField, .uniForm .inlineLabel{ zoom:1; }
-        .uniForm .inlineLabels label, .uniForm .inlineLabels .label, .uniForm .blockLabels label, .uniForm .blockLabels .label, .uniForm .inlineLabel span{ padding-bottom: .2em; }
-        .uniForm .inlineLabel input, .uniForm .inlineLabels .inlineLabel input, .uniForm .blockLabels .inlineLabel input{ margin-top: -.3em; }
+        /* Move these to your IE6/7 specific stylesheet if possible */
+        .uniForm, .uniForm fieldset, .uniForm .ctrlHolder, .uniForm .formHint, .uniForm .buttonHolder, .uniForm .ctrlHolder ul{ zoom:1; }
       </style>
     <![endif]-->
 
@@ -48,59 +88,64 @@
 
   <body>
 
-    <h1><a href="http://dnevnikeklektika.com/uni-form/" title="Visit The Uni-Form demo page online"><img src="img/uni-form-logo.png" width="179" height="72" alt="" /></a></h1>
+    <h1><a href="http://sprawsm.com/uni-form/" title="visit Uni–Form online"><img src="img/uni-form-logo.png" alt="" /></a></h1>
     
     <p class="intro">
-      This is an example form demonstrating all of the units currently available in two different formats — <code>.blockLabels</code> and <code>.inlineLabels</code> — along with suggested message handling and form actions — primary which is the button and secondary which is represented as a link. 
+      This is an example form demonstrating all of the units offered by Uni–Form, along with suggested message handling and form actions — <em>primary</em> which is the button and <em>secondary</em> which is represented as a standard link. 
     </p>
 
     <form action="/" class="uniForm">
-
+      
+      <div class="header">
+        <h2>Default Style</h2>
+        <p>Author: <a href="http://sprawsm.com/">Dragan Babić</a> <a href="http://sprawsm.com/uni-form/" class="cta">see more styles →</a></p>
+      </div>
+      
       <div id="errorMsg">
         <h3>Ooops! Your error message title</h3>
           <ol>
             <li><a href="#error1" title="Jump to error">Error number one</a></li>
-            <li><a href="#error2" title="Jump to error">Error number two</a></li>
+            <li>Error number two</li>
           </ol>
       </div>
       
-      <div id="OKMsg">
+      <div id="okMsg">
         <p>
           Looks like everything went OK! Yay!
         </p>
       </div>
             
       <fieldset>
-        <legend>Block Labels (no class applied to show defaulting to blockLabels layout)</legend>
+        <h3>Default Form Field Layout</h3>
         
         <div class="ctrlHolder">
           <label for="bl_email_s"><em>*</em> Small input field</label>
           <input name="bl_email_s" id="bl_email_s" value="" size="35" maxlength="50" type="text" class="textInput small"/>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder error" id="error1">
           <label for="bl_email_m"><em>*</em> Medium input field</label>
           <input name="bl_email_m" id="bl_email_m" value="" size="35" maxlength="50" type="text" class="textInput medium"/>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder">
           <label for="bl_email_l"><em>*</em> Large input field</label>
           <input name="bl_email_l" id="bl_email_l" value="" size="35" maxlength="50" type="text" class="textInput large"/>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder">
           <label for="bl_email_a"><em>*</em> Autosized input field</label>
           <input name="bl_email_a" id="bl_email_a" value="" size="15" maxlength="50" type="text" class="textInput auto"/>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder">
           <label for="bl_skills_interests"><em>*</em> Textarea</label>
           <textarea name="bl_skills_interests" id="bl_skills_interests" rows="25" cols="25"></textarea>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder">
@@ -109,13 +154,13 @@
             <option value="">Choose your country</option>
             <option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AI">Anguilla</option><option value="AG">Antigua &amp; Barbuda</option><option value="AR">Argentina</option><option value="AW">Aruba</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AP">Azores</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BO">Bolivia</option><option value="BL">Bonaire</option><option value="BA">Bosnia and Herzegovina</option><option value="BW">Botswana</option><option value="BR">Brazil</option><option value="VG">British Virgin Is.</option><option value="BN">Brunei</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="IC">Canary Islands</option><option value="CV">Cape Verde Islands</option><option value="KY">Cayman Islands</option><option value="CF">Central African Rep.</option><option value="TD">Chad</option><option value="CD">Channel Islands</option><option value="CL">Chile</option><option value="CN">China</option><option value="CO">Colombia</option><option value="CG">Congo</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="HR">Croatia</option><option value="CB">Curacao</option><option value="CY">Cyprus</option><option value="CZ">Czech Republic</option><option value="DK">Denmark</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="EN">England</option><option value="GQ">Equitorial Guinea</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="ET">Ethiopia</option><option value="FO">Faeroe Islands</option><option value="FM">Fed.States of Micronesia</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland</option><option value="GD">Grenada</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GN">Guinea</option><option value="GW">Guinea-Bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HO">Holland</option><option value="HN">Honduras</option><option value="HK">Hong Kong</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IR">Ireland</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="CI">Ivory Coast</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="KO">Kosrae</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Laos</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macau</option><option value="MK">Macedonia</option><option value="MG">Madagascar</option><option value="ME">Madeira</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MH">Marshall Islands</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="MX">Mexico</option><option value="MD">Moldova</option><option value="MC">Monaco</option><option value="MN">Montenegro</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="MM">Myanmar</option><option value="NA">Namibia</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="AN">Netherlands Antilles</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NF">Norfolk Island</option><option value="NB">N. Ireland</option><option value="MP">N. Mariana Islands</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PL">Poland</option><option value="PO">Ponape</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="IE">Republic of Ireland</option><option value="YE">Republic of Yemen</option><option value="RE">Reunion</option><option value="RO">Romania</option><option value="RT">Rota</option><option value="RU">Russia</option><option value="RW">Rwanda</option><option value="SS">Saba</option><option value="SP">Saipan</option><option value="SA">Saudi Arabia</option><option value="SF">Scotland</option><option value="SN">Senegal</option><option value="RS">Serbia</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="ZA">South Africa</option><option value="KR">South Korea</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="NT">St.Barthelemy</option><option value="SW">St.Christopher</option><option value="SX">St.Croix</option><option value="EU">St.Eustatius</option><option value="UV">St.John</option><option value="KN">St.Kitts &amp; Nevis</option><option value="LC">St.Lucia</option><option value="MB">St.Maarten</option><option value="TB">St.Martin</option><option value="VL">St.Thomas</option><option value="VC">St.Vincent &amp; Grenadines</option><option value="SD">Sudan</option><option value="SR">Suriname</option><option value="SZ">Swaziland</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="SY">Syria</option><option value="TA">Tahiti</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TI">Tinian</option><option value="TG">Togo</option><option value="TO">Tonga</option><option value="TL">Tortola</option><option value="TT">Trinidad &amp; Tobago</option><option value="TU">Truk</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TC">Turks &amp; Caicos Is.</option><option value="TV">Tuvalu</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="UI">Union Island</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US" selected="selected">United States</option><option value="UY">Uruguay</option><option value="VI">US Virgin Islands</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VE">Venezuela</option><option value="VN">Vietnam</option><option value="VR">Virgin Gorda</option><option value="WK">Wake Island</option><option value="WL">Wales</option><option value="WF">Wallis &amp; Futuna Is.</option><option value="WS">Western Samoa</option><option value="YA">Yap</option><option value="ZR">Zaire</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option>
           </select>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder">
           <label for="bl_avatar">File upload</label>
           <input type="file" id="bl_avatar" name="bl_avatar" size="35" class="fileUpload" />
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
 
         <div class="ctrlHolder">
@@ -127,7 +172,7 @@
             <li><label for="bl_dob_day"><span>Day</span> <select id="bl_dob_day" name="bl_dob_day"><option value="1">1</option></select></label></li>
             <li><label for="bl_dob_year"><span>Year</span> <select id="bl_dob_year" name="bl_dob_year"><option value="1">1908</option></select></label></li>
           </ul>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder">
@@ -139,7 +184,7 @@
             <li><label for="bl_work_phone"><span>Work</span> <input type="text" name="bl_work_phone" id="bl_work_phone" class="textInput"/></label></li>
             <li><label for="bl_cell_phone"><span>Mobile</span> <input type="text" id="bl_cell_phone" class="textInput"/></label></li>
           </ul>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
 
         <div class="ctrlHolder">
@@ -150,7 +195,7 @@
             <li><label for="bl_gender_male"><input name="bl_gender" id="bl_gender_male" value="1" type="radio" checked="checked"/> <span>Male</span></label></li>
             <li><label for="bl_gender_female"><input name="bl_gender" id="bl_gender_female" value="1" type="radio"/> <span>Female</span></label></li>
           </ul>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder noLabel">
@@ -158,42 +203,42 @@
             <li><label for="bl_tos_agree"><input name="bl_tos" id="bl_tos_agree" value="1" type="checkbox" checked="checked"/> <span>I have read and agree with the <a href="#">terms and conditions</a></span></label></li>
             <li><label for="bl_tos_gambling"><input name="bl_tos" id="bl_tos_gambling" value="1" type="checkbox"/> <span>I will use the uploaded funds for non-gambling purposes</span></label></li>
           </ul>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
 
       </fieldset>
       
       <fieldset class="inlineLabels">
-        <legend>Inline Labels</legend>		
+        <h3>Alternate Form Fields Layout</h3>
         
         <div class="ctrlHolder">
           <label for="bl_email_s"><em>*</em> Small input field</label>
           <input name="bl_email_s" id="bl_email_s" value="" size="35" maxlength="50" type="text" class="textInput small"/>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder error" id="error1">
           <label for="bl_email_m"><em>*</em> Medium input field</label>
           <input name="bl_email_m" id="bl_email_m" value="" size="35" maxlength="50" type="text" class="textInput medium"/>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder">
           <label for="bl_email_l"><em>*</em> Large input field</label>
           <input name="bl_email_l" id="bl_email_l" value="" size="35" maxlength="50" type="text" class="textInput large"/>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder">
           <label for="bl_email_a"><em>*</em> Autosized input field</label>
           <input name="bl_email_a" id="bl_email_a" value="" size="15" maxlength="50" type="text" class="textInput auto"/>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder">
           <label for="il_skills_interests"><em>*</em> Textarea</label>
           <textarea name="il_skills_interests" id="il_skills_interests" rows="25" cols="25"></textarea>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder">
@@ -202,13 +247,13 @@
             <option value="">Please select</option>
             <option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AI">Anguilla</option><option value="AG">Antigua &amp; Barbuda</option><option value="AR">Argentina</option><option value="AW">Aruba</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AP">Azores</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BO">Bolivia</option><option value="BL">Bonaire</option><option value="BA">Bosnia and Herzegovina</option><option value="BW">Botswana</option><option value="BR">Brazil</option><option value="VG">British Virgin Is.</option><option value="BN">Brunei</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="IC">Canary Islands</option><option value="CV">Cape Verde Islands</option><option value="KY">Cayman Islands</option><option value="CF">Central African Rep.</option><option value="TD">Chad</option><option value="CD">Channel Islands</option><option value="CL">Chile</option><option value="CN">China</option><option value="CO">Colombia</option><option value="CG">Congo</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="HR">Croatia</option><option value="CB">Curacao</option><option value="CY">Cyprus</option><option value="CZ">Czech Republic</option><option value="DK">Denmark</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="EN">England</option><option value="GQ">Equitorial Guinea</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="ET">Ethiopia</option><option value="FO">Faeroe Islands</option><option value="FM">Fed.States of Micronesia</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland</option><option value="GD">Grenada</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GN">Guinea</option><option value="GW">Guinea-Bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HO">Holland</option><option value="HN">Honduras</option><option value="HK">Hong Kong</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IR">Ireland</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="CI">Ivory Coast</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="KO">Kosrae</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Laos</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macau</option><option value="MK">Macedonia</option><option value="MG">Madagascar</option><option value="ME">Madeira</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MH">Marshall Islands</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="MX">Mexico</option><option value="MD">Moldova</option><option value="MC">Monaco</option><option value="MN">Montenegro</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="MM">Myanmar</option><option value="NA">Namibia</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="AN">Netherlands Antilles</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NF">Norfolk Island</option><option value="NB">N. Ireland</option><option value="MP">N. Mariana Islands</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PL">Poland</option><option value="PO">Ponape</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="IE">Republic of Ireland</option><option value="YE">Republic of Yemen</option><option value="RE">Reunion</option><option value="RO">Romania</option><option value="RT">Rota</option><option value="RU">Russia</option><option value="RW">Rwanda</option><option value="SS">Saba</option><option value="SP">Saipan</option><option value="SA">Saudi Arabia</option><option value="SF">Scotland</option><option value="SN">Senegal</option><option value="RS">Serbia</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="ZA">South Africa</option><option value="KR">South Korea</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="NT">St.Barthelemy</option><option value="SW">St.Christopher</option><option value="SX">St.Croix</option><option value="EU">St.Eustatius</option><option value="UV">St.John</option><option value="KN">St.Kitts &amp; Nevis</option><option value="LC">St.Lucia</option><option value="MB">St.Maarten</option><option value="TB">St.Martin</option><option value="VL">St.Thomas</option><option value="VC">St.Vincent &amp; Grenadines</option><option value="SD">Sudan</option><option value="SR">Suriname</option><option value="SZ">Swaziland</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="SY">Syria</option><option value="TA">Tahiti</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TI">Tinian</option><option value="TG">Togo</option><option value="TO">Tonga</option><option value="TL">Tortola</option><option value="TT">Trinidad &amp; Tobago</option><option value="TU">Truk</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TC">Turks &amp; Caicos Is.</option><option value="TV">Tuvalu</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="UI">Union Island</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US" selected="selected">United States</option><option value="UY">Uruguay</option><option value="VI">US Virgin Islands</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VE">Venezuela</option><option value="VN">Vietnam</option><option value="VR">Virgin Gorda</option><option value="WK">Wake Island</option><option value="WL">Wales</option><option value="WF">Wallis &amp; Futuna Is.</option><option value="WS">Western Samoa</option><option value="YA">Yap</option><option value="ZR">Zaire</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option>
           </select>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder">
           <label for="il_avatar">File upload</label>
           <input type="file" id="il_avatar" name="il_avatar" size="35" class="fileUpload" />
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
 
         <div class="ctrlHolder error" id="error2">
@@ -220,7 +265,7 @@
             <li><label for="il_dob_day"><span>Day</span> <select id="il_dob_day" name="il_dob_day"><option value="1">1</option></select></label></li>
             <li><label for="il_dob_year"><span>Year</span> <select id="il_dob_year" name="il_dob_year"><option value="1">1908</option></select></label></li>
           </ul>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder">
@@ -232,7 +277,7 @@
             <li><label for="il_work_phone"><span>Work</span> <input type="text" name="il_work_phone" id="il_work_phone" class="textInput"/></label></li>
             <li><label for="il_cell_phone"><span>Mobile</span> <input type="text" id="il_cell_phone" class="textInput"/></label></li>
           </ul>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
 
         <div class="ctrlHolder">
@@ -243,7 +288,7 @@
             <li><label for="il_gender_male"><input name="il_gender" id="il_gender_male" value="1" type="radio" checked="checked"/> <span>Male</span></label></li>
             <li><label for="il_gender_female"><input name="il_gender" id="il_gender_female" value="1" type="radio"/> <span>Female</span></label></li>
           </ul>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
         
         <div class="ctrlHolder noLabel">
@@ -251,7 +296,7 @@
             <li><label for="il_tos_agree" class="inlineLabel"><input name="il_tos" id="il_tos_agree" value="1" type="checkbox" checked="checked"/> <span>I have read and agree with the <a href="#">terms and conditions</a></span></label></li>
             <li><label for="il_tos_gambling" class="inlineLabel"><input name="il_tos" id="il_tos_gambling" value="1" type="checkbox"/> <span>I will use the uploaded funds for non-gambling purposes</span></label></li>
           </ul>
-          <p class="formHint"><span><em>*</em> This is a .formHint</span></p>
+          <p class="formHint">This is a form hint</p>
         </div>
 
       </fieldset>
@@ -264,7 +309,7 @@
     </form>
 
     <div id="footer">
-      <p>Uni-Form is created by <a href="http://sprawsm.com/" title="Superawesome Industries">Dragan Babić</a>. Please share this technique with others including its source. Give respect and get it back.</p>
+      <p>Uni-Form is created by <a href="http://sprawsm.com/" title="Dragan is the founder of Superawesome">Dragan Babić</a> and is licensed under the MIT license.</p>
     </div>
 
   </body>
