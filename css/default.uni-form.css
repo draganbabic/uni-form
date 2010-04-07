@@ -5,8 +5,6 @@
    ------------------------------------------------------------------------------ */
 
 .uniForm{}
-
-  .uniForm fieldset{}
     
     .uniForm legend{ font-weight: bold; font-size: 100%; margin: 0; padding: 1.5em 0; }
   
@@ -39,8 +37,6 @@
       .uniForm .secondaryAction            { text-align: left; }
       .uniForm button.secondaryAction      { background: transparent; border: none; color: #777; margin: 1.25em 0 0 0; padding: 0; }
       
-      .uniForm label,
-      .uniForm .label{}
         .uniForm .inlineLabels label em,
         .uniForm .inlineLabels .label em{ font-style: normal; font-weight: bold; }
         .uniForm label small{ font-size: .75em; color: #777; }
@@ -51,11 +47,9 @@
       .uniForm select      {}
       .uniForm .fileUpload {}
       
-      .uniForm .ctrlHolder ul{}
-        .uniForm .ctrlHolder li{}
-        .uniForm .inlineLabels .ctrlHolder ul li,
-        .uniForm .ctrlHolder ul.blockLabels li{ margin-top: .3em; margin-bottom: .3em; }
-          .uniForm .ctrlHolder ul li label{ font-size: .85em; }
+      .uniForm ul{}
+        .uniForm li{}
+          .uniForm ul li label{ font-size: .85em; }
             
             .uniForm .small {}
             .uniForm .medium{}
@@ -108,7 +102,7 @@
                                     }
     .uniForm .ctrlHolder.error input.error,
     .uniForm .ctrlHolder.error select.error,
-    .uniForm .ctrlHolder.error textarea.error{ color: #af4c4c; margin: 0 0 6px 0; padding: 4px; background: #ffbfbf; }
+    .uniForm .ctrlHolder.error textarea.error{ color: #af4c4c; margin: 0 0 6px 0; padding: 4px; }
   
   /* Success messages at the top of the form */
   .uniForm #okMsg{ background: #c8ffbf; border: 1px solid #a2ef95; margin: 0 0 1.5em 0; padding: 0 1.5em; text-align: center;

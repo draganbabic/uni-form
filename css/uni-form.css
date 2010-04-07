@@ -64,22 +64,19 @@
       .uniForm textarea{ float: left; width: 53%; margin: 0; }
       
       /* Postition the hints */
-      .uniForm .formHint{ float: right; width: 43%; margin: .25em 0 0 0; clear: none; }
+      .uniForm .formHint{ float: right; width: 43%; margin: 0; clear: none; }
       
       /* Position the elements inside combo boxes (multiple selects/checkboxes/radio buttons per unit) */
       .uniForm ul{ float: left; width: 53%; margin: 0; padding: 0; }
-        .uniForm ul li{ float: left; width: 30%; margin: 0 3% .5em 0; list-style: none; }
-        /* An option to list each item in its own line */
-        .uniForm ul.blockLabels li{ float: none; width: 100%; }
+        .uniForm ul li{ margin: 0 0 .5em 0; list-style: none; }
           .uniForm ul li label{ margin: 0; float: none; display: block; overflow: visible; }
             .uniForm ul .textInput,
             .uniForm ul .selectInput,
-            .uniForm ul select{ width: 100%; margin: .5em 0 0 0; display: block; float: none; }
-            .uniForm ul .textInput{ width: 94%; }
+            .uniForm ul select{ width: 98%; margin-top: .5em; display: block; float: none; }
             
         /* Required fields asterisk styling */
         .uniForm label em,
-        .uniForm .label em{ float: left; width: 10px; margin: 0 0 0 -10px; }
+        .uniForm .label em{ float: left; width: 1em; margin: 0 0 0 -1em; }
 
 /* ------------------------------------------------------------------------------ */
 /* #########################   ALTERNATE LAYOUT   ############################### */
@@ -89,7 +86,7 @@
 /* ------------------------------------------------------------------------------ */
 
       .uniForm .inlineLabels label,
-      .uniForm .inlineLabels .label{ float: left; margin: 0; padding: 0; line-height: 100%; position: relative; width: 32%; margin: .3em 2% 0 0; }
+      .uniForm .inlineLabels .label{ float: left; margin: .3em 2% 0 0; padding: 0; line-height: 1; position: relative; width: 32%; }
       
       /* Float the input elements */
       .uniForm .inlineLabels .textInput,
@@ -99,16 +96,15 @@
       .uniForm .inlineLabels textarea{ float: left; width: 64%; }
 
     /* Postition the hints */
-    .uniForm .inlineLabels .formHint{ clear: both; float: none; width: auto; margin-top: 0; margin-left: 34%; position: static; }
+    .uniForm .inlineLabels .formHint{ clear: both; float: none; width: auto; margin-left: 34%; position: static; }
     
     /* Position the elements inside combo boxes (multiple selects/checkboxes/radio buttons per unit) */
     .uniForm .inlineLabels ul{ float: left; width: 66%; }
-    .uniForm .inlineLabels ul li{}
-      .uniForm .inlineLabels ul li label{ float: none; width: auto; display: block; }
-        .uniForm .inlineLabels ul li label input{}
+    .uniForm .inlineLabels ul li{ margin: .5em 0; }
+      .uniForm .inlineLabels ul li label{ float: none; display: block; width: 100%; }
         .uniForm .inlineLabels ul li label .textInput,
-        .uniForm .inlineLabels ul li label .selectInput,
-        .uniForm .inlineLabels ul li label select{ width: 94%; float: none; display: block; }
+        .uniForm .inlineLabels ul li label textarea,
+        .uniForm .inlineLabels ul li label select{ float: none; display: block; width: 98%;  }
     
     /* Required fields asterisk styling */
     .uniForm .inlineLabels label em,
