@@ -50,8 +50,6 @@
                            }
       .uniForm textarea    { height: 12em; }
       
-        .uniForm .inlineLabels .ctrlHolder ul li,
-        .uniForm .ctrlHolder ul.blockLabels li{ margin-top: .3em; margin-bottom: .3em; }
           .uniForm .ctrlHolder ul li label{ font-size: .85em; }
       
       /* Get rid of the 'glow' effect in WebKit, optional */

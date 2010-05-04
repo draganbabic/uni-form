@@ -82,6 +82,11 @@
               .download{ float: right; position: relative; top: 2px; }
           .intro { width: 55%; margin: 28px auto; text-align: center; font-size: 1.15em; }
           #footer{ width: 55%; margin: 28px auto; text-align: center; font-size: .75em; color: #777; }
+          
+          /* IE6 fixes for the page */
+          * html form.uniForm{ overflow: hidden; }
+          	* html .header{ zoom: 1; overflow: hidden;}
+					* html .browse{ position: absolute; }
 
     </style>
     <link href="css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
@@ -109,7 +114,7 @@
 
   <body>
 
-    <h1><a href="http://sprawsm.com/uni-form/" title="visit Uni–Form online"><img src="img/uni-form-logo.png" alt="" /></a></h1>
+    <h1><a href="http://sprawsm.com/uni-form/" title="visit Uni–Form online" style="border: none;"><img src="img/uni-form-logo.png" alt=""/></a></h1>
     
     <p class="intro">
       This is an example form demonstrating all of the units offered by Uni–Form, along with suggested message handling, form actions and style.
