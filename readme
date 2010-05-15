@@ -1,4 +1,4 @@
-/* ------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
 
    Copyright (c) 2010, Dragan Babic
    
@@ -23,4 +23,73 @@
    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
    OTHER DEALINGS IN THE SOFTWARE.
 
-------------------------------------------------------------------------------  */
+----------------------------------------------------------------------------------
+
+### What is Uni–Form 
+
+Uni-Form is a framework that standardizes form markup and styles it with CSS 
+giving you two most widely used layout options to choose from. Anyone can get nice 
+looking, well structured, highly customizable, accessible and usable forms. To put 
+it simply: it makes a developer's life a lot easier. 
+
+----------------------------------------------------------------------------------
+
+### How to Use? 
+
+First thing you need to do is to link up the necessary files: 
+
+    * Link up the main CSS file
+    
+      <link href="path/to/file/uni-form.css" media="all" rel="stylesheet"/>
+    
+    * Link up the Uni–Form style CSS file
+      
+      <link href="path/to/file/default.uni-form.css" media="all" rel="stylesheet"/>
+    
+    * Optionally you'll want to link up jQuery and Uni–Form jQuery files if you'd 
+      like Uni–Form to highlight the form rows on focus (it's a usability aid): 
+      
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+      <script src="path/to/file/uni-form.jquery.js" type="text/javascript"></script> 
+
+Now that you're all set up, all you need to do is add form fields that are formatted
+with Uni–Form markup so the CSS and JavaScript will get the “hooks” they need. These
+chunks of code are called “units” and all available units can be found within the 
+file called fauxform.html that is included in this package. 
+
+Feel free to extend Uni–Form with units of your own and share. 
+
+----------------------------------------------------------------------------------
+
+### Styles 
+
+As of v1.4 Uni–Form supports styles. These are separate CSS files that contain the
+presentation aspect of your form (considering that uni-form.css) contains the 
+layout. Style CSS files should be used to control how your form looks, spacing… 
+
+Sharing styles is encouraged, and by default Uni–Form is shipped with three: 
+
+    * Default
+    * Blue 
+    * Dark 
+    
+Consider these a starting point for making your own. 
+
+----------------------------------------------------------------------------------
+
+### Options and Layout Control 
+
+Uni–Form by default has two form layouts: default and inline. This is controlled 
+by adding (or removing) a CSS class .inlineLabels to the fieldset element. 
+
+There is another option in regards to the layout and it concerns what is referred 
+to as “multifields”. These are fields that contain multiple inputs per unit and 
+are usually used for checkboxes and radio buttons. Each layout supports an 
+alternate multifield layout. This is achieved by adding (or removing) a CSS class
+.alternate to the ul element. 
+
+----------------------------------------------------------------------------------
+
+                          Give respect and get it back.
+
+----------------------------------------------------------------------------------
