@@ -71,7 +71,11 @@
         .uniForm ul li{ margin: 0 0 .5em 0; list-style: none; }
           .uniForm ul li label{ margin: 0; float: none; display: block; overflow: visible; }
         /* Alternate layout */
-        .uniForm ul.alternate li{ float: left; width: 30%; margin-right: 3%; }
+        .uniForm ul.alternate li{ float: left; width: 97%; margin-right: 3%; }
+        .uniForm ul.alternate.on-2 li { width: 47%; }
+        .uniForm ul.alternate.on-3 li { width: 30%; }
+        .uniForm ul.alternate.on-4 li { width: 22%; }
+
           .uniForm ul.alternate li label{ float: none; display: block; width: 98%; }
             .uniForm ul .textInput,
             .uniForm ul .selectInput,
@@ -79,7 +83,8 @@
             .uniForm ul.alternate .textInput,
             .uniForm ul.alternate .selectInput,
             .uniForm ul.alternate select{ width: 98%; margin-top: .5em; display: block; float: none; }
-            
+ .           
+
         /* Required fields asterisk styling */
         .uniForm label em,
         .uniForm .label em{ float: left; width: 1em; margin: 0 0 0 -1em; }
