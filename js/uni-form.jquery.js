@@ -10,7 +10,7 @@ jQuery.fn.uniform = function(settings) {
     valid_class    : 'valid',
     invalid_class  : 'invalid',
     focused_class  : 'focused',
-    holder_class   : 'element',
+    holder_class   : 'ctrlHolder',
     field_selector : ':text, textarea',
     default_value_color: "#AFAFAF"
   }, settings);
