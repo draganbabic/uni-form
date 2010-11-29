@@ -21,7 +21,7 @@ jQuery.fn.uniform = function(settings) {
       form.find(settings.field_selector).each(function(){
         if($(this).val() == $(this).attr("default_value")) $(this).val("");
       });
-    });
+    })
     // Select form fields and attach them higlighter functionality
     form.find(settings.field_selector).each(function(){
       var default_value = $(this).val();

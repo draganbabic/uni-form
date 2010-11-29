@@ -144,7 +144,7 @@
       .uniForm .small { width: 30% !important; }
       .uniForm .medium{ width: 45% !important; }
       .uniForm .large {  } /* Large is default and should match the value you set for .textInput, textarea or select */
-      .uniForm .auto  { width: auto !important; }
+      .uniForm .auto  { width: auto !important; height: auto !important; }
       .uniForm .small,
       .uniForm .medium,
       .uniForm .auto{ margin-right: 4px; }
