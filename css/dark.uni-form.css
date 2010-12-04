@@ -117,7 +117,7 @@
     .uniForm .ctrlHolder.error .formHint{ color: #fff; }
     
   /* Success messages at the top of the form */
-  .uniForm #okMsg{ background: #59a20e; border: 1px solid #232323; color: #fff; margin: 0 0 1.5em 0; padding: 0 1.5em; text-align: center;
+  .uniForm #okMsg{ background: #59a20e; border: 1px solid #232323; color: #fff; margin: 0 0 1.5em 0; padding: 1.5em; text-align: center;
                    /* CSS3 */
                    border-radius:         4px;
                    -webkit-border-radius: 4px;

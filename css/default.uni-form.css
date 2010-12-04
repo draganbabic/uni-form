@@ -130,7 +130,7 @@
     .uniForm .ctrlHolder.error textarea.error{ color: #af4c4c; margin: 0 0 6px 0; padding: 4px; }
   
   /* Success messages at the top of the form */
-  .uniForm #okMsg{ background: #c8ffbf; border: 1px solid #a2ef95; margin: 0 0 1.5em 0; padding: 0 1.5em; text-align: center;
+  .uniForm #okMsg{ background: #c8ffbf; border: 1px solid #a2ef95; margin: 0 0 1.5em 0; padding: 1.5em; text-align: center;
                    /* CSS3 */
                    border-radius:         4px;
                    -webkit-border-radius: 4px;

@@ -125,7 +125,7 @@
     .uniForm .ctrlHolder.error textarea.error{ border-color: #c20f2e; }
     
   /* Success messages at the top of the form */
-  .uniForm #okMsg{ background: #59a20e; color: #343434; margin: 0 0 1.5em 0; padding: 1px 1.5em; text-align: center;
+  .uniForm #okMsg{ background: #59a20e; color: #343434; margin: 0 0 1.5em 0; padding: 1.5em; text-align: center;
                    /* CSS3 */
                    border-radius:         4px;
                    -webkit-border-radius: 4px;
