@@ -90,6 +90,22 @@ alternate multifield layout. This is achieved by adding (or removing) a CSS clas
 
 ----------------------------------------------------------------------------------
 
+### Events
+
+Triggering an error event on the form fields will apply the error
+class to the controller and overwrite the supplied description of that
+controller with the error text, an example would be:
+
+$(selector).trigger('error',['an error occured']);
+
+Subsequent calls to success on the form field will remove the error
+and replace the error text with the originally supplied description,
+an example:
+
+$(selector).trigger('success');
+
+----------------------------------------------------------------------------------
+
                           Give respect and get it back.
 
 ----------------------------------------------------------------------------------
