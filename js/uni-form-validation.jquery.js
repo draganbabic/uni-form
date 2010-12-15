@@ -15,7 +15,8 @@
  * of valid and invalid states and default data attribues
  * 
  * Modified by LearningStation to add support for client
- * side validation routines
+ * side validation routines. The validation routines based on an
+ * open source library of unknown authorship.
  *
  * @see http://sprawsm.com/uni-form/
  * @license MIT http://www.opensource.org/licenses/mit-license.php

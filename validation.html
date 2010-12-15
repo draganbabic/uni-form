@@ -113,7 +113,18 @@
           	* html .header{ zoom: 1; overflow: hidden;}
 					* html .browse{ position: absolute; }
 
+          /* Additions for validation
+           * tick-circle from Fugue Icon Collection
+           * @see http://p.yusukekamiyamane.com/
+           */
+          div.valid {
+            background: url(img/tick-circle.png) no-repeat right center;
+          }
+
     </style>
+    
+  
+    
     
     <link href="css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
     
@@ -144,9 +155,21 @@
         <h3>Client side form demonstration</h3>
         
         <div class="ctrlHolder">
-          <label for=""><em>*</em> Small text input</label>
-          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput small"/>
-          <p class="formHint">This is a form hint.</p>
+          <label for=""><em>*</em> Your name</label>
+          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required"/>
+          <p class="formHint">Required element</p>
+        </div>
+        
+        <div class="ctrlHolder">
+          <label for=""><em>*</em> Your email</label>
+          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateEmail"/>
+          <p class="formHint">A valid email address</p>
+        </div>
+        
+        <div class="ctrlHolder">
+          <label for=""><em>*</em> A number from 10 - 50</label>
+          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateInteger validateMin val-10 validateMax val-50"/>
+          <p class="formHint">A random number that you like</p>
         </div>
 
       </fieldset>
