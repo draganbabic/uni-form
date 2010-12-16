@@ -106,6 +106,43 @@ $(selector).trigger('success');
 
 ----------------------------------------------------------------------------------
 
+### Form Validation
+
+Uni–Form can be used with the included uni-form-validation.js file for client
+side validation. This is accomplished by using class names on the form elements
+to trigger validation rules on blur(). It must be noted that these validation rules
+should be used to supplement a server side solution.
+
+Required element, cannot be empty:
+  <input type="text" class="textInput required" />
+
+Integer with value greater than or equal to 8:
+  <input type="text" class="textInput validateInteger validateMin val-8" />
+
+Available validators:
+  required
+  validateMinLength
+  validateMin
+  validateMaxLength
+  validateMax
+  validateSameAs
+  validateEmail
+  validateUrl
+  validateNumber
+  validateInteger
+  validateAlpha
+  validateAlphaNum
+  validatePhrase
+  validatePhone
+  validateDate
+  validateCallback
+
+Validators what require a parameter, such as validateMinLength, take that
+parameter as a class name following the validator in the format of 
+"val-{value}". 
+
+----------------------------------------------------------------------------------
+
                           Give respect and get it back.
 
 ----------------------------------------------------------------------------------
