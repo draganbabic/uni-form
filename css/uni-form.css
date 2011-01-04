@@ -107,11 +107,8 @@
       .uniForm .inlineLabels .fileUpload,
       .uniForm .inlineLabels .selectInput,
       .uniForm .inlineLabels select,
-      .uniForm .inlineLabels textarea,
-      .uniForm .inlineLabels .readOnly{ float: left; width: 64%; }
-      
-      .uniForm .inlineLabels .readOnly{ float: right; }
-      
+      .uniForm .inlineLabels textarea{ float: left; width: 64%; }
+            
     /* Postition the hints */
     .uniForm .inlineLabels .formHint{ clear: both; float: none; width: auto; margin-left: 34%; position: static; }
     
@@ -124,6 +121,8 @@
           .uniForm .inlineLabels ul li label .textInput,
           .uniForm .inlineLabels ul li label textarea,
           .uniForm .inlineLabels ul li label select{ float: none; display: block; width: 98%;  }
+    
+    .uniForm .inlineLabels .readOnly{ float: right; width: 66%; }
     
     /* Required fields asterisk styling */
     .uniForm .inlineLabels label em,
