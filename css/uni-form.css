@@ -65,7 +65,7 @@
       
       /* Read-Only output */
       .uniForm .readOnlyLabel{ margin: 0; font-size: 1em; font-weight: bold; }
-      .uniForm .readOnly{ font-size: .85em; padding:  }
+      .uniForm .readOnly{ font-size: .85em; }
         .uniForm .readOnly .choiceLabel{ color: #777; text-transform: uppercase; font-size: .75em; letter-spacing: .15em; }
       
       /* Postition the hints */
