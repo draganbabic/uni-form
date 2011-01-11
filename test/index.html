@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QUnit Test Suite</title>
+  <link rel="stylesheet" href="http://github.com/jquery/qunit/raw/master/qunit/qunit.css" type="text/css" media="screen">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="http://github.com/jquery/qunit/raw/master/qunit/qunit.js"></script>
+  <script type="text/javascript" src="../js/uni-form-validation.jquery.min.js"></script>
+  <script type="text/javascript" src="uniform.js"></script>
+</head>
+<body>
+  <h1 id="qunit-header">QUnit Test Suite</h1>
+  <h2 id="qunit-banner"></h2>
+  <div id="qunit-testrunner-toolbar"></div>
+  <h2 id="qunit-userAgent"></h2>
+  <ol id="qunit-tests"></ol>
+  <div id="qunit-fixture">
+    <form id="qunit-form" action="#" class="uniForm">
+      
+      <div class="header">
+        <h2>Validation Testing</h2>
+        <p></p>
+      </div>
+      
+            
+      <fieldset>
+        <h3>Default Form Field Layout</h3>
+        
+        <div class="ctrlHolder">
+          <label for=""><em>*</em> Your name</label>
+          <input name="" id="" data-default-value="" size="35" maxlength="50" type="text" class="textInput required"/>
+          <p class="formHint">This is a form hint.</p>
+        </div>
+        
+        <div class="ctrlHolder">
+          <label for=""><em>*</em> Email</label>
+          <input name="" id="" data-default-value="user@example.com" size="35" maxlength="50" type="text" class="textInput required validate_email"/>
+          <p class="formHint">A valid email address.</p>
+        </div>
+
+        <div class="ctrlHolder">
+          <label for=""><em>*</em> Reason of visit</label>
+          <input name="" id="" data-default-value="" size="35" maxlength="50" type="text" class="textInput required validate_minlength val-8"/>
+          <p class="formHint">Use at least 6 letters</p>
+        </div>
+
+        <div class="ctrlHolder">
+          <label for=""><em>*</em> Length of stay</label>
+          <input name="" id="" data-default-value="This is a required number" size="35" maxlength="50" type="text" class="textInput required validate_number"/>
+          <p class="formHint">How long will you be here?</p>
+        </div>
+        
+        <div class="ctrlHolder">
+          <label for=""><em>*</em> How many guests</label>
+          <input name="" id="" data-default-value="" size="35" maxlength="50" type="text" class="textInput required validate_number validate_min val-4 validate_max val-10"/>
+          <p class="formHint">A number min 4 max 10</p>
+        </div>
+
+      </fieldset>
+      
+
+      <div class="buttonHolder">
+        <button type="submit" class="primaryAction">Submit</button>
+      </div>
+
+    </form>
+  
+  </div>
+</body>
+</html>
