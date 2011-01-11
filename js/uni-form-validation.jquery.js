@@ -26,7 +26,7 @@ jQuery.fn.uniform = function(settings) {
      * prevent_submit : enable with either true or class on form of "preventSubmit"
      * ask_on_leave   : enable with either true or class on form of "askOnLeave"
      */
-    settings = jQuery.extend({
+    var settings = jQuery.extend({
         prevent_submit : false,
         ask_on_leave   : false,
         valid_class    : 'valid',
@@ -194,14 +194,12 @@ jQuery.fn.uniform = function(settings) {
                     }
                 }
             }
-      
+            
             if(target_field_name) {
-                var target_field = jQuery('#' + target_field_name);
+                var target_field = jQuery('input[name="' + target_field_name + '"]');
                 if(target_field.length > 0) {
-                    //var target_field_caption = field_caption(field);
-                    var target_field_caption = field_caption(target_field);
-          
                     if(target_field.val() != field.val()) {
+                        var target_field_caption = target_field.closest('div.'+settings.holder_class).find('label').text().replace('*','');
                         return i18n('same_as', caption, target_field_caption);
                     }
                 }
@@ -220,7 +218,7 @@ jQuery.fn.uniform = function(settings) {
             if(field.val().match(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
                 return true;
             } else {
-                return i18n('email', caption)
+                return i18n('email', caption);
             }
         },
     
@@ -404,12 +402,13 @@ jQuery.fn.uniform = function(settings) {
             out += p[2];
         }
         return out;
-    }
+    };
 
     /**
      * Apply the Uni-Form bahaviours to the form
      *
      */
+    var self = this;
     return this.each(function() {
         var form = jQuery(this);
         
@@ -541,7 +540,7 @@ jQuery.fn.uniform = function(settings) {
             var $input = $(this);
             var label  = $(this)
                 .closest('div.'+settings.holder_class)
-                .find('label').text();
+                .find('label').text().replace('*','');
 
             // remove focus from form element
             form.find('.' + settings.focused_class).removeClass(settings.focused_class);
@@ -554,19 +553,20 @@ jQuery.fn.uniform = function(settings) {
                 $input.val($input.data('default-value'));
                 return;
             }
-            
+
             // run the validation and if they all pass, we mark the color and move on
             var has_validation = false;
-            for(validator in validators) {
+            for(validator in self.validators) {
                 if($input.hasClass(validator)){
                     has_validation = true;
-                    var validation_result = validators[validator]($input, label);
+                    var validation_result = self.validators[validator]($input, label);
                     if(typeof(validation_result) == 'string') {
                         $input.trigger('error', validation_result);
                         return;
                     }
                 }
             }
+            
             // if it had validation and we didn't return above,
             // then all validation passed
             if (has_validation) {

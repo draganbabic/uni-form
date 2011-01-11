@@ -154,19 +154,25 @@
         
         <div class="ctrlHolder">
           <label for=""><em>*</em> Your name</label>
-          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required"/>
+          <input name="name" id="name" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required"/>
           <p class="formHint">Required element</p>
         </div>
         
         <div class="ctrlHolder">
           <label for=""><em>*</em> Your email</label>
-          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateEmail"/>
+          <input name="email" id="email" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateEmail"/>
           <p class="formHint">A valid email address</p>
+        </div>
+      
+        <div class="ctrlHolder">
+          <label for=""><em>*</em> Email confirm</label>
+          <input name="email_confirm" id="email_confirm" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateSameAs email"/>
+          <p class="formHint"></p>
         </div>
         
         <div class="ctrlHolder">
           <label for=""><em>*</em> A number from 10 - 50</label>
-          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateInteger validateMin val-10 validateMax val-50"/>
+          <input name="a_number" id="a_number" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateInteger validateMin val-10 validateMax val-50"/>
           <p class="formHint">A random number that you like</p>
         </div>
 

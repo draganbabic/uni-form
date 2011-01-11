@@ -148,6 +148,27 @@ test("Max test", function() {
   
 });
 
+test("SameAs test", function() {
+  var $inputA = getInput('text','Same Value').attr('name','inputA');
+  var $inputB = getInput('text','Same Value').attr('name','inputB').addClass('validateSameAs').addClass('inputA');
+  
+  var $form = $('#qunit-fixture').append($inputA).append($inputB);
+  
+  validationTest(
+    validators.validateSameAs($inputB),
+    true,
+    'Same Values'
+  );
+  
+  $inputA.val('Different Value');
+  validationTest(
+    validators.validateSameAs($inputB),
+    false,
+    "Different values"
+  );
+  
+});
+
 test("Email address test", function() {
   var $input = getInput('text','');
   
@@ -321,7 +342,7 @@ test("Phone test", function() {
     '(308)-135-7895'  : true,
     '(123) 456-7890'  : true,
     '123-345-6789'    : true,
-    '(123) 456-7890'  : true,
+    '123 456-7890'  : true,
     '456-7890'        : false,
     '23456789'        : false
   };
