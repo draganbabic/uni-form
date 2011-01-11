@@ -318,12 +318,12 @@ test("Phone test", function() {
   var $input = getInput('text','');
 
   var numbers = {
+    '(308)-135-7895'  : true,
     '(123) 456-7890'  : true,
-    '123456789'       : true,
     '123-345-6789'    : true,
     '(123) 456-7890'  : true,
-    '1-123-456-7890'  : true,
-    '456-7890'        : true
+    '456-7890'        : false,
+    '23456789'        : false
   };
   
   for (number in numbers) {

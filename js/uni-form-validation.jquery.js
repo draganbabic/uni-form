@@ -68,7 +68,7 @@ jQuery.fn.uniform = function(settings) {
      *
      * @var Object
      */
-    var validators = {
+    this.validators = {
     
         /**
          * Get the value for a validator that takes parameters
@@ -93,7 +93,7 @@ jQuery.fn.uniform = function(settings) {
         },
         
         /**
-         * Check if value of specific field is present, whitespace will be counted as empty
+         * Value of field is not empty, whitespace will be counted as empty
          *
          * @param jQuery field
          * @param string caption
@@ -107,7 +107,7 @@ jQuery.fn.uniform = function(settings) {
         },
     
         /**
-         * Validate is value of given field is shorter than supported
+         * Value is shorter than allowed
          *
          * @param jQuery field
          * @param sting caption
@@ -123,7 +123,7 @@ jQuery.fn.uniform = function(settings) {
         },
         
         /**
-         * Validate is if value is lesser than min
+         * Value is less than min
          *
          * @param jQuery field
          * @param sting caption
@@ -139,7 +139,7 @@ jQuery.fn.uniform = function(settings) {
         },
     
         /**
-         * Validate if field value is longer than allowed
+         * Value is longer than allowed
          *
          * @param jQuery field
          * @param string caption
@@ -155,7 +155,7 @@ jQuery.fn.uniform = function(settings) {
         },
         
         /**
-         * Validate is if value is lesser than min
+         * Value is greater than max
          *
          * @param jQuery field
          * @param sting caption
@@ -172,7 +172,12 @@ jQuery.fn.uniform = function(settings) {
     
     
         /**
-         * Make sure that field has same value as the value of target field
+         * Element has same value as that of the target Element
+         *
+         * This does not use the val-{name} format, and instead
+         * is only the name of the element
+         *
+         * class="validateSameAs field_id"
          *
          * @param jQuery field
          * @param string caption
@@ -206,7 +211,7 @@ jQuery.fn.uniform = function(settings) {
         },
     
         /**
-         * Validate if provided value is valid email address
+         * Valid email address
          *
          * @param jQuery field
          * @param string caption
@@ -220,7 +225,7 @@ jQuery.fn.uniform = function(settings) {
         },
     
         /**
-         * Validate if provided value is valid URL
+         * Valid URL (http://,https://,ftp://)
          *
          * @param jQuery field
          * @param string caption
@@ -310,7 +315,8 @@ jQuery.fn.uniform = function(settings) {
          * @param string caption
          */
         validatePhone : function(field, caption) {
-            if(field.val().match('/^1?-?(\d{3})?-?(\d{2})?\d-?(\d{4})$/')) {
+            phoneNumber = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+            if(phoneNumber.test(field.val())) {
                 return true;
             } else {
                 return i18n('phone', caption);
@@ -318,7 +324,7 @@ jQuery.fn.uniform = function(settings) {
         },
         
         /**
-         * Phone number
+         * Date in MM/DD/YYYY format
          *
          * @param jQuery field
          * @param string caption
@@ -437,7 +443,7 @@ jQuery.fn.uniform = function(settings) {
         };
         
         /**
-         * Select form fields and attach them higlighter functionality
+         * Select form fields and attach the higlighter functionality
          *
          */
         form.find(settings.field_selector).each(function(){
@@ -602,6 +608,6 @@ jQuery.fn.uniform = function(settings) {
 
 // Auto set on page load
 $(document).ready(function() {
-    jQuery('form').uniform({ask_on_leave : true});
+    jQuery('form').uniform();
 });
 
