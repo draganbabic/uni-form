@@ -6,9 +6,9 @@ var getInput = function(type, value) {
 
 var validationTest = function(a, b, message) {
   if (b === true) {
-    return strictEqual(a, b, message);
-  }
-  return strictEqual(typeof a, "string", message);
+    return ok((a === b), message);
+  } 
+  return ok((typeof a == "string"), message);
 }
 
 
