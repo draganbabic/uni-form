@@ -488,6 +488,7 @@ jQuery.fn.uniform = function(settings) {
          * @return bool
          */
         form.submit(function(){
+            form.removeClass('failedSubmit');
             form.find(settings.field_selector).each(function(){
                 if($(this).val() === $(this).data('default-value')) { $(this).val(""); }
             });
