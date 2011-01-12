@@ -24,36 +24,30 @@
       
             
       <fieldset>
-        <h3>Default Form Field Layout</h3>
+        <h3>Client side form demonstration</h3>
         
         <div class="ctrlHolder">
           <label for=""><em>*</em> Your name</label>
-          <input name="" id="" data-default-value="" size="35" maxlength="50" type="text" class="textInput required"/>
-          <p class="formHint">This is a form hint.</p>
+          <input name="name" id="name" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required"/>
+          <p class="formHint">Required element</p>
         </div>
         
         <div class="ctrlHolder">
-          <label for=""><em>*</em> Email</label>
-          <input name="" id="" data-default-value="user@example.com" size="35" maxlength="50" type="text" class="textInput required validate_email"/>
-          <p class="formHint">A valid email address.</p>
+          <label for=""><em>*</em> Your email</label>
+          <input name="email" id="email" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateEmail"/>
+          <p class="formHint">A valid email address</p>
         </div>
-
+      
         <div class="ctrlHolder">
-          <label for=""><em>*</em> Reason of visit</label>
-          <input name="" id="" data-default-value="" size="35" maxlength="50" type="text" class="textInput required validate_minlength val-8"/>
-          <p class="formHint">Use at least 6 letters</p>
-        </div>
-
-        <div class="ctrlHolder">
-          <label for=""><em>*</em> Length of stay</label>
-          <input name="" id="" data-default-value="This is a required number" size="35" maxlength="50" type="text" class="textInput required validate_number"/>
-          <p class="formHint">How long will you be here?</p>
+          <label for=""><em>*</em> Email confirm</label>
+          <input name="email_confirm" id="email_confirm" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateSameAs email"/>
+          <p class="formHint"></p>
         </div>
         
         <div class="ctrlHolder">
-          <label for=""><em>*</em> How many guests</label>
-          <input name="" id="" data-default-value="" size="35" maxlength="50" type="text" class="textInput required validate_number validate_min val-4 validate_max val-10"/>
-          <p class="formHint">A number min 4 max 10</p>
+          <label for=""><em>*</em> A number from 10 - 50</label>
+          <input name="a_number" id="a_number" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateInteger validateMin val-10 validateMax val-50"/>
+          <p class="formHint">A random number that you like</p>
         </div>
 
       </fieldset>

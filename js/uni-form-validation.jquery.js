@@ -27,15 +27,16 @@ jQuery.fn.uniform = function(settings) {
      * ask_on_leave   : enable with either true or class on form of "askOnLeave"
      */
     var settings = jQuery.extend({
-        prevent_submit : false,
-        ask_on_leave   : false,
-        valid_class    : 'valid',
-        invalid_class  : 'invalid',
-        error_class    : 'error',
-        focused_class  : 'focused',
-        holder_class   : 'ctrlHolder',
-        field_selector : 'input, textarea, select',
-        default_value_color: "#AFAFAF"
+        prevent_submit      : false,
+        ask_on_leave        : false,
+        on_leave_callback   : function() { return confirm(i18n('on_leave'));},
+        valid_class         : 'valid',
+        invalid_class       : 'invalid',
+        error_class         : 'error',
+        focused_class       : 'focused',
+        holder_class        : 'ctrlHolder',
+        field_selector      : 'input, textarea, select',
+        default_value_color : "#AFAFAF"
     }, settings);
 
     /**
@@ -60,7 +61,7 @@ jQuery.fn.uniform = function(settings) {
         phone     : '%s should be a phone number',
         date      : '%s should be a date (mm/dd/yyyy)',
         callback  : 'Failed to validate %s field. Validator function (%s) is not defined!',
-        on_leave  : 'Are you sure you want to leave this page without saving this form?'
+        on_leave  : 'WTF? Are you sure you want to leave this page without saving this form?'
     };
 
     /**
@@ -471,9 +472,7 @@ jQuery.fn.uniform = function(settings) {
             var initial_values = form.serialize();
             $(window).bind("beforeunload", function(e) {
                 if(initial_values != form.serialize()) {
-                    var leave_page = confirm(i18n('on_leave'));
-                    // Return focus or something?
-                    return leave_page;
+                    return settings.on_leave_callback();
                 }
             });
         }
@@ -502,6 +501,7 @@ jQuery.fn.uniform = function(settings) {
                 && form.find('.' + settings.invalid_class)
                         .add('.' + settings.error_class).length
             ) {
+              form.addClass('failedSubmit');
               return false;
             }
             return true;
