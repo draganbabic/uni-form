@@ -1,9 +1,35 @@
 // http://docs.jquery.com/Qunit
 
+/**
+ * Short accessor to a input element
+ * 
+ * Note that IE can't do attr('type','text')
+ *
+ * @param string type  input type enumerated [checkbox, radio, text, password]
+ * @param string value text value of input
+ *
+ * @return obj jQuery object
+ */
 var getInput = function(type, value) {
   return $('<input type="' + type + '" />').val(value);
 }
 
+/**
+ * Test our validators
+ *
+ * Validators return:
+ *  bool true for sucess
+ *  string error message for failure
+ * 
+ * So, this function tests for true/string, and makes the output
+ * in the unit test a little more clear
+ *
+ * @param mixed  a       result
+ * @param bool   b       expected pass/fail
+ * @param string message unit test message
+ * 
+ * return bool result of assertion
+ */
 var validationTest = function(a, b, message) {
   if (b === true) {
     return ok((a === b), message);
@@ -36,7 +62,7 @@ test("Required test", function() {
   );
   
   validationTest(
-    typeof validators.required($input.val('')),
+    validators.required($input.val('')),
     false,
     "Error message for empty input"
   );
