@@ -26,18 +26,11 @@ jQuery.fn.uniform = function(settings) {
      * prevent_submit : enable with either true or class on form of "preventSubmit"
      * ask_on_leave   : enable with either true or class on form of "askOnLeave"
      */
-    var settings = jQuery.extend({
-        prevent_submit      : false,
-        ask_on_leave        : false,
-        on_leave_callback   : function() { return confirm(i18n('on_leave'));},
-        valid_class         : 'valid',
-        invalid_class       : 'invalid',
-        error_class         : 'error',
-        focused_class       : 'focused',
-        holder_class        : 'ctrlHolder',
-        field_selector      : 'input, textarea, select',
-        default_value_color : "#AFAFAF"
-    }, settings);
+    var settings = jQuery.extend(
+        {},
+        jQuery.fn.uniform.defaults,
+        settings
+    );
 
     /**
      * Internationalized language strings for validation messages
@@ -605,6 +598,19 @@ jQuery.fn.uniform = function(settings) {
             validate($(this), true);
         });
     });
+};
+
+jQuery.fn.uniform.defaults = {
+        prevent_submit      : false,
+        ask_on_leave        : false,
+        on_leave_callback   : function() { return confirm(i18n('on_leave'));},
+        valid_class         : 'valid',
+        invalid_class       : 'invalid',
+        error_class         : 'error',
+        focused_class       : 'focused',
+        holder_class        : 'ctrlHolder',
+        field_selector      : 'input, textarea, select',
+        default_value_color : "#AFAFAF"
 };
 
 // Auto set on page load
