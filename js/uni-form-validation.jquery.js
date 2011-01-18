@@ -23,46 +23,23 @@
  */
 jQuery.fn.uniform = function(settings) {
     /**
-     * prevent_submit : enable with either true or class on form of "preventSubmit"
-     * ask_on_leave   : enable with either true or class on form of "askOnLeave"
-     */
-    var settings = jQuery.extend({
-        prevent_submit      : false,
-        ask_on_leave        : false,
-        on_leave_callback   : function() { return confirm(i18n('on_leave'));},
-        valid_class         : 'valid',
-        invalid_class       : 'invalid',
-        error_class         : 'error',
-        focused_class       : 'focused',
-        holder_class        : 'ctrlHolder',
-        field_selector      : 'input, textarea, select',
-        default_value_color : "#AFAFAF"
-    }, settings);
-
-    /**
-     * Internationalized language strings for validation messages
+     * Object extending the defaults object
      *
-     * @var Object
+     * @var object
      */
-    var i18n_en = {
-        required  : '%s is required',
-        minlength : '%s should be at least %d characters long',
-        min       : '%s should be greater than or equal to %d',
-        maxlength : '%s should not be longer than %d characters',
-        max       : '%s should be less than or equal to %d',
-        same_as   : '%s is expected to be same as %s',
-        email     : '%s is not a valid email address',
-        url       : '%s is not a valid URL',
-        number    : '%s needs to be a number',
-        integer   : '%s needs to be a whole number',
-        alpha     : '%s should contain only letters (without special characters or numbers)',
-        alphanum  : '%s should contain only numbers and letters (without special characters)',
-        phrase    : '%s should contain only alphabetic characters, numbers, spaces, and the following: . , - _ () * # :',
-        phone     : '%s should be a phone number',
-        date      : '%s should be a date (mm/dd/yyyy)',
-        callback  : 'Failed to validate %s field. Validator function (%s) is not defined!',
-        on_leave  : 'WTF? Are you sure you want to leave this page without saving this form?'
-    };
+    var settings = jQuery.extend(
+        jQuery.fn.uniform.defaults,
+        settings
+    );
+    
+    /**
+     * Language abstration string
+     * 
+     * to extend, use a script tag to include a file from the localization folder
+     *
+     * @var object
+     */
+    var i18n_strings = jQuery.fn.uniform.language;
 
     /**
      * Supported validators
@@ -388,7 +365,7 @@ jQuery.fn.uniform = function(settings) {
      * @return internationalized string
      */
     var i18n = function(lang_key) {
-        var lang_string = i18n_en[lang_key];
+        var lang_string = i18n_strings[lang_key];
         var bits = lang_string.split('%');
         var out = bits[0];
         var re = /^([ds])(.*)$/;
@@ -607,8 +584,43 @@ jQuery.fn.uniform = function(settings) {
     });
 };
 
-// Auto set on page load
-$(document).ready(function() {
-    jQuery('form').uniform();
-});
+/**
+ * Internationalized language strings for validation messages
+ */
+jQuery.fn.uniform.language = {
+    required  : '%s is required',
+    minlength : '%s should be at least %d characters long',
+    min       : '%s should be greater than or equal to %d',
+    maxlength : '%s should not be longer than %d characters',
+    max       : '%s should be less than or equal to %d',
+    same_as   : '%s is expected to be same as %s',
+    email     : '%s is not a valid email address',
+    url       : '%s is not a valid URL',
+    number    : '%s needs to be a number',
+    integer   : '%s needs to be a whole number',
+    alpha     : '%s should contain only letters (without special characters or numbers)',
+    alphanum  : '%s should contain only numbers and letters (without special characters)',
+    phrase    : '%s should contain only alphabetic characters, numbers, spaces, and the following: . , - _ () * # :',
+    phone     : '%s should be a phone number',
+    date      : '%s should be a date (mm/dd/yyyy)',
+    callback  : 'Failed to validate %s field. Validator function (%s) is not defined!',
+    on_leave  : 'Are you sure you want to leave this page without saving this form?'
+};
+
+/**
+ * prevent_submit : enable with either true or class on form of "preventSubmit"
+ * ask_on_leave   : enable with either true or class on form of "askOnLeave"
+ */
+jQuery.fn.uniform.defaults = {
+    prevent_submit      : false,
+    ask_on_leave        : false,
+    on_leave_callback   : function() { return confirm(i18n('on_leave'));},
+    valid_class         : 'valid',
+    invalid_class       : 'invalid',
+    error_class         : 'error',
+    focused_class       : 'focused',
+    holder_class        : 'ctrlHolder',
+    field_selector      : 'input, textarea, select',
+    default_value_color : "#AFAFAF"
+};
 
