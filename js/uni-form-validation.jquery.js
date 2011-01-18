@@ -31,7 +31,6 @@ jQuery.fn.uniform = function(settings) {
         jQuery.fn.uniform.defaults,
         settings
     );
-    
     /**
      * Language abstration string
      * 
@@ -623,4 +622,3 @@ jQuery.fn.uniform.defaults = {
     field_selector      : 'input, textarea, select',
     default_value_color : "#AFAFAF"
 };
-
