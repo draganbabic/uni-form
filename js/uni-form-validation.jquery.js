@@ -481,6 +481,12 @@ jQuery.fn.uniform = function(settings) {
               form.addClass('failedSubmit');
               return false;
             }
+            
+            // qUnit needs to run this function, and still prevent the submit
+            if(form.parents('#qunit-fixture').length) {
+              return false;
+            }
+            
             return true;
         });
         
