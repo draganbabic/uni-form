@@ -1,5 +1,12 @@
 # Uni-Form Markup : Making forms as simple as 1,2,3
 
+## Announcements:
+
+* Please note that the jQuery plugins no longer automatically initialize.
+  You must init them yourself with the code found in the section below 
+  titled "How to use?"
+  
+
 ## Copyright (c) 2010, Dragan Babic
    
    Permission is hereby granted, free of charge, to any person
@@ -24,7 +31,7 @@
    OTHER DEALINGS IN THE SOFTWARE.
 
 
-## What is Uni–Form 
+## About Uni–Form 
 
 Uni-Form is a framework that standardizes form markup and styles it with CSS 
 giving you two most widely used layout options to choose from. Anyone can get nice 
@@ -36,19 +43,35 @@ it simply: it makes a developer's life a lot easier.
 
 First thing you need to do is to link up the necessary files: 
 
- * Link up the main CSS file
+1.  Link to the main CSS file
     
-      <link href="path/to/file/uni-form.css" media="all" rel="stylesheet"/>
+    <link href="path/to/file/uni-form.css" media="all" rel="stylesheet"/>
     
- * Link up the Uni–Form style CSS file
-      
-      <link href="path/to/file/default.uni-form.css" media="all" rel="stylesheet"/>
+1.  Link to the Uni–Form style CSS file
     
- * Optionally you'll want to link up jQuery and Uni–Form jQuery files if you'd 
+    <link href="path/to/file/default.uni-form.css" media="all" rel="stylesheet"/>
+    
+1.  Optionally you'll want to link up jQuery and Uni–Form jQuery files if you'd 
     like Uni–Form to highlight the form rows on focus (it's a usability aid): 
       
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-      <script src="path/to/file/uni-form.jquery.js" type="text/javascript"></script> 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="path/to/file/uni-form.jquery.js"></script>
+    
+1.  You may also want to try out the version of the Uni–Form jQuery plugin that
+    supports client side validation, in case replace the regular plugin this this:
+    
+    <script type="text/javascript" src="path/to/file/uni-form-validation.jquery.js"></script>
+
+1. Please note that this plugin no longer automatically initialize the Uni–Form plugin.
+   You must do this automatically, by adding this snippet after you have included
+   both jQuery and the plugin you have chosen:
+   
+   <script type="text/javascript">
+    $(function(){
+      $('form.uniForm').uniform();
+    });
+   </script>
+
 
 Now that you're all set up, all you need to do is add form fields that are formatted
 with Uni–Form markup so the CSS and JavaScript will get the “hooks” they need. These
@@ -100,7 +123,7 @@ an example:
 
 ----------------------------------------------------------------------------------
 
-### Form Validation
+## Form Validation
 
 Uni–Form can be used with the included uni-form-validation.js file for client
 side validation. This is accomplished by using class names on the form elements
