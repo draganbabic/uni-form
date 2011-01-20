@@ -461,25 +461,38 @@ jQuery.fn.uniform = function(settings) {
          *  * If prevent_submit is set true, return false if
          *    there are outstanding errors in the form
          *
+         * Todo
+         *  * it would be novel to use prevent_submit to disable
+         *    the submit button in the blur handler
+         *
          * @return bool
          */
         form.submit(function(){
+            // in the case of a previously failed submit, we'll remove our marker
             form.removeClass('failedSubmit');
+            
+            // remove the default values from the val() where they were being displayed
             form.find(settings.field_selector).each(function(){
                 if($(this).val() === $(this).data('default-value')) { $(this).val(""); }
             });
+
+            // traverse and revalidate making sure that we haven't missed any fields
+            // perhaps if a field was filled in before uniform was initialized
+            // or if blur failed to fire correctly
+            if(settings.prevent_submit || form.hasClass('preventSubmit')) {
+              // use blur to run the validators on each field
+              form.find(settings.field_selector).each(function(){
+                $(this).blur();
+              });
             
-            // it would be novel to use prevent_submit to disable the submit button
-            // in the blur handler
-            //
-            // here we could traverse and revalidate, but instead, we check for 
-            // invalid and error class markers
-            if((settings.prevent_submit || form.hasClass('preventSubmit'))
-                && form.find('.' + settings.invalid_class)
-                        .add('.' + settings.error_class).length
-            ) {
-              form.addClass('failedSubmit');
-              return false;
+              if (form
+                    .find('.' + settings.invalid_class)
+                    .add('.' + settings.error_class).length
+              ) {
+                form.addClass('failedSubmit');
+                return false;
+              }
+              return true;
             }
             
             // qUnit needs to run this function, and still prevent the submit

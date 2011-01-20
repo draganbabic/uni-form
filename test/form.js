@@ -44,27 +44,3 @@ test("Prevent submit", function() {
   );
 });
 
-/**
- * Case 1
- * 
- * Prevent submit fails if the blur handler hasn't been called on data
- * 
- * @link https://github.com/LearningStation/uni-form/issues#issue/1
- */
-test("Prevent submit fails for existing data", function() {
-
-  $form = jQuery('#qunit-form');
-  jQuery('#email', $form).val('invalid@example');
-  $form.uniform({
-      prevent_submit : true
-  });
-
-  $form.trigger('submit');
-  
-  equals(
-    $form.hasClass('failedSubmit'),
-    true,
-    "Form has failedSubmit class after submit without blur on invalid data"
-  );
-
-});

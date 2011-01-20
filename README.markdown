@@ -156,10 +156,9 @@ Integer with value greater than or equal to 8:
 * validatePhone
 * validateDate
 * validateCallback
-*
-Validators what require a parameter, such as validateMinLength, take that
-parameter as a class name following the validator in the format of 
-_val-{value}_. 
+
+Validators what require a parameter, such as validateMinLength, take that parameter
+as a class name following the validator in the format of _val-{value}_. 
 
 
 
