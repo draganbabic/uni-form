@@ -2,7 +2,7 @@
 
 ## Announcements:
 
-* *Please note that the jQuery plugins no longer automatically initialize.*
+* _Please note that the jQuery plugins no longer automatically initialize._
   You must init them yourself with the code found in the section below 
   titled "How to use?"
   
@@ -138,27 +138,28 @@ Integer with value greater than or equal to 8:
 
     <input type="text" class="textInput validateInteger validateMin val-8" />
 
-Available validators:
-  required
-  validateMinLength
-  validateMin
-  validateMaxLength
-  validateMax
-  validateSameAs
-  validateEmail
-  validateUrl
-  validateNumber
-  validateInteger
-  validateAlpha
-  validateAlphaNum
-  validatePhrase
-  validatePhone
-  validateDate
-  validateCallback
+### Available validators:
 
+* required
+* validateMinLength
+* validateMin
+* validateMaxLength
+* validateMax
+* validateSameAs
+* validateEmail
+* validateUrl
+* validateNumber
+* validateInteger
+* validateAlpha
+* validateAlphaNum
+* validatePhrase
+* validatePhone
+* validateDate
+* validateCallback
+*
 Validators what require a parameter, such as validateMinLength, take that
 parameter as a class name following the validator in the format of 
-"val-{value}". 
+_val-{value}_. 
 
 
 
