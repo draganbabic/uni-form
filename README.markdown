@@ -1,6 +1,6 @@
-----------------------------------------------------------------------------------
+# Uni-Form Markup : Making forms as simple as 1,2,3
 
-   Copyright (c) 2010, Dragan Babic
+## Copyright (c) 2010, Dragan Babic
    
    Permission is hereby granted, free of charge, to any person
    obtaining a copy of this software and associated documentation
@@ -23,31 +23,29 @@
    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
    OTHER DEALINGS IN THE SOFTWARE.
 
-----------------------------------------------------------------------------------
 
-### What is Uni–Form 
+## What is Uni–Form 
 
 Uni-Form is a framework that standardizes form markup and styles it with CSS 
 giving you two most widely used layout options to choose from. Anyone can get nice 
 looking, well structured, highly customizable, accessible and usable forms. To put 
 it simply: it makes a developer's life a lot easier. 
 
-----------------------------------------------------------------------------------
 
-### How to Use? 
+## How to Use? 
 
 First thing you need to do is to link up the necessary files: 
 
-    * Link up the main CSS file
+ * Link up the main CSS file
     
       <link href="path/to/file/uni-form.css" media="all" rel="stylesheet"/>
     
-    * Link up the Uni–Form style CSS file
+ * Link up the Uni–Form style CSS file
       
       <link href="path/to/file/default.uni-form.css" media="all" rel="stylesheet"/>
     
-    * Optionally you'll want to link up jQuery and Uni–Form jQuery files if you'd 
-      like Uni–Form to highlight the form rows on focus (it's a usability aid): 
+ * Optionally you'll want to link up jQuery and Uni–Form jQuery files if you'd 
+    like Uni–Form to highlight the form rows on focus (it's a usability aid): 
       
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
       <script src="path/to/file/uni-form.jquery.js" type="text/javascript"></script> 
@@ -59,9 +57,8 @@ file called fauxform.html that is included in this package.
 
 Feel free to extend Uni–Form with units of your own and share. 
 
-----------------------------------------------------------------------------------
 
-### Styles 
+## Styles 
 
 As of v1.4 Uni–Form supports styles. These are separate CSS files that contain the
 presentation aspect of your form (considering that uni-form.css) contains the 
@@ -69,15 +66,13 @@ layout. Style CSS files should be used to control how your form looks, spacing�
 
 Sharing styles is encouraged, and by default Uni–Form is shipped with three: 
 
-    * Default
-    * Blue 
-    * Dark 
+ * Default
+ * Blue 
+ * Dark 
     
 Consider these a starting point for making your own. 
 
-----------------------------------------------------------------------------------
-
-### Options and Layout Control 
+## Options and Layout Control 
 
 Uni–Form by default has two form layouts: default and inline. This is controlled 
 by adding (or removing) a CSS class .inlineLabels to the fieldset element. 
@@ -88,21 +83,20 @@ are usually used for checkboxes and radio buttons. Each layout supports an
 alternate multifield layout. This is achieved by adding (or removing) a CSS class
 .alternate to the ul element. 
 
-----------------------------------------------------------------------------------
 
-### Events
+## Events
 
 Triggering an error event on the form fields will apply the error
 class to the controller and overwrite the supplied description of that
 controller with the error text, an example would be:
 
-$(selector).trigger('error',['an error occured']);
+    $(selector).trigger('error',['an error occured']);
 
 Subsequent calls to success on the form field will remove the error
 and replace the error text with the originally supplied description,
 an example:
 
-$(selector).trigger('success');
+    $(selector).trigger('success');
 
 ----------------------------------------------------------------------------------
 
@@ -114,10 +108,12 @@ to trigger validation rules on blur(). It must be noted that these validation ru
 should be used to supplement a server side solution.
 
 Required element, cannot be empty:
-  <input type="text" class="textInput required" />
+
+    <input type="text" class="textInput required" />
 
 Integer with value greater than or equal to 8:
-  <input type="text" class="textInput validateInteger validateMin val-8" />
+
+    <input type="text" class="textInput validateInteger validateMin val-8" />
 
 Available validators:
   required
@@ -141,8 +137,6 @@ Validators what require a parameter, such as validateMinLength, take that
 parameter as a class name following the validator in the format of 
 "val-{value}". 
 
-----------------------------------------------------------------------------------
 
-                          Give respect and get it back.
 
-----------------------------------------------------------------------------------
+## Give respect and get it back.
