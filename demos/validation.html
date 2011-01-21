@@ -32,7 +32,7 @@
           
     <style type="text/css" media="screen">
       
-      @import "css/uni-form.css";
+      @import "../css/uni-form.css";
       
       /* You don't need these, they are here to tune up the page */
       html{ color: #343434; background: #bcc2c6; font-size: 14px; line-height: 1.5; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Verdana, sans-serif; }
@@ -118,7 +118,7 @@
 
     </style>
     
-    <link href="css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
+    <link href="../css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
     
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
@@ -131,7 +131,7 @@
 
   <body>
 
-    <h1><a href="http://sprawsm.com/uni-form/" title="visit Uni–Form online" style="border: none;"><img src="img/uni-form-logo.png" alt=""/></a></h1>
+    <h1><a href="http://sprawsm.com/uni-form/" title="visit Uni–Form online" style="border: none;"><img src="../img/uni-form-logo.png" alt=""/></a></h1>
     
     <p class="intro">
       Validation demonstration
@@ -181,14 +181,13 @@
 
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    <script src="js/uni-form-validation.jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="../js/uni-form-validation.jquery.js" charset="utf-8"></script>
     <script>
       $(function(){
         $('form.uniForm').uniform({
           prevent_submit : true,
-          ask_on_leave   : true,
           prevent_submit_callback : function($form) {
-            $form.prepend('ERRORROROROROROR');
+            $form.prepend('Sample error message');
           }
         });
       });
