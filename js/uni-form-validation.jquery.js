@@ -21,7 +21,7 @@
  * @see http://sprawsm.com/uni-form/
  * @license MIT http://www.opensource.org/licenses/mit-license.php
  */
-jQuery.fn.uniform = function(settings) {
+jQuery.fn.uniform = function(extended_settings) {
     /**
      * Object extending the defaults object
      *
@@ -29,7 +29,7 @@ jQuery.fn.uniform = function(settings) {
      */
     var settings = jQuery.extend(
         jQuery.fn.uniform.defaults,
-        settings
+        extended_settings
     );
     /**
      * Language abstration string
@@ -434,25 +434,6 @@ jQuery.fn.uniform = function(settings) {
             }
         });
         
-        /**
-         * If we've set ask_on_leave we'll register a handler here
-         *
-         * We need to seriaze the form data, wait for a beforeunload, 
-         * then serialize and compare for changes
-         *
-         * If they changed things, and haven't submitted, we'll let them
-         * know about it
-         * 
-         */
-        if(settings.ask_on_leave || form.hasClass('askOnLeave')) {
-            var initial_values = form.serialize();
-            $(window).bind("beforeunload", function(e) {
-                if(initial_values != form.serialize()) {
-                    return settings.on_leave_callback();
-                }
-            });
-        }
-        
         /** 
          * Handle the submission of the form
          *
@@ -490,7 +471,9 @@ jQuery.fn.uniform = function(settings) {
                     .add('.' + settings.error_class).length
               ) {
                 form.addClass('failedSubmit');
-                return false;
+                return ($.isFunction(settings.prevent_submit_callback))
+                    ? false
+                    : settings.prevent_submit_callback(form);
               }
               return true;
             }
@@ -499,7 +482,6 @@ jQuery.fn.uniform = function(settings) {
             if(form.parents('#qunit-fixture').length) {
               return false;
             }
-            
             return true;
         });
         
@@ -627,17 +609,15 @@ jQuery.fn.uniform.language = {
 
 /**
  * prevent_submit : enable with either true or class on form of "preventSubmit"
- * ask_on_leave   : enable with either true or class on form of "askOnLeave"
  */
 jQuery.fn.uniform.defaults = {
-    prevent_submit      : false,
-    ask_on_leave        : false,
-    on_leave_callback   : function() { return confirm(i18n('on_leave'));},
-    valid_class         : 'valid',
-    invalid_class       : 'invalid',
-    error_class         : 'error',
-    focused_class       : 'focused',
-    holder_class        : 'ctrlHolder',
-    field_selector      : 'input, textarea, select',
-    default_value_color : "#AFAFAF"
+    prevent_submit          : false,
+    prevent_submit_callback : false,
+    valid_class             : 'valid',
+    invalid_class           : 'invalid',
+    error_class             : 'error',
+    focused_class           : 'focused',
+    holder_class            : 'ctrlHolder',
+    field_selector          : 'input, textarea, select',
+    default_value_color     : "#AFAFAF"
 };

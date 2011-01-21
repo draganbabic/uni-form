@@ -182,10 +182,15 @@
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <script src="js/uni-form-validation.jquery.js" type="text/javascript" charset="utf-8"></script>
-    <!--<script src="localization/es.js" type="text/javascript" charset="utf-8"></script>-->
     <script>
       $(function(){
-        $('form.uniForm').uniform();
+        $('form.uniForm').uniform({
+          prevent_submit : true,
+          ask_on_leave   : true,
+          prevent_submit_callback : function($form) {
+            $form.prepend('ERRORROROROROROR');
+          }
+        });
       });
     </script>
   </body>
