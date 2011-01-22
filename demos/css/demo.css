@@ -77,5 +77,5 @@ fieldset h3{ margin: 1.5em -28px; padding: 14px 28px; line-height: 1; background
 
 /* Additions for validation */
 div.valid{
-  background: url(img/ok.png) 100% 2.75em no-repeat;
+  background: url(../../img/ok.png) 100% 2.75em no-repeat;
 }
