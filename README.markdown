@@ -1,8 +1,8 @@
-# Uni-Form Markup : Making forms as simple as 1,2,3
+# [Uni-Form Markup](http://sprawsm.com/uni-form/) : Making forms as simple as 1,2,3
 
 ## Announcements:
 
-* _Please note that the jQuery plugins no longer automatically initialize._
+* __Please note that the jQuery plugins no longer automatically initialize.__
   You must init them yourself with the code found in the section below 
   titled "How to use?"
   
@@ -38,6 +38,9 @@ giving you two most widely used layout options to choose from. Anyone can get ni
 looking, well structured, highly customizable, accessible and usable forms. To put 
 it simply: it makes a developer's life a lot easier. 
 
+* [Uni-Form Homepage](http://sprawsm.com/uni-form/)
+* [Support at Get Satisfaction](http://getsatisfaction.com/uni-form)
+* [GitHub repository]()
 
 ## How to Use? 
 
@@ -63,7 +66,7 @@ First thing you need to do is to link up the necessary files:
         <script type="text/javascript" src="path/to/file/uni-form-validation.jquery.js"></script>
 
 1. Please note that this plugin no longer automatically initialize the Uni–Form plugin.
-   You must do this automatically, by adding this snippet after you have included
+   You must do this yourself, by adding this snippet after you have included
    both jQuery and the plugin you have chosen:
    
        <script type="text/javascript">
@@ -101,7 +104,7 @@ Uni–Form by default has two form layouts: default and inline. This is controll
 by adding (or removing) a CSS class .inlineLabels to the fieldset element. 
 
 There is another option in regards to the layout and it concerns what is referred 
-to as “multifields”. These are fields that contain multiple inputs per unit and 
+to as "multifields". These are fields that contain multiple inputs per unit and 
 are usually used for checkboxes and radio buttons. Each layout supports an 
 alternate multifield layout. This is achieved by adding (or removing) a CSS class
 .alternate to the ul element. 
