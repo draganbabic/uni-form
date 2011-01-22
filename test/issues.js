@@ -65,7 +65,6 @@ test("Case 2 : Required validation for radio button", function() {
     "Radio group validated after selection and second submit"
   );
   
-  
 });
 
 /**
@@ -94,4 +93,45 @@ test("Case 3 : data-default-value gets submitted", function() {
     "Value of email field is empty after submit"
   );
 
+});
+
+/**
+ * Case 4
+ * 
+ * Feature request for required selection on checkbox
+ * 
+ * @link https://github.com/LearningStation/uni-form/issues/issue/4
+ */
+test("Case 4 : Required validation for checkbox", function() {
+  var hasError = false;
+  $form = jQuery('#qunit-form');
+  $form.uniform({
+    invalid_class           : 'invalid',
+    error_class             : 'error',
+    prevent_submit          : true,
+    prevent_submit_callback : function($submit_form) {
+      hasError = 
+          $('input[name="agreement"]:checkbox', $submit_form)
+              .parents('div.ctrlHolder')
+              .hasClass('error');
+      return false;
+    }
+  });
+  $form.trigger('submit');
+  
+  equals(
+    hasError,
+    true,
+    "Checkbox has invalid class after submit"
+  );
+  
+  $('input[name="agreement"]:checkbox', $form).attr('checked', true);
+  $form.trigger('submit');
+  
+  equals(
+    hasError,
+    false,
+    "Checkbox validated after selection and second submit"
+  );
+  
 });
