@@ -76,11 +76,17 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         required : function(field, caption) {
+            if(field.is(':radio')) {
+                var name = field.attr('name');
+                if($("input[name=" + name + "]:checked").length) {
+                    return true;
+                }
+                return i18n('req_radio', caption);
+            }
             if(jQuery.trim(field.val()) == '') {
                 return i18n('required', caption);
-            } else {
-                return true;
             }
+            return true;
         },
     
         /**
@@ -94,9 +100,8 @@ jQuery.fn.uniform = function(extended_settings) {
 
             if((min_length > 0) && (field.val().length < min_length)) {
                 return i18n('minlength', caption, min_length);
-            } else {
-                return true;
             }
+            return true;
         },
         
         /**
@@ -110,9 +115,8 @@ jQuery.fn.uniform = function(extended_settings) {
       
             if((parseInt(field.val(),10) < min_val)) {
                 return i18n('min', caption, min_val);
-            } else {
-                return true;
             }
+            return true;
         },
     
         /**
@@ -126,9 +130,8 @@ jQuery.fn.uniform = function(extended_settings) {
       
             if((max_length > 0) && (field.val().length > max_length)) {
                 return i18n('maxlength', caption, max_length);
-            } else {
-                return true;
             }
+            return true;
         },
         
         /**
@@ -142,11 +145,9 @@ jQuery.fn.uniform = function(extended_settings) {
     
             if((parseInt(field.val(),10) > max_val)) {
                 return i18n('max', caption, max_val);
-            } else {
-                return true;
             }
+            return true;
         },
-    
     
         /**
          * Element has same value as that of the target Element
@@ -208,9 +209,8 @@ jQuery.fn.uniform = function(extended_settings) {
         validateUrl : function(field, caption) {
             if(field.val().match(/^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?\/?/i)) {
                 return true;
-            } else {
-                return i18n('url', caption);
             }
+            return i18n('url', caption);
         },
     
         /**
@@ -222,9 +222,8 @@ jQuery.fn.uniform = function(extended_settings) {
         validateNumber : function(field, caption) {
             if(field.val().match(/(^-?\d\d*\.\d*$)|(^-?\d\d*$)|(^-?\.\d\d*$)/) || field.val() == '') {
                 return true;
-            } else {
-                return i18n('number', caption);
             }
+            return i18n('number', caption);
         },
     
         /**
@@ -236,9 +235,8 @@ jQuery.fn.uniform = function(extended_settings) {
         validateInteger : function(field, caption) {
             if(field.val().match(/(^-?\d\d*$)/) || field.val() == '') {
                 return true;
-            } else {
-                return i18n('integer', caption);
             }
+            return i18n('integer', caption);
         },
     
         /**
@@ -250,9 +248,8 @@ jQuery.fn.uniform = function(extended_settings) {
         validateAlpha : function(field, caption) {
             if(field.val().match(/^[a-zA-Z]+$/)) {
                 return true;
-            } else {
-                return i18n('alpha', caption);
             }
+            return i18n('alpha', caption);
         },
     
         /**
@@ -264,9 +261,8 @@ jQuery.fn.uniform = function(extended_settings) {
         validateAlphaNum : function(field, caption) {
             if(field.val().match(/\W/)) {
                 return i18n('alphanum', caption);
-            } else {
-                return true;
             }
+            return true;
         },
     
         /**
@@ -278,9 +274,8 @@ jQuery.fn.uniform = function(extended_settings) {
         validatePhrase : function(field, caption) {
             if((field.val() == '') || field.val().match(/^[\w\d\.\-_\(\)\*'# :,]+$/i)) {
                 return true;
-            } else {
-                return i18n('phrase', caption);
             }
+            return i18n('phrase', caption);
         },
         
         /**
@@ -293,9 +288,8 @@ jQuery.fn.uniform = function(extended_settings) {
             phoneNumber = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
             if(phoneNumber.test(field.val())) {
                 return true;
-            } else {
-                return i18n('phone', caption);
             }
+            return i18n('phone', caption);
         },
         
         /**
@@ -307,9 +301,8 @@ jQuery.fn.uniform = function(extended_settings) {
         validateDate : function(field, caption) {
             if(field.val().match('(1[0-9]|[1-9])/([1-3][0-9]|[1-9])/((19|20)[0-9][0-9]|[0-9][0-9])')) {
                 return true;
-            } else {
-                return i18n('date', caption);
             }
+            return i18n('date', caption);
         },
     
         /**
@@ -433,7 +426,30 @@ jQuery.fn.uniform = function(extended_settings) {
                 $input.val($input.data('default-value'));
             }
         });
-        
+
+        /**
+         * If we've set ask_on_leave we'll register a handler here
+         *
+         * We need to seriaze the form data, wait for a beforeunload, 
+         * then serialize and compare for changes
+         *
+         * If they changed things, and haven't submitted, we'll let them
+         * know about it
+         * 
+         */
+        if(settings.ask_on_leave || form.hasClass('askOnLeave')) {
+            var initial_values = form.serialize();
+            $(window).bind("beforeunload", function(e) {
+                if((initial_values != form.serialize()) 
+                    && (settings.ask_on_leave || form.hasClass('askOnLeave'))
+                ) {
+                    return ($.isFunction(settings.on_leave_callback))
+                        ? settings.on_leave_callback(form)
+                        : confirm(i18n('on_leave'));
+                }
+            });
+        }
+
         /** 
          * Handle the submission of the form
          *
@@ -472,9 +488,12 @@ jQuery.fn.uniform = function(extended_settings) {
               ) {
                 form.addClass('failedSubmit');
                 return ($.isFunction(settings.prevent_submit_callback))
-                    ? false
-                    : settings.prevent_submit_callback(form);
+                    ? settings.prevent_submit_callback(form)
+                    : false;
               }
+              
+              settings.ask_on_leave = false;
+              form.removeClass('askOnLeave');
               return true;
             }
             
@@ -482,6 +501,9 @@ jQuery.fn.uniform = function(extended_settings) {
             if(form.parents('#qunit-fixture').length) {
               return false;
             }
+          
+            settings.ask_on_leave = false;
+            form.removeClass('askOnLeave');
             return true;
         });
         
@@ -589,6 +611,7 @@ jQuery.fn.uniform = function(extended_settings) {
  */
 jQuery.fn.uniform.language = {
     required  : '%s is required',
+    req_radio : 'Please make a selection',
     minlength : '%s should be at least %d characters long',
     min       : '%s should be greater than or equal to %d',
     maxlength : '%s should not be longer than %d characters',
@@ -613,6 +636,8 @@ jQuery.fn.uniform.language = {
 jQuery.fn.uniform.defaults = {
     prevent_submit          : false,
     prevent_submit_callback : false,
+    ask_on_leave            : false,
+    on_leave_callback       : false,
     valid_class             : 'valid',
     invalid_class           : 'invalid',
     error_class             : 'error',
