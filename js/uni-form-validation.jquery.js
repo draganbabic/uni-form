@@ -22,6 +22,14 @@
  * @license MIT http://www.opensource.org/licenses/mit-license.php
  */
 jQuery.fn.uniform = function(extended_settings) {
+    
+    /**
+     * Self reference for closures
+     *
+     * @var object
+     */
+    var self = this;
+    
     /**
      * Object extending the defaults object
      *
@@ -31,6 +39,7 @@ jQuery.fn.uniform = function(extended_settings) {
         jQuery.fn.uniform.defaults,
         extended_settings
     );
+    
     /**
      * Language abstration string
      * 
@@ -381,11 +390,54 @@ jQuery.fn.uniform = function(extended_settings) {
         return out;
     };
 
-    /**
-     * Apply the Uni-Form bahaviours to the form
+    /** 
+     * Uni-Form form validation error
      *
+     * @param string title of the form error
+     * @param array  list of error messages to show
+     *
+     * @return false
      */
-    var self = this;
+    var showFormError = function(form, title, messages) {
+      if($('#errorMsg').length) {
+        $('#errorMsg').remove();
+      }
+      $message =
+          $('<div />')
+              .attr('id','errorMsg')
+              .html("<h3>" + title + "</h3>");
+      if(messages.length) {
+          $message.append($('<ol />'));
+          for(m in messages) {
+              $('ol', $message).append(
+                  $('<li />').text(messages[m])
+              );
+          }
+      }
+      form.prepend($message);
+      $('html, body').animate({
+          scrollTop: form.offset().top
+      }, 500);
+      $('#errorMsg').slideDown();
+      return false;
+    };
+    
+    var showFormSuccess = function(form, title) {
+      if($('#okMsg').length) {
+        $('#okMsg').remove();
+      }
+      $message =
+          $('<div />')
+              .attr('id','okMsg')
+              .html("<h3>" + title + "</h3>");
+      form.prepend($message);
+      $('html, body').animate({
+          scrollTop: form.offset().top
+      }, 500);
+      $('#okMsg').slideDown();
+      return false;
+    };
+
     return this.each(function() {
         var form = jQuery(this);
         
@@ -496,7 +548,7 @@ jQuery.fn.uniform = function(extended_settings) {
                 form.addClass('failedSubmit');
                 return ($.isFunction(settings.prevent_submit_callback))
                     ? settings.prevent_submit_callback(form)
-                    : false;
+                    : showFormError(form, i18n('submit_msg'), [i18n('submit_help')]);
               }
               
               settings.ask_on_leave = false;
@@ -617,25 +669,28 @@ jQuery.fn.uniform = function(extended_settings) {
  * Internationalized language strings for validation messages
  */
 jQuery.fn.uniform.language = {
-    required     : '%s is required',
-    req_radio    : 'Please make a selection',
-    req_checkbox : 'You must select this checkbox to continue',
-    minlength    : '%s should be at least %d characters long',
-    min          : '%s should be greater than or equal to %d',
-    maxlength    : '%s should not be longer than %d characters',
-    max          : '%s should be less than or equal to %d',
-    same_as      : '%s is expected to be same as %s',
-    email        : '%s is not a valid email address',
-    url          : '%s is not a valid URL',
-    number       : '%s needs to be a number',
-    integer      : '%s needs to be a whole number',
-    alpha        : '%s should contain only letters (without special characters or numbers)',
-    alphanum     : '%s should contain only numbers and letters (without special characters)',
-    phrase       : '%s should contain only alphabetic characters, numbers, spaces, and the following: . , - _ () * # :',
-    phone        : '%s should be a phone number',
-    date         : '%s should be a date (mm/dd/yyyy)',
-    callback     : 'Failed to validate %s field. Validator function (%s) is not defined!',
-    on_leave     : 'Are you sure you want to leave this page without saving this form?'
+    required      : '%s is required',
+    req_radio     : 'Please make a selection',
+    req_checkbox  : 'You must select this checkbox to continue',
+    minlength     : '%s should be at least %d characters long',
+    min           : '%s should be greater than or equal to %d',
+    maxlength     : '%s should not be longer than %d characters',
+    max           : '%s should be less than or equal to %d',
+    same_as       : '%s is expected to be same as %s',
+    email         : '%s is not a valid email address',
+    url           : '%s is not a valid URL',
+    number        : '%s needs to be a number',
+    integer       : '%s needs to be a whole number',
+    alpha         : '%s should contain only letters (without special characters or numbers)',
+    alphanum      : '%s should contain only numbers and letters (without special characters)',
+    phrase        : '%s should contain only alphabetic characters, numbers, spaces, and the following: . , - _ () * # :',
+    phone         : '%s should be a phone number',
+    date          : '%s should be a date (mm/dd/yyyy)',
+    callback      : 'Failed to validate %s field. Validator function (%s) is not defined!',
+    on_leave      : 'Are you sure you want to leave this page without saving this form?',
+    submit_msg    : 'Sorry, this form needs corrections.',
+    submit_help   : 'Please see the items marked below.',
+    submit_success: 'Thank you, this form has been sent.'
 };
 
 /**
