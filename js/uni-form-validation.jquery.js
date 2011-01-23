@@ -598,7 +598,7 @@ jQuery.fn.uniform = function(extended_settings) {
         form.delegate(settings.field_selector, 'blur', function() {
             var $input = $(this);
             var label  = $(this)
-                .closest('div.'+settings.holder_class)
+                .closest('div.' + settings.holder_class)
                 .find('label').text().replace('*','');
 
             // remove focus from form element
