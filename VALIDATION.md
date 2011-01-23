@@ -32,7 +32,6 @@ as a parameter when you call uniform().
 
 ## Uni-Form Settings
 
-
 * prevent_submit (false)
   Set this to true to prevent the form from submitting if there are outstanding
   errors in the form
@@ -60,3 +59,32 @@ as a parameter when you call uniform().
   validation (if enabled)
 * default_value_color ("#AFAFAF")
   HEX color used to display the default data in the background of empty text inputs
+  
+## Validators
+
+* required
+* validateMinLength
+* validateMin
+* validateMaxLength
+* validateMax
+* validateSameAs
+* validateEmail
+* validateUrl
+* validateNumber
+* validateInteger
+* validateAlpha
+* validateAlphaNum
+* validatePhrase
+* validatePhone
+* validateDate
+* validateCallback
+
+Validators what require a parameter, such as validateMinLength, take that parameter
+as a class name following the validator in the format of _val-{value}_. 
+
+## validateCallback
+
+The validateCallback is a special validator. See the demo/callback.html file for example
+use. It allows you to define a custom callback to an input without having to add a new
+validator type to the library.
+
