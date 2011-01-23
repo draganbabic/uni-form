@@ -1,5 +1,5 @@
 /**
- * Uni-Form jQuery Plugin
+ * Uni-Form jQuery Plugin with Validation
  *
  * Provides form actions for use with the Uni-Form markup style
  * This version adds additional support for client side validation
