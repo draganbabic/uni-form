@@ -651,7 +651,7 @@ jQuery.fn.uniform = function(extended_settings) {
         });
 
         /**
-         * Handle a succesfull validation in the form element
+         * Handle a succesful validation in the form element
          * 
          * Remove any error messages and set the validation 
          * marker to be success
@@ -694,7 +694,7 @@ jQuery.fn.uniform.language = {
 };
 
 /**
- * prevent_submit : enable with either true or class on form of "preventSubmit"
+ * See the validation.md file for more information about these options
  */
 jQuery.fn.uniform.defaults = {
     prevent_submit          : false,
