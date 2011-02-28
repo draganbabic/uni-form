@@ -392,6 +392,7 @@ test("Date test", function() {
     '1/1/2011'   : true,
     '1/1/2011'   : true,
     '11/1/2011/' : true,
+    '01/01/2001' : true, // Case 6
     '16/40/2011' : false
   };
   
