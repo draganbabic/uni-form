@@ -315,7 +315,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         validateDate : function(field, caption) {
-            if(field.val().match('(1[0-9]|[1-9])/([1-3][0-9]|[1-9])/((19|20)[0-9][0-9]|[0-9][0-9])')) {
+            if(field.val().match('([0]?[1-9]|[1][0-2])/([0]?[1-9]|[1|2][0-9]|[3][0|1])/([0-9]{4}|[0-9]{2})$')) {
                 return true;
             }
             return i18n('date', caption);
