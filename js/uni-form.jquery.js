@@ -61,11 +61,15 @@ jQuery.fn.uniform = function(settings) {
                 value = $input.val();
 
             $input.data('default-color',$input.css('color'));
+            $input.data('true-type', $input[0].type);
 
             if (value == $input.data('default-value') || ! value) {
                 $input.not('select').css("color",settings.default_value_color);
                 $input.val($input.data('default-value'));
 
+		if($input[0].type == 'password') {
+		    $input[0].type = 'text';
+		}
             }
         })
 
@@ -78,6 +82,10 @@ jQuery.fn.uniform = function(settings) {
             
             if($input.val() == $input.data('default-value')){
                 $input.val("");
+                
+                if($input.data('true-type') == 'password') {
+                    $input[0].type = $input.data('true-type');
+                }
             }
 
             $input.not('select').css('color',$input.data('default-color'));
@@ -89,6 +97,10 @@ jQuery.fn.uniform = function(settings) {
             if($input.val() == "" || $input.val() == $input.data('default-value')){
                 $input.not('select').css("color",settings.default_value_color);
                 $input.val($input.data('default-value'));
+                
+                if($input.data('true-type') == 'password') {
+		    $input[0].type = 'text';
+		}
             } else {
                 $input.css('color',$input.data('default-color'));
             }
