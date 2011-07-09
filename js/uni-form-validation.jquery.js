@@ -21,8 +21,9 @@
  * @see http://sprawsm.com/uni-form/
  * @license MIT http://www.opensource.org/licenses/mit-license.php
  */
+
 jQuery.fn.uniform = function(extended_settings) {
-    
+    var messages = {} // errors of all fields by their names
     /**
      * Self reference for closures
      *
@@ -193,7 +194,8 @@ jQuery.fn.uniform = function(extended_settings) {
                 var target_field = jQuery('input[name="' + target_field_name + '"]');
                 if(target_field.length > 0) {
                     if(target_field.val() != field.val()) {
-                        var target_field_caption = target_field.closest('div.'+settings.holder_class).find('label').text().replace('*','');
+                        //var target_field_caption = target_field.closest('div.'+settings.holder_class).find('label').text().replace('*','');
+                        var target_field_caption = get_label_text(target_field);
                         return i18n('same_as', caption, target_field_caption);
                     }
                 }
@@ -363,6 +365,18 @@ jQuery.fn.uniform = function(extended_settings) {
         }
   
     };
+
+    /**
+     * get the text of the label that belongs to the field
+     * @param field jQ object, e.g. $("#email")
+     */
+    get_label_text = function(field) {
+        var text = field.closest('label').text();
+        if (text == "") {
+            text = field.closest('div.' + settings.holder_class).find('label').text();
+        }
+        return text.replace('*','').replace(':','');
+    }
 
     /** 
      * Simple replacement for i18n + sprintf
@@ -597,9 +611,9 @@ jQuery.fn.uniform = function(extended_settings) {
          */
         form.delegate(settings.field_selector, 'blur', function() {
             var $input = $(this);
-            var label  = $(this)
-                .closest('div.' + settings.holder_class)
-                .find('label').text().replace('*','');
+            var label  = get_label_text($(this));
+                //.closest('div.' + settings.holder_class)
+                //.find('label').text().replace('*','');
 
             // remove focus from form element
             form.find('.' + settings.focused_class).removeClass(settings.focused_class);
