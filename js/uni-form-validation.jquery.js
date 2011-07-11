@@ -23,7 +23,7 @@
  */
 
 jQuery.fn.uniform = function(extended_settings) {
-    var messages = {} // errors of all fields by their names
+    var errors = {} // errors of all fields by their names
     /**
      * Self reference for closures
      *
@@ -405,37 +405,34 @@ jQuery.fn.uniform = function(extended_settings) {
     };
 
     /** 
-     * Uni-Form form validation error
-     *
-     * @param string title of the form error
-     * @param array  list of error messages to show
-     *
-     * @return false
-     */
+    * Uni-Form form validation error
+    *
+    * @param string title of the form error
+    * @param array  list of error messages to show
+    *
+    * @return false
+    */
     var showFormError = function(form, title, messages) {
-      if($('#errorMsg').length) {
-        $('#errorMsg').remove();
-      }
-      $message =
-          $('<div />')
-              .attr('id','errorMsg')
-              .html("<h3>" + title + "</h3>");
-      if(messages.length) {
-          $message.append($('<ol />'));
-          for(m in messages) {
-              $('ol', $message).append(
-                  $('<li />').text(messages[m])
-              );
-          }
-      }
-      form.prepend($message);
-      $('html, body').animate({
-          scrollTop: form.offset().top
-      }, 500);
-      $('#errorMsg').slideDown();
-      return false;
+        if($('#errorMsg').length) {
+            $('#errorMsg').remove();
+        }
+        $message = $('<div />')
+            .attr('id','errorMsg')
+            .attr('style','display:none')
+            .html("<h3>" + title + "</h3>");
+        $message.append($('<ol />'));
+        for(m in messages) {
+            $('ol', $message).append(
+                $('<li />').text(messages[m]
+            ));
+        }
+        form.prepend($message);
+        $scrollableArea = $('div.mainbody');
+        $scrollableArea.animate({scrollTop: '0px'}, 200);
+        $('#errorMsg').slideDown(800);
+        return false;
     };
-    
+
     var showFormSuccess = function(form, title) {
       if($('#okMsg').length) {
         $('#okMsg').remove();
@@ -465,23 +462,14 @@ jQuery.fn.uniform = function(extended_settings) {
          * @return null
          */
         var validate = function($input,valid,text) {
-            var $p = $input.closest('div.' + settings.holder_class)
+            $input.closest('div.' + settings.holder_class)
                            .andSelf()
                            .toggleClass(settings.invalid_class, !valid)
                            .toggleClass(settings.error_class, !valid)
                            .toggleClass(settings.valid_class, valid)
-                           .find('p.formHint');
-    
-            if (! valid && ! $p.data('info-text')) {
-                $p.data('info-text', $p.html());
-            }
-            else if (valid) {
-                text = $p.data('info-text');
-            }
-    
-            if (text) {
-                $p.html(text);
-            }
+                           //.find('p.formHint'); // do nothing with it
+            if (! valid)
+                errors[$input.attr("name")] = text;
         };
         
         /**
