@@ -429,7 +429,7 @@ jQuery.fn.uniform = function(extended_settings) {
         form.prepend($message);
         $scrollableArea = $('div.mainbody');
         $scrollableArea.animate({scrollTop: '0px'}, 200);
-        $('#errorMsg').slideDown(800);
+        $('#errorMsg').slideDown(400);
         return false;
     };
 
@@ -449,28 +449,32 @@ jQuery.fn.uniform = function(extended_settings) {
       return false;
     };
 
+    /**
+     * Set the results of form validation on the form element
+     * NOTE: shall be overridable
+     *
+     * @param object $input jQuery form element
+     * @param bool   valid  true if the form value passed all validation
+     * @param string text   validation error message to display
+     *
+     * @return null
+     */
+    var validate = function($input,valid,text) {
+        $input.closest('div.' + settings.holder_class)
+             .andSelf()
+             .toggleClass(settings.invalid_class, !valid)
+             .toggleClass(settings.error_class, !valid)
+             .toggleClass(settings.valid_class, valid)
+             //.find('p.formHint'); // do nothing with it
+        name = $input.attr("name");
+        if (! valid)
+            errors[name] = text;
+        else if (name in errors)
+            delete errors[name];
+    };
+
     return this.each(function() {
         var form = jQuery(this);
-        
-        /**
-         * Set the results of form validation on the form element
-         *
-         * @param object $input jQuery form element
-         * @param bool   valid  true if the form value passed all validation
-         * @param string text   validation error message to display
-         *
-         * @return null
-         */
-        var validate = function($input,valid,text) {
-            $input.closest('div.' + settings.holder_class)
-                           .andSelf()
-                           .toggleClass(settings.invalid_class, !valid)
-                           .toggleClass(settings.error_class, !valid)
-                           .toggleClass(settings.valid_class, valid)
-                           //.find('p.formHint'); // do nothing with it
-            if (! valid)
-                errors[$input.attr("name")] = text;
-        };
         
         /**
          * Select form fields and attach the higlighter functionality
@@ -550,7 +554,7 @@ jQuery.fn.uniform = function(extended_settings) {
                 form.addClass('failedSubmit');
                 return ($.isFunction(settings.prevent_submit_callback))
                     ? settings.prevent_submit_callback(form)
-                    : showFormError(form, i18n('submit_msg'), [i18n('submit_help')]);
+                    : showFormError(form, i18n('submit_msg'), errors);
               }
               
               settings.ask_on_leave = false;
