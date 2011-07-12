@@ -23,7 +23,7 @@
  */
 
 jQuery.fn.uniform = function(extended_settings) {
-    var errors = {} // errors of all fields by their names
+    var errors = {}; // errors of all fields by their names
     /**
      * Self reference for closures
      *
@@ -427,8 +427,7 @@ jQuery.fn.uniform = function(extended_settings) {
             ));
         }
         form.prepend($message);
-        $scrollableArea = $('div.mainbody');
-        $scrollableArea.animate({scrollTop: '0px'}, 200);
+        settings.scrollable_area.animate({scrollTop: '0px'}, 200);
         $('#errorMsg').slideDown(400);
         return false;
     };
@@ -713,5 +712,6 @@ jQuery.fn.uniform.defaults = {
     focused_class           : 'focused',
     holder_class            : 'ctrlHolder',
     field_selector          : 'input, textarea, select',
-    default_value_color     : "#AFAFAF"
+    default_value_color     : "#AFAFAF",
+    scrollable_area         : $('html, body')
 };
