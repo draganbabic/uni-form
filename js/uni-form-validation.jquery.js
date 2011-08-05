@@ -209,7 +209,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         validateEmail : function(field, caption) {
-            if(field.val().match(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
+            if(field.val().match(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
                 return true;
             } else {
                 return i18n('email', caption);

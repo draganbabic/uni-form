@@ -202,6 +202,7 @@ test("Email address test", function() {
     'spam@example.com'        : true,
     'spam@example.co.uk'      : true,
     'spam.spam@example.co.uk' : true,
+    'user+filter@gmail.com'   : true,
     'spam@.com'               : false,
     'spam@com'                : false,
     'spam.com'                : false
