@@ -538,7 +538,9 @@ jQuery.fn.uniform = function(extended_settings) {
 
             // remove the default values from the val() where they were being displayed
             form.find(settings.field_selector).each(function() {
-                if ($(this).val() === $(this).data('default-value')) { $(this).val(""); }
+                if ($(this).val() === $(this).data('default-value')) {
+                    $(this).val('');
+                }
             });
 
             // traverse and revalidate making sure that we haven't missed any fields

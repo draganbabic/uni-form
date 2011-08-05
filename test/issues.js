@@ -74,7 +74,7 @@ test("Case 2 : Required validation for radio button", function() {
  * 
  * @link https://github.com/LearningStation/uni-form/issues/issue/3
  */
-test("Case 3 : data-default-value gets submitted", function() {
+test("Case 3 : data-default-value should not be submitted", function() {
 
   $form = jQuery('#qunit-form');
   $form.uniform();
