@@ -4,3 +4,4 @@ demos/dev.html
 build.sh
 js/min.header.js
 .DS_Store
+demos/checkboxes.html

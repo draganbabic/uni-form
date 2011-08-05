@@ -344,8 +344,8 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param caption
          */
         validateCallback : function(field, caption) {
-            var classes = field.attr('class').split(' ');
-            var callback_function = '';
+            var classes = field.attr('class').split(' '),
+                callback_function = '';
 
             for (var i = 0; i < classes.length; i++) {
                 if (classes[i] === 'validateCallback') {
