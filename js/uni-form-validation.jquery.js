@@ -558,7 +558,7 @@ jQuery.fn.uniform = function(extended_settings) {
               ) {
                 form.addClass('failedSubmit');
                 return ($.isFunction(settings.prevent_submit_callback))
-                    ? settings.prevent_submit_callback(form)
+                    ? settings.prevent_submit_callback(form, i18n('submit_msg'), [i18n('submit_help')])
                     : showFormError(form, i18n('submit_msg'), [i18n('submit_help')]);
               }
 
