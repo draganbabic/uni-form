@@ -178,8 +178,10 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         validateSameAs : function(field, caption) {
-            var classes = field.attr('class').split(' ');
-            var target_field_name = '';
+            var classes = field.attr('class').split(' '),
+                target_field = '',
+                target_field_name = '',
+                target_field_caption = '';
 
             for (var i = 0; i < classes.length; i++) {
                 if (classes[i] === 'validateSameAs') {
@@ -191,10 +193,10 @@ jQuery.fn.uniform = function(extended_settings) {
             }
 
             if (target_field_name) {
-                var target_field = jQuery('input[name="' + target_field_name + '"]');
+                target_field = jQuery('input[name="' + target_field_name + '"]');
                 if (target_field.length > 0) {
                     if (target_field.val() != field.val()) {
-                        var target_field_caption = target_field.closest('div.'+settings.holder_class).find('label').text().replace('*','');
+                        target_field_caption = get_label_text(target_field);
                         return i18n('same_as', caption, target_field_caption);
                     }
                 }
@@ -363,6 +365,18 @@ jQuery.fn.uniform = function(extended_settings) {
             return i18n('callback', caption, callback_function);
         }
 
+    };
+
+    /**
+     * get the text of the label that belongs to the field
+     * @param field jQ object, e.g. $("#email")
+     */
+    var get_label_text = function(field) {
+        var text = field.closest('label').text();
+        if (text === '') {
+          text = field.closest('div.' + settings.holder_class).find('label').text();
+        }
+        return text.replace('*', '').replace(':', '');
     };
 
     /**
@@ -611,9 +625,7 @@ jQuery.fn.uniform = function(extended_settings) {
             var $input = $(this),
                 has_validation = false,
                 validator,
-                label = $(this)
-                    .closest('div.' + settings.holder_class)
-                    .find('label').text().replace('*','');
+                label = get_label_text($(this));
 
             // remove focus from form element
             form.find('.' + settings.focused_class).removeClass(settings.focused_class);
