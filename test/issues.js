@@ -146,10 +146,12 @@ test("Case 4 : Required validation for checkbox", function() {
  */
 test("Case 15 : Default value with a period should not be rounded", function() {
 
+  $input = $('#issue_15_a');
+  $input.attr('data-default-value', '100.000');
+
   $form = jQuery('#qunit-form');
   $form.uniform();
-
-  $input = $('#issue_15_a');
+  
   equals(
     $input.val(),
     $input.attr('data-default-value'),

@@ -408,4 +408,32 @@ test("Date test", function() {
   
 });
 
+test("Default data hides correctly", function() {
+
+  default_text = 'This is a sample';
+
+  $input = $('#issue_15_a');
+  $input.attr('data-default-value', default_text);
+
+  $form = jQuery('#qunit-form');
+  $form.uniform();
+  
+  // should be showing the default
+  equals(
+    $input.val(),
+    default_text,
+    "The default value has not been displayed correctly"
+  );
+  
+  $input.focus();
+  
+  // should now be empty
+  equals(
+    $input.val(),
+    '',
+    "The default value has not been displayed correctly"
+  );
+
+});
+
 

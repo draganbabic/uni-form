@@ -485,11 +485,13 @@ jQuery.fn.uniform = function(extended_settings) {
             var $input = $(this),
                 value = $input.val();
 
-            $input.data('default-color',$input.css('color'));
+            $input.data('default-color', $input.css('color'));
 
             if (value === $input.data('default-value') || ! value) {
                 $input.not('select').css("color", settings.default_value_color);
-                $input.val($input.data('default-value'));
+                // Issue 15, we use .attr() here because we want the string value
+                // and the .data() can type cast
+                $input.val($input.attr('data-default-value'));
             }
         });
 
