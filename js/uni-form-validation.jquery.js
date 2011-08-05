@@ -580,7 +580,7 @@ jQuery.fn.uniform = function(extended_settings) {
             if (settings.prevent_submit || form.hasClass('preventSubmit')) {
               // use blur to run the validators on each field
               form.find(settings.field_selector).each(function() {
-                $(this).blur();
+                  $(this).blur();
               });
 
               if (form
@@ -600,7 +600,7 @@ jQuery.fn.uniform = function(extended_settings) {
 
             // qUnit needs to run this function, and still prevent the submit
             if (form.parents('#qunit-fixture').length) {
-              return false;
+                return false;
             }
 
             settings.ask_on_leave = false;
@@ -657,7 +657,6 @@ jQuery.fn.uniform = function(extended_settings) {
             }
 
             // run the validation and if they all pass, we mark the color and move on
-
             for (validator in self.validators) {
                 if ($input.hasClass(validator)) {
                     has_validation = true;
@@ -746,6 +745,7 @@ jQuery.fn.uniform.language = {
  * See the validation.md file for more information about these options
  */
 jQuery.fn.uniform.defaults = {
+    submit_callback         : false,
     prevent_submit          : false,
     prevent_submit_callback : false,
     ask_on_leave            : false,
