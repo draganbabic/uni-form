@@ -5,15 +5,15 @@
  * This version adds additional support for client side validation
  *
  * Author: Ilija Studen for the purposes of Uni-Form
- * 
+ *
  * Modified by Aris Karageorgos to use the parents function
- * 
+ *
  * Modified by Toni Karlheinz to support input fields' text
  * coloring and removal of their initial values on focus
- * 
+ *
  * Modified by Jason Brumwell for optimization, addition
  * of valid and invalid states and default data attribues
- * 
+ *
  * Modified by LearningStation to add support for client
  * side validation routines. The validation routines based on an
  * open source library of unknown authorship.
@@ -22,14 +22,14 @@
  * @license MIT http://www.opensource.org/licenses/mit-license.php
  */
 jQuery.fn.uniform = function(extended_settings) {
-    
+
     /**
      * Self reference for closures
      *
      * @var object
      */
     var self = this;
-    
+
     /**
      * Object extending the defaults object
      *
@@ -39,10 +39,10 @@ jQuery.fn.uniform = function(extended_settings) {
         jQuery.fn.uniform.defaults,
         extended_settings
     );
-    
+
     /**
      * Language abstration string
-     * 
+     *
      * to extend, use a script tag to include a file from the localization folder
      *
      * @var object
@@ -55,7 +55,7 @@ jQuery.fn.uniform = function(extended_settings) {
      * @var Object
      */
     this.validators = {
-    
+
         /**
          * Get the value for a validator that takes parameters
          *
@@ -67,9 +67,9 @@ jQuery.fn.uniform = function(extended_settings) {
         get_val : function(name, classes, default_value) {
             var value = default_value;
             classes = classes.split(' ');
-            for(var i = 0; i < classes.length; i++) {
-                if(classes[i] == name) {
-                    if((classes[i + 1] != 'undefined') && ('val-' === classes[i + 1].substr(0,4))) {
+            for (var i = 0; i < classes.length; i++) {
+                if (classes[i] === name) {
+                    if ((classes[i + 1] != 'undefined') && ('val-' === classes[i + 1].substr(0,4))) {
                         value = parseInt(classes[i + 1].substr(4),10);
                         return value;
                     }
@@ -77,7 +77,7 @@ jQuery.fn.uniform = function(extended_settings) {
             }
             return value;
         },
-        
+
         /**
          * Value of field is not empty, whitespace will be counted as empty
          *
@@ -85,26 +85,27 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         required : function(field, caption) {
-            if(field.is(':radio')) {
-                var name = field.attr('name');
-                if($("input[name=" + name + "]:checked").length) {
+            var name;
+            if (field.is(':radio')) {
+                name = field.attr('name');
+                if ($("input[name=" + name + "]:checked").length) {
                     return true;
                 }
                 return i18n('req_radio', caption);
             }
-            if(field.is(':checkbox')) {
-                var name = field.attr('name');
-                if(field.is(":checked")) {
+            if (field.is(':checkbox')) {
+                name = field.attr('name');
+                if (field.is(":checked")) {
                     return true;
                 }
                 return i18n('req_checkbox', caption);
             }
-            if(jQuery.trim(field.val()) == '') {
+            if (jQuery.trim(field.val()) === '') {
                 return i18n('required', caption);
             }
             return true;
         },
-    
+
         /**
          * Value is shorter than allowed
          *
@@ -114,12 +115,12 @@ jQuery.fn.uniform = function(extended_settings) {
         validateMinLength : function(field, caption) {
             var min_length = this.get_val('validateMinLength', field.attr('class'), 0);
 
-            if((min_length > 0) && (field.val().length < min_length)) {
+            if ((min_length > 0) && (field.val().length < min_length)) {
                 return i18n('minlength', caption, min_length);
             }
             return true;
         },
-        
+
         /**
          * Value is less than min
          *
@@ -128,13 +129,13 @@ jQuery.fn.uniform = function(extended_settings) {
          */
         validateMin : function(field, caption) {
             var min_val = this.get_val('validateMin', field.attr('class'), 0);
-      
-            if((parseInt(field.val(),10) < min_val)) {
+
+            if ((parseInt(field.val(),10) < min_val)) {
                 return i18n('min', caption, min_val);
             }
             return true;
         },
-    
+
         /**
          * Value is longer than allowed
          *
@@ -143,13 +144,13 @@ jQuery.fn.uniform = function(extended_settings) {
          */
         validateMaxLength : function(field, caption) {
             var max_length = this.get_val('validateMaxLength', field.attr('class'), 0);
-      
-            if((max_length > 0) && (field.val().length > max_length)) {
+
+            if ((max_length > 0) && (field.val().length > max_length)) {
                 return i18n('maxlength', caption, max_length);
             }
             return true;
         },
-        
+
         /**
          * Value is greater than max
          *
@@ -158,13 +159,13 @@ jQuery.fn.uniform = function(extended_settings) {
          */
         validateMax : function(field, caption) {
             var max_val = this.get_val('validateMax', field.attr('class'), 0);
-    
-            if((parseInt(field.val(),10) > max_val)) {
+
+            if ((parseInt(field.val(),10) > max_val)) {
                 return i18n('max', caption, max_val);
             }
             return true;
         },
-    
+
         /**
          * Element has same value as that of the target Element
          *
@@ -179,29 +180,29 @@ jQuery.fn.uniform = function(extended_settings) {
         validateSameAs : function(field, caption) {
             var classes = field.attr('class').split(' ');
             var target_field_name = '';
-      
-            for(var i = 0; i < classes.length; i++) {
-                if(classes[i] == 'validateSameAs') {
-                    if(classes[i + 1] != 'undefined') {
+
+            for (var i = 0; i < classes.length; i++) {
+                if (classes[i] === 'validateSameAs') {
+                    if (classes[i + 1] != 'undefined') {
                         target_field_name = classes[i + 1];
                         break;
                     }
                 }
             }
-            
-            if(target_field_name) {
+
+            if (target_field_name) {
                 var target_field = jQuery('input[name="' + target_field_name + '"]');
-                if(target_field.length > 0) {
-                    if(target_field.val() != field.val()) {
+                if (target_field.length > 0) {
+                    if (target_field.val() != field.val()) {
                         var target_field_caption = target_field.closest('div.'+settings.holder_class).find('label').text().replace('*','');
                         return i18n('same_as', caption, target_field_caption);
                     }
                 }
             }
-      
+
             return true;
         },
-    
+
         /**
          * Valid email address
          *
@@ -209,13 +210,13 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         validateEmail : function(field, caption) {
-            if(field.val().match(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
+            if (field.val().match(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
                 return true;
             } else {
                 return i18n('email', caption);
             }
         },
-    
+
         /**
          * Valid URL (http://,https://,ftp://)
          *
@@ -223,12 +224,12 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         validateUrl : function(field, caption) {
-            if(field.val().match(/^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?\/?/i)) {
+            if (field.val().match(/^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_\-]*)(\.[A-Z0-9][A-Z0-9_\-]*)+)(:(\d+))?\/?/i)) {
                 return true;
             }
             return i18n('url', caption);
         },
-    
+
         /**
          * Number is only valid value (integers and floats)
          *
@@ -236,12 +237,12 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         validateNumber : function(field, caption) {
-            if(field.val().match(/(^-?\d\d*\.\d*$)|(^-?\d\d*$)|(^-?\.\d\d*$)/) || field.val() == '') {
+            if (field.val().match(/(^-?\d\d*\.\d*$)|(^-?\d\d*$)|(^-?\.\d\d*$)/) || field.val() === '') {
                 return true;
             }
             return i18n('number', caption);
         },
-    
+
         /**
          * Whole numbers are allowed
          *
@@ -249,12 +250,12 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         validateInteger : function(field, caption) {
-            if(field.val().match(/(^-?\d\d*$)/) || field.val() == '') {
+            if (field.val().match(/(^-?\d\d*$)/) || field.val() === '') {
                 return true;
             }
             return i18n('integer', caption);
         },
-    
+
         /**
          * Letters only
          *
@@ -262,12 +263,12 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         validateAlpha : function(field, caption) {
-            if(field.val().match(/^[a-zA-Z]+$/)) {
+            if (field.val().match(/^[a-zA-Z]+$/)) {
                 return true;
             }
             return i18n('alpha', caption);
         },
-    
+
         /**
          * Letters and numbers
          *
@@ -275,12 +276,12 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         validateAlphaNum : function(field, caption) {
-            if(field.val().match(/\W/)) {
+            if (field.val().match(/\W/)) {
                 return i18n('alphanum', caption);
             }
             return true;
         },
-    
+
         /**
          * Simple phrases
          *
@@ -288,12 +289,12 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         validatePhrase : function(field, caption) {
-            if((field.val() == '') || field.val().match(/^[\w\d\.\-_\(\)\*'# :,]+$/i)) {
+            if ((field.val() === '') || field.val().match(/^[\w\d\.\-_\(\)\*'# :,]+$/i)) {
                 return true;
             }
             return i18n('phrase', caption);
         },
-        
+
         /**
          * Phone number
          *
@@ -301,13 +302,13 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         validatePhone : function(field, caption) {
-            phoneNumber = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
-            if(phoneNumber.test(field.val())) {
+            var phoneNumber = /^\(?(\d{3})\)?[\- ]?(\d{3})[\- ]?(\d{4})$/;
+            if (phoneNumber.test(field.val())) {
                 return true;
             }
             return i18n('phone', caption);
         },
-        
+
         /**
          * Date in MM/DD/YYYY format
          *
@@ -315,12 +316,12 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param string caption
          */
         validateDate : function(field, caption) {
-            if(field.val().match('([0]?[1-9]|[1][0-2])/([0]?[1-9]|[1|2][0-9]|[3][0|1])/([0-9]{4}|[0-9]{2})$')) {
+            if (field.val().match('([0]?[1-9]|[1][0-2])/([0]?[1-9]|[1|2][0-9]|[3][0|1])/([0-9]{4}|[0-9]{2})$')) {
                 return true;
             }
             return i18n('date', caption);
         },
-    
+
         /**
          * Callback validator
          *
@@ -332,7 +333,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * executing it with field and caption arguments. Sample implementation:
          *
          * window.my_callback = function(field, caption) {
-         *   if(field.val() == '34') {
+         *   if (field.val() === '34') {
          *     return true;
          *   } else {
          *     return caption + ' value should be "34"';
@@ -345,26 +346,26 @@ jQuery.fn.uniform = function(extended_settings) {
         validateCallback : function(field, caption) {
             var classes = field.attr('class').split(' ');
             var callback_function = '';
-      
-            for(var i = 0; i < classes.length; i++) {
-                if(classes[i] == 'validateCallback') {
-                    if(classes[i + 1] != 'undefined') {
+
+            for (var i = 0; i < classes.length; i++) {
+                if (classes[i] === 'validateCallback') {
+                    if (classes[i + 1] != 'undefined') {
                         callback_function = classes[i + 1];
                         break;
                     }
                 }
             }
-      
-            if(window[callback_function] != 'undefined' && (typeof window[callback_function] == 'function')) {
+
+            if (window[callback_function] != 'undefined' && (typeof window[callback_function] === 'function')) {
                 return window[callback_function](field, caption);
             }
-      
+
             return i18n('callback', caption, callback_function);
         }
-  
+
     };
 
-    /** 
+    /**
      * Simple replacement for i18n + sprintf
      *
      * @param string language for for the local i18n object
@@ -373,16 +374,20 @@ jQuery.fn.uniform = function(extended_settings) {
      * @return internationalized string
      */
     var i18n = function(lang_key) {
-        var lang_string = i18n_strings[lang_key];
-        var bits = lang_string.split('%');
-        var out = bits[0];
-        var re = /^([ds])(.*)$/;
+        var lang_string = i18n_strings[lang_key],
+            bits = lang_string.split('%'),
+            out = bits[0],
+            re = /^([ds])(.*)$/,
+            p;
+        
         for (var i=1; i<bits.length; i++) {
             p = re.exec(bits[i]);
-            if (!p || arguments[i] == null) continue;
-            if (p[1] == 'd') {
+            if (!p || arguments[i] === null) {
+              continue;
+            }
+            if (p[1] === 'd') {
                 out += parseInt(arguments[i], 10);
-            } else if (p[1] == 's') {
+            } else if (p[1] === 's') {
                 out += arguments[i];
             }
             out += p[2];
@@ -390,7 +395,7 @@ jQuery.fn.uniform = function(extended_settings) {
         return out;
     };
 
-    /** 
+    /**
      * Uni-Form form validation error
      *
      * @param string title of the form error
@@ -399,16 +404,17 @@ jQuery.fn.uniform = function(extended_settings) {
      * @return false
      */
     var showFormError = function(form, title, messages) {
-      if($('#errorMsg').length) {
+      var m, $message;
+      if ($('#errorMsg').length) {
         $('#errorMsg').remove();
       }
       $message =
           $('<div />')
               .attr('id','errorMsg')
               .html("<h3>" + title + "</h3>");
-      if(messages.length) {
+      if (messages.length) {
           $message.append($('<ol />'));
-          for(m in messages) {
+          for (m in messages) {
               $('ol', $message).append(
                   $('<li />').text(messages[m])
               );
@@ -421,15 +427,16 @@ jQuery.fn.uniform = function(extended_settings) {
       $('#errorMsg').slideDown();
       return false;
     };
-    
+
     var showFormSuccess = function(form, title) {
-      if($('#okMsg').length) {
-        $('#okMsg').remove();
+      var $message;
+      
+      if ($('#okMsg').length) {
+          $('#okMsg').remove();
       }
-      $message =
-          $('<div />')
-              .attr('id','okMsg')
-              .html("<h3>" + title + "</h3>");
+      $message = $('<div />')
+          .attr('id','okMsg')
+          .html("<h3>" + title + "</h3>");
       form.prepend($message);
       $('html, body').animate({
           scrollTop: form.offset().top
@@ -440,7 +447,7 @@ jQuery.fn.uniform = function(extended_settings) {
 
     return this.each(function() {
         var form = jQuery(this);
-        
+
         /**
          * Set the results of form validation on the form element
          *
@@ -457,24 +464,24 @@ jQuery.fn.uniform = function(extended_settings) {
                            .toggleClass(settings.error_class, !valid)
                            .toggleClass(settings.valid_class, valid)
                            .find('p.formHint');
-    
+
             if (! valid && ! $p.data('info-text')) {
                 $p.data('info-text', $p.html());
             }
             else if (valid) {
                 text = $p.data('info-text');
             }
-    
+
             if (text) {
                 $p.html(text);
             }
         };
-        
+
         /**
          * Select form fields and attach the higlighter functionality
          *
          */
-        form.find(settings.field_selector).each(function(){
+        form.find(settings.field_selector).each(function() {
             var $input = $(this),
                 value = $input.val();
 
@@ -489,17 +496,17 @@ jQuery.fn.uniform = function(extended_settings) {
         /**
          * If we've set ask_on_leave we'll register a handler here
          *
-         * We need to seriaze the form data, wait for a beforeunload, 
+         * We need to seriaze the form data, wait for a beforeunload,
          * then serialize and compare for changes
          *
          * If they changed things, and haven't submitted, we'll let them
          * know about it
-         * 
+         *
          */
-        if(settings.ask_on_leave || form.hasClass('askOnLeave')) {
+        if (settings.ask_on_leave || form.hasClass('askOnLeave')) {
             var initial_values = form.serialize();
             $(window).bind("beforeunload", function(e) {
-                if((initial_values != form.serialize()) 
+                if ((initial_values != form.serialize())
                     && (settings.ask_on_leave || form.hasClass('askOnLeave'))
                 ) {
                     return ($.isFunction(settings.on_leave_callback))
@@ -509,7 +516,7 @@ jQuery.fn.uniform = function(extended_settings) {
             });
         }
 
-        /** 
+        /**
          * Handle the submission of the form
          *
          * Tasks
@@ -523,24 +530,24 @@ jQuery.fn.uniform = function(extended_settings) {
          *
          * @return bool
          */
-        form.submit(function(){
+        form.submit(function() {
             // in the case of a previously failed submit, we'll remove our marker
             form.removeClass('failedSubmit');
-            
+
             // remove the default values from the val() where they were being displayed
-            form.find(settings.field_selector).each(function(){
-                if($(this).val() === $(this).data('default-value')) { $(this).val(""); }
+            form.find(settings.field_selector).each(function() {
+                if ($(this).val() === $(this).data('default-value')) { $(this).val(""); }
             });
 
             // traverse and revalidate making sure that we haven't missed any fields
             // perhaps if a field was filled in before uniform was initialized
             // or if blur failed to fire correctly
-            if(settings.prevent_submit || form.hasClass('preventSubmit')) {
+            if (settings.prevent_submit || form.hasClass('preventSubmit')) {
               // use blur to run the validators on each field
-              form.find(settings.field_selector).each(function(){
+              form.find(settings.field_selector).each(function() {
                 $(this).blur();
               });
-            
+
               if (form
                     .find('.' + settings.invalid_class)
                     .add('.' + settings.error_class).length
@@ -550,25 +557,25 @@ jQuery.fn.uniform = function(extended_settings) {
                     ? settings.prevent_submit_callback(form)
                     : showFormError(form, i18n('submit_msg'), [i18n('submit_help')]);
               }
-              
+
               settings.ask_on_leave = false;
               form.removeClass('askOnLeave');
               return true;
             }
-            
+
             // qUnit needs to run this function, and still prevent the submit
-            if(form.parents('#qunit-fixture').length) {
+            if (form.parents('#qunit-fixture').length) {
               return false;
             }
-          
+
             settings.ask_on_leave = false;
             form.removeClass('askOnLeave');
             return true;
         });
-        
+
         /**
          * Set the form focus class
-         * 
+         *
          * Remove any classes other than the focus class and hide the default label text
          *
          */
@@ -577,9 +584,9 @@ jQuery.fn.uniform = function(extended_settings) {
 
             var $input = $(this);
 
-            $input.parents().filter('.'+settings.holder_class+':first').addClass(settings.focused_class);
-            
-            if($input.val() === $input.data('default-value')){
+            $input.parents().filter('.' + settings.holder_class + ':first').addClass(settings.focused_class);
+
+            if ($input.val() === $input.data('default-value')) {
                 $input.val("");
             }
 
@@ -588,50 +595,52 @@ jQuery.fn.uniform = function(extended_settings) {
 
         /**
          * Validate a form field on the blur event
-         * 
-         * Search the classnames on the element for the names of 
+         *
+         * Search the classnames on the element for the names of
          * validators, and run them as we find them
          *
          * If the validators fail, we trigger either 'success' or 'error' events
          *
          */
         form.delegate(settings.field_selector, 'blur', function() {
-            var $input = $(this);
-            var label  = $(this)
-                .closest('div.' + settings.holder_class)
-                .find('label').text().replace('*','');
+            var $input = $(this),
+                has_validation = false,
+                validator,
+                label  = $(this)
+                    .closest('div.' + settings.holder_class)
+                    .find('label').text().replace('*','');
 
             // remove focus from form element
             form.find('.' + settings.focused_class).removeClass(settings.focused_class);
-            
+
             // (if empty or equal to default value) AND not required
-            if(($input.val() === "" || $input.val() === $input.data('default-value'))
+            if (($input.val() === "" || $input.val() === $input.data('default-value'))
                 && !$input.hasClass('required')
-            ){
-                $input.not('select').css("color",settings.default_value_color);
+            ) {
+                $input.not('select').css("color", settings.default_value_color);
                 $input.val($input.data('default-value'));
                 return;
             }
 
             // run the validation and if they all pass, we mark the color and move on
-            var has_validation = false;
-            for(validator in self.validators) {
-                if($input.hasClass(validator)){
+
+            for (validator in self.validators) {
+                if ($input.hasClass(validator)) {
                     has_validation = true;
                     var validation_result = self.validators[validator]($input, label);
-                    if(typeof(validation_result) == 'string') {
+                    if (typeof(validation_result) === 'string') {
                         $input.trigger('error', validation_result);
                         return;
                     }
                 }
             }
-            
+
             // if it had validation and we didn't return above,
             // then all validation passed
             if (has_validation) {
                 $input.trigger('success');
             }
-            
+
             // return the color to the default
             $input.css('color', $input.data('default-color'));
             return;
@@ -639,27 +648,27 @@ jQuery.fn.uniform = function(extended_settings) {
 
         /**
          * Handle a validation error in the form element
-         * 
+         *
          * This will set the field to have the error marker
          * and update the warning text
          *
          * @param event  e
          * @param string validation message
          */
-        form.delegate(settings.field_selector,'error',function(e,text) {
+        form.delegate(settings.field_selector,'error',function(e, text) {
             validate($(this), false, text);
         });
 
         /**
          * Handle a succesful validation in the form element
-         * 
-         * Remove any error messages and set the validation 
+         *
+         * Remove any error messages and set the validation
          * marker to be success
          *
          * @param event  e
          * @param string unused
          */
-        form.delegate(settings.field_selector,'success',function(e,text) {
+        form.delegate(settings.field_selector, 'success', function(e, text) {
             validate($(this), true);
         });
     });
