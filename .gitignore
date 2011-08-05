@@ -1,4 +1,5 @@
 _public/*
 _old
 demos/dev.html
+build.sh
 .DS_Store
