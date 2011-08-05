@@ -136,6 +136,37 @@ test("Case 4 : Required validation for checkbox", function() {
   
 });
 
+/**
+ * Case 9
+ * 
+ * Compatibility with HTML5 autofocus attribute
+ * 
+ * @link https://github.com/LearningStation/uni-form/issues/issue/15
+ */
+test("Case 9 : Autofocus field works with highlight and default data", function() {
+  
+  $input = $('#name');
+  $input.attr('data-default-value', 'Sample data in case there is none');
+  
+  $form = jQuery('#qunit-form');
+  $form.uniform({
+    focused_class : 'focused'
+  });
+  
+  // the ctrlHolder should be focused.
+  ok( 
+    $input.parents('div.ctrlHolder').hasClass('focused'),
+    'The autofocus form was not highlighted.'
+  );
+  
+  // the default text should also be removed
+  equal(
+    $input.val(),
+    '',
+    'The default text was not removed.'
+  );
+
+});
 
 /**
  * Case 15

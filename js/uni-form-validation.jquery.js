@@ -457,13 +457,13 @@ jQuery.fn.uniform = function(extended_settings) {
          *
          * @return null
          */
-        var validate = function($input,valid,text) {
+        var validate = function($input, valid, text) {
             var $p = $input.closest('div.' + settings.holder_class)
-                           .andSelf()
-                           .toggleClass(settings.invalid_class, !valid)
-                           .toggleClass(settings.error_class, !valid)
-                           .toggleClass(settings.valid_class, valid)
-                           .find('p.formHint');
+                .andSelf()
+                .toggleClass(settings.invalid_class, !valid)
+                .toggleClass(settings.error_class, !valid)
+                .toggleClass(settings.valid_class, valid)
+                .find('p.formHint');
 
             if (! valid && ! $p.data('info-text')) {
                 $p.data('info-text', $p.html());
