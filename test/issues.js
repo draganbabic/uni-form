@@ -135,3 +135,25 @@ test("Case 4 : Required validation for checkbox", function() {
   );
   
 });
+
+
+/**
+ * Case 15
+ * 
+ * Default values may be rounding or being altered
+ * 
+ * @link https://github.com/LearningStation/uni-form/issues/issue/15
+ */
+test("Case 15 : Default value with a period should not be rounded", function() {
+
+  $form = jQuery('#qunit-form');
+  $form.uniform();
+
+  $input = $('#issue_15_a');
+  equals(
+    $input.val(),
+    $input.attr('data-default-value'),
+    "The default value has been altered."
+  );
+
+});
