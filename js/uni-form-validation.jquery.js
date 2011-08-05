@@ -586,13 +586,14 @@ jQuery.fn.uniform = function(extended_settings) {
 
             var $input = $(this);
 
-            $input.parents().filter('.' + settings.holder_class + ':first').addClass(settings.focused_class);
+            $input.parents().filter('.' + settings.holder_class + ':first')
+                .addClass(settings.focused_class);
 
             if ($input.val() === $input.data('default-value')) {
-                $input.val("");
+                $input.val('');
             }
 
-            $input.not('select').css('color',$input.data('default-color'));
+            $input.not('select').css('color', $input.data('default-color'));
         });
 
         /**
@@ -608,7 +609,7 @@ jQuery.fn.uniform = function(extended_settings) {
             var $input = $(this),
                 has_validation = false,
                 validator,
-                label  = $(this)
+                label = $(this)
                     .closest('div.' + settings.holder_class)
                     .find('label').text().replace('*','');
 
@@ -673,6 +674,12 @@ jQuery.fn.uniform = function(extended_settings) {
         form.delegate(settings.field_selector, 'success', function(e, text) {
             validate($(this), true);
         });
+        
+        // Issue 9: HTML5 autofocus elements
+        // When the browser focuses, it happens before Uni-Form, and so we need
+        // the manually run the focus event here to deal with style changes
+        // and any handling of the default data
+        $('input[autofocus]:first').focus();
     });
 };
 
