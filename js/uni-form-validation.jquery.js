@@ -31,6 +31,13 @@ jQuery.fn.uniform = function(extended_settings) {
     var self = this;
 
     /**
+     * Errors of all fields by their names
+     *
+     * @var object
+     */
+    var errors = {};
+
+    /**
      * Object extending the defaults object
      *
      * @var object
@@ -393,7 +400,7 @@ jQuery.fn.uniform = function(extended_settings) {
             out = bits[0],
             re = /^([ds])(.*)$/,
             p;
-        
+
         for (var i=1; i<bits.length; i++) {
             p = re.exec(bits[i]);
             if (!p || arguments[i] === null) {
@@ -444,7 +451,7 @@ jQuery.fn.uniform = function(extended_settings) {
 
     var showFormSuccess = function(form, title) {
       var $message;
-      
+
       if ($('#okMsg').length) {
           $('#okMsg').remove();
       }
@@ -479,6 +486,16 @@ jQuery.fn.uniform = function(extended_settings) {
                 .toggleClass(settings.valid_class, valid)
                 .find('p.formHint');
 
+            // store this into the errors array, can be used by the custom callback
+            if (! valid) {
+                errors[name] = text;
+            }
+            else if (name in errors) {
+                delete errors[name];
+            }
+
+            // if the validation failed we'll stash the p help text into the info-data
+            // and then put the error message in it's place.
             if (! valid && ! $p.data('info-text')) {
                 $p.data('info-text', $p.html());
             }
@@ -688,7 +705,7 @@ jQuery.fn.uniform = function(extended_settings) {
         form.delegate(settings.field_selector, 'success', function(e, text) {
             validate($(this), true);
         });
-        
+
         // Issue 9: HTML5 autofocus elements
         // When the browser focuses, it happens before Uni-Form, and so we need
         // the manually run the focus event here to deal with style changes
