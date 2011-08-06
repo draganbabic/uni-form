@@ -551,7 +551,7 @@ jQuery.fn.uniform = function (extended_settings) {
                 if ((initial_values != form.serialize())
                     && (settings.ask_on_leave || form.hasClass('askOnLeave'))
                 ) {
-                    return ($.isfunction(settings.on_leave_callback))
+                    return ($.isFunction(settings.on_leave_callback))
                         ? settings.on_leave_callback(form)
                         : confirm(i18n('on_leave'));
                 }
@@ -604,13 +604,13 @@ jQuery.fn.uniform = function (extended_settings) {
                     .find('.' + settings.invalid_class)
                     .add('.' + settings.error_class).length
                 ) {
-                    return_val = ($.isfunction(settings.prevent_submit_callback))
+                    return_val = ($.isFunction(settings.prevent_submit_callback))
                         ? settings.prevent_submit_callback(form, i18n('submit_msg'), [i18n('submit_help')])
                         : showFormError(form, i18n('submit_msg'), [i18n('submit_help')]);
                 } // end form error counting
 
                 // if we have a submit callback, we'll give it a chance to inspect the data now
-                if ($.isfunction(settings.submit_callback) && !settings.submit_callback(form)) {
+                if ($.isFunction(settings.submit_callback) && !settings.submit_callback(form)) {
                     // notice that this doesn't allow the submit_callback to over-ride the
                     // previous results
                     return_val = false;
@@ -631,6 +631,7 @@ jQuery.fn.uniform = function (extended_settings) {
             if (return_val === false) {
                 form.addClass('failedSubmit');
             }
+
             return return_val;
         });
 
