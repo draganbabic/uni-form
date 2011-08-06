@@ -163,14 +163,14 @@ test("Case 9 : Autofocus field works with highlight and default data", function(
   // the ctrlHolder should be focused.
   ok( 
     $input.parents('div.ctrlHolder').hasClass('focused'),
-    'The autofocus form was not highlighted.'
+    'The autofocus form element should be highlighted.'
   );
   
   // the default text should also be removed
   equal(
     $input.val(),
     '',
-    'The default text was not removed.'
+    'The default text should be removed on autofocused fields.'
   );
 
 });
@@ -193,7 +193,7 @@ test("Case 15 : Default value with a period should not be rounded", function() {
   equals(
     $input.val(),
     $input.attr('data-default-value'),
-    "The default value has been altered."
+    "A default value of 100.00 should display with decimal point intact."
   );
 
 });
