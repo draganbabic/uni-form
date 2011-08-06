@@ -94,13 +94,10 @@
         // Are at least two selectd?
         if ($('input.color_selection:checked').length < 2) {
           // show the error
-          $('form.uniForm').uniform.showFormError(
-              form,
-              'Oops, there was an error',
-              ['Please select at least two colors from the favorite colors']
-          );
+          $('#color_select').addClass('error');
           return false;
         }
+        $('#color_select').removeClass('error');
         return true;
       }
 

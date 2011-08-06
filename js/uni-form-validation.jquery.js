@@ -518,7 +518,8 @@ jQuery.fn.uniform = function (extended_settings) {
          * @return bool
          */
         form.submit(function () {
-            var return_val;
+            var return_val,
+                callback_result = true;
 
             // in the case of a previously failed submit, we'll remove our marker
             form.removeClass('failedSubmit');
@@ -544,22 +545,22 @@ jQuery.fn.uniform = function (extended_settings) {
                     $(this).blur();
                 });
 
+                // if we have a submit callback, we'll give it a chance to inspect the data now
+                if ($.isFunction(settings.submit_callback)) {
+                    callback_result = settings.submit_callback(form);
+                }
+
                 // if there are any error messages
                 if (form
                     .find('.' + settings.invalid_class)
                     .add('.' + settings.error_class).length
+                    || !callback_result
                 ) {
                     return_val = ($.isFunction(settings.prevent_submit_callback))
                         ? settings.prevent_submit_callback(form, i18n('submit_msg'), [i18n('submit_help')])
                         : jQuery.fn.uniform.showFormError(form, i18n('submit_msg'), [i18n('submit_help')]);
                 } // end form error counting
 
-                // if we have a submit callback, we'll give it a chance to inspect the data now
-                if ($.isFunction(settings.submit_callback) && !settings.submit_callback(form)) {
-                    // notice that this doesn't allow the submit_callback to over-ride the
-                    // previous results
-                    return_val = false;
-                }
             } // end preventSubmit
             else {
                 // We aren't preventing the submission when there are errors, so this function must
