@@ -21,7 +21,8 @@
  * @see http://sprawsm.com/uni-form/
  * @license MIT http://www.opensource.org/licenses/mit-license.php
  */
-jQuery.fn.uniform = function(extended_settings) {
+ /*jslint devel: true, bitwise: true, browser: true, plusplus: true, maxerr: 50, indent: 4 */
+jQuery.fn.uniform = function (extended_settings) {
 
     /**
      * Self reference for closures
@@ -71,13 +72,13 @@ jQuery.fn.uniform = function(extended_settings) {
          *
          * @return mixed || null
          */
-        get_val : function(name, classes, default_value) {
+        get_val : function (name, classes, default_value) {
             var value = default_value;
             classes = classes.split(' ');
-            for (var i = 0; i < classes.length; i++) {
+            for (var i = 0; i < classes.length; i += 1) {
                 if (classes[i] === name) {
-                    if ((classes[i + 1] != 'undefined') && ('val-' === classes[i + 1].substr(0,4))) {
-                        value = parseInt(classes[i + 1].substr(4),10);
+                    if ((classes[i + 1] != 'undefined') && ('val-' === classes[i + 1].substr(0, 4))) {
+                        value = parseInt(classes[i + 1].substr(4), 10);
                         return value;
                     }
                 }
@@ -91,7 +92,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param string caption
          */
-        required : function(field, caption) {
+        required : function (field, caption) {
             var name;
             if (field.is(':radio')) {
                 name = field.attr('name');
@@ -119,7 +120,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param sting caption
          */
-        validateMinLength : function(field, caption) {
+        validateMinLength : function (field, caption) {
             var min_length = this.get_val('validateMinLength', field.attr('class'), 0);
 
             if ((min_length > 0) && (field.val().length < min_length)) {
@@ -134,10 +135,10 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param sting caption
          */
-        validateMin : function(field, caption) {
+        validateMin : function (field, caption) {
             var min_val = this.get_val('validateMin', field.attr('class'), 0);
 
-            if ((parseInt(field.val(),10) < min_val)) {
+            if ((parseInt(field.val(), 10) < min_val)) {
                 return i18n('min', caption, min_val);
             }
             return true;
@@ -149,7 +150,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param string caption
          */
-        validateMaxLength : function(field, caption) {
+        validateMaxLength : function (field, caption) {
             var max_length = this.get_val('validateMaxLength', field.attr('class'), 0);
 
             if ((max_length > 0) && (field.val().length > max_length)) {
@@ -164,10 +165,10 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param sting caption
          */
-        validateMax : function(field, caption) {
+        validateMax : function (field, caption) {
             var max_val = this.get_val('validateMax', field.attr('class'), 0);
 
-            if ((parseInt(field.val(),10) > max_val)) {
+            if ((parseInt(field.val(), 10) > max_val)) {
                 return i18n('max', caption, max_val);
             }
             return true;
@@ -184,13 +185,13 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param string caption
          */
-        validateSameAs : function(field, caption) {
+        validateSameAs : function (field, caption) {
             var classes = field.attr('class').split(' '),
                 target_field = '',
                 target_field_name = '',
                 target_field_caption = '';
 
-            for (var i = 0; i < classes.length; i++) {
+            for (var i = 0; i < classes.length; i += 1) {
                 if (classes[i] === 'validateSameAs') {
                     if (classes[i + 1] != 'undefined') {
                         target_field_name = classes[i + 1];
@@ -218,7 +219,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param string caption
          */
-        validateEmail : function(field, caption) {
+        validateEmail : function (field, caption) {
             if (field.val().match(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
                 return true;
             } else {
@@ -232,7 +233,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param string caption
          */
-        validateUrl : function(field, caption) {
+        validateUrl : function (field, caption) {
             if (field.val().match(/^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_\-]*)(\.[A-Z0-9][A-Z0-9_\-]*)+)(:(\d+))?\/?/i)) {
                 return true;
             }
@@ -245,7 +246,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param string caption
          */
-        validateNumber : function(field, caption) {
+        validateNumber : function (field, caption) {
             if (field.val().match(/(^-?\d\d*\.\d*$)|(^-?\d\d*$)|(^-?\.\d\d*$)/) || field.val() === '') {
                 return true;
             }
@@ -258,7 +259,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param string caption
          */
-        validateInteger : function(field, caption) {
+        validateInteger : function (field, caption) {
             if (field.val().match(/(^-?\d\d*$)/) || field.val() === '') {
                 return true;
             }
@@ -271,7 +272,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param string caption
          */
-        validateAlpha : function(field, caption) {
+        validateAlpha : function (field, caption) {
             if (field.val().match(/^[a-zA-Z]+$/)) {
                 return true;
             }
@@ -284,7 +285,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param string caption
          */
-        validateAlphaNum : function(field, caption) {
+        validateAlphaNum : function (field, caption) {
             if (field.val().match(/\W/)) {
                 return i18n('alphanum', caption);
             }
@@ -297,7 +298,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param string caption
          */
-        validatePhrase : function(field, caption) {
+        validatePhrase : function (field, caption) {
             if ((field.val() === '') || field.val().match(/^[\w\d\.\-_\(\)\*'# :,]+$/i)) {
                 return true;
             }
@@ -310,7 +311,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param string caption
          */
-        validatePhone : function(field, caption) {
+        validatePhone : function (field, caption) {
             var phoneNumber = /^\(?(\d{3})\)?[\- ]?(\d{3})[\- ]?(\d{4})$/;
             if (phoneNumber.test(field.val())) {
                 return true;
@@ -324,7 +325,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param string caption
          */
-        validateDate : function(field, caption) {
+        validateDate : function (field, caption) {
             if (field.val().match('([0]?[1-9]|[1][0-2])/([0]?[1-9]|[1|2][0-9]|[3][0|1])/([0-9]{4}|[0-9]{2})$')) {
                 return true;
             }
@@ -341,7 +342,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * This will result in UniForm searching for window.my_callback funciton and
          * executing it with field and caption arguments. Sample implementation:
          *
-         * window.my_callback = function(field, caption) {
+         * window.my_callback = function (field, caption) {
          *   if (field.val() === '34') {
          *     return true;
          *   } else {
@@ -352,11 +353,11 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param jQuery field
          * @param caption
          */
-        validateCallback : function(field, caption) {
+        validateCallback : function (field, caption) {
             var classes = field.attr('class').split(' '),
                 callback_function = '';
 
-            for (var i = 0; i < classes.length; i++) {
+            for (var i = 0; i < classes.length; i += 1) {
                 if (classes[i] === 'validateCallback') {
                     if (classes[i + 1] != 'undefined') {
                         callback_function = classes[i + 1];
@@ -378,10 +379,10 @@ jQuery.fn.uniform = function(extended_settings) {
      * get the text of the label that belongs to the field
      * @param field jQ object, e.g. $("#email")
      */
-    var get_label_text = function(field) {
+    var get_label_text = function (field) {
         var text = field.closest('label').text();
         if (text === '') {
-          text = field.closest('div.' + settings.holder_class).find('label').text();
+            text = field.closest('div.' + settings.holder_class).find('label').text();
         }
         return text.replace('*', '').replace(':', '');
     };
@@ -394,17 +395,17 @@ jQuery.fn.uniform = function(extended_settings) {
      *
      * @return internationalized string
      */
-    var i18n = function(lang_key) {
+    var i18n = function (lang_key) {
         var lang_string = i18n_strings[lang_key],
             bits = lang_string.split('%'),
             out = bits[0],
             re = /^([ds])(.*)$/,
             p;
 
-        for (var i=1; i<bits.length; i++) {
+        for (var i = 1; i < bits.length; i += 1) {
             p = re.exec(bits[i]);
             if (!p || arguments[i] === null) {
-              continue;
+                continue;
             }
             if (p[1] === 'd') {
                 out += parseInt(arguments[i], 10);
@@ -424,49 +425,54 @@ jQuery.fn.uniform = function(extended_settings) {
      *
      * @return false
      */
-    var showFormError = function(form, title, messages) {
-      var m, $message;
-      if ($('#errorMsg').length) {
-        $('#errorMsg').remove();
-      }
-      $message =
-          $('<div />')
-              .attr('id','errorMsg')
-              .html("<h3>" + title + "</h3>");
-      if (messages.length) {
-          $message.append($('<ol />'));
-          for (m in messages) {
-              $('ol', $message).append(
-                  $('<li />').text(messages[m])
-              );
-          }
-      }
-      form.prepend($message);
-      $('html, body').animate({
-          scrollTop: form.offset().top
-      }, 500);
-      $('#errorMsg').slideDown();
-      return false;
+    var showFormError = function (form, title, messages) {
+        var m, $message;
+
+        if ($('#errorMsg').length) {
+            $('#errorMsg').remove();
+        }
+
+        $message = $('<div />')
+            .attr('id', 'errorMsg')
+            .html("<h3>" + title + "</h3>");
+
+        if (messages.length) {
+            $message.append($('<ol />'));
+            for (m in messages) {
+                $('ol', $message).append(
+                    $('<li />').text(messages[m])
+                );
+            }
+        }
+
+        form.prepend($message);
+
+        $('html, body').animate({
+            scrollTop: form.offset().top
+        }, 500);
+
+        $('#errorMsg').slideDown();
+        return false;
     };
 
-    var showFormSuccess = function(form, title) {
-      var $message;
+    var showFormSuccess = function (form, title) {
+        var $message;
 
-      if ($('#okMsg').length) {
-          $('#okMsg').remove();
-      }
-      $message = $('<div />')
-          .attr('id','okMsg')
-          .html("<h3>" + title + "</h3>");
-      form.prepend($message);
-      $('html, body').animate({
-          scrollTop: form.offset().top
-      }, 500);
-      $('#okMsg').slideDown();
-      return false;
+        if ($('#okMsg').length) {
+            $('#okMsg').remove();
+        }
+        $message = $('<div />')
+            .attr('id', 'okMsg')
+            .html("<h3>" + title + "</h3>");
+        form.prepend($message);
+        $('html, body').animate({
+            scrollTop: form.offset().top
+        }, 500);
+        $('#okMsg').slideDown();
+        return false;
     };
 
-    return this.each(function() {
+    return this.each(function () {
         var form = jQuery(this);
 
         /**
@@ -478,7 +484,7 @@ jQuery.fn.uniform = function(extended_settings) {
          *
          * @return null
          */
-        var validate = function($input, valid, text) {
+        var validate = function ($input, valid, text) {
             var $p = $input.closest('div.' + settings.holder_class)
                 .andSelf()
                 .toggleClass(settings.invalid_class, !valid)
@@ -512,7 +518,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * Select form fields and attach the higlighter functionality
          *
          */
-        form.find(settings.field_selector).each(function() {
+        form.find(settings.field_selector).each(function () {
             var $input = $(this),
                 value = $input.val();
 
@@ -529,20 +535,23 @@ jQuery.fn.uniform = function(extended_settings) {
         /**
          * If we've set ask_on_leave we'll register a handler here
          *
-         * We need to seriaze the form data, wait for a beforeunload,
+         * We need to serialize the form data, wait for a beforeunload,
          * then serialize and compare for changes
          *
          * If they changed things, and haven't submitted, we'll let them
          * know about it
          *
+         * Note that you can turn on askOnLeave with either uniform.settings
+         * or with a form class.
+         *
          */
         if (settings.ask_on_leave || form.hasClass('askOnLeave')) {
             var initial_values = form.serialize();
-            $(window).bind("beforeunload", function(e) {
+            $(window).bind("beforeunload", function (e) {
                 if ((initial_values != form.serialize())
                     && (settings.ask_on_leave || form.hasClass('askOnLeave'))
                 ) {
-                    return ($.isFunction(settings.on_leave_callback))
+                    return ($.isfunction(settings.on_leave_callback))
                         ? settings.on_leave_callback(form)
                         : confirm(i18n('on_leave'));
                 }
@@ -563,12 +572,18 @@ jQuery.fn.uniform = function(extended_settings) {
          *
          * @return bool
          */
-        form.submit(function() {
+        form.submit(function () {
+            var return_val;
+
             // in the case of a previously failed submit, we'll remove our marker
             form.removeClass('failedSubmit');
 
+            // prevent the ask_on_leave from firing
+            settings.ask_on_leave = false;
+            form.removeClass('askOnLeave');
+
             // remove the default values from the val() where they were being displayed
-            form.find(settings.field_selector).each(function() {
+            form.find(settings.field_selector).each(function () {
                 if ($(this).val() === $(this).data('default-value')) {
                     $(this).val('');
                 }
@@ -577,35 +592,46 @@ jQuery.fn.uniform = function(extended_settings) {
             // traverse and revalidate making sure that we haven't missed any fields
             // perhaps if a field was filled in before uniform was initialized
             // or if blur failed to fire correctly
+            // You can turn on prevent_submit with either a class or with the uniform.settings
             if (settings.prevent_submit || form.hasClass('preventSubmit')) {
-              // use blur to run the validators on each field
-              form.find(settings.field_selector).each(function() {
-                  $(this).blur();
-              });
+                // use blur to run the validators on each field
+                form.find(settings.field_selector).each(function () {
+                    $(this).blur();
+                });
 
-              if (form
+                // if there are any error messages
+                if (form
                     .find('.' + settings.invalid_class)
                     .add('.' + settings.error_class).length
-              ) {
-                form.addClass('failedSubmit');
-                return ($.isFunction(settings.prevent_submit_callback))
-                    ? settings.prevent_submit_callback(form, i18n('submit_msg'), [i18n('submit_help')])
-                    : showFormError(form, i18n('submit_msg'), [i18n('submit_help')]);
-              }
+                ) {
+                    return_val = ($.isfunction(settings.prevent_submit_callback))
+                        ? settings.prevent_submit_callback(form, i18n('submit_msg'), [i18n('submit_help')])
+                        : showFormError(form, i18n('submit_msg'), [i18n('submit_help')]);
+                } // end form error counting
 
-              settings.ask_on_leave = false;
-              form.removeClass('askOnLeave');
-              return true;
+                // if we have a submit callback, we'll give it a chance to inspect the data now
+                if ($.isfunction(settings.submit_callback) && !settings.submit_callback(form)) {
+                    // notice that this doesn't allow the submit_callback to over-ride the
+                    // previous results
+                    return_val = false;
+                }
+            } // end preventSubmit
+            else {
+                // We aren't preventing the submission when there are errors, so this function must
+                // return true and allow the form to submit.
+                return_val = true;
             }
 
-            // qUnit needs to run this function, and still prevent the submit
+            // qUnit needs to run this submit function, and still prevent the submit.
+            // This isn't ideal, but it prevents us from having to trap events
             if (form.parents('#qunit-fixture').length) {
-                return false;
+                return_val = false;
             }
 
-            settings.ask_on_leave = false;
-            form.removeClass('askOnLeave');
-            return true;
+            if (return_val === false) {
+                form.addClass('failedSubmit');
+            }
+            return return_val;
         });
 
         /**
@@ -614,7 +640,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * Remove any classes other than the focus class and hide the default label text
          *
          */
-        form.delegate(settings.field_selector, 'focus', function() {
+        form.delegate(settings.field_selector, 'focus', function () {
             form.find('.' + settings.focused_class).removeClass(settings.focused_class);
 
             var $input = $(this);
@@ -638,7 +664,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * If the validators fail, we trigger either 'success' or 'error' events
          *
          */
-        form.delegate(settings.field_selector, 'blur', function() {
+        form.delegate(settings.field_selector, 'blur', function () {
             var $input = $(this),
                 has_validation = false,
                 validator,
@@ -688,7 +714,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param event  e
          * @param string validation message
          */
-        form.delegate(settings.field_selector,'error',function(e, text) {
+        form.delegate(settings.field_selector, 'error', function (e, text) {
             validate($(this), false, text);
         });
 
@@ -701,7 +727,7 @@ jQuery.fn.uniform = function(extended_settings) {
          * @param event  e
          * @param string unused
          */
-        form.delegate(settings.field_selector, 'success', function(e, text) {
+        form.delegate(settings.field_selector, 'success', function (e, text) {
             validate($(this), true);
         });
 

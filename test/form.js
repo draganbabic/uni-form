@@ -58,7 +58,7 @@ test("Submit callback is executed", function() {
       $form = jQuery('#qunit-form');
       
   $form.uniform({
-    submit_callback : function() {
+    submit_callback : function(form) {
       was_called = true;
       return false;
     }
