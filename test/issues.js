@@ -8,9 +8,10 @@ module("Github cases");
  * @link https://github.com/LearningStation/uni-form/issues/issue/1
  */
 test("Case 1 : Prevent submit fails for existing data", function() {
-
-  $form = jQuery('#qunit-form');
+  var $form = jQuery('#qunit-form');
+  
   jQuery('#email', $form).val('invalid@example');
+  
   $form.uniform({
       prevent_submit : true
   });
@@ -34,21 +35,23 @@ test("Case 1 : Prevent submit fails for existing data", function() {
  * @link https://github.com/LearningStation/uni-form/issues/issue/2
  */
 test("Case 2 : Required validation for radio button", function() {
-  var hasError = false;
-  $form = jQuery('#qunit-form');
-  $form.uniform({
-    invalid_class           : 'invalid',
-    error_class             : 'error',
-    prevent_submit          : true,
-    prevent_submit_callback : function($submit_form) {
-      hasError = 
-          $('input[name="color"]:radio:first', $submit_form)
-              .parents('div.ctrlHolder')
-              .hasClass('error');
-      return false;
-    }
-  });
-  $form.trigger('submit');
+  var hasError = false,
+      $form = jQuery('#qunit-form');
+      
+  $form
+    .uniform({
+      invalid_class           : 'invalid',
+      error_class             : 'error',
+      prevent_submit          : true,
+      prevent_submit_callback : function($submit_form) {
+        hasError = 
+            $('input[name="color"]:radio:first', $submit_form)
+                .parents('div.ctrlHolder')
+                .hasClass('error');
+        return false;
+      }
+    })
+    .trigger('submit');
   
   equals(
     hasError,
@@ -76,7 +79,8 @@ test("Case 2 : Required validation for radio button", function() {
  */
 test("Case 3 : data-default-value should not be submitted", function() {
 
-  $form = jQuery('#qunit-form');
+  var $form = jQuery('#qunit-form');
+  
   $form.uniform();
 
   equals(
@@ -103,21 +107,23 @@ test("Case 3 : data-default-value should not be submitted", function() {
  * @link https://github.com/LearningStation/uni-form/issues/issue/4
  */
 test("Case 4 : Required validation for checkbox", function() {
-  var hasError = false;
-  $form = jQuery('#qunit-form');
-  $form.uniform({
-    invalid_class           : 'invalid',
-    error_class             : 'error',
-    prevent_submit          : true,
-    prevent_submit_callback : function($submit_form) {
-      hasError = 
-          $('input[name="agreement"]:checkbox', $submit_form)
-              .parents('div.ctrlHolder')
-              .hasClass('error');
-      return false;
-    }
-  });
-  $form.trigger('submit');
+  var hasError = false,
+      $form = jQuery('#qunit-form');
+      
+  $form
+    .uniform({
+      invalid_class           : 'invalid',
+      error_class             : 'error',
+      prevent_submit          : true,
+      prevent_submit_callback : function($submit_form) {
+        hasError = 
+            $('input[name="agreement"]:checkbox', $submit_form)
+                .parents('div.ctrlHolder')
+                .hasClass('error');
+        return false;
+      }
+    })
+    .trigger('submit');
   
   equals(
     hasError,
@@ -145,10 +151,11 @@ test("Case 4 : Required validation for checkbox", function() {
  */
 test("Case 9 : Autofocus field works with highlight and default data", function() {
   
-  $input = $('#name');
+  var $input = $('#name'),
+      $form = jQuery('#qunit-form');
+  
   $input.attr('data-default-value', 'Sample data in case there is none');
   
-  $form = jQuery('#qunit-form');
   $form.uniform({
     focused_class : 'focused'
   });
@@ -176,11 +183,11 @@ test("Case 9 : Autofocus field works with highlight and default data", function(
  * @link https://github.com/LearningStation/uni-form/issues/issue/15
  */
 test("Case 15 : Default value with a period should not be rounded", function() {
-
-  $input = $('#issue_15_a');
+  var $input = $('#issue_15_a'),
+      $form = jQuery('#qunit-form');
+  
   $input.attr('data-default-value', '100.000');
 
-  $form = jQuery('#qunit-form');
   $form.uniform();
   
   equals(
