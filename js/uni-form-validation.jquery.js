@@ -417,61 +417,6 @@ jQuery.fn.uniform = function (extended_settings) {
         return out;
     };
 
-    /**
-     * Uni-Form form validation error
-     *
-     * @param string title of the form error
-     * @param array  list of error messages to show
-     *
-     * @return false
-     */
-    var showFormError = function (form, title, messages) {
-        var m, $message;
-
-        if ($('#errorMsg').length) {
-            $('#errorMsg').remove();
-        }
-
-        $message = $('<div />')
-            .attr('id', 'errorMsg')
-            .html("<h3>" + title + "</h3>");
-
-        if (messages.length) {
-            $message.append($('<ol />'));
-            for (m in messages) {
-                $('ol', $message).append(
-                    $('<li />').text(messages[m])
-                );
-            }
-        }
-
-        form.prepend($message);
-
-        $('html, body').animate({
-            scrollTop: form.offset().top
-        }, 500);
-
-        $('#errorMsg').slideDown();
-        return false;
-    };
-
-    var showFormSuccess = function (form, title) {
-        var $message;
-
-        if ($('#okMsg').length) {
-            $('#okMsg').remove();
-        }
-        $message = $('<div />')
-            .attr('id', 'okMsg')
-            .html("<h3>" + title + "</h3>");
-        form.prepend($message);
-        $('html, body').animate({
-            scrollTop: form.offset().top
-        }, 500);
-        $('#okMsg').slideDown();
-        return false;
-    };
-
     return this.each(function () {
         var form = jQuery(this);
 
@@ -606,7 +551,7 @@ jQuery.fn.uniform = function (extended_settings) {
                 ) {
                     return_val = ($.isFunction(settings.prevent_submit_callback))
                         ? settings.prevent_submit_callback(form, i18n('submit_msg'), [i18n('submit_help')])
-                        : showFormError(form, i18n('submit_msg'), [i18n('submit_help')]);
+                        : jQuery.fn.uniform.showFormError(form, i18n('submit_msg'), [i18n('submit_help')]);
                 } // end form error counting
 
                 // if we have a submit callback, we'll give it a chance to inspect the data now
@@ -737,7 +682,72 @@ jQuery.fn.uniform = function (extended_settings) {
         // the manually run the focus event here to deal with style changes
         // and any handling of the default data
         $('input[autofocus]:first').focus();
-    });
+
+    }); // end for each form
+};
+
+/**
+ * Uni-Form form validation error
+ *
+ * @param object jQuery form element
+ * @param string title of the form error
+ * @param array  list of error messages to show
+ *
+ * @return false
+ */
+jQuery.fn.uniform.showFormError = function (form, title, messages) {
+    var m, $message;
+
+    if ($('#errorMsg').length) {
+        $('#errorMsg').remove();
+    }
+
+    $message = $('<div />')
+        .attr('id', 'errorMsg')
+        .html("<h3>" + title + "</h3>");
+
+    if (messages.length) {
+        $message.append($('<ol />'));
+        for (m in messages) {
+            $('ol', $message).append(
+                $('<li />').text(messages[m])
+            );
+        }
+    }
+
+    form.prepend($message);
+
+    $('html, body').animate({
+        scrollTop: form.offset().top
+    }, 500);
+
+    $('#errorMsg').slideDown();
+    return false;
+};
+
+/**
+ * Uni-Form form success message
+ *
+ * @param object jQuery form element
+ * @param string title of the success message
+ *
+ * @return false
+ */
+jQuery.fn.uniform.showFormSuccess = function (form, title) {
+    var $message;
+
+    if ($('#okMsg').length) {
+        $('#okMsg').remove();
+    }
+    $message = $('<div />')
+        .attr('id', 'okMsg')
+        .html("<h3>" + title + "</h3>");
+    form.prepend($message);
+    $('html, body').animate({
+        scrollTop: form.offset().top
+    }, 500);
+    $('#okMsg').slideDown();
+    return false;
 };
 
 /**
