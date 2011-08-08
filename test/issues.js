@@ -154,24 +154,40 @@ test("Case 9 : Autofocus field works with highlight and default data", function(
   var $input = $('#name'),
       $form = jQuery('#qunit-form');
   
+  function supports_input_autofocus() {
+    var i = document.createElement('input');
+    return 'autofocus' in i;
+  }
+  
   $input.attr('data-default-value', 'Sample data in case there is none');
   
   $form.uniform({
     focused_class : 'focused'
   });
   
-  // the ctrlHolder should be focused.
-  ok( 
-    $input.parents('div.ctrlHolder').hasClass('focused'),
-    'The autofocus form element should be highlighted.'
-  );
+  // Branching structures in tests are bad, but unsure how to proceed here.
+  if (supports_input_autofocus) {
+    // the ctrlHolder should be focused.
+    ok( 
+      $input.parents('div.ctrlHolder').hasClass('focused'),
+      'The autofocus form element should be highlighted.'
+    );
+    
+    // the default text should also be removed
+    equal(
+      $input.val(),
+      '',
+      'The default text should be removed on autofocused fields.'
+    );
+  }
+  else {
+    ok(
+      true,
+      "This browser does not support autofocus"
+    );
+  }
   
-  // the default text should also be removed
-  equal(
-    $input.val(),
-    '',
-    'The default text should be removed on autofocused fields.'
-  );
+
 
 });
 
