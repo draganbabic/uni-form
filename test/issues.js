@@ -166,7 +166,7 @@ test("Case 9 : Autofocus field works with highlight and default data", function(
   });
   
   // Branching structures in tests are bad, but unsure how to proceed here.
-  if (supports_input_autofocus) {
+  if (supports_input_autofocus()) {
     // the ctrlHolder should be focused.
     ok( 
       $input.parents('div.ctrlHolder').hasClass('focused'),
