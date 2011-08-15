@@ -1,4 +1,6 @@
 _public/*
 _old
 demos/dev.html
+build.sh
+js/min.header.js
 .DS_Store

@@ -196,19 +196,21 @@ test("SameAs test", function() {
 });
 
 test("Email address test", function() {
-  var $input = getInput('text','');
-  
-  var addresses = {
-    'spam@example.com'        : true,
-    'spam@example.co.uk'      : true,
-    'spam.spam@example.co.uk' : true,
-    'spam@.com'               : false,
-    'spam@com'                : false,
-    'spam.com'                : false
-  };
-  
+  var $input = getInput('text',''),
+      address,
+      addresses = {
+        'spam@example.com'        : true,
+        'spam@example.co.uk'      : true,
+        'spam.spam@example.co.uk' : true,
+        'user+filter@gmail.com'   : true,
+        'spam@.com'               : false,
+        'spam@com'                : false,
+        'spam.com'                : false
+      },
+      explanation;
+
   for (address in addresses) {
-    var explanation = (addresses[address]) ? ' passes' : ' fails'
+    explanation = (addresses[address]) ? ' passes' : ' fails'
     validationTest(
       validators.validateEmail($input.val(address)),
       addresses[address],
@@ -219,18 +221,19 @@ test("Email address test", function() {
 });
 
 test("Url test", function() {
-  var $input = getInput('text','');
-  
-  var addresses = {
-    'http://www.example.com/test/url'  : true,
-    'http://www.example.com/test.html' : true,
-    'ftp://www.example.com'            : true,
-    'htp://www.example.com'            : false,
-    'http://www example.com'           : false
-  };
+  var $input = getInput('text',''),
+      explanation,
+      address,
+      addresses = {
+        'http://www.example.com/test/url'  : true,
+        'http://www.example.com/test.html' : true,
+        'ftp://www.example.com'            : true,
+        'htp://www.example.com'            : false,
+        'http://www example.com'           : false
+      };
   
   for (address in addresses) {
-    var explanation = (addresses[address]) ? ' passes' : ' fails'
+    explanation = (addresses[address]) ? ' passes' : ' fails'
     validationTest(
       validators.validateUrl($input.val(address)),
       addresses[address],
@@ -362,19 +365,20 @@ test("Phrase test", function() {
 });
 
 test("Phone test", function() {
-  var $input = getInput('text','');
-
-  var numbers = {
-    '(308)-135-7895'  : true,
-    '(123) 456-7890'  : true,
-    '123-345-6789'    : true,
-    '123 456-7890'  : true,
-    '456-7890'        : false,
-    '23456789'        : false
-  };
+  var $input = getInput('text',''),
+      numbers = {
+        '(308)-135-7895'  : true,
+        '(123) 456-7890'  : true,
+        '123-345-6789'    : true,
+        '123 456-7890'    : true,
+        '456-7890'        : false,
+        '23456789'        : false
+      },
+      number,
+      explanation;
   
   for (number in numbers) {
-    var explanation = (numbers[number]) ? ' passes' : ' fails'
+    explanation = (numbers[number]) ? ' passes' : ' fails'
     validationTest(
       validators.validatePhone($input.val(number)),
       numbers[number],
@@ -385,18 +389,20 @@ test("Phone test", function() {
 });
 
 test("Date test", function() {
-  var $input = getInput('text','');
-
-  var dates = {
-    '1/1/11'     : true,
-    '1/1/2011'   : true,
-    '1/1/2011'   : true,
-    '11/1/2011/' : true,
-    '16/40/2011' : false
-  };
+  var $input = getInput('text',''),
+      explanation,
+      date,
+      dates = {
+        '1/1/11'     : true,
+        '1/1/2011'   : true,
+        '1/1/2011'   : true,
+        '11/1/2011'  : true,
+        '01/01/2001' : true, // Case 6
+        '16/40/2011' : false
+      };
   
   for (date in dates) {
-    var explanation = (dates[date]) ? ' passes' : ' fails'
+    explanation = (dates[date]) ? ' passes' : ' fails'
     validationTest(
       validators.validateDate($input.val(date)),
       dates[date],
@@ -404,6 +410,35 @@ test("Date test", function() {
     );
   }
   
+});
+
+test("Default data hides correctly", function() {
+
+  var default_text = 'This is a sample',
+      $input = $('#issue_15_a'),
+      $form = jQuery('#qunit-form');
+  
+  $input.attr('data-default-value', default_text);
+
+
+  $form.uniform();
+  
+  // should be showing the default
+  equals(
+    $input.val(),
+    default_text,
+    "The default value has not been displayed correctly"
+  );
+  
+  $input.focus();
+  
+  // should now be empty
+  equals(
+    $input.val(),
+    '',
+    "The default value has not been displayed correctly"
+  );
+
 });
 
 
