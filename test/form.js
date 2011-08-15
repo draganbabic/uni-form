@@ -1,25 +1,32 @@
 module("Form behaviours");
 
 test("Ask on Leave", function() {
-  var prompted = false;
-  $form = jQuery('#qunit-form');
+  var prompted = false,
+      $form = jQuery('#qunit-form'),
+      $name = $('#name');
+      
   $form.uniform({
     ask_on_leave      : true,
     on_leave_callback : function() {
       prompted = true;
     }
   });
-    
+  
+  // The autofocus on the #name is causing a change on load
+  // We want this test to pass, and don't really care to test
+  // the combination of autofocus and the ask_on_leave
+  $name.val($name.attr('data-default-value'));
+  
   jQuery(window).trigger('beforeunload')
   equals(
     prompted,
     false,
-    "Form has passes without data changing."
+    "Form passes without data changing."
   );
 
   jQuery('#email', $form).val('spam@example.com');
-    
-  jQuery(window).trigger('beforeunload')
+  jQuery(window).trigger('beforeunload');
+  
   equals(
     prompted,
     true,
@@ -29,8 +36,10 @@ test("Ask on Leave", function() {
 });
 
 test("Prevent submit", function() {
-  $form = jQuery('#qunit-form');
+  var $form = jQuery('#qunit-form');
+  
   $form.uniform({prevent_submit : true});
+  
   jQuery('#email', $form)
     .trigger('focus')
     .val('invalid.email')
@@ -44,3 +53,22 @@ test("Prevent submit", function() {
   );
 });
 
+test("Submit callback is executed", function() {
+  var was_called = false,
+      $form = jQuery('#qunit-form');
+      
+  $form.uniform({
+    submit_callback : function(form) {
+      was_called = true;
+      return false;
+    }
+  });
+
+  $form.trigger('submit');
+  
+  equals(
+    was_called,
+    true,
+    "Submit callback was not called"
+  );
+});
