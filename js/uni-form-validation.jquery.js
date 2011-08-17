@@ -201,7 +201,8 @@ jQuery.fn.uniform = function (extended_settings) {
             }
 
             if (target_field_name) {
-                target_field = jQuery('input[name="' + target_field_name + '"]');
+                var form = field.parents('form:first');
+                target_field = jQuery('input[name="' + target_field_name + '"]', form);
                 if (target_field.length > 0) {
                     if (target_field.val() != field.val()) {
                         target_field_caption = get_label_text(target_field);
