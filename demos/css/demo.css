@@ -12,10 +12,10 @@ h1,h2,h3,ul,ol,p{ margin: 1.5em 0; }
 
 h1{ margin: 42px auto 28px auto; width: 284px; }
 h2{ font-size: 1.25em; }
-.uniForm h2{ margin: 1em 0 1em 1.15em; }
+.uni-form h2{ margin: 1em 0 1em 1.15em; }
 fieldset h3{ margin: 1.5em -28px; padding: 14px 28px; line-height: 1; background: #efefef; color: #343434; }
 
-.uniForm{ width: 55%; background: #fff; margin: 28px auto; padding: 28px;
+.uni-form{ width: 55%; background: #fff; margin: 28px auto; padding: 28px;
           /* CSS3 */
           border-radius:         12px;
           -webkit-border-radius: 12px;
@@ -71,7 +71,7 @@ fieldset h3{ margin: 1.5em -28px; padding: 14px 28px; line-height: 1; background
 #footer{ width: 55%; margin: 28px auto; text-align: center; font-size: .75em; color: #777; }
 
 /* IE6 fixes for the page */
-* html form.uniForm{ overflow: hidden; }
+* html form.uni-form{ overflow: hidden; }
 	* html .header{ zoom: 1; overflow: hidden;}
 * html .browse{ position: absolute; }
 

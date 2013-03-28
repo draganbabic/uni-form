@@ -29,6 +29,7 @@
    OTHER DEALINGS IN THE SOFTWARE.
 
 -->
+
     <title>Uni&ndash;Form</title>
     
     <link href="../css/uni-form.css" media="screen" rel="stylesheet"/>
@@ -38,7 +39,7 @@
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
         /* Move these to your IE6/7 specific stylesheet if possible */
-        .uniForm, .uniForm fieldset, .uniForm .ctrlHolder, .uniForm .formHint, .uniForm .buttonHolder, .uniForm .ctrlHolder ul{ zoom:1; }
+        .uni-form, .uni-form fieldset, .uni-form .ctrl-holder, .uni-form .form-hint, .uni-form .button-holder, .uni-form .ctrl-holder ul{ zoom:1; }
       </style>
     <![endif]-->
     
@@ -48,7 +49,7 @@
       $(function(){
         
         // init Uni-Form
-        $('form.uniForm').uniform();
+        $('form.uni-form').uni-form();
         
         // specific for this page
         $(".browse a").click(function(e) {
@@ -69,7 +70,7 @@
       This is an example form demonstrating all of the units offered by Uni–Form, along with suggested message handling, form actions and style.
     </p>
     
-    <form action="#" class="uniForm">
+    <form action="#" class="uni-form">
       
       <div class="header">
         <h2>Default Style</h2>
@@ -89,91 +90,106 @@
           Looks like everything went OK! Yay!
         </p>
       </div>
-            
+
       <fieldset>
+        
+        <h2 class="uni-form-title">Form Title</h2>
+
         <h3>Default Form Field Layout</h3>
-        
-        <div class="ctrlHolder">
+
+        <div class="ctrl-holder">
           <label for=""><em>*</em> Small text input</label>
-          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput small"/>
-          <p class="formHint">This is a form hint.</p>
+          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text small"/>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder error" id="error1">
+        <div class="ctrl-holder error" id="error1">
           <label for=""><em>*</em> Medium text input</label>
-          <input name="" id="" value="Invalid value" size="35" maxlength="50" type="text" class="textInput medium error"/>
-          <p class="formHint">This is a form hint.</p>
+          <input name="" id="" value="Invalid value" size="35" maxlength="50" type="text" class="input-text medium error"/>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <label for=""><em>*</em> Large text input</label>
-          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput large"/>
-          <p class="formHint">This is a form hint.</p>
+          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large"/>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <label for=""><em>*</em> Autosized text input</label>
-          <input name="" id="" data-default-value="Placeholder text" size="15" maxlength="50" type="text" class="textInput auto"/>
-          <p class="formHint">This is a form hint.</p>
+          <input name="" id="" data-default-value="Placeholder text" size="15" maxlength="50" type="text" class="input-text auto"/>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <label for=""><em>*</em> Textarea</label>
-          <textarea name="" id="" rows="25" cols="25"></textarea>
-          <p class="formHint">This is a form hint.</p>
+          <textarea name="" id="" rows="15" cols="25"></textarea>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <label for="">Select</label>
-          <select name="" id="" class="selectInput">
+          <select name="" id="" class="input-select">
             <option data-default-value="Placeholder text">Option</option>
           </select>
-          <p class="formHint">This is a form hint.</p>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <label for="">File upload</label>
-          <input type="file" id="" name="" size="35" class="fileUpload" />
-          <p class="formHint">This is a form hint.</p>
+          <input type="file" id="" name="" size="35" class="input-file" />
+          <p class="form-hint">This is a form hint.</p>
         </div>
 
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <p class="label">
             <em>*</em> Multifield with select boxes
           </p>
           <ul>
-            <li><label for="">Label <select id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
-            <li><label for="">Label <select id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
-            <li><label for="">Label <select id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
+            <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
+            <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
+            <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
           </ul>
-          <p class="formHint">This is a form hint.</p>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <p class="label">
             <em>*</em> Alternate multifield Layout
           </p>
           <ul class="alternate">
-            <li><label for="">Label <select id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
-            <li><label for="">Label <select id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
-            <li><label for="">Label <select id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
+            <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
+            <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
+            <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
           </ul>
-          <p class="formHint">This is a form hint.</p>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <p class="label">
             <em>*</em> Multifield with text inputs
           </p>
           <ul>
-            <li><label for="">Label <input type="text" id="" name="" class="textInput"/></label></li>
-            <li><label for="">Label <input type="text" id="" name="" class="textInput"/></label></li>
-            <li><label for="">Label <input type="text" id="" name="" class="textInput"/></label></li>
+            <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
+            <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
+            <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
           </ul>
-          <p class="formHint">This is a form hint.</p>
+          <p class="form-hint">This is a form hint.</p>
         </div>
 
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
+          <p class="label">
+            <em>*</em> Alternate multifield layout
+          </p>
+          <ul class="alternate">
+            <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
+            <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
+            <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
+          </ul>
+          <p class="form-hint">This is a form hint.</p>
+        </div>
+
+        <div class="ctrl-holder">
           <p class="label">
             <em>*</em> Multifield with radios
           </p>
@@ -181,102 +197,125 @@
             <li><label for=""><input id="" name="" data-default-value="Placeholder text" type="radio" checked="checked"/> Option</label></li>
             <li><label for=""><input id="" name="" data-default-value="Placeholder text" type="radio"/> Option</label></li>
           </ul>
-          <p class="formHint">This is a form hint.</p>
+          <p class="form-hint">This is a form hint.</p>
+        </div>
+
+        <div class="ctrl-holder">
+          <p class="label">
+            <em>*</em> Multifield with checkboxes
+          </p>
+          <ul>
+            <li><label for=""><input id="" name="" data-default-value="Placeholder text" type="checkbox" checked="checked"/> Option</label></li>
+            <li><label for=""><input id="" name="" data-default-value="Placeholder text" type="checkbox"/> Option</label></li>
+          </ul>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder noLabel">
+        <div class="ctrl-holder no-label">
           <ul>
             <li><label for=""><input id="" name="" data-default-value="Placeholder text" type="checkbox"/> I have read and agree with the terms and conditions</label></li>
           </ul>
-          <p class="formHint">This is a form hint.</p>
+          <p class="form-hint">This is a form hint.</p>
         </div>
 
       </fieldset>
       
-      <fieldset class="inlineLabels">
+      <fieldset class="inline-labels">
         <h3>Alternate Form Fields Layout</h3>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <label for=""><em>*</em> Small text input</label>
-          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput small"/>
-          <p class="formHint">This is a form hint.</p>
+          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text small"/>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder error" id="error1">
+        <div class="ctrl-holder error" id="error1">
           <label for=""><em>*</em> Medium text input</label>
-          <input name="" id="" value="Invalid value" size="35" maxlength="50" type="text" class="textInput medium error"/>
-          <p class="formHint">This is a form hint.</p>
+          <input name="" id="" value="Invalid value" size="35" maxlength="50" type="text" class="input-text medium error"/>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <label for=""><em>*</em> Large text input</label>
-          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput large"/>
-          <p class="formHint">This is a form hint.</p>
+          <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large"/>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <label for=""><em>*</em> Autosized text input</label>
-          <input name="" id="" data-default-value="Placeholder text" size="15" maxlength="50" type="text" class="textInput auto"/>
-          <p class="formHint">This is a form hint.</p>
+          <input name="" id="" data-default-value="Placeholder text" size="15" maxlength="50" type="text" class="input-text auto"/>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <label for=""><em>*</em> Textarea</label>
-          <textarea name="" id="" rows="25" cols="25"></textarea>
-          <p class="formHint">This is a form hint.</p>
+          <textarea name="" id="" rows="15" cols="25"></textarea>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <label for="">Select</label>
-          <select name="" id="" class="selectInput">
+          <select name="" id="" class="input-select">
             <option data-default-value="Placeholder text">Option</option>
           </select>
-          <p class="formHint">This is a form hint.</p>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <label for="">File upload</label>
-          <input type="file" id="" name="" size="35" class="fileUpload" />
-          <p class="formHint">This is a form hint.</p>
+          <input type="file" id="" name="" size="35" class="input-file" />
+          <p class="form-hint">This is a form hint.</p>
         </div>
 
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <p class="label">
             <em>*</em> Multifield with select boxes
           </p>
           <ul>
-            <li><label for="">Label <select id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
-            <li><label for="">Label <select id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
-            <li><label for="">Label <select id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
+            <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
+            <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
+            <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
           </ul>
-          <p class="formHint">This is a form hint.</p>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <p class="label">
             <em>*</em> Alternate multifield Layout
           </p>
           <ul class="alternate">
-            <li><label for="">Label <select id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
-            <li><label for="">Label <select id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
-            <li><label for="">Label <select id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
+            <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
+            <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
+            <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
           </ul>
-          <p class="formHint">This is a form hint.</p>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
           <p class="label">
             <em>*</em> Multifield with text inputs
           </p>
           <ul>
-            <li><label for="">Label <input type="text" id="" name="" class="textInput"/></label></li>
-            <li><label for="">Label <input type="text" id="" name="" class="textInput"/></label></li>
-            <li><label for="">Label <input type="text" id="" name="" class="textInput"/></label></li>
+            <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
+            <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
+            <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
           </ul>
-          <p class="formHint">This is a form hint.</p>
+          <p class="form-hint">This is a form hint.</p>
         </div>
 
-        <div class="ctrlHolder">
+        <div class="ctrl-holder">
+          <p class="label">
+            <em>*</em> Alternate multifield layout
+          </p>
+          <ul class="alternate">
+            <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
+            <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
+            <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
+          </ul>
+          <p class="form-hint">This is a form hint.</p>
+        </div>
+
+        <div class="ctrl-holder">
           <p class="label">
             <em>*</em> Multifield with radios
           </p>
@@ -284,21 +323,21 @@
             <li><label for=""><input id="" name="" data-default-value="Placeholder text" type="radio" checked="checked"/> Option</label></li>
             <li><label for=""><input id="" name="" data-default-value="Placeholder text" type="radio"/> Option</label></li>
           </ul>
-          <p class="formHint">This is a form hint.</p>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
-        <div class="ctrlHolder noLabel">
+        <div class="ctrl-holder no-label">
           <ul>
             <li><label for=""><input id="" name="" data-default-value="Placeholder text" type="checkbox"/> I have read and agree with the terms and conditions</label></li>
           </ul>
-          <p class="formHint">This is a form hint.</p>
+          <p class="form-hint">This is a form hint.</p>
         </div>
         
       </fieldset>
 
-      <div class="buttonHolder">
-        <button type="submit" class="secondaryAction">← Cancel and go back</button>
-        <button type="submit" class="primaryAction">Submit</button>
+      <div class="button-holder">
+        <button type="submit" class="action-secondary">← Cancel and go back</button>
+        <button type="submit" class="action-primary">Submit</button>
       </div>
 
     </form>

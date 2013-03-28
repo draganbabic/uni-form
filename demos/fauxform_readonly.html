@@ -33,12 +33,12 @@
     
     <link href="../css/uni-form.css" media="screen" rel="stylesheet"/>
     <link href="./css/demo.css" media="screen" rel="stylesheet"/>
-    <link href="../css/default.uni-form.css" id="formStyle" title="Default Style" media="screen" rel="stylesheet"/>
+    <!-- <link href="../css/default.uni-form.css" id="formStyle" title="Default Style" media="screen" rel="stylesheet"/> -->
 
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
         /* Move these to your IE6/7 specific stylesheet if possible */
-        .uniForm, .uniForm fieldset, .uniForm .ctrlHolder, .uniForm .formHint, .uniForm .buttonHolder, .uniForm .ctrlHolder ul{ zoom:1; }
+        .uni-form, .uni-form fieldset, .uni-form .ctrl-holder, .uni-form .formHint, .uni-form .buttonHolder, .uni-form .ctrl-holder ul{ zoom:1; }
       </style>
     <![endif]-->
     
@@ -48,7 +48,7 @@
       $(function(){
         
         // init Uni-Form
-        $('form.uniForm').uniform();
+        $('form.uni-form').uniform();
         
         // specific for this page
         $(".browse a").click(function(e) {
@@ -69,7 +69,7 @@
       This is an example form data output demonstrating the read–only capabilities of Uni–Form
     </p>
     
-    <form action="#" class="uniForm">
+    <form action="#" class="uni-form">
       
       <div class="header">
         <h2>Default Style</h2>
@@ -85,107 +85,107 @@
       <fieldset>
         <h3>Default Form Field Layout</h3>
         
-        <div class="ctrlHolder">
-          <h4 class="readOnlyLabel">Label of the input field</h4>
-          <div class="readOnly">User–input value</div>
+        <div class="ctrl-holder">
+          <h4 class="read-only-label">Label of the input field</h4>
+          <div class="read-only">User–input value</div>
         </div>
         
-        <div class="ctrlHolder">
-          <h4 class="readOnlyLabel">Label of the textarea</h4>
-          <div class="readOnly">User–input value that contains a lot of text, like the output of a textarea that will have the text span multiple lines.</div>
+        <div class="ctrl-holder">
+          <h4 class="read-only-label">Label of the textarea</h4>
+          <div class="read-only">User–input value that contains a lot of text, like the output of a textarea that will have the text span multiple lines.</div>
         </div>
         
-        <div class="ctrlHolder">
-          <h4 class="readOnlyLabel">Label of the select box</h4>
-          <div class="readOnly">
-            <span class="choiceLabel">You chose:</span>
+        <div class="ctrl-holder">
+          <h4 class="read-only-label">Label of the select box</h4>
+          <div class="read-only">
+            <span class="choice-label">You chose:</span>
             Selected option's text
           </div>
         </div>
         
-        <div class="ctrlHolder">
-          <h4 class="readOnlyLabel">Name of the checkbox group</h4>
-          <div class="readOnly">
-            <span class="choiceLabel">You chose:</span>
+        <div class="ctrl-holder">
+          <h4 class="read-only-label">Name of the checkbox group</h4>
+          <div class="read-only">
+            <span class="choice-label">You chose:</span>
             Label of the selected checkbox
           </div>
         </div>
         
-        <div class="ctrlHolder">
-          <h4 class="readOnlyLabel">Name of the radio group</h4>
-          <div class="readOnly">
-            <span class="choiceLabel">You chose:</span>
+        <div class="ctrl-holder">
+          <h4 class="read-only-label">Name of the radio group</h4>
+          <div class="read-only">
+            <span class="choice-label">You chose:</span>
             Label of the selected radio button
           </div>
         </div>
         
-        <div class="ctrlHolder">
-          <h4 class="readOnlyLabel">Name of the multifield group</h4>
-          <div class="readOnly">
-            <span class="choiceLabel">Input label:</span>
+        <div class="ctrl-holder">
+          <h4 class="read-only-label">Name of the multifield group</h4>
+          <div class="read-only">
+            <span class="choice-label">Input label:</span>
             <span class="choice">User–Input value</span>
           </div>
-          <div class="readOnly">
-            <span class="choiceLabel">Input label:</span>
+          <div class="read-only">
+            <span class="choice-label">Input label:</span>
             <span class="choice">User–Input value</span>
           </div>
-          <div class="readOnly">
-            <span class="choiceLabel">Input label:</span>
+          <div class="read-only">
+            <span class="choice-label">Input label:</span>
             <span class="choice">User–Input value</span>
           </div>
         </div>
         
       </fieldset>
       
-      <fieldset class="inlineLabels">
+      <fieldset class="inline-labels">
         <h3>Alternate Form Fields Layout</h3>
         
-        <div class="ctrlHolder">
-          <h4 class="readOnlyLabel">Label of the input field</h4>
-          <div class="readOnly">User–input value</div>
+        <div class="ctrl-holder">
+          <h4 class="read-only-label">Label of the input field</h4>
+          <div class="read-only">User–input value</div>
         </div>
         
-        <div class="ctrlHolder">
-          <h4 class="readOnlyLabel">Label of the textarea</h4>
-          <div class="readOnly">User–input value that contains a lot of text, like the output of a textarea that will have the text span multiple lines.</div>
+        <div class="ctrl-holder">
+          <h4 class="read-only-label">Label of the textarea</h4>
+          <div class="read-only">User–input value that contains a lot of text, like the output of a textarea that will have the text span multiple lines.</div>
         </div>
         
-        <div class="ctrlHolder">
-          <h4 class="readOnlyLabel">Label of the select box</h4>
-          <div class="readOnly">
-            <span class="choiceLabel">You chose:</span>
+        <div class="ctrl-holder">
+          <h4 class="read-only-label">Label of the select box</h4>
+          <div class="read-only">
+            <span class="choice-label">You chose:</span>
             Selected option's text
           </div>
         </div>
         
-        <div class="ctrlHolder">
-          <h4 class="readOnlyLabel">Name of the checkbox group</h4>
-          <div class="readOnly">
-            <span class="choiceLabel">You chose:</span>
+        <div class="ctrl-holder">
+          <h4 class="read-only-label">Name of the checkbox group</h4>
+          <div class="read-only">
+            <span class="choice-label">You chose:</span>
             Label of the selected checkbox
           </div>
         </div>
         
-        <div class="ctrlHolder">
-          <h4 class="readOnlyLabel">Name of the radio group</h4>
-          <div class="readOnly">
-            <span class="choiceLabel">You chose:</span>
+        <div class="ctrl-holder">
+          <h4 class="read-only-label">Name of the radio group</h4>
+          <div class="read-only">
+            <span class="choice-label">You chose:</span>
             Label of the selected radio button
           </div>
         </div>
         
-        <div class="ctrlHolder">
-          <h4 class="readOnlyLabel">Name of the multifield group</h4>
-          <div class="readOnly">
-            <span class="choiceLabel">Input label:</span>
+        <div class="ctrl-holder">
+          <h4 class="read-only-label">Name of the multifield group</h4>
+          <div class="read-only">
+            <span class="choice-label">Input label:</span>
             <span class="choice">User–Input value</span>
           </div>
-          <div class="readOnly">
-            <span class="choiceLabel">Input label:</span>
+          <div class="read-only">
+            <span class="choice-label">Input label:</span>
             <span class="choice">User–Input value</span>
           </div>
-          <div class="readOnly">
-            <span class="choiceLabel">Input label:</span>
+          <div class="read-only">
+            <span class="choice-label">Input label:</span>
             <span class="choice">User–Input value</span>
           </div>
         </div>
@@ -193,8 +193,8 @@
       </fieldset>
 
       <div class="buttonHolder">
-        <button type="submit" class="secondaryAction">← Go back to correct some information</button>
-        <button type="submit" class="primaryAction">Submit</button>
+        <button type="submit" class="action-secondary">← Go back to correct some information</button>
+        <button type="submit" class="action-primary">Submit</button>
       </div>
 
     </form>
