@@ -1,7 +1,11 @@
 <!doctype html>
+
 <html lang="en-us" dir="ltr">
+
   <head>
+
   <meta charset="utf-8">
+
 <!-- 
 
    Copyright (c) 2010, Dragan Babic
@@ -28,16 +32,17 @@
    OTHER DEALINGS IN THE SOFTWARE.
 
 -->
+
     <title>Uni&ndash;Form</title>
     
     <link href="../css/uni-form.css" media="screen" rel="stylesheet"/>
-    <link href="../css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
+    <link href="../css/style.uni-form.css" media="screen" rel="stylesheet"/>
     <link href="./css/demo.css" media="screen" rel="stylesheet"/>
     
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
         /* Move these to your IE6/7 specific stylesheet if possible */
-        .uniForm, .uniForm fieldset, .uniForm .ctrlHolder, .uniForm .formHint, .uniForm .buttonHolder, .uniForm .ctrlHolder ul{ zoom:1; }
+        .uni-form, .uni-form fieldset, .uni-form .ctrl-holder, .uni-form .form-hint, .uni-form .button-holder, .uni-form .ctrl-holder ul{ zoom:1; }
       </style>
     <![endif]-->
 
@@ -47,75 +52,81 @@
 
     <h1><a href="http://sprawsm.com/uni-form/" title="visit Uni–Form online"><img src="../img/uni-form-logo.png" alt=""/></a></h1>
     
-    <form action="#" class="uniForm">
-            
-      <fieldset>
-        <h3>Client side form demonstration</h3>
+    <div class="uni-form-wrap">
+
+      <form action="#" class="uni-form">
+              
+        <fieldset>
+          <h3>Client side form demonstration</h3>
+          
+          <div class="ctrl-holder">
+            <label for=""><em>*</em> Your name</label>
+            <input name="name" id="name" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text required"/>
+            <p class="form-hint">Required element</p>
+          </div>
+          
+          <div class="ctrl-holder">
+            <label for=""><em>*</em> Your email</label>
+            <input name="email" id="email" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text required validateEmail"/>
+            <p class="form-hint">A valid email address</p>
+          </div>
         
-        <div class="ctrlHolder">
-          <label for=""><em>*</em> Your name</label>
-          <input name="name" id="name" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required"/>
-          <p class="formHint">Required element</p>
-        </div>
+          <div class="ctrl-holder">
+            <label for=""><em>*</em> Email confirm</label>
+            <input name="email_confirm" id="email_confirm" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text required validateSameAs email"/>
+            <p class="form-hint"></p>
+          </div>
+          
+          <div class="ctrl-holder">
+            <label for=""><em>*</em> A number from 10 - 50</label>
+            <input name="a_number" id="a_number" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text required validateInteger validateMin val-10 validateMax val-50"/>
+            <p class="form-hint">A random number that you like</p>
+          </div>
+
+          <div class="ctrl-holder">
+            <p class="label"><em>*</em> Your preferred color</p>
+            <ul class="blockLabels">
+              <li><label for=""><input type="radio" name="color" class="required"> Red</label></li>
+              <li><label for=""><input type="radio" name="color" class="required"> Green</label></li>
+              <li><label for=""><input type="radio" name="color" class="required"> Blue</label></li>
+            </ul>
+            <p class="form-hint">Select a color</p>
+          </div>
+
+          <div class="ctrl-holder">
+            <p class="label">Privacy agreement</p>
+            <ul class="blockLabels">
+              <li><label for=""><input type="checkbox" name="agreement" class="required"> I have read the agreement</label></li>
+            </ul>
+          </div>
+
+        </fieldset>
         
-        <div class="ctrlHolder">
-          <label for=""><em>*</em> Your email</label>
-          <input name="email" id="email" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateEmail"/>
-          <p class="formHint">A valid email address</p>
-        </div>
-      
-        <div class="ctrlHolder">
-          <label for=""><em>*</em> Email confirm</label>
-          <input name="email_confirm" id="email_confirm" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateSameAs email"/>
-          <p class="formHint"></p>
-        </div>
-        
-        <div class="ctrlHolder">
-          <label for=""><em>*</em> A number from 10 - 50</label>
-          <input name="a_number" id="a_number" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateInteger validateMin val-10 validateMax val-50"/>
-          <p class="formHint">A random number that you like</p>
+        <div class="button-holder">
+          <button type="submit" class="action-secondary">← Cancel and go back</button>
+          <button type="submit" class="action-primary">Submit</button>
         </div>
 
-        <div class="ctrlHolder">
-          <p class="label"><em>*</em> Your preferred color</p>
-          <ul class="blockLabels">
-            <li><label for=""><input type="radio" name="color" class="required"> Red</label></li>
-            <li><label for=""><input type="radio" name="color" class="required"> Green</label></li>
-            <li><label for=""><input type="radio" name="color" class="required"> Blue</label></li>
-          </ul>
-          <p class="formHint">Select a color</p>
-        </div>
+      </form>
 
-        <div class="ctrlHolder">
-          <p class="label">Privacy agreement</p>
-          <ul class="blockLabels">
-            <li><label for=""><input type="checkbox" name="agreement" class="required"> I have read the agreement</label></li>
-          </ul>
-        </div>
-
-      </fieldset>
-      
-      <div class="buttonHolder">
-        <button type="submit" class="secondaryAction">← Cancel and go back</button>
-        <button type="submit" class="primaryAction">Submit</button>
-      </div>
-
-    </form>
+    </div>
 
     <div id="footer">
       <p>Uni-Form is created by <a href="http://sprawsm.com/" title="Dragan is the founder of Superawesome">Dragan Babić</a> and is licensed under the MIT license.</p>
     </div>
 
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/uni-form-validation.jquery.js" charset="utf-8"></script>
     <script type="text/javascript" src="../localization/es.js" charset="utf-8"></script>
     <script>
       $(function(){
-        $('form.uniForm').uniform({
+        $('form.uni-form').uniform({
           prevent_submit : true
         });
       });
     </script>
+
   </body>
+  
 </html>

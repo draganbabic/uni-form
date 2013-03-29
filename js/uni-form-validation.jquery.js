@@ -436,7 +436,7 @@ jQuery.fn.uniform = function (extended_settings) {
                 .toggleClass(settings.invalid_class, !valid)
                 .toggleClass(settings.error_class, !valid)
                 .toggleClass(settings.valid_class, valid)
-                .find('p.formHint');
+                .find('p.form-hint');
 
             // store this into the errors array, can be used by the custom callback
             if (! valid) {
@@ -795,5 +795,5 @@ jQuery.fn.uniform.defaults = {
     focused_class           : 'focused',
     holder_class            : 'ctrlHolder',
     field_selector          : 'input, textarea, select',
-    default_value_color     : "#AFAFAF"
+    default_value_color     : "#afafaf"
 };

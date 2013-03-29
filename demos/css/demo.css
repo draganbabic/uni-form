@@ -1,81 +1,178 @@
-html{ color: #343434; background: #bcc2c6; font-size: 14px; line-height: 1.5; font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Verdana, sans-serif; }
-body{}
-  
+/* Demo styles */
+
+html {
+  color: #343434;
+  background: #bcc2c6;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Verdana, sans-serif;
+}
+
 a:link,
-a:visited{ text-decoration: none; color: #254a86; }
+a:visited {
+  text-decoration: none;
+  color: #254a86;
+}
+
 a:hover,
-a:focus  { text-decoration: underline; }
+a:focus {
+  text-decoration: underline
+}
 
-a img { border: none; }
+a img {
+  border: none
+}
 
-h1,h2,h3,ul,ol,p{ margin: 1.5em 0; }
+h1,
+h2,
+h3,
+ul,
+ol,
+p {
+  margin: 1.5em 0
+}
 
-h1{ margin: 42px auto 28px auto; width: 284px; }
-h2{ font-size: 1.25em; }
-.uni-form h2{ margin: 1em 0 1em 1.15em; }
-fieldset h3{ margin: 1.5em -28px; padding: 14px 28px; line-height: 1; background: #efefef; color: #343434; }
+h1 {
+  margin: 42px auto 28px auto;
+  width: 284px;
+}
 
-.uni-form{ width: 55%; background: #fff; margin: 28px auto; padding: 28px;
-          /* CSS3 */
-          border-radius:         12px;
-          -webkit-border-radius: 12px;
-          -moz-border-radius:    12px;
-          -o-border-radius:      12px;
-          -khtml-border-radius:  12px;
-        }
-  
-  .header{ margin: -28px -28px 28px -28px; padding: 1px 28px; background: #efefef; border-bottom: 1px solid #dfdfdf; position: relative;
-           /* CSS3 */
-           border-top-left-radius:          10px;
-           border-top-right-radius:         10px;
-           -webkit-border-top-left-radius:  10px;
-           -webkit-border-top-right-radius: 10px;
-           -moz-border-radius-topleft:      10px;
-           -moz-border-radius-topright:     10px;
-         }
-    .header h2{ margin: 1.5em 0 0 0; color: #343434; color: #777; }
-    .header p { margin-top: 0; font-size: 12px; color: #777; }
-      .header .cta{ position: absolute; bottom: 26px; right: 28px; text-align: right; font-weight: bold; background: #194789; padding: 7px 14px;
-                    /* CSS3 */
-                    border-radius:         4px;
-                    -webkit-border-radius: 4px;
-                    -moz-border-radius:    4px;
-                    -o-border-radius:      4px;
-                    -khtml-border-radius:  4px;
-                    text-shadow: -1px -1px 0 rgba(0,0,0,.25);
-                  }
-      .header .cta:link,
-      .header .cta:visited{ color: #fff; }
-      .header .cta:focus,
-      .header .cta:hover{ text-decoration: none;
-                          /* CSS3 */
-                          box-shadow:         0 0 9px rgba(0,163,255,1);
-                          -webkit-box-shadow: 0 0 9px rgba(0,163,255,1);
-                          -moz-box-shadow:    0 0 9px rgba(0,163,255,1);
-                        }
-      .header .cta:active{ bottom: 25px; }
+h2 {
+  font-size: 1.25em
+}
 
-.browse{ margin: 0; position: fixed; top: 28px; right: 28px; width: 84px; padding: 28px 28px 14px 28px; font-size: 12px; background: #97a2b0;
-         /* CSS3 */
-         border-radius:         12px;
-         -webkit-border-radius: 12px;
-         -moz-border-radius:    12px;
-         -o-border-radius:      12px;
-         -khtml-border-radius:  12px;
-       }
-  .browse h2{ font-size: 12px; margin: 0 0 14px 0; }
-  .browse ul{ margin: 0; padding: 0; }
-    .browse li{ margin: 0 0 14px 0; padding: 0; list-style: none; }
-    .download{ float: right; position: relative; top: 2px; }
-.intro { width: 55%; margin: 28px auto; text-align: center; font-size: 1.15em; }
-#footer{ width: 55%; margin: 28px auto; text-align: center; font-size: .75em; color: #777; }
+.uni-form h2 {
+  margin: 1em 0 1em 1.15em
+}
+
+fieldset h3 {
+  margin: 1.5em -28px;
+  padding: 14px 28px;
+  line-height: 1;
+  background: #efefef;
+  color: #343434;
+}
+
+.uni-form-wrap {
+  width: 55%;
+  background: #fff;
+  margin: 28px auto;
+  padding: 0 28px 7px 28px;
+  border-radius: 12px;
+}
+
+.header {
+  margin: 0 -28px 28px -28px;
+  padding: 1px 28px;
+  background: #efefef;
+  border-bottom: 1px solid #dfdfdf;
+  position: relative;
+  border-radius: 10px 10px 0 0;
+}
+
+    .header h2 {
+      margin: 1.5em 0 0 0;
+      color: #343434;
+      color: #777;
+    }
+
+    .header p {
+      margin-top: 0;
+      font-size: 12px;
+      color: #777;
+    }
+
+    .header .cta {
+      position: absolute;
+      bottom: 26px;
+      right: 28px;
+      text-align: right;
+      font-weight: bold;
+      background: #194789;
+      padding: 7px 14px;
+      border-radius: 4px;
+      text-shadow: -1px -1px 0 rgba(0,0,0,.25);
+    }
+
+    .header .cta:link,
+    .header .cta:visited {
+      color: #fff
+    }
+
+    .header .cta:focus,
+    .header .cta:hover {
+      text-decoration: none;
+      box-shadow: 0 0 9px rgba(0,163,255,1);
+    }
+
+    .header .cta:active {
+      bottom: 25px
+    }
+
+.browse {
+  margin: 0;
+  position: fixed;
+  top: 28px;
+  right: 28px;
+  width: 84px;
+  padding: 28px 28px 14px 28px;
+  font-size: 12px;
+  background: #97a2b0;
+  border-radius: 12px;
+}
+
+    .browse h2 {
+      font-size: 12px;
+      margin: 0 0 14px 0;
+    }
+
+    .browse ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .browse li {
+      margin: 0 0 14px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+.download {
+  float: right;
+  position: relative;
+  top: 2px;
+}
+
+.intro {
+  width: 55%;
+  margin: 28px auto;
+  text-align: center;
+  font-size: 1.15em;
+}
+
+#footer {
+  width: 55%;
+  margin: 28px auto;
+  text-align: center;
+  font-size: .75em;
+  color: #777;
+}
 
 /* IE6 fixes for the page */
-* html form.uni-form{ overflow: hidden; }
-	* html .header{ zoom: 1; overflow: hidden;}
-* html .browse{ position: absolute; }
+
+* html form.uni-form {
+  overflow: hidden
+}
+* html .header {
+  zoom: 1;
+  overflow: hidden;
+}
+* html .browse {
+  position: absolute
+}
 
 /* Additions for validation */
-div.valid{
-  background: url(../../img/ok.png) 100% 2.75em no-repeat;
+
+div.valid {
+  background: url(../../img/ok.png) 100% 2.75em no-repeat
 }

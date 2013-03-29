@@ -1,7 +1,11 @@
 <!doctype html>
+
 <html lang="en-us" dir="ltr">
+
   <head>
+
   <meta charset="utf-8">
+
 <!-- 
 
    Copyright (c) 2010, Dragan Babic
@@ -28,16 +32,17 @@
    OTHER DEALINGS IN THE SOFTWARE.
 
 -->
+
     <title>Uni&ndash;Form</title>
     
     <link href="../css/uni-form.css" media="screen" rel="stylesheet"/>
-    <link href="../css/default.uni-form.css" title="Default Style" media="screen" rel="stylesheet"/>
+    <link href="../css/style.uni-form.css" media="screen" rel="stylesheet"/>
     <link href="./css/demo.css" media="screen" rel="stylesheet"/>
     
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
         /* Move these to your IE6/7 specific stylesheet if possible */
-        .uniForm, .uniForm fieldset, .uniForm .ctrlHolder, .uniForm .formHint, .uniForm .buttonHolder, .uniForm .ctrlHolder ul{ zoom:1; }
+        .uniForm, .uniForm fieldset, .uniForm .ctrl-holder, .uniForm .form-hint, .uniForm .button-holder, .uniForm .ctrl-holder ul{ zoom:1; }
       </style>
     <![endif]-->
 
@@ -47,45 +52,49 @@
 
     <h1><a href="http://sprawsm.com/uni-form/" title="visit Uni–Form online"><img src="../img/uni-form-logo.png" alt=""/></a></h1>
     
-    <form action="#" class="uniForm">
-            
-      <fieldset>
-        <h3>Client side form demonstration</h3>
+    <div class="uni-form-wrap">
+
+      <form action="#" class="uni-form">
+              
+        <fieldset>
+
+          <h3>Client side form demonstration</h3>
+          
+          <div class="ctrl-holder">
+            <label for=""><em>*</em> Custom callback item</label>
+            <input name="name" id="name" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text required validateCallback my_code_callback"/>
+            <p class="form-hint">A two letter code of a number and a letter: A4, B8, C2</p>
+          </div>
+          
+          <div class="ctrl-holder">
+            <label for=""><em>*</em> Your email</label>
+            <input name="email" id="email" data-default-value="Placeholder text" size="35" maxlength="50" type="email" class="input-text validateEmail"/>
+            <p class="form-hint">A valid email address</p>
+          </div>
+
+          <div class="ctrl-holder">
+            <ul class="no-label">
+              <li><label for=""><input type="checkbox" name="agreement" class="required"> I have read the agreement</label></li>
+            </ul>
+          </div>
+
+        </fieldset>
         
-        <div class="ctrlHolder">
-          <label for=""><em>*</em> Custom callback item</label>
-          <input name="name" id="name" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput required validateCallback my_code_callback"/>
-          <p class="formHint">A two letter code of a number and a letter: A4, B8, C2</p>
-        </div>
-        
-        <div class="ctrlHolder">
-          <label for=""><em>*</em> Your email</label>
-          <input name="email" id="email" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="textInput validateEmail"/>
-          <p class="formHint">A valid email address</p>
+        <div class="button-holder">
+          <button type="submit" class="action-secondary">← Cancel and go back</button>
+          <button type="submit" class="action-primary">Submit</button>
         </div>
 
-        <div class="ctrlHolder">
-          <p class="label">Privacy agreement</p>
-          <ul class="blockLabels">
-            <li><label for=""><input type="checkbox" name="agreement" class="required"> I have read the agreement</label></li>
-          </ul>
-        </div>
+      </form>
 
-      </fieldset>
-      
-      <div class="buttonHolder">
-        <button type="submit" class="secondaryAction">← Cancel and go back</button>
-        <button type="submit" class="primaryAction">Submit</button>
-      </div>
-
-    </form>
+    </div>
 
     <div id="footer">
-      <p>Uni-Form is created by <a href="http://sprawsm.com/" title="Dragan is the founder of Superawesome">Dragan Babić</a> and is licensed under the MIT license.</p>
+      <p>Uni-Form is created by <a href="http://sprawsm.com/">Dragan Babić</a> and is licensed under the MIT license.</p>
     </div>
 
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="../js/uni-form-validation.jquery.js" charset="utf-8"></script>
     <script>
       $(function(){

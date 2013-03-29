@@ -23,11 +23,11 @@ jQuery.fn.uniform = function(settings) {
         invalid_class  : 'invalid',
         error_class    : 'error',
         focused_class  : 'focused',
-        holder_class   : 'ctrlHolder',
+        holder_class   : 'ctrl-holder',
         field_selector : 'input, textarea, select',
-        default_value_color: "#AFAFAF"
+        default_value_color: "#afafaf"
     }, settings);
-  
+
     return this.each(function() {
         var form = jQuery(this),
             validate = function($input,valid,text) {
@@ -36,7 +36,7 @@ jQuery.fn.uniform = function(settings) {
                                .toggleClass(settings.invalid_class,!valid)
                                .toggleClass(settings.error_class,!valid)
                                .toggleClass(settings.valid_class,valid)
-                               .find('p.formHint');
+                               .find('p.form-hint');
 
                 if (! valid && ! $p.data('info-text')) {
                     $p.data('info-text',$p.html());
@@ -53,7 +53,7 @@ jQuery.fn.uniform = function(settings) {
             form.find(settings.field_selector).each(function(){
                 if($(this).val() == $(this).data('default-value')) $(this).val("");
             });
-        })
+        });
 
         // Select form fields and attach them higlighter functionality
         form.find(settings.field_selector).each(function(){
@@ -67,7 +67,7 @@ jQuery.fn.uniform = function(settings) {
                 $input.val($input.data('default-value'));
 
             }
-        })
+        });
 
         form.delegate(settings.field_selector,'focus',function() {
             form.find('.' + settings.focused_class).removeClass(settings.focused_class);
@@ -75,7 +75,7 @@ jQuery.fn.uniform = function(settings) {
             var $input = $(this);
 
             $input.parents().filter('.'+settings.holder_class+':first').addClass(settings.focused_class);
-            
+
             if($input.val() == $input.data('default-value')){
                 $input.val("");
             }

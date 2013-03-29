@@ -1,6 +1,9 @@
 <!doctype html>
+
 <html lang="en-us" dir="ltr">
+
   <head>
+
   <meta charset="utf-8">
 
 <!-- 
@@ -33,31 +36,14 @@
     
     <link href="../css/uni-form.css" media="screen" rel="stylesheet"/>
     <link href="./css/demo.css" media="screen" rel="stylesheet"/>
-    <!-- <link href="../css/default.uni-form.css" id="formStyle" title="Default Style" media="screen" rel="stylesheet"/> -->
+    <link href="../css/style.uni-form.css" media="screen" rel="stylesheet"/>
 
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
         /* Move these to your IE6/7 specific stylesheet if possible */
-        .uni-form, .uni-form fieldset, .uni-form .ctrl-holder, .uni-form .formHint, .uni-form .buttonHolder, .uni-form .ctrl-holder ul{ zoom:1; }
+        .uni-form, .uni-form fieldset, .uni-form .ctrl-holder, .uni-form .form-hint, .uni-form .button-holder, .uni-form .ctrl-holder ul{ zoom:1; }
       </style>
     <![endif]-->
-    
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/uni-form.jquery.js"></script>
-    <script type="text/javascript">
-      $(function(){
-        
-        // init Uni-Form
-        $('form.uni-form').uniform();
-        
-        // specific for this page
-        $(".browse a").click(function(e) {
-          e.preventDefault();
-          $("#formStyle").attr("href",$(this).attr('rel'));
-          return false;
-        });
-      });
-    </script>
 
   </head>
 
@@ -69,148 +55,154 @@
       This is an example form data output demonstrating the read–only capabilities of Uni–Form
     </p>
     
-    <form action="#" class="uni-form">
-      
-      <div class="header">
-        <h2>Default Style</h2>
-        <p>Author: <a href="http://sprawsm.com/">Dragan Babić</a> <a href="http://sprawsm.com/uni-form/" class="cta">see more styles →</a></p>
-      </div>
-      
-      <div id="okMsg">
-        <p>
-          Looks like everything went OK! Check the data you entered and if everything is OK press the button to proceed.
-        </p>
-      </div>
-            
-      <fieldset>
-        <h3>Default Form Field Layout</h3>
-        
-        <div class="ctrl-holder">
-          <h4 class="read-only-label">Label of the input field</h4>
-          <div class="read-only">User–input value</div>
-        </div>
-        
-        <div class="ctrl-holder">
-          <h4 class="read-only-label">Label of the textarea</h4>
-          <div class="read-only">User–input value that contains a lot of text, like the output of a textarea that will have the text span multiple lines.</div>
-        </div>
-        
-        <div class="ctrl-holder">
-          <h4 class="read-only-label">Label of the select box</h4>
-          <div class="read-only">
-            <span class="choice-label">You chose:</span>
-            Selected option's text
-          </div>
-        </div>
-        
-        <div class="ctrl-holder">
-          <h4 class="read-only-label">Name of the checkbox group</h4>
-          <div class="read-only">
-            <span class="choice-label">You chose:</span>
-            Label of the selected checkbox
-          </div>
-        </div>
-        
-        <div class="ctrl-holder">
-          <h4 class="read-only-label">Name of the radio group</h4>
-          <div class="read-only">
-            <span class="choice-label">You chose:</span>
-            Label of the selected radio button
-          </div>
-        </div>
-        
-        <div class="ctrl-holder">
-          <h4 class="read-only-label">Name of the multifield group</h4>
-          <div class="read-only">
-            <span class="choice-label">Input label:</span>
-            <span class="choice">User–Input value</span>
-          </div>
-          <div class="read-only">
-            <span class="choice-label">Input label:</span>
-            <span class="choice">User–Input value</span>
-          </div>
-          <div class="read-only">
-            <span class="choice-label">Input label:</span>
-            <span class="choice">User–Input value</span>
-          </div>
-        </div>
-        
-      </fieldset>
-      
-      <fieldset class="inline-labels">
-        <h3>Alternate Form Fields Layout</h3>
-        
-        <div class="ctrl-holder">
-          <h4 class="read-only-label">Label of the input field</h4>
-          <div class="read-only">User–input value</div>
-        </div>
-        
-        <div class="ctrl-holder">
-          <h4 class="read-only-label">Label of the textarea</h4>
-          <div class="read-only">User–input value that contains a lot of text, like the output of a textarea that will have the text span multiple lines.</div>
-        </div>
-        
-        <div class="ctrl-holder">
-          <h4 class="read-only-label">Label of the select box</h4>
-          <div class="read-only">
-            <span class="choice-label">You chose:</span>
-            Selected option's text
-          </div>
-        </div>
-        
-        <div class="ctrl-holder">
-          <h4 class="read-only-label">Name of the checkbox group</h4>
-          <div class="read-only">
-            <span class="choice-label">You chose:</span>
-            Label of the selected checkbox
-          </div>
-        </div>
-        
-        <div class="ctrl-holder">
-          <h4 class="read-only-label">Name of the radio group</h4>
-          <div class="read-only">
-            <span class="choice-label">You chose:</span>
-            Label of the selected radio button
-          </div>
-        </div>
-        
-        <div class="ctrl-holder">
-          <h4 class="read-only-label">Name of the multifield group</h4>
-          <div class="read-only">
-            <span class="choice-label">Input label:</span>
-            <span class="choice">User–Input value</span>
-          </div>
-          <div class="read-only">
-            <span class="choice-label">Input label:</span>
-            <span class="choice">User–Input value</span>
-          </div>
-          <div class="read-only">
-            <span class="choice-label">Input label:</span>
-            <span class="choice">User–Input value</span>
-          </div>
-        </div>
-        
-      </fieldset>
+    <div class="uni-form-wrap">
 
-      <div class="buttonHolder">
-        <button type="submit" class="action-secondary">← Go back to correct some information</button>
-        <button type="submit" class="action-primary">Submit</button>
-      </div>
+      <form action="#" class="uni-form">
+        
+        <div class="header">
+          <h2>Default Style</h2>
+          <p>Author: <a href="http://sprawsm.com/">Dragan Babić</a> <a href="http://sprawsm.com/uni-form/" class="cta">see more styles →</a></p>
+        </div>
+        
+        <div id="okMsg">
+          <p>
+            Looks like everything went OK! Check the data you entered and if everything is OK press the button to proceed.
+          </p>
+        </div>
+              
+        <fieldset>
+          <h3>Default Form Field Layout</h3>
+          
+          <div class="ctrl-holder">
+            <h4 class="read-only-label">Label of the input field</h4>
+            <div class="read-only">User–input value</div>
+          </div>
+          
+          <div class="ctrl-holder">
+            <h4 class="read-only-label">Label of the textarea</h4>
+            <div class="read-only">User–input value that contains a lot of text, like the output of a textarea that will have the text span multiple lines.</div>
+          </div>
+          
+          <div class="ctrl-holder">
+            <h4 class="read-only-label">Label of the select box</h4>
+            <div class="read-only">
+              <span class="choice-label">You chose:</span>
+              Selected option's text
+            </div>
+          </div>
+          
+          <div class="ctrl-holder">
+            <h4 class="read-only-label">Name of the checkbox group</h4>
+            <div class="read-only">
+              <span class="choice-label">You chose:</span>
+              Label of the selected checkbox
+            </div>
+          </div>
+          
+          <div class="ctrl-holder">
+            <h4 class="read-only-label">Name of the radio group</h4>
+            <div class="read-only">
+              <span class="choice-label">You chose:</span>
+              Label of the selected radio button
+            </div>
+          </div>
+          
+          <div class="ctrl-holder">
+            <h4 class="read-only-label">Name of the multifield group</h4>
+            <div class="read-only">
+              <span class="choice-label">Input label:</span>
+              <span class="choice">User–Input value</span>
+            </div>
+            <div class="read-only">
+              <span class="choice-label">Input label:</span>
+              <span class="choice">User–Input value</span>
+            </div>
+            <div class="read-only">
+              <span class="choice-label">Input label:</span>
+              <span class="choice">User–Input value</span>
+            </div>
+          </div>
+          
+        </fieldset>
+        
+        <fieldset class="inline-labels">
+          <h3>Alternate Form Fields Layout</h3>
+          
+          <div class="ctrl-holder">
+            <h4 class="read-only-label">Label of the input field</h4>
+            <div class="read-only">User–input value</div>
+          </div>
+          
+          <div class="ctrl-holder">
+            <h4 class="read-only-label">Label of the textarea</h4>
+            <div class="read-only">User–input value that contains a lot of text, like the output of a textarea that will have the text span multiple lines.</div>
+          </div>
+          
+          <div class="ctrl-holder">
+            <h4 class="read-only-label">Label of the select box</h4>
+            <div class="read-only">
+              <span class="choice-label">You chose:</span>
+              Selected option's text
+            </div>
+          </div>
+          
+          <div class="ctrl-holder">
+            <h4 class="read-only-label">Name of the checkbox group</h4>
+            <div class="read-only">
+              <span class="choice-label">You chose:</span>
+              Label of the selected checkbox
+            </div>
+          </div>
+          
+          <div class="ctrl-holder">
+            <h4 class="read-only-label">Name of the radio group</h4>
+            <div class="read-only">
+              <span class="choice-label">You chose:</span>
+              Label of the selected radio button
+            </div>
+          </div>
+          
+          <div class="ctrl-holder">
+            <h4 class="read-only-label">Name of the multifield group</h4>
+            <div class="read-only">
+              <span class="choice-label">Input label:</span>
+              <span class="choice">User–Input value</span>
+            </div>
+            <div class="read-only">
+              <span class="choice-label">Input label:</span>
+              <span class="choice">User–Input value</span>
+            </div>
+            <div class="read-only">
+              <span class="choice-label">Input label:</span>
+              <span class="choice">User–Input value</span>
+            </div>
+          </div>
+          
+        </fieldset>
 
-    </form>
+        <div class="button-holder">
+          <button type="submit" class="action-secondary">Secondary action</button>
+          <button type="submit" class="action-primary">Primary Action</button>
+        </div>
 
-    <div class="browse">
-      <h2>Change style</h2>
-      <ul>
-        <li><a href="#" rel="../css/default.uni-form.css">Default</a> <a href="http://sprawsm.com/uni-form/styles/default.uni-form.zip" class="download" title="download style"><img src="http://sprawsm.com/uni-form/assets/download.png" alt="download" width="9" height="12" /></a></li>
-        <li><a href="#" rel="../css/blue.uni-form.css">Blue</a> <a href="http://sprawsm.com/uni-form/styles/blue.uni-form.zip" class="download" title="download style"><img src="http://sprawsm.com/uni-form/assets/download.png" alt="download" width="9" height="12" /></a></li>
-        <li><a href="#" rel="../css/dark.uni-form.css">Dark</a> <a href="http://sprawsm.com/uni-form/styles/dark.uni-form.css" class="download" title="download style"><img src="http://sprawsm.com/uni-form/assets/download.png" alt="download" width="9" height="12" /></a></li>
-      </ul>
+      </form>
+
     </div>
 
     <div id="footer">
-      <p>Uni-Form is created by <a href="http://sprawsm.com/" title="Dragan is the founder of Superawesome">Dragan Babić</a> and is licensed under the MIT license.</p>
+      <p>Uni-Form is created by <a href="http://sprawsm.com/">Dragan Babić</a> and is licensed under the MIT license.</p>
     </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/uni-form.jquery.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        
+        // init Uni-Form
+        $('form.uni-form').uniform();
+        
+      });
+    </script>
 
   </body>
 </html>

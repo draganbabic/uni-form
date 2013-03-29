@@ -23,7 +23,7 @@
    ========================================================================== */
 
 .uni-form {
-  margin: 1.5em 0;
+  margin: 0;
   padding: 0;
 }
 
@@ -43,8 +43,6 @@
 
 .uni-form .ctrl-holder,
 .uni-form .button-holder {
-  margin: 1.5em 0;
-  padding: 0;
   clear: both;
 }
 
@@ -88,8 +86,8 @@
 .uni-form label em,
 .uni-form .label em {
   float: left;
-  width: 1em;
-  margin: 0 0 0 -1em;
+  width: .75em;
+  margin: 0 0 0 -.75em;
   font-style: inherit;
   font-weight: inherit;
 }
@@ -146,8 +144,15 @@
 
 .uni-form ul.alternate li {
   display: inline-block;
-  width: 32%;
   margin: .5em 0 0 0;
+}
+
+.uni-form ul.columns-2 li {
+  width: 49%;
+}
+
+.uni-form ul.columns-3 li {
+  width: 32%;
 }
 
 .uni-form ul .input-text,

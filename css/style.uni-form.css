@@ -23,6 +23,11 @@
    
    ========================================================================== */
 
+.uni-form {
+  margin: 1.5em 0;
+  padding-top: 1px;
+}
+
 /* Form titles */
 
 .uni-form .uni-form-title {
@@ -34,9 +39,13 @@
 /* Control holders */
 
 .uni-form .ctrl-holder {
-  padding: 1em;
+  padding: 1em 1em 1.5em 1em;
   border: 1px solid #efefef;
   border-width: 1px 0 0 0;
+}
+
+.uni-form .inline-labels .ctrl-holder {
+  padding: 1.5em 1em;
 }
 
 .uni-form fieldset .ctrl-holder:last-child {
@@ -56,7 +65,7 @@
   
   /* Action buttons */
 
-  .uni-form .button-holder .action-primary {
+  .uni-form .action-primary {
     padding: 1em 2em;
     line-height: 1;
     background: #254a86;
@@ -68,9 +77,14 @@
     text-shadow: -1px -1px 0 rgba(0,0,0,.25);
   }
 
-  .uni-form .button-holder .action-primary:active {
-    position: relative;
-    top: 1px;
+  .uni-form .action-primary:focus,
+  .uni-form .action-primary:hover {
+    background: #2b58a1;
+  }
+
+  .uni-form .action-primary:active {
+    background: #1d3c6d;
+    box-shadow: 0 1px 3px rgba(0,0,0,.5) inset;
   }
 
   .uni-form .action-secondary {
@@ -102,9 +116,9 @@
   padding: 5px;
   border: 1px solid #aaa;
   background: #fff;
-  border-radius: 3px;
+  border-radius: 2px;
   -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,.15) inset;
-  box-shadow: 1px 1px 3px rgba(0,0,0,.25) inset;
+  box-shadow: 1px 1px 3px rgba(0,0,0,.15) inset;
 }
 
 .uni-form .input-text:focus,
@@ -118,8 +132,9 @@
 
 /* Labels within grouped controls */
 
-.uni-form ul li label {
-  font-size: .85em
+.uni-form .ctrl-holder > ul label {
+  margin-top: .35em; /* Compensate for the smaller font size */
+  font-size: .85em;
 }
 
 /* Get rid of the 'glow' effect in WebKit, optional 
@@ -145,70 +160,60 @@
    ========================================================================== */
 
 /* Error message at the top of the form */
+
 .uni-form #errorMsg {
   background: #ffdfdf;
   border: 1px solid #f3afb5;
-  margin: 0 0 1.5em 0;
+  margin: 1.5em 0;
   padding: 0 1.5em;
-  /* CSS3 */
   border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -o-border-radius: 4px;
-  -khtml-border-radius: 4px;
 }
-    .uni-form #errorMsg h3 {
 
-    } /* Feel free to use a heading level suitable to your page structure */
+.uni-form #errorMsg h3 {
+  margin: 1em 0 0 0;
+}
+
 .uni-form #errorMsg ol {
-  margin: 0 0 1.5em 0;
+  margin: 1.5em 0;
   padding: 0;
 }
+
     .uni-form #errorMsg ol li {
-      margin: 0 0 3px 1.5em;
+      list-style: none;
+      margin: 0 0 4px 0;
       padding: 7px;
       background: #f6bec1;
       position: relative;
       font-size: .85em;
-      /* CSS3 */
-      border-radius: 4px;
-      -webkit-border-radius: 4px;
-      -moz-border-radius: 4px;
-      -o-border-radius: 4px;
-      -khtml-border-radius: 4px;
+      border-radius: 3px;
     }
+
 .uni-form .ctrl-holder.error,
 .uni-form .ctrl-holder.focused.error {
   background: #ffdfdf;
-  border: 1px solid #f3afb5;
-  /* CSS3 */
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -o-border-radius: 4px;
-  -khtml-border-radius: 4px;
+  border-color: #f3afb5;
 }
+
     .uni-form .ctrl-holder.error input.error,
     .uni-form .ctrl-holder.error select.error,
     .uni-form .ctrl-holder.error textarea.error {
       color: #af4c4c;
       margin: 0 0 6px 0;
       padding: 4px;
+      border: 1px solid #c55f68;
     }
+
 /* Success messages at the top of the form */
+
 .uni-form #okMsg {
-  background: #c8ffbf;
-  border: 1px solid #a2ef95;
+  background: #e1f4cd;
+  border: 1px solid #b6cda4;
   margin: 0 0 1.5em 0;
   padding: 1.5em;
   text-align: center;
-  /* CSS3 */
   border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -o-border-radius: 4px;
-  -khtml-border-radius: 4px;
 }
+
     .uni-form #okMsg p {
       margin: 0
     }
