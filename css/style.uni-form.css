@@ -28,7 +28,69 @@
   padding-top: 1px;
 }
 
-/* Form titles */
+/* Default layout widths ---------------------------------------------------- */
+
+/* Fields in default layout */
+
+.uni-form .input-text,
+.uni-form .input-file,
+.uni-form .input-select,
+.uni-form select,
+.uni-form textarea {
+  width: 65%;
+}
+
+/* Form hints in default layout */
+
+.uni-form .form-hint {
+  width: 33%;
+}
+
+/* Grouped buttons in default layout */
+
+.uni-form .ctrl-holder > ul {
+  width: 67%;
+}
+
+/* Alternate layout widths -------------------------------------------------- */
+
+/* Labels in alternate layout */
+
+.uni-form .inline-labels .ctrl-holder > label,
+.uni-form .inline-labels .ctrl-holder > .label {
+  width: 33%;
+  padding-right: 3%;
+}
+
+/* Fields in alternate layout */
+
+.uni-form .inline-labels .input-text,
+.uni-form .inline-labels .input-file,
+.uni-form .inline-labels .input-select,
+.uni-form .inline-labels select,
+.uni-form .inline-labels textarea {
+  width: 67%;
+}
+
+/* Form hints in alternate layout */
+
+.uni-form .inline-labels .form-hint {
+  margin-left: 33%;
+}
+
+/* Grouped fields in alternate layout */
+
+.uni-form .inline-labels .ctrl-holder > ul {
+  width: 67%;
+}
+
+/* Nolabel option for alternate layout */
+
+.uni-form .inline-labels .no-label ul {
+  margin-left: 33%;
+}
+
+/* Form titles -------------------------------------------------------------- */
 
 .uni-form .uni-form-title {
   margin: 1.5em 0;
@@ -36,7 +98,7 @@
   font-size: 1.25em;
 }
 
-/* Control holders */
+/* Holders ------------------------------------------------------------------ */
 
 .uni-form .ctrl-holder {
   padding: 1em 1em 1.5em 1em;
@@ -63,45 +125,45 @@
   border-radius: 4px;
 }
   
-  /* Action buttons */
+/* Action buttons ----------------------------------------------------------- */
 
-  .uni-form .action-primary {
-    padding: 1em 2em;
-    line-height: 1;
-    background: #254a86;
-    border: 1px solid #163362;
-    font-size: 12px;
-    font-weight: bold;
-    color: #fff;
-    border-radius: 4px;
-    text-shadow: -1px -1px 0 rgba(0,0,0,.25);
-  }
+.uni-form .action-primary {
+  padding: 1em 2em;
+  line-height: 1;
+  background: #254a86;
+  border: 1px solid #163362;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 4px;
+  text-shadow: -1px -1px 0 rgba(0,0,0,.25);
+}
 
-  .uni-form .action-primary:focus,
-  .uni-form .action-primary:hover {
-    background: #2b58a1;
-  }
+.uni-form .action-primary:focus,
+.uni-form .action-primary:hover {
+  background: #2b58a1;
+}
 
-  .uni-form .action-primary:active {
-    background: #1d3c6d;
-    box-shadow: 0 1px 3px rgba(0,0,0,.5) inset;
-  }
+.uni-form .action-primary:active {
+  background: #1d3c6d;
+  box-shadow: 0 1px 3px rgba(0,0,0,.5) inset;
+}
 
-  .uni-form .action-secondary {
-    float: right;
-    color: #999;
-  }
+.uni-form .action-secondary {
+  float: right;
+  color: #999;
+}
 
-  .uni-form button.action-secondary,
-  .uni-form input[type=submit].action-secondary {
-    background: transparent;
-    border: none;
-    color: #999;
-    margin: 1em 0 0 0;
-    padding: 0;
-  }
+.uni-form button.action-secondary,
+.uni-form input[type=submit].action-secondary {
+  background: transparent;
+  border: none;
+  color: #999;
+  margin: 1em 0 0 0;
+  padding: 0;
+}
 
-/* Required fields asterisk styling */
+/* Required fields asterisk styling ----------------------------------------- */
 
 .uni-form .inline-labels label em,
 .uni-form .inline-labels .label em {
@@ -109,7 +171,7 @@
   font-weight: inherit;
 }
 
-/* Give some nice design to the input fields and textareas */
+/* Style input fields and textareas ----------------------------------------- */
 
 .uni-form .input-text,
 .uni-form textarea {
@@ -130,7 +192,7 @@
   height: 12em;
 }
 
-/* Labels within grouped controls */
+/* Labels within grouped controls ------------------------------------------- */
 
 .uni-form .ctrl-holder > ul label {
   margin-top: .35em; /* Compensate for the smaller font size */
@@ -143,7 +205,7 @@
   outline: none
 }*/
 
-/* Form hints */
+/* Form hints --------------------------------------------------------------- */
 
 .uni-form .form-hint {
   padding-top: .3em; /* Compensate for the smaller font size */
@@ -178,15 +240,15 @@
   padding: 0;
 }
 
-    .uni-form #errorMsg ol li {
-      list-style: none;
-      margin: 0 0 4px 0;
-      padding: 7px;
-      background: #f6bec1;
-      position: relative;
-      font-size: .85em;
-      border-radius: 3px;
-    }
+  .uni-form #errorMsg li {
+    list-style: none;
+    margin: 0 0 4px 0;
+    padding: 7px;
+    background: #f6bec1;
+    position: relative;
+    font-size: .85em;
+    border-radius: 3px;
+  }
 
 .uni-form .ctrl-holder.error,
 .uni-form .ctrl-holder.focused.error {
