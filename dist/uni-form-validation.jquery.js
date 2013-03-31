@@ -33,9 +33,6 @@
   // Static Method to hold config and options
   $.uniform = function () {};
 
-  // Hold a collection of the various form validators
-  $.uniform.validators = {};
-
   // Get the value for a validator that takes parameters.
   // These are in the format of `val-{value}`
   $.uniform.get_val = function (name, classes, defaultValue) {
@@ -69,7 +66,6 @@
     $p = $input
       .closest('div.' + options.holder_class)
       .andSelf()
-      .toggleClass(options.invalid_class, !isValid)
       .toggleClass(options.error_class, !isValid)
       .toggleClass(options.valid_class, isValid)
       .find('p.form-hint');
@@ -96,21 +92,22 @@
     if (errorMessage) { $p.html(errorMessage); }
   };
 
+  // Collection method will ppply the uniform behavior to elements
   $.fn.uniform = function (options) {
 
     options = $.extend($.uniform.defaultOptions, options);
 
     return this.each(function () {
-      var form, errors, get_label_text, get_val, validate, initial_values;
+      var $form, errors, get_label_text, get_val, validate, initial_values;
 
-      form = $(this);
+      $form = $(this);
       errors = [];
       get_label_text = $.proxy($.uniform.get_label_text, this);
       get_val = $.proxy($.uniform.get_val, this);
       validate = $.proxy($.uniform.validate, this);
 
       // Select form fields and attach the highlighter functionality
-      form.find(options.field_selector).each(function () {
+      $form.find(options.field_selector).each(function () {
         var $input = $(this),
             value = $input.val();
 
@@ -132,19 +129,18 @@
       //
       // Note that you can turn on `askOnLeave` with either uniform.settings
       // or with a form class.
-      if (options.ask_on_leave || form.hasClass('askOnLeave')) {
-        initial_values = form.serialize();
+      if (options.ask_on_leave || $form.hasClass('askOnLeave')) {
+        initial_values = $form.serialize();
         $(window).bind("beforeunload", function () {
-          if ((initial_values !== form.serialize()) &&
-              (options.ask_on_leave || form.hasClass('askOnLeave'))
+          if ((initial_values !== $form.serialize()) &&
+              (options.ask_on_leave || $form.hasClass('askOnLeave'))
           ) {
             return ($.isFunction(options.on_leave_callback)) ?
-              options.on_leave_callback(form):
+              options.on_leave_callback($form):
               window.confirm($.uniform.i18n('on_leave'));
           }
         });
       }
-
 
        // Attach the submit handler to the form
        //
@@ -154,18 +150,18 @@
        //    there are outstanding errors in the form
        //
        // TODO: Use prevent_submit to disable the submit in the blur handler
-      form.submit(function () {
+      $form.submit(function () {
         var return_val, callback_result = true;
 
         // In the case of a previously failed submit, we'll remove our marker
-        form.removeClass('failedSubmit');
+        $form.removeClass('failedSubmit');
 
         // Prevent the ask_on_leave from firing
         options.ask_on_leave = false;
-        form.removeClass('askOnLeave');
+        $form.removeClass('askOnLeave');
 
         // Remove the default values from the val() where they were being displayed
-        form.find(options.field_selector).each(function () {
+        $form.find(options.field_selector).each(function () {
           if ($(this).val() === $(this).data('default-value')) {
             $(this).val('');
           }
@@ -175,27 +171,25 @@
         // perhaps if a field was filled in before uniform was initialized
         // or if blur failed to fire correctly
         // You can turn on prevent_submit with either a class or with the uniform.settings
-        if (options.prevent_submit || form.hasClass('preventSubmit')) {
-          // use blur to run the validators on each field
-          form.find(options.field_selector).each(function () {
+        if (options.prevent_submit || $form.hasClass('preventSubmit')) {
+          // Use blur to run the validators on each field
+          $form.find(options.field_selector).each(function () {
             $(this).blur();
           });
 
-          // if we have a submit callback, we'll give it a chance to inspect the data now
+          // If we have a submit callback, we'll give it a chance to inspect the data now
           if ($.isFunction(options.submit_callback)) {
-            callback_result = options.submit_callback(form);
+            callback_result = options.submit_callback($form);
           }
 
-          // if there are any error messages
-          if (form.find('.' + options.invalid_class).add('.' + options.error_class).length ||
-            (!callback_result)
-          ) {
+          // If there are any error messages
+          if ($form.find('.' + options.error_class).length || (!callback_result)) {
             return_val = ($.isFunction(options.prevent_submit_callback)) ?
-                options.prevent_submit_callback(form, $.uniform.i18n('submit_msg'), [$.uniform.i18n('submit_help')]):
-                $.fn.uniform.showFormError(form, $.uniform.i18n('submit_msg'), [$.uniform.i18n('submit_help')]);
-          } // end form error counting
+                options.prevent_submit_callback($form, $.uniform.i18n('submit_msg'), [$.uniform.i18n('submit_help')]):
+                $.uniform.showFormError($form, $.uniform.i18n('submit_msg'), [$.uniform.i18n('submit_help')]);
+          } // End form error counting
 
-        } // end preventSubmit
+        } // End preventSubmit
         else {
           // We aren't preventing the submission when there are errors, so this function must
           // return true and allow the form to submit.
@@ -204,28 +198,30 @@
 
         // QUnit needs to run this submit function, and still prevent the submit.
         // This isn't ideal, but it prevents us from having to trap events
-        if (form.parents('#qunit-fixture').length) {
+        if ($form.parents('#qunit-fixture').length) {
           return_val = false;
         }
 
-        if (return_val === false) { form.addClass('failedSubmit'); }
+        if (return_val === false) { $form.addClass('failedSubmit'); }
 
         return return_val;
       });
 
       // Set the form focus class and remove any classes other than the focus
       // class and then hide the default label text
-      form.delegate(options.field_selector, 'focus', function () {
-        form.find('.' + options.focused_class).removeClass(options.focused_class);
+      $form.delegate(options.field_selector, 'focus', function () {
         var $input = $(this);
+window.console.log($input);
+        $form // Remove any other focus highlighting
+          .find('.' + options.focused_class)
+          .removeClass(options.focused_class);
 
-        $input
-          .parents()
-          .filter('.' + options.holder_class + ':first')
+        $input // Highlight the holder for this element
+          .closest('.' + options.holder_class)
           .addClass(options.focused_class);
 
         if ($input.val() === $input.data('default-value')) {
-          $input.val('');
+          $input.val(''); // Hide any default data
         }
 
         $input.not('select').css('color', $input.data('default-color'));
@@ -237,7 +233,7 @@
       // validators, and run them as we find them
       //
       // If the validators fail, we trigger either 'success' or 'error' events
-      form.delegate(options.field_selector, 'blur', function () {
+      $form.delegate(options.field_selector, 'blur', function () {
         var $input = $(this),
             has_validation = false,
             validator,
@@ -245,7 +241,7 @@
             label = get_label_text($input, options);
 
         // Remove focus from form element
-        form.find('.' + options.focused_class).removeClass(options.focused_class);
+        $form.find('.' + options.focused_class).removeClass(options.focused_class);
 
         // (if empty or equal to default value) AND not required
         if (($input.val() === "" || $input.val() === $input.data('default-value')) &&
@@ -256,7 +252,7 @@
           return;
         }
 
-        // run the validation and if they all pass, we mark the color and move on
+        // Run the validation and if they all pass, we mark the color and move on
         for (validator in $.uniform.validators) {
           if ($input.hasClass(validator)) {
             validation_result = $.uniform.validators[validator]($input, label, options);
@@ -270,9 +266,7 @@
 
         // If it had validation and we didn't return above,
         // then all validation passed
-        if (has_validation) {
-          $input.trigger('success');
-        }
+        if (has_validation) { $input.trigger('success'); }
 
         // Return the color to the default
         $input.css('color', $input.data('default-color'));
@@ -282,13 +276,13 @@
       // Handle a validation error in the form element
       // This will set the field to have the error marker and update the
       // warning text
-      form.delegate(options.field_selector, 'error', function (e, text) {
+      $form.delegate(options.field_selector, 'error', function (e, text) {
         validate($(this), false, text, errors, options);
       });
 
       // Handle a succesful validation in the form element
       // Remove any error messages and set the validation marker to be success
-      form.delegate(options.field_selector, 'success', function () {
+      $form.delegate(options.field_selector, 'success', function () {
         validate($(this), true, '', errors, options);
       });
 
@@ -298,11 +292,12 @@
       // and any handling of the default data
       $('input[autofocus]:first').focus();
 
+      return this;
     }); // end for each form
   };
 
   // Display a Uni-Form form validation error
-  $.fn.uniform.showFormError = function ($form, errorTitle, errorMessages) {
+  $.uniform.showFormError = function ($form, errorTitle, errorMessages) {
     var m, $message;
 
     if ($('#errorMsg').length) {
@@ -329,7 +324,7 @@
   };
 
   // Show the Uni-Form form success message
-  $.fn.uniform.showFormSuccess = function ($form, successMessage) {
+  $.uniform.showFormSuccess = function ($form, successMessage) {
     $('#okMsg').remove(); // Remove the old message
     $form.prepend( // The success message
       $('<div />').attr('id', 'okMsg').html("<h3>" + successMessage + "</h3>")
@@ -341,6 +336,81 @@
     return false;
   };
 
+
+   // Simple replacement for i18n + sprintf
+   // `$.uniform.i18n("string_key", sprintf style arguments)`
+  $.uniform.i18n = function (lang_key) {
+    var lang_string = $.uniform.language[lang_key],
+        bits = lang_string.split('%'),
+        out = bits[0],
+        re = /^([ds])(.*)$/,
+        p, i;
+
+    for (i = 1; i < bits.length; i += 1) {
+      p = re.exec(bits[i]);
+      if (!p || arguments[i] === null) {
+        continue;
+      }
+      if (p[1] === 'd') {
+        out += parseInt(arguments[i], 10);
+      } else if (p[1] === 's') {
+        out += arguments[i];
+      }
+      out += p[2];
+    }
+    return out;
+  };
+
+  // Internationalized language strings for validation messages
+  $.uniform.language = {
+    required:       '%s is required',
+    req_radio:      'Please make a selection',
+    req_checkbox:   'You must select this checkbox to continue',
+    minlength:      '%s should be at least %d characters long',
+    min:            '%s should be greater than or equal to %d',
+    maxlength:      '%s should not be longer than %d characters',
+    max:            '%s should be less than or equal to %d',
+    same_as:        '%s is expected to be same as %s',
+    email:          '%s is not a valid email address',
+    url:            '%s is not a valid URL',
+    number:         '%s needs to be a number',
+    integer:        '%s needs to be a whole number',
+    alpha:          '%s should contain only letters (without special characters or numbers)',
+    alphanum:       '%s should contain only numbers and letters (without special characters)',
+    phrase:         '%s should contain only alphabetic characters, numbers, spaces, and the following: . , - _ () * # :',
+    phone:          '%s should be a phone number',
+    date:           '%s should be a date (mm/dd/yyyy)',
+    callback:       'Failed to validate %s field. Validator function (%s) is not defined!',
+    on_leave:       'Are you sure you want to leave this page without saving this form?',
+    submit_msg:     'Sorry, this form needs corrections.',
+    submit_help:    'Please see the items marked below.',
+    submit_success: 'Thank you, this form has been sent.'
+  };
+
+  // Classnames and callback options
+  $.uniform.defaultOptions = {
+    submit_callback:         false,
+    prevent_submit:          false,
+    prevent_submit_callback: false,
+    ask_on_leave:            false,
+    on_leave_callback:       false,
+    valid_class:             'valid',
+    error_class:             'error',
+    focused_class:           'focused',
+    holder_class:            'ctrl-holder',
+    hint_class:              'form-hint',
+    field_selector:          'input, textarea, select',
+    default_value_color:     '#afafaf'
+  };
+
+}(jQuery));
+
+(function ($) {
+
+  $.uniform = $.uniform || {};
+
+  // Hold a collection of the various form validators
+  $.uniform.validators = {};
 
   // Value of field is not empty, whitespace will be counted as empty
   $.uniform.validators.required = function ($field, caption) {
@@ -398,7 +468,6 @@
     }
     return true;
   };
-
 
   // Element has same value as that of the target Element
   //
@@ -545,73 +614,6 @@
     }
 
     return $.uniform.i18n('callback', caption, callback_function);
-  };
-
-   // Simple replacement for i18n + sprintf
-   // $.uniform.i18n("string_key", sprintf style arguments)
-  $.uniform.i18n = function (lang_key) {
-    var lang_string = $.uniform.language[lang_key],
-        bits = lang_string.split('%'),
-        out = bits[0],
-        re = /^([ds])(.*)$/,
-        p, i;
-
-    for (i = 1; i < bits.length; i += 1) {
-      p = re.exec(bits[i]);
-      if (!p || arguments[i] === null) {
-        continue;
-      }
-      if (p[1] === 'd') {
-        out += parseInt(arguments[i], 10);
-      } else if (p[1] === 's') {
-        out += arguments[i];
-      }
-      out += p[2];
-    }
-    return out;
-  };
-
-  // Internationalized language strings for validation messages
-  $.uniform.language = {
-    required:       '%s is required',
-    req_radio:      'Please make a selection',
-    req_checkbox:   'You must select this checkbox to continue',
-    minlength:      '%s should be at least %d characters long',
-    min:            '%s should be greater than or equal to %d',
-    maxlength:      '%s should not be longer than %d characters',
-    max:            '%s should be less than or equal to %d',
-    same_as:        '%s is expected to be same as %s',
-    email:          '%s is not a valid email address',
-    url:            '%s is not a valid URL',
-    number:         '%s needs to be a number',
-    integer:        '%s needs to be a whole number',
-    alpha:          '%s should contain only letters (without special characters or numbers)',
-    alphanum:       '%s should contain only numbers and letters (without special characters)',
-    phrase:         '%s should contain only alphabetic characters, numbers, spaces, and the following: . , - _ () * # :',
-    phone:          '%s should be a phone number',
-    date:           '%s should be a date (mm/dd/yyyy)',
-    callback:       'Failed to validate %s field. Validator function (%s) is not defined!',
-    on_leave:       'Are you sure you want to leave this page without saving this form?',
-    submit_msg:     'Sorry, this form needs corrections.',
-    submit_help:    'Please see the items marked below.',
-    submit_success: 'Thank you, this form has been sent.'
-  };
-
-  // Classnames and callback options
-  $.uniform.defaultOptions = {
-    submit_callback:         false,
-    prevent_submit:          false,
-    prevent_submit_callback: false,
-    ask_on_leave:            false,
-    on_leave_callback:       false,
-    valid_class:             'valid',
-    invalid_class:           'invalid',
-    error_class:             'error',
-    focused_class:           'focused',
-    holder_class:            'ctrl-holder',
-    hint_class:              'form-hint',
-    field_selector:          'input, textarea, select',
-    default_value_color:     '#afafaf'
   };
 
 }(jQuery));

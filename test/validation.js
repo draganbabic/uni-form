@@ -57,7 +57,6 @@
     return ok((typeof a === "string"), message);
   };
 
-
   module("Test fixtures", {
     setup: function() { // This will run before each test in this module.
       this.elems = $('#qunit-fixture').children();
@@ -70,6 +69,7 @@
   });
 
   var validators;
+
   module("Validation unit tests", {
     setup: function () {
       validators = jQuery.uniform.validators;
@@ -429,26 +429,18 @@
   });
 
   test("Default data hides correctly", function () {
-
     var default_text = 'This is a sample',
         $input = $('#issue_15_a'),
-        $form = jQuery('#qunit-form');
+        $form = $('#qunit-form');
 
     $input.attr('data-default-value', default_text);
-
     $form.uniform();
 
-    // should be showing the default
-    equal($input.val(), default_text,
-      "The default value has not been displayed correctly"
-    );
+    // Should be showing the default
+    equal($input.val(), default_text, "Initially display default data");
 
-    $input.focus();
-
-    // should now be empty
-    equal($input.val(), '',
-      "The default value has not been displayed correctly"
-    );
+    $input.focus(); // Should empty on focus
+    equal($input.val(), '', "Hide default data on focus");
 
   });
 

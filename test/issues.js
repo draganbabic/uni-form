@@ -33,7 +33,7 @@
    *
    * @link https://github.com/LearningStation/uni-form/issues/issue/1
    */
-  test("Case 1 : Prevent submit fails for existing data", function() {
+  test("Case 1: Prevent submit fails for existing data", function() {
     var $form = jQuery('#qunit-form');
 
     jQuery('#email', $form).val('invalid@example');
@@ -60,7 +60,7 @@
    *
    * @link https://github.com/LearningStation/uni-form/issues/issue/2
    */
-  test("Case 2 : Required validation for radio button", function() {
+  test("Case 2: Required validation for radio button", function() {
     var hasError = false,
         $form = jQuery('#qunit-form');
 
@@ -103,7 +103,7 @@
    *
    * @link https://github.com/LearningStation/uni-form/issues/issue/3
    */
-  test("Case 3 : data-default-value should not be submitted", function() {
+  test("Case 3: data-default-value should not be submitted", function() {
 
     var $form = jQuery('#qunit-form');
 
@@ -132,7 +132,7 @@
    *
    * @link https://github.com/LearningStation/uni-form/issues/issue/4
    */
-  test("Case 4 : Required validation for checkbox", function() {
+  test("Case 4: Required validation for checkbox", function() {
     var hasError = false,
         $form = jQuery('#qunit-form');
 
@@ -151,20 +151,12 @@
       })
       .trigger('submit');
 
-    equal(
-      hasError,
-      true,
-      "Checkbox has invalid class after submit"
-    );
+    equal(hasError, true, "Checkbox has invalid class after submit");
 
     $('input[name="agreement"]:checkbox', $form).attr('checked', true);
     $form.trigger('submit');
 
-    equal(
-      hasError,
-      false,
-      "Checkbox validated after selection and second submit"
-    );
+    equal(hasError, false, "Validated after selection and second submit");
 
   });
 
@@ -175,10 +167,10 @@
    *
    * @link https://github.com/LearningStation/uni-form/issues/issue/15
    */
-  test("Case 9 : Autofocus field works with highlight and default data", function() {
+  test("Case 9: Autofocus field works with highlight and default data", function() {
 
     var $input = $('#name'),
-        $form = jQuery('#qunit-form');
+        $form = $('#qunit-form');
 
     function supports_input_autofocus() {
       var i = document.createElement('input');
@@ -195,22 +187,15 @@
     if (supports_input_autofocus()) {
       // the ctrlHolder should be focused.
       ok(
-        $input.parents('div.ctrlHolder').hasClass('focused'),
+        $input.parents('div.ctrl-holder').hasClass('focused'),
         'The autofocus form element should be highlighted.'
       );
 
       // the default text should also be removed
-      equal(
-        $input.val(),
-        '',
-        'The default text should be removed on autofocused fields.'
-      );
+      equal($input.val(), '', 'The default text should be removed on autofocused fields.');
     }
     else {
-      ok(
-        true,
-        "This browser does not support autofocus"
-      );
+      ok(true, "This browser does not support autofocus");
     }
 
 
@@ -224,7 +209,7 @@
    *
    * @link https://github.com/LearningStation/uni-form/issues/issue/15
    */
-  test("Case 15 : Default value with a period should not be rounded", function() {
+  test("Case 15: Default value with a period should not be rounded", function() {
     var $input = $('#issue_15_a'),
         $form = $('#qunit-form');
 

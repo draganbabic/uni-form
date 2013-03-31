@@ -44,7 +44,7 @@ module.exports = function (grunt) {
         dest: 'dist/uni-form.jquery.js'
       },
       dist_validation: {
-        src: ['src/uni-form-validation.jquery.js', 'src/validators/*.js'],
+        src: ['src/uni-form-validation.jquery.js', 'src/validators.js'],
         dest: 'dist/uni-form-validation.jquery.js'
       }
     },
