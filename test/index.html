@@ -2,25 +2,19 @@
 <html>
 <head>
   <title>QUnit Test Suite</title>
-
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
-  <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
-  <script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
-
-  <!--<script type="text/javascript" src="../js/uni-form-validation.jquery.js"></script>-->
-  <script type="text/javascript" src="../js/uni-form-validation.jquery.min.js"></script>
-
+  <!-- Load local jQuery. This can be overridden with a ?jquery=___ param. -->
+  <script src="../libs/jquery-loader.js"></script>
+  <!-- Load local QUnit. -->
+  <link rel="stylesheet" href="../libs/qunit/qunit.css" media="screen">
+  <script src="../libs/qunit/qunit.js"></script>
+  <!-- Load local lib and tests. -->
+  <script type="text/javascript" src="../src/uni-form-validation.jquery.js"></script>
   <script type="text/javascript" src="validation.js"></script>
   <script type="text/javascript" src="form.js"></script>
   <script type="text/javascript" src="issues.js"></script>
-
 </head>
 <body>
-  <h1 id="qunit-header">QUnit Test Suite</h1>
-  <h2 id="qunit-banner"></h2>
-  <div id="qunit-testrunner-toolbar"></div>
-  <h2 id="qunit-userAgent"></h2>
-  <ol id="qunit-tests"></ol>
+  <div id="qunit"></div>
   <div id="qunit-fixture">
     <form id="qunit-form" action="#" class="uniForm">
 

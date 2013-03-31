@@ -1,3 +1,6 @@
+/*! Uni-Form - v1.5.0 - 2013-03-31
+* http://sprawsm.com/uni-form/
+* Copyright (c) 2013 Dragan Babic; Licensed MIT */
 //
 // Uni-Form jQuery Plugin with Validation
 // =============================================================================
