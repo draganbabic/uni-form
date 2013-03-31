@@ -55,6 +55,7 @@
   // Get the text of the label that belongs to the field
   $.uniform.get_label_text = function ($field, options) {
     var text = $field.closest('label').text();
+    options = options || $.uniform.defaultOptions;
     if (text === '') {
       text = $field.closest('div.' + options.holder_class).find('label').text();
     }
@@ -402,16 +403,17 @@
   // Element has same value as that of the target Element
   //
   // This does not use the val-{name} format, and instead
-  // is only the name of the element
+  // is only the __name__ of the element
   //
-  // class="validateSameAs field_id"
+  // `class="validateSameAs field_id"`
   $.uniform.validators.validateSameAs = function ($field, caption, options) {
     var classes = $field.attr('class').split(' '),
-        target_field = '',
         target_field_name = '',
         target_field_caption = '',
-        i, $form;
+        $form = $field.closest('form'),
+        $target_field, i;
 
+    options = options || $.uniform.defaultOptions;
     for (i = 0; i < classes.length; i += 1) {
       if (classes[i] === 'validateSameAs') {
         if (classes[i + 1] !== 'undefined') {
@@ -422,13 +424,10 @@
     }
 
     if (target_field_name) {
-      $form = $field.parents('form:first');
-      target_field = $('input[name="' + target_field_name + '"]', $form);
-      if (target_field.length > 0) {
-        if (target_field.val() !== $field.val()) {
-          target_field_caption = $.uniform.get_label_text(target_field, options);
-          return $.uniform.i18n('same_as', caption, target_field_caption);
-        }
+      $target_field = $form.find('input[name="' + target_field_name + '"]');
+      if ($target_field.val() !== $field.val()) {
+        target_field_caption = $.uniform.get_label_text($target_field, options);
+        return $.uniform.i18n('same_as', caption, target_field_caption);
       }
     }
 

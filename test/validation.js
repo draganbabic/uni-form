@@ -31,7 +31,7 @@
    * @return obj jQuery object
    */
   var getInput = function (type, value) {
-    return jQuery('<input type="' + type + '" />').val(value);
+    return $('<input type="' + type + '" />').val(value);
   };
 
   /**
@@ -199,16 +199,16 @@
   });
 
   test("SameAs test", function () {
-    var $inputA = getInput('text', 'Same Value').attr('name','inputA'),
-        $inputB = getInput('text', 'Same Value').attr('name','inputB').addClass('validateSameAs').addClass('inputA');
+    var $inputA, $inputB;
 
-    $('#qunit-fixture').append($inputA).append($inputB);
+    $inputA = getInput('text', 'Same Value').attr('name', 'inputA');
+    $inputB = getInput('text', 'Same Value').attr('name', 'inputB').addClass('validateSameAs').addClass('inputA');
 
-    validationTest(validators.validateSameAs($inputB), true,'Same Values');
+    $('#qunit-form').append($inputA).append($inputB);
+    validationTest(validators.validateSameAs($inputB), true, 'Same Values');
 
     $inputA.val('Different Value');
     validationTest(validators.validateSameAs($inputB), false, "Different values");
-
   });
 
   test("Email address test", function () {
