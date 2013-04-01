@@ -51,9 +51,7 @@
    * return bool result of assertion
    */
   var validationTest = function (a, b, message) {
-    if (b === true) {
-      return ok((a === b), message);
-    }
+    if (b === true) { return ok((a === b), message); }
     return ok((typeof a === "string"), message);
   };
 
@@ -430,18 +428,15 @@
 
   test("Default data hides correctly", function () {
     var default_text = 'This is a sample',
-        $input = $('#issue_15_a'),
-        $form = $('#qunit-form');
+        $input = $('#issue_15_a');
 
     $input.attr('data-default-value', default_text);
-    $form.uniform();
+    $('#qunit-form').uniform();
 
     // Should be showing the default
     equal($input.val(), default_text, "Initially display default data");
-
-    $input.focus(); // Should empty on focus
+    $input.trigger("focus"); // Should empty on focus
     equal($input.val(), '', "Hide default data on focus");
-
   });
 
 

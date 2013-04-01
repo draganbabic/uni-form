@@ -59,39 +59,6 @@
     return text.replace('*', '').replace(':', ''); // Pretty formatting
   };
 
-  // Set the results of form validation on the form element
-  $.uniform.validate = function ($input, isValid, errorMessage, errors, options) {
-    var $p, name;
-    options = options || $.uniform.defaultOptions;
-    $p = $input
-      .closest('div.' + options.holder_class)
-      .andSelf()
-      .toggleClass(options.error_class, !isValid)
-      .toggleClass(options.valid_class, isValid)
-      .find('p.form-hint');
-
-    name = $input.attr('name');
-
-    // Store this into the errors array, can be used by the custom callback
-    if (!isValid) {
-      errors[name] = errorMessage;
-    }
-    else if (name in errors) {
-      delete errors[name];
-    }
-
-    // If the validation failed we'll stash the p help text into the info-data
-    // and then put the error message in it's place.
-    if (!isValid && ! $p.data('info-text')) {
-      $p.data('info-text', $p.html());
-    }
-    else if (isValid) {
-      errorMessage = $p.data('info-text');
-    }
-
-    if (errorMessage) { $p.html(errorMessage); }
-  };
-
   // Collection method will ppply the uniform behavior to elements
   $.fn.uniform = function (options) {
 
@@ -132,6 +99,7 @@
       if (options.ask_on_leave || $form.hasClass('askOnLeave')) {
         initial_values = $form.serialize();
         $(window).bind("beforeunload", function () {
+          // We check options a second time so that we can disable this
           if ((initial_values !== $form.serialize()) &&
               (options.ask_on_leave || $form.hasClass('askOnLeave'))
           ) {
@@ -198,9 +166,7 @@
 
         // QUnit needs to run this submit function, and still prevent the submit.
         // This isn't ideal, but it prevents us from having to trap events
-        if ($form.parents('#qunit-fixture').length) {
-          return_val = false;
-        }
+        if ($('#qunit-fixture').length) { return_val = false; }
 
         if (return_val === false) { $form.addClass('failedSubmit'); }
 
@@ -209,9 +175,9 @@
 
       // Set the form focus class and remove any classes other than the focus
       // class and then hide the default label text
-      $form.delegate(options.field_selector, 'focus', function () {
+      $form.find(options.field_selector).on('focus', function (e) {
         var $input = $(this);
-window.console.log($input);
+window.console.log(e);
         $form // Remove any other focus highlighting
           .find('.' + options.focused_class)
           .removeClass(options.focused_class);
@@ -225,6 +191,7 @@ window.console.log($input);
         }
 
         $input.not('select').css('color', $input.data('default-color'));
+
       });
 
       // Validate a form field on the blur event
@@ -233,7 +200,7 @@ window.console.log($input);
       // validators, and run them as we find them
       //
       // If the validators fail, we trigger either 'success' or 'error' events
-      $form.delegate(options.field_selector, 'blur', function () {
+      $form.find(options.field_selector).on('blur', function () {
         var $input = $(this),
             has_validation = false,
             validator,
@@ -258,7 +225,7 @@ window.console.log($input);
             validation_result = $.uniform.validators[validator]($input, label, options);
             has_validation = true;
             if (typeof(validation_result) === 'string') {
-              $input.trigger('error', validation_result);
+              $input.trigger('uniform-error', validation_result);
               return;
             }
           }
@@ -266,31 +233,30 @@ window.console.log($input);
 
         // If it had validation and we didn't return above,
         // then all validation passed
-        if (has_validation) { $input.trigger('success'); }
+        if (has_validation) { $input.trigger('uniform-success'); }
 
         // Return the color to the default
         $input.css('color', $input.data('default-color'));
-        return;
-      });
+      }); // End Blur
 
       // Handle a validation error in the form element
       // This will set the field to have the error marker and update the
       // warning text
-      $form.delegate(options.field_selector, 'error', function (e, text) {
-        validate($(this), false, text, errors, options);
+      $form.on('uniform-error', options.field_selector, function (e, text) {
+        $.uniform.showValidation($(this), false, text, errors, options);
       });
 
       // Handle a succesful validation in the form element
       // Remove any error messages and set the validation marker to be success
-      $form.delegate(options.field_selector, 'success', function () {
-        validate($(this), true, '', errors, options);
+      $form.on('uniform-success', options.field_selector, function () {
+        $.uniform.showValidation($(this), true, '', errors, options);
       });
 
-      // Issue 9: HTML5 autofocus elements
+      // Issue 9: HTML5 autofocus element attribute
       // When the browser focuses, it happens before Uni-Form, and so we need
       // the manually run the focus event here to deal with style changes
       // and any handling of the default data
-      $('input[autofocus]:first').focus();
+      $('input[autofocus]:first').trigger("focus");
 
       return this;
     }); // end for each form
@@ -336,6 +302,38 @@ window.console.log($input);
     return false;
   };
 
+  // Set the results of form validation on the form element
+  $.uniform.showValidation = function ($input, isValid, errorMessage, errors, options) {
+    var $p, name;
+    options = options || $.uniform.defaultOptions;
+    $p = $input
+      .closest('div.' + options.holder_class)
+      .andSelf()
+      .toggleClass(options.error_class, !isValid)
+      .toggleClass(options.valid_class, isValid)
+      .find('p.form-hint');
+
+    name = $input.attr('name');
+
+    // Store this into the errors array, can be used by the custom callback
+    if (!isValid) {
+      errors[name] = errorMessage;
+    }
+    else if (name in errors) {
+      delete errors[name];
+    }
+
+    // If the validation failed we'll stash the p help text into the info-data
+    // and then put the error message in it's place.
+    if (!isValid && ! $p.data('info-text')) {
+      $p.data('info-text', $p.html());
+    }
+    else if (isValid) {
+      errorMessage = $p.data('info-text');
+    }
+
+    if (errorMessage) { $p.html(errorMessage); }
+  };
 
    // Simple replacement for i18n + sprintf
    // `$.uniform.i18n("string_key", sprintf style arguments)`

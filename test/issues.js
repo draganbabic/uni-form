@@ -72,16 +72,14 @@
         prevent_submit_callback : function($submit_form) {
           hasError =
               $('input[name="color"]:radio:first', $submit_form)
-                  .parents('div.ctrlHolder')
+                  .parents('div.ctrl-holder')
                   .hasClass('error');
           return false;
         }
       })
       .trigger('submit');
 
-    equal(
-      hasError,
-      true,
+    equal(hasError, true,
       "Radio group has invalid class after submit"
     );
 
@@ -144,7 +142,7 @@
         prevent_submit_callback : function($submit_form) {
           hasError =
               $('input[name="agreement"]:checkbox', $submit_form)
-                  .parents('div.ctrlHolder')
+                  .parents('div.ctrl-holder')
                   .hasClass('error');
           return false;
         }
