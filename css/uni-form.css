@@ -297,7 +297,7 @@
 .uni-form .small,
 .uni-form .medium,
 .uni-form .auto {
-  margin-right: 4px
+  margin-right: 4px !important;
 }
 
 /* ==========================================================================
