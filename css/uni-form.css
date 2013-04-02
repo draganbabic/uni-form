@@ -143,25 +143,25 @@
 
 /* Alternate layout for grouped controls (stacked inline) */
 
-.uni-form ul.alternate li {
+.uni-form ul.uni-form-multi li {
   display: inline-block;
   margin: .5em 0 0 0;
 }
 
-.uni-form ul.columns-2 li {
+.uni-form ul.uni-form-columns-2 li {
   width: 49%;
 }
 
-.uni-form ul.columns-3 li {
+.uni-form ul.uni-form-columns-3 li {
   width: 32%;
 }
 
 .uni-form ul .input-text,
 .uni-form ul .input-select,
 .uni-form ul select,
-.uni-form ul.alternate .input-text,
-.uni-form ul.alternate .input-select,
-.uni-form ul.alternate select {
+.uni-form ul.uni-form-multi .input-text,
+.uni-form ul.uni-form-multi .input-select,
+.uni-form ul.uni-form-multi select {
   display: inline-block;
   float: none;
   width: 98%;
@@ -238,14 +238,14 @@
 
 /* Alternate layout for grouped controls (stacked inline) */
 
-.uni-form .inline-labels .ctrl-holder > ul.alternate li {
+.uni-form .inline-labels .ctrl-holder > ul.uni-form-multi li {
   margin-top: 0;
 }
   
-  .uni-form .inline-labels .ctrl-holder > ul.alternate .input-text,
-  .uni-form .inline-labels .ctrl-holder > ul.alternate .input-select,
-  .uni-form .inline-labels .ctrl-holder > ul.alternate .input-file,
-  .uni-form .inline-labels .ctrl-holder > ul.alternate .input-textarea {
+  .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-text,
+  .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-select,
+  .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-file,
+  .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-textarea {
     width: 98%;
   }
 
