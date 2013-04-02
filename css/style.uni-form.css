@@ -28,6 +28,33 @@
   padding-top: 1px;
 }
 
+/* Holders ------------------------------------------------------------------ */
+
+.uni-form .ctrl-holder {
+  padding: 1em 1em 1.5em 1em;
+  border: 1px solid #efefef;
+  border-width: 1px 0 0 0;
+}
+
+.uni-form .inline-labels .ctrl-holder {
+  padding: 1.5em 1em;
+}
+
+.uni-form fieldset .ctrl-holder:last-child {
+  border-bottom-width: 1px;
+}
+
+.uni-form .ctrl-holder.focused {
+  background: #fffcdf
+}
+
+.uni-form .button-holder {
+  background: #efefef;
+  margin-top: 1.5em;
+  padding: 1.5em;
+  border-radius: 4px;
+}
+
 /* Default layout widths ---------------------------------------------------- */
 
 /* Fields in default layout */
@@ -35,8 +62,7 @@
 .uni-form .input-text,
 .uni-form .input-file,
 .uni-form .input-select,
-.uni-form select,
-.uni-form textarea {
+.uni-form .input-textarea {
   width: 65%;
 }
 
@@ -67,8 +93,7 @@
 .uni-form .inline-labels .input-text,
 .uni-form .inline-labels .input-file,
 .uni-form .inline-labels .input-select,
-.uni-form .inline-labels select,
-.uni-form .inline-labels textarea {
+.uni-form .inline-labels .input-textarea {
   width: 67%;
 }
 
@@ -97,33 +122,6 @@
   font-weight: bold;
   font-size: 1.25em;
 }
-
-/* Holders ------------------------------------------------------------------ */
-
-.uni-form .ctrl-holder {
-  padding: 1em 1em 1.5em 1em;
-  border: 1px solid #efefef;
-  border-width: 1px 0 0 0;
-}
-
-.uni-form .inline-labels .ctrl-holder {
-  padding: 1.5em 1em;
-}
-
-.uni-form fieldset .ctrl-holder:last-child {
-  border-bottom-width: 1px;
-}
-
-.uni-form .ctrl-holder.focused {
-  background: #fffcdf
-}
-
-.uni-form .button-holder {
-  background: #efefef;
-  margin-top: 1.5em;
-  padding: 1.5em;
-  border-radius: 4px;
-}
   
 /* Action buttons ----------------------------------------------------------- */
 
@@ -146,21 +144,19 @@
 
 .uni-form .action-primary:active {
   background: #1d3c6d;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.5) inset;
   box-shadow: 0 1px 3px rgba(0,0,0,.5) inset;
 }
 
-.uni-form .action-secondary {
-  float: right;
-  color: #999;
-}
-
+.uni-form .action-secondary,
 .uni-form button.action-secondary,
 .uni-form input[type=submit].action-secondary {
+  float: right;
   background: transparent;
   border: none;
-  color: #999;
-  margin: 1em 0 0 0;
+  margin: 1.5em 0 0 0;
   padding: 0;
+  color: #999;
 }
 
 /* Required fields asterisk styling ----------------------------------------- */
@@ -174,7 +170,7 @@
 /* Style input fields and textareas ----------------------------------------- */
 
 .uni-form .input-text,
-.uni-form textarea {
+.uni-form .input-textarea {
   padding: 5px;
   border: 1px solid #aaa;
   background: #fff;
@@ -184,11 +180,12 @@
 }
 
 .uni-form .input-text:focus,
-.uni-form textarea:focus {
+.uni-form .input-textarea:focus {
   border-color: #343434;
+  outline: none;
 }
 
-.uni-form textarea {
+.uni-form .input-textarea {
   height: 12em;
 }
 
@@ -258,9 +255,10 @@
   border-color: #f3afb5;
 }
 
-    .uni-form .ctrl-holder.error input.error,
-    .uni-form .ctrl-holder.error select.error,
-    .uni-form .ctrl-holder.error textarea.error {
+    .uni-form .ctrl-holder.error .input-text.error,
+    .uni-form .ctrl-holder.error .input-file.error,
+    .uni-form .ctrl-holder.error .input-select.error,
+    .uni-form .ctrl-holder.error .input-textarea.error {
       color: #af4c4c;
       border-color: #c55f68;
     }
@@ -291,8 +289,28 @@
   
   .ctrl-holder.valid .input-text,
   .ctrl-holder.valid .input-select,
-  .ctrl-holder.valid textarea,
-  .ctrl-holder.valid select {
+  .ctrl-holder.valid .input-textarea {
     border-color: #88a24f;
     color: #88a24f;
   }
+
+/* ==========================================================================
+   Columns
+   ========================================================================== */
+
+/* Remove borders from .ctrl-holder */
+
+.uni-form-row > .ctrl-holder {
+  border: none;
+}
+
+/* Add borders to rows */
+
+.uni-form-row {
+  border: 1px solid #efefef;
+  border-width: 1px 0 0 0;
+}
+
+.uni-form-row:last-child {
+  border-bottom-width: 1px;
+}

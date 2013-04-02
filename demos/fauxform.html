@@ -82,7 +82,11 @@
           
           <h2 class="uni-form-title">Form Title</h2>
 
+          <p>The <code>.form-title</code> class is reserved for styling the title of the form. Any of the heading elements are recommended for this instead of the legend element.</p>
+
           <h3>Default Form Field Layout</h3>
+
+          <p>This is the default way of laying out form fields where the label is above the input field and the form hint.</p>
 
           <div class="ctrl-holder valid">
             <label for=""><em>*</em> Default text input</label>
@@ -110,7 +114,7 @@
           
           <div class="ctrl-holder">
             <label for=""><em>*</em> Textarea</label>
-            <textarea name="" id="" rows="15" cols="25"></textarea>
+            <textarea class="input-textarea" name="" id="" rows="15" cols="25"></textarea>
             <p class="form-hint">Standard textarea. Height is set in CSS.</p>
           </div>
           
@@ -230,7 +234,10 @@
         </fieldset>
         
         <fieldset class="inline-labels">
+
           <h3>Alternate Form Fields Layout</h3>
+
+          <p>Triggered by class <code>.inline-labels</code>, the alternate form fields layout is used for laying out forms where you want the label to be in line with the form field.</p>
           
           <div class="ctrl-holder">
             <label for=""><em>*</em> Default text input</label>
@@ -258,7 +265,7 @@
           
           <div class="ctrl-holder">
             <label for=""><em>*</em> Textarea</label>
-            <textarea name="" id="" rows="15" cols="25"></textarea>
+            <textarea class="input-textarea" name="" id="" rows="15" cols="25"></textarea>
             <p class="form-hint">Standard textarea. Height is set in CSS.</p>
           </div>
           
@@ -375,6 +382,52 @@
             <p class="form-hint">Laying out a single option checkbox without a label.</p>
           </div>
           
+        </fieldset>
+
+        <fieldset>
+
+          <h3>Columns</h3>
+
+          <p>Base class is <code>.uni-form-row</code> and classes that determine the number of columns are <code>.uni-form-columns-2</code> and <code>.uni-form-columns-3</code>. Note the usage of width class <code>.large</code> on the input in order to make it span the full width of the column and force the <code>.form-hint</code> to take full width as well.</p>
+
+          <div class="uni-form-row uni-form-columns-2">
+
+            <div class="ctrl-holder">
+              <label for=""><em>*</em> Default text input</label>
+              <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
+              <p class="form-hint">This is a form hint.</p>
+            </div>
+
+            <div class="ctrl-holder">
+              <label for=""><em>*</em> Default text input</label>
+              <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
+              <p class="form-hint">This is a form hint.</p>
+            </div>
+
+          </div> <!-- .uni-form-row -->
+
+          <div class="uni-form-row uni-form-columns-3">
+
+            <div class="ctrl-holder">
+              <label for=""><em>*</em> Default text input</label>
+              <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
+              <p class="form-hint">This is a form hint.</p>
+            </div>
+
+            <div class="ctrl-holder">
+              <label for=""><em>*</em> Default text input</label>
+              <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
+              <p class="form-hint">This is a form hint.</p>
+            </div>
+
+            <div class="ctrl-holder">
+              <label for=""><em>*</em> Default text input</label>
+              <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
+              <p class="form-hint">This is a form hint.</p>
+            </div>
+
+          </div> <!-- .uni-form-row -->
+
         </fieldset>
 
         <div class="button-holder">
