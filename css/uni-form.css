@@ -1,5 +1,6 @@
 /* ==========================================================================
-   Copyright (c) 2010, Dragan Babic
+   Copyright (c) 2013, Dragan Babic
+   --------------------------------------------------------------------------
    Permission is hereby granted, free of charge, to any person
    obtaining a copy of this software and associated documentation
    files (the "Software"), to deal in the Software without
@@ -290,9 +291,11 @@
   width: 100% !important;
 }
 
-.uni-form .large + .form-hint {
+.uni-form .large + .form-hint,
+.uni-form .inline-labels .large + .form-hint {
   float: none;
   width: auto;
+  margin-left: 0;
   padding-top: .3em;
 }
 

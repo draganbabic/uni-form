@@ -1,7 +1,8 @@
 /* ==========================================================================
-   UNI-FORM DEFAULT by DRAGAN BABIC
+   UNI-FORM DEFAULT STYLE by DRAGAN BABIC
    --------------------------------------------------------------------------
-   Copyright (c) 2010, Dragan Babic
+   Copyright (c) 2013, Dragan Babic
+   --------------------------------------------------------------------------
    Permission is hereby granted, free of charge, to any person
    obtaining a copy of this software and associated documentation
    files (the "Software"), to deal in the Software without
@@ -20,7 +21,6 @@
    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
    OTHER DEALINGS IN THE SOFTWARE.
-   
    ========================================================================== */
 
 .uni-form {
@@ -28,7 +28,19 @@
   padding-top: 1px;
 }
 
-/* Holders ------------------------------------------------------------------ */
+/* ==========================================================================
+   Form titles
+   ========================================================================== */
+
+.uni-form .uni-form-title {
+  margin: 1.5em 0;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+/* ==========================================================================
+   Holders
+   ========================================================================== */
 
 .uni-form .ctrl-holder {
   padding: 1em 1em 1.5em 1em;
@@ -54,6 +66,38 @@
   padding: 1.5em;
   border-radius: 4px;
 }
+
+/* ==========================================================================
+   Design for input fields
+   ========================================================================== */
+
+.uni-form .input-text,
+.uni-form .input-textarea {
+  padding: 5px;
+  border: 1px solid #aaa;
+  background: #fff;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,.15) inset;
+  box-shadow: 1px 1px 3px rgba(0,0,0,.15) inset;
+}
+
+.uni-form .input-text:focus,
+.uni-form .input-textarea:focus {
+  border-color: #343434;
+  outline: none;
+}
+
+.uni-form .input-textarea {
+  height: 12em;
+}
+
+.uni-form .input-select {}
+
+.uni-form .input-file {}
+
+/* ==========================================================================
+   Widths
+   ========================================================================== */
 
 /* Default layout widths ---------------------------------------------------- */
 
@@ -114,16 +158,10 @@
 .uni-form .inline-labels .no-label ul {
   margin-left: 33%;
 }
-
-/* Form titles -------------------------------------------------------------- */
-
-.uni-form .uni-form-title {
-  margin: 1.5em 0;
-  font-weight: bold;
-  font-size: 1.25em;
-}
   
-/* Action buttons ----------------------------------------------------------- */
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
 
 .uni-form .action-primary {
   padding: 1em 2em;
@@ -154,12 +192,14 @@
   float: right;
   background: transparent;
   border: none;
-  margin: 1.5em 0 0 0;
+  margin: 1.25em 0 0 0;
   padding: 0;
   color: #999;
 }
 
-/* Required fields asterisk styling ----------------------------------------- */
+/* ==========================================================================
+   Required fields asterisks
+   ========================================================================== */
 
 .uni-form .inline-labels label em,
 .uni-form .inline-labels .label em {
@@ -167,42 +207,18 @@
   font-weight: inherit;
 }
 
-/* Style input fields and textareas ----------------------------------------- */
-
-.uni-form .input-text,
-.uni-form .input-textarea {
-  padding: 5px;
-  border: 1px solid #aaa;
-  background: #fff;
-  border-radius: 2px;
-  -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,.15) inset;
-  box-shadow: 1px 1px 3px rgba(0,0,0,.15) inset;
-}
-
-.uni-form .input-text:focus,
-.uni-form .input-textarea:focus {
-  border-color: #343434;
-  outline: none;
-}
-
-.uni-form .input-textarea {
-  height: 12em;
-}
-
-/* Labels within grouped controls ------------------------------------------- */
+/* ==========================================================================
+   Labels within grouped controls
+   ========================================================================== */
 
 .uni-form .ctrl-holder > ul label {
   margin-top: .35em; /* Compensate for the smaller font size */
   font-size: .85em;
 }
 
-/* Get rid of the 'glow' effect in WebKit, optional 
-.uni-form .ctrl-holder .input-text:focus,
-.uni-form .ctrl-holder textarea:focus {
-  outline: none
-}*/
-
-/* Form hints --------------------------------------------------------------- */
+/* ==========================================================================
+   Form hints
+   ========================================================================== */
 
 .uni-form .form-hint {
   padding-top: .3em; /* Compensate for the smaller font size */
@@ -218,7 +234,7 @@
    Messages
    ========================================================================== */
 
-/* Error message at the top of the form */
+/* Error message at the top of the form ------------------------------------- */
 
 .uni-form #errorMsg {
   background: #ffdfdf;
@@ -247,7 +263,7 @@
     border-radius: 3px;
   }
 
-/* Holder error */
+/* Holder errors ------------------------------------------------------------ */
 
 .uni-form .ctrl-holder.error,
 .uni-form .ctrl-holder.focused.error {
@@ -263,7 +279,7 @@
       border-color: #c55f68;
     }
 
-/* Success messages at the top of the form */
+/* Success messages at the top of the form ---------------------------------- */
 
 .uni-form #okMsg {
   background: #e1f4cd;
@@ -278,13 +294,17 @@
       margin: 0
     }
 
-/* Holder valid input */
+/* Holder valid input ------------------------------------------------------- */
 
-.ctrl-holder.valid {
+.uni-form .ctrl-holder.valid {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAABpElEQVRIiWNgGAWDAfTvV+2vX6W0/v//UAN0OUZqWbLsoV7BodXv+mF8fUeexkzjGw0wPhM1LPn/v0LhyLp39chiF/d/qUf2GTM1LPqp/GT99y//NJDF2DiZHniZHa+E8Sn20bKHegUfXv1xQBefmGUeiMynyKL//0MNkOMFBvQdeRoZGVdfQBajKOi+yHzd/vvnfwlkMW5+5gvVPncj0dWS7aPpZzUavn78i5GMe1LMErGpJ8ui//9DDS7u/1KPLo4tyGAAI+j+/w81+Kn8bXndaiXGxU3PsWoiJchgAMVH//+HGmRPOL7/w6s/DusmvJq/649RAroGUoMMq0XZE47v//eXQQDGR7eMnCDDahE2ALPs///7AiVzTs1HlxcQYzmAXNTgAihlHSzokH2FbCB6xmRiZvgwtSDGkJGx4wEhi1B8xMi4+sLUAktHJmaGD+gKseV+myChRmIswbCIkGXIQECM5UCU/KUJxFiC1SJiLGNiZvjQHhuBN5URZREhy0gJMoIW4bKM1CAjCfz/H2pQv0ppfesW5fn//9/HSJGjgKYAAELOyUHrhNdJAAAAAElFTkSuQmCC);
   background-position: 99% 1em;
   background-repeat: no-repeat;
   background-size: 18px auto;
+}
+
+.uni-form .inline-labels .ctrl-holder.valid {
+  background-position: 31% 1.75em;
 }
   
   .ctrl-holder.valid .input-text,
