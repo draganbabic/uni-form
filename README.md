@@ -42,31 +42,31 @@ First thing you need to do is to link up the necessary files:
 
 1. Link to the main CSS file
     
-    <link href="path/to/file/uni-form.css" rel="stylesheet"/>
+        <link href="path/to/file/uni-form.css" rel="stylesheet"/>
     
 2. Link to the Uni–Form style CSS file
     
-    <link href="path/to/file/style.uni-form.css" rel="stylesheet"/>
+        <link href="path/to/file/style.uni-form.css" rel="stylesheet"/>
     
 3. Optionally you'll want to link up jQuery and Uni–Form jQuery files if you'd like Uni–Form to highlight the form rows on focus (it's a usability aid): 
       
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="path/to/file/uni-form.jquery.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="path/to/file/uni-form.jquery.js"></script>
     
 4. You may also want to try out the version of the Uni–Form jQuery plugin that supports client side validation, in case replace the regular plugin with this:
     
-    <script type="text/javascript" src="path/to/file/uni-form-validation.jquery.js"></script>
+        <script type="text/javascript" src="path/to/file/uni-form-validation.jquery.js"></script>
 
 5. Please note that this plugin no longer automatically initializes itself. You must do this manually, by adding this snippet after you have included both jQuery and the plugin you have chosen:
    
-    <script type="text/javascript">
-      $(document).ready( function () {
-        // Initialize Uni-Form
-        $(function(){
-          $('form.uniForm').uniform();
-        });
-      });
-    </script>
+        <script type="text/javascript">
+          $(document).ready( function () {
+            // Initialize Uni-Form
+            $(function(){
+              $('form.uniForm').uniform();
+            });
+          });
+        </script>
 
 - - -
 
@@ -74,17 +74,23 @@ Now that you're all set up, all you need to do is add form fields that are forma
 
 Feel free to extend Uni–Form with units of your own and share. 
 
+### Uni–Form unit basics 
+
+* All units should be contained within a `.ctrl-holder` 
+* All fields should be marked up with a class: `.input-text` (for single line inputs), `.input-textarea` ( for multiline-inputs), `.input-select` (for select boxes), `.input-file` (for file uploads). 
+* 
+
 ## Styles 
 
 As of v1.4 Uni–Form supports styles. These are separate CSS files that contain the presentation aspect of your form (considering that uni-form.css) contains the layout and all other necessities. Style CSS files should be used to control how your form looks, spacing, etc.  
 
-Consider the included style a starting point for making your own.
+Consider included style a starting point for making your own. 
 
 ## Options and Layout Control 
 
 Uni–Form by default has two form layouts: default and inline. This is controlled by adding (or removing) a CSS class `.inline-labels` to (preferably) the fieldset element. 
 
-There is another option in regards to the layout and it concerns what is referred to as "multifields" (grouped controls). These are fields that contain multiple inputs per unit and are usually used for checkboxes and radio buttons. Each layout supports an alternate multifield layout. This is achieved by adding (or removing) a CSS class `.alternate` to the `ul` element. 
+There is another option in regards to the form field layout and it concerns what is referred to as "multifields" (grouped controls). These are fields that contain multiple inputs per unit and are usually used for checkboxes and radio buttons. Each layout supports an alternate multifield layout. This is achieved by adding (or removing) a CSS class `.uni-form-multi` to the `ul` element within `.ctrl-holder`. 
 
 ## Events
 
