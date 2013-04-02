@@ -250,9 +250,11 @@
     border-radius: 3px;
   }
 
+/* Holder error */
+
 .uni-form .ctrl-holder.error,
 .uni-form .ctrl-holder.focused.error {
-  background: #ffdfdf;
+  background-color: #ffdfdf;
   border-color: #f3afb5;
 }
 
@@ -260,9 +262,7 @@
     .uni-form .ctrl-holder.error select.error,
     .uni-form .ctrl-holder.error textarea.error {
       color: #af4c4c;
-      margin: 0 0 6px 0;
-      padding: 4px;
-      border: 1px solid #c55f68;
+      border-color: #c55f68;
     }
 
 /* Success messages at the top of the form */
@@ -279,3 +279,20 @@
     .uni-form #okMsg p {
       margin: 0
     }
+
+/* Holder valid input */
+
+.ctrl-holder.valid {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAABpElEQVRIiWNgGAWDAfTvV+2vX6W0/v//UAN0OUZqWbLsoV7BodXv+mF8fUeexkzjGw0wPhM1LPn/v0LhyLp39chiF/d/qUf2GTM1LPqp/GT99y//NJDF2DiZHniZHa+E8Sn20bKHegUfXv1xQBefmGUeiMynyKL//0MNkOMFBvQdeRoZGVdfQBajKOi+yHzd/vvnfwlkMW5+5gvVPncj0dWS7aPpZzUavn78i5GMe1LMErGpJ8ui//9DDS7u/1KPLo4tyGAAI+j+/w81+Kn8bXndaiXGxU3PsWoiJchgAMVH//+HGmRPOL7/w6s/DusmvJq/649RAroGUoMMq0XZE47v//eXQQDGR7eMnCDDahE2ALPs///7AiVzTs1HlxcQYzmAXNTgAihlHSzokH2FbCB6xmRiZvgwtSDGkJGx4wEhi1B8xMi4+sLUAktHJmaGD+gKseV+myChRmIswbCIkGXIQECM5UCU/KUJxFiC1SJiLGNiZvjQHhuBN5URZREhy0gJMoIW4bKM1CAjCfz/H2pQv0ppfesW5fn//9/HSJGjgKYAAELOyUHrhNdJAAAAAElFTkSuQmCC);
+  background-position: 99% 1em;
+  background-repeat: no-repeat;
+  background-size: 18px auto;
+}
+  
+  .ctrl-holder.valid .input-text,
+  .ctrl-holder.valid .input-select,
+  .ctrl-holder.valid textarea,
+  .ctrl-holder.valid select {
+    border-color: #88a24f;
+    color: #88a24f;
+  }
