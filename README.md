@@ -27,8 +27,6 @@ All JS written and maintained by Craig Davis of LearningStation
 > FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 > OTHER DEALINGS IN THE SOFTWARE.
 
-- - -
-
 ## About Uni–Form 
 
 Uni-Form is a “framework” that standardizes form markup and styles it with CSS 
@@ -37,8 +35,6 @@ giving you two most widely used layout options to choose from. Anyone can get ni
 * [Uni-Form Homepage](http://sprawsm.com/uni-form/)
 * [Support at GitHub Issues](https://github.com/draganbabic/uni-form/issues)
 * [GitHub repository](https://github.com/draganbabic/uni-form/)
-
-- - -
 
 ## How to Use? 
 
@@ -78,23 +74,17 @@ Now that you're all set up, all you need to do is add form fields that are forma
 
 Feel free to extend Uni–Form with units of your own and share. 
 
-- - -
-
 ## Styles 
 
 As of v1.4 Uni–Form supports styles. These are separate CSS files that contain the presentation aspect of your form (considering that uni-form.css) contains the layout and all other necessities. Style CSS files should be used to control how your form looks, spacing, etc.  
 
 Consider the included style a starting point for making your own.
 
-- - -
-
 ## Options and Layout Control 
 
 Uni–Form by default has two form layouts: default and inline. This is controlled by adding (or removing) a CSS class `.inline-labels` to (preferably) the fieldset element. 
 
 There is another option in regards to the layout and it concerns what is referred to as "multifields" (grouped controls). These are fields that contain multiple inputs per unit and are usually used for checkboxes and radio buttons. Each layout supports an alternate multifield layout. This is achieved by adding (or removing) a CSS class `.alternate` to the `ul` element. 
-
-- - -
 
 ## Events
 
@@ -105,8 +95,6 @@ Triggering an error event on the form fields will apply the error class to the c
 Subsequent calls to success on the form field will remove the error and replace the error text with the originally supplied description, an example:
 
     $(selector).trigger('success');
-
-- - -
 
 ## Form Validation
 
@@ -119,8 +107,6 @@ Required element, cannot be empty:
 Integer with value greater than or equal to 8:
 
     <input type="text" class="textInput validateInteger validateMin val-8" />
-
-- - -
 
 ### Available validators:
 
@@ -143,13 +129,11 @@ Integer with value greater than or equal to 8:
 
 Validators what require a parameter, such as validateMinLength, take that parameter as a class name following the validator in the format of _val-{value}_. 
 
-- - -
-
 ## We've got robust frameworks like Twitter Bootstrap, and Zurb's Foundation. Why do we need Uni-Form? 
 
 Because not all people want to get married to a full fledged framework for all their websites. Also many of those frameworks — and by the way I'm not denying their utility, they are great tools! — are not designed to be friendly to their environment, meaning it isn't really simple to tear out the form part of Bootstrap and implement it into your existing project. 
 
-This is why Uni–Form is kept small, and why it's so plainly styled by default. We don't want to impose an aesthetic. 
+This is why Uni–Form is kept small, and why it's so plainly styled by default. We don't want to impose an aesthetic and we play nice with your existing code! 
 
 - - -
 
