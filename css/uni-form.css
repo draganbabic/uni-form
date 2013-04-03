@@ -1,5 +1,6 @@
 /* ==========================================================================
-   Copyright (c) 2010, Dragan Babic
+   Copyright (c) 2013, Dragan Babic
+   --------------------------------------------------------------------------
    Permission is hereby granted, free of charge, to any person
    obtaining a copy of this software and associated documentation
    files (the "Software"), to deal in the Software without
@@ -28,6 +29,9 @@
 }
 
 .uni-form * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -42,15 +46,14 @@
 /* This are the main units that contain form elements */
 
 .uni-form .ctrl-holder,
-.uni-form .button-holder {
-  clear: both;
-}
+.uni-form .button-holder {}
 
 /* Clear all floats */
 
  .uni-form:after,
  .uni-form .button-holder:after,
- .uni-form .ctrl-holder:after {
+ .uni-form .ctrl-holder:after,
+ .uni-form-row:after {
    content: ".";
    display: block;
    height: 0;
@@ -94,14 +97,18 @@
 
 /* Float the input elements */
 
+.uni-form .ctrl,
 .uni-form .input-text,
 .uni-form .input-file,
 .uni-form .input-select,
-.uni-form select,
-.uni-form textarea {
+.uni-form .input-textarea {
   float: left;
   width: 67%;
   margin: 0;
+}
+
+.uni-form .ctrl {
+  padding-right: 3%;
 }
 
 /* Make some spacing between the label and the input/list */
@@ -109,8 +116,7 @@
 .uni-form label  + .input-text,
 .uni-form label  + .input-file,
 .uni-form label  + .input-select,
-.uni-form label  + select,
-.uni-form label  + textarea {
+.uni-form label  + .input-textarea {
   margin-top: .5em;
 }
 
@@ -142,25 +148,25 @@
 
 /* Alternate layout for grouped controls (stacked inline) */
 
-.uni-form ul.alternate li {
+.uni-form ul.uni-form-multi li {
   display: inline-block;
   margin: .5em 0 0 0;
 }
 
-.uni-form ul.columns-2 li {
+.uni-form ul.uni-form-columns-2 li {
   width: 49%;
 }
 
-.uni-form ul.columns-3 li {
+.uni-form ul.uni-form-columns-3 li {
   width: 32%;
 }
 
 .uni-form ul .input-text,
 .uni-form ul .input-select,
 .uni-form ul select,
-.uni-form ul.alternate .input-text,
-.uni-form ul.alternate .input-select,
-.uni-form ul.alternate select {
+.uni-form ul.uni-form-multi .input-text,
+.uni-form ul.uni-form-multi .input-select,
+.uni-form ul.uni-form-multi select {
   display: inline-block;
   float: none;
   width: 98%;
@@ -184,11 +190,11 @@
 
 /* Float the input elements */
 
+.uni-form .ctrl,
 .uni-form .inline-labels .input-text,
 .uni-form .inline-labels .input-file,
 .uni-form .inline-labels .input-select,
-.uni-form .inline-labels select,
-.uni-form .inline-labels textarea {
+.uni-form .inline-labels .input-textarea {
   float: left;
   width: 67%;
   margin: 0;
@@ -212,7 +218,7 @@
   margin: 0;
   padding: 0;
 }
-  
+
   .uni-form .inline-labels .ctrl-holder > ul li {
     margin: 0;
   }
@@ -230,8 +236,7 @@
     .uni-form .inline-labels .ctrl-holder > ul .input-text,
     .uni-form .inline-labels .ctrl-holder > ul .input-select,
     .uni-form .inline-labels .ctrl-holder > ul .input-file,
-    .uni-form .inline-labels .ctrl-holder > ul select,
-    .uni-form .inline-labels .ctrl-holder > ul textarea {
+    .uni-form .inline-labels .ctrl-holder > ul .input-textarea {
       float: none;
       display: block;
       width: 100%;
@@ -239,15 +244,14 @@
 
 /* Alternate layout for grouped controls (stacked inline) */
 
-.uni-form .inline-labels .ctrl-holder > ul.alternate li {
+.uni-form .inline-labels .ctrl-holder > ul.uni-form-multi li {
   margin-top: 0;
 }
-  
-  .uni-form .inline-labels .ctrl-holder > ul.alternate .input-text,
-  .uni-form .inline-labels .ctrl-holder > ul.alternate .input-select,
-  .uni-form .inline-labels .ctrl-holder > ul.alternate .input-file,
-  .uni-form .inline-labels .ctrl-holder > ul.alternate select,
-  .uni-form .inline-labels .ctrl-holder > ul.alternate textarea {
+
+  .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-text,
+  .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-select,
+  .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-file,
+  .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-textarea {
     width: 98%;
   }
 
@@ -287,7 +291,19 @@
   width: 45% !important
 }
 
-.uni-form .large {} /* Large is default and should match the value you set for .input-text, textarea or select */
+.uni-form .large {
+  float: none;
+  display: block;
+  width: 100% !important;
+}
+
+.uni-form .large + .form-hint,
+.uni-form .inline-labels .large + .form-hint {
+  float: none;
+  width: auto;
+  margin-left: 0;
+  padding-top: .3em;
+}
 
 .uni-form .auto {
   width: auto !important;
@@ -297,7 +313,7 @@
 .uni-form .small,
 .uni-form .medium,
 .uni-form .auto {
-  margin-right: 4px
+  margin-right: 4px !important;
 }
 
 /* ==========================================================================
@@ -343,3 +359,21 @@
 .uni-form .inline-labels .read-only + .read-only {
   margin-top: .5em;
 }
+
+/* ==========================================================================
+   Columns
+   ========================================================================== */
+
+.uni-form-row {}
+
+  .uni-form-row > .ctrl-holder {
+    float: left;
+  }
+
+  .uni-form-columns-2 > .ctrl-holder {
+    width: 50%;
+  }
+
+  .uni-form-columns-3 > .ctrl-holder {
+    width: 33.3%;
+  }

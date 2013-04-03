@@ -7,7 +7,7 @@
 
 <!--
 
-   Copyright (c) 2010, Dragan Babic
+   Copyright (c) 2013, Dragan Babic
 
    Permission is hereby granted, free of charge, to any person
    obtaining a copy of this software and associated documentation
@@ -34,10 +34,9 @@
 
     <title>Uni&ndash;Form</title>
 
-    <script type="text/javascript" src="../libs/jquery/jquery.js"></script>
-    <link href="../css/uni-form.css" media="screen" rel="stylesheet">
-    <link href="../css/style.uni-form.css" media="screen" rel="stylesheet">
-    <link href="./css/demo.css" media="screen" rel="stylesheet">
+    <link href="../css/uni-form.css" media="screen" rel="stylesheet"/>
+    <link href="./css/demo.css" media="screen" rel="stylesheet"/>
+    <link href="../css/style.uni-form.css" media="screen" rel="stylesheet"/>
 
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
@@ -61,8 +60,8 @@
       <form action="#" class="uni-form">
 
         <div class="header">
-          <h2>Default Style</h2>
-          <p>Author: <a href="http://sprawsm.com/">Dragan Babić</a> <a href="http://sprawsm.com/uni-form/" class="cta">see more styles →</a></p>
+          <h2>Default Uni–Form Style</h2>
+          <p>Author: <a href="http://sprawsm.com/">Dragan Babić</a></p>
         </div>
 
         <div id="errorMsg">
@@ -83,11 +82,15 @@
 
           <h2 class="uni-form-title">Form Title</h2>
 
+          <p>The <code>.form-title</code> class is reserved for styling the title of the form. Any of the heading elements are recommended for this instead of the legend element.</p>
+
           <h3>Default Form Field Layout</h3>
 
-          <div class="ctrl-holder">
+          <p>This is the default way of laying out form fields where the label is above the input field and the form hint.</p>
+
+          <div class="ctrl-holder valid">
             <label for=""><em>*</em> Default text input</label>
-            <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large"/>
+            <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text" value="Valid value">
             <p class="form-hint">This is a form hint.</p>
           </div>
 
@@ -99,8 +102,14 @@
 
           <div class="ctrl-holder error" id="error1">
             <label for=""><em>*</em> Medium text input</label>
-            <input name="" id="" value="Invalid value" size="35" maxlength="50" type="text" class="input-text medium error"/>
+            <input name="" id="" data-default-value="Placeholder text" value="Invalid value" size="35" maxlength="50" type="text" class="input-text medium error"/>
             <p class="form-hint">.medium on .input-text</p>
+          </div>
+
+          <div class="ctrl-holder">
+            <label for=""><em>*</em> Large text input</label>
+            <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large"/>
+            <p class="form-hint">.large on .input-text, makes the .form-hint full width as well.</p>
           </div>
 
           <div class="ctrl-holder">
@@ -111,7 +120,7 @@
 
           <div class="ctrl-holder">
             <label for=""><em>*</em> Textarea</label>
-            <textarea name="" id="" rows="15" cols="25"></textarea>
+            <textarea class="input-textarea" name="" id="" rows="15" cols="25"></textarea>
             <p class="form-hint">Standard textarea. Height is set in CSS.</p>
           </div>
 
@@ -145,7 +154,7 @@
             <p class="label">
               <em>*</em> Alternate multifield Layout
             </p>
-            <ul class="alternate columns-2">
+            <ul class="uni-form-multi uni-form-columns-2">
               <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
               <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
             </ul>
@@ -156,7 +165,7 @@
             <p class="label">
               <em>*</em> Alternate multifield Layout
             </p>
-            <ul class="alternate columns-3">
+            <ul class="uni-form-multi uni-form-columns-3">
               <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
               <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
               <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
@@ -180,7 +189,7 @@
             <p class="label">
               <em>*</em> Alternate multifield layout
             </p>
-            <ul class="alternate columns-2">
+            <ul class="uni-form-multi uni-form-columns-2">
               <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
               <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
             </ul>
@@ -191,7 +200,7 @@
             <p class="label">
               <em>*</em> Alternate multifield layout
             </p>
-            <ul class="alternate columns-3">
+            <ul class="uni-form-multi uni-form-columns-3">
               <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
               <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
               <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
@@ -226,16 +235,29 @@
               <li><label for=""><input id="" name="" data-default-value="Placeholder text" type="checkbox"/> I have read and agree with the terms and conditions</label></li>
             </ul>
             <p class="form-hint">Laying out a single option checkbox without a label.</p>
+          </div>
+
+          <div class="ctrl-holder">
+            <p class="label">
+              Ctrl element
+            </p>
+            <div class="ctrl">
+              Use the .ctrl element for stuff that's not a Uni–Form field, but that needs to line up with the input fields (e.g. captchas, etc.)
+            </div>
+            <p class="form-hint">It can even have a form hint.</p>
           </div>
 
         </fieldset>
 
         <fieldset class="inline-labels">
+
           <h3>Alternate Form Fields Layout</h3>
 
-          <div class="ctrl-holder">
+          <p>Triggered by class <code>.inline-labels</code>, the alternate form fields layout is used for laying out forms where you want the label to be in line with the form field.</p>
+
+          <div class="ctrl-holder valid">
             <label for=""><em>*</em> Default text input</label>
-            <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large"/>
+            <input name="" id="" size="35" maxlength="50" type="text" class="input-text" value="Valid value"/>
             <p class="form-hint">This is a form hint.</p>
           </div>
 
@@ -252,6 +274,11 @@
           </div>
 
           <div class="ctrl-holder">
+            <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large"/>
+            <p class="form-hint">Using .large in .inline-labels is suitable for forms without labels. Hint: use the placeholder attribute as the label.</p>
+          </div>
+
+          <div class="ctrl-holder">
             <label for=""><em>*</em> Autosized text input</label>
             <input name="" id="" data-default-value="Placeholder text" size="15" maxlength="50" type="text" class="input-text auto"/>
             <p class="form-hint">.auto and size=&quot;15&quot; on .input-text</p>
@@ -259,7 +286,7 @@
 
           <div class="ctrl-holder">
             <label for=""><em>*</em> Textarea</label>
-            <textarea name="" id="" rows="15" cols="25"></textarea>
+            <textarea class="input-textarea" name="" id="" rows="15" cols="25"></textarea>
             <p class="form-hint">Standard textarea. Height is set in CSS.</p>
           </div>
 
@@ -293,7 +320,7 @@
             <p class="label">
               <em>*</em> Alternate multifield Layout
             </p>
-            <ul class="alternate columns-2">
+            <ul class="uni-form-multi uni-form-columns-2">
               <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
               <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
             </ul>
@@ -304,7 +331,7 @@
             <p class="label">
               <em>*</em> Alternate multifield Layout
             </p>
-            <ul class="alternate columns-3">
+            <ul class="uni-form-multi uni-form-columns-3">
               <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
               <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
               <li><label for="">Label <select class="input-select" id="" name=""><option data-default-value="Placeholder text">Option</option></select></label></li>
@@ -328,7 +355,7 @@
             <p class="label">
               <em>*</em> Alternate multifield layout
             </p>
-            <ul class="alternate columns-2">
+            <ul class="uni-form-multi uni-form-columns-2">
               <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
               <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
             </ul>
@@ -339,7 +366,7 @@
             <p class="label">
               <em>*</em> Alternate multifield layout
             </p>
-            <ul class="alternate columns-3">
+            <ul class="uni-form-multi uni-form-columns-3">
               <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
               <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
               <li><label for="">Label <input type="text" id="" name="" class="input-text"/></label></li>
@@ -376,12 +403,90 @@
             <p class="form-hint">Laying out a single option checkbox without a label.</p>
           </div>
 
+          <div class="ctrl-holder">
+            <p class="label">
+              Ctrl element
+            </p>
+            <div class="ctrl">
+              Use the .ctrl element for stuff that's not a Uni–Form field, but that needs to line up with the input fields (e.g. captchas, etc.)
+            </div>
+            <p class="form-hint">It can even have a form hint.</p>
+          </div>
+
         </fieldset>
 
-        <div class="button-holder">
-          <button type="submit" class="action-secondary">Secondary action</button>
-          <button type="submit" class="action-primary">Primary Action</button>
-        </div>
+        <fieldset>
+
+          <h3>Columns</h3>
+
+          <p>Base class is <code>.uni-form-row</code> and classes that determine the number of columns are <code>.uni-form-columns-2</code> and <code>.uni-form-columns-3</code>. Note the usage of width class <code>.large</code> on the input in order to make it span the full width of the column and force the <code>.form-hint</code> to take full width as well.</p>
+
+          <div class="uni-form-row uni-form-columns-2">
+
+            <div class="ctrl-holder">
+              <label for=""><em>*</em> Large text input</label>
+              <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
+              <p class="form-hint">This is a form hint.</p>
+            </div>
+
+            <div class="ctrl-holder">
+              <label for=""><em>*</em> Large text input</label>
+              <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
+              <p class="form-hint">This is a form hint.</p>
+            </div>
+
+          </div> <!-- .uni-form-row -->
+
+          <div class="uni-form-row uni-form-columns-3">
+
+            <div class="ctrl-holder">
+              <label for=""><em>*</em> Large text input</label>
+              <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
+              <p class="form-hint">This is a form hint.</p>
+            </div>
+
+            <div class="ctrl-holder">
+              <label for=""><em>*</em> Large text input</label>
+              <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
+              <p class="form-hint">This is a form hint.</p>
+            </div>
+
+            <div class="ctrl-holder">
+              <label for=""><em>*</em> Large text input</label>
+              <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
+              <p class="form-hint">This is a form hint.</p>
+            </div>
+
+          </div> <!-- .uni-form-row -->
+
+        </fieldset>
+
+        <fieldset>
+
+          <h3>Disabled Fields</h3>
+
+          <div class="ctrl-holder">
+            <label for=""><em>*</em> Disabled input</label>
+            <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text input-disabled" disabled>
+            <p class="form-hint">This is a form hint.</p>
+          </div>
+
+          <div class="button-holder">
+            <button type="submit" class="action-primary action-disabled" disabled>Disabled Primary Action</button>
+          </div>
+
+        </fieldset>
+
+        <fieldset>
+
+          <h3>Actions</h3>
+
+          <div class="button-holder">
+            <button type="submit" class="action-secondary">Secondary action</button>
+            <button type="submit" class="action-primary">Primary Action</button>
+          </div>
+
+        </fieldset>
 
       </form>
 
@@ -391,6 +496,7 @@
       <p>Uni-Form is created by <a href="http://sprawsm.com/">Dragan Babić</a> and is licensed under the MIT license.</p>
     </div>
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="../dist/uni-form.jquery.min.js"></script>
     <script type="text/javascript">
       $(function(){

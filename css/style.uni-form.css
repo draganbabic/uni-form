@@ -1,7 +1,8 @@
 /* ==========================================================================
-   UNI-FORM DEFAULT by DRAGAN BABIC
+   UNI-FORM DEFAULT STYLE by DRAGAN BABIC
    --------------------------------------------------------------------------
-   Copyright (c) 2010, Dragan Babic
+   Copyright (c) 2013, Dragan Babic
+   --------------------------------------------------------------------------
    Permission is hereby granted, free of charge, to any person
    obtaining a copy of this software and associated documentation
    files (the "Software"), to deal in the Software without
@@ -20,7 +21,6 @@
    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
    OTHER DEALINGS IN THE SOFTWARE.
-   
    ========================================================================== */
 
 .uni-form {
@@ -28,15 +28,96 @@
   padding-top: 1px;
 }
 
+/* ==========================================================================
+   Form titles
+   ========================================================================== */
+
+.uni-form .uni-form-title {
+  margin: 1.5em 0;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+/* ==========================================================================
+   Holders
+   ========================================================================== */
+
+.uni-form .ctrl-holder {
+  padding: 1em 1em 1.5em 1em;
+  border: 1px solid #efefef;
+  border-width: 1px 0 0 0;
+}
+
+.uni-form .inline-labels .ctrl-holder {
+  padding: 1.5em 1em;
+}
+
+.uni-form fieldset .ctrl-holder:last-child {
+  border-bottom-width: 1px;
+}
+
+.uni-form .ctrl-holder.focused {
+  background: #fffcdf
+}
+
+.uni-form .button-holder {
+  background: #efefef;
+  margin-top: 1.5em;
+  padding: 1.5em;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Design for input fields
+   ========================================================================== */
+
+.uni-form .input-text,
+.uni-form .input-textarea {
+  padding: 5px;
+  border: 1px solid #aaa;
+  background: #fff;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,.15) inset;
+  box-shadow: 1px 1px 3px rgba(0,0,0,.15) inset;
+}
+
+.uni-form .input-text:focus,
+.uni-form .input-textarea:focus {
+  border-color: #343434;
+  outline: none;
+}
+
+.uni-form .input-textarea {
+  height: 12em;
+}
+
+.uni-form .input-select {}
+
+.uni-form .input-file {}
+
+/* Disabled inputs */
+
+.uni-form .input-disabled {
+  background-color: #f4f4f4;
+  border-color: #ccc;
+  color: #999;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   Widths
+   ========================================================================== */
+
 /* Default layout widths ---------------------------------------------------- */
 
 /* Fields in default layout */
 
+.uni-form .ctrl,
 .uni-form .input-text,
 .uni-form .input-file,
 .uni-form .input-select,
-.uni-form select,
-.uni-form textarea {
+.uni-form .input-textarea {
   width: 65%;
 }
 
@@ -64,11 +145,11 @@
 
 /* Fields in alternate layout */
 
+.uni-form .ctrl,
 .uni-form .inline-labels .input-text,
 .uni-form .inline-labels .input-file,
 .uni-form .inline-labels .input-select,
-.uni-form .inline-labels select,
-.uni-form .inline-labels textarea {
+.uni-form .inline-labels .input-textarea {
   width: 67%;
 }
 
@@ -89,43 +170,10 @@
 .uni-form .inline-labels .no-label ul {
   margin-left: 33%;
 }
-
-/* Form titles -------------------------------------------------------------- */
-
-.uni-form .uni-form-title {
-  margin: 1.5em 0;
-  font-weight: bold;
-  font-size: 1.25em;
-}
-
-/* Holders ------------------------------------------------------------------ */
-
-.uni-form .ctrl-holder {
-  padding: 1em 1em 1.5em 1em;
-  border: 1px solid #efefef;
-  border-width: 1px 0 0 0;
-}
-
-.uni-form .inline-labels .ctrl-holder {
-  padding: 1.5em 1em;
-}
-
-.uni-form fieldset .ctrl-holder:last-child {
-  border-bottom-width: 1px;
-}
-
-.uni-form .ctrl-holder.focused {
-  background: #fffcdf
-}
-
-.uni-form .button-holder {
-  background: #efefef;
-  margin-top: 1.5em;
-  padding: 1.5em;
-  border-radius: 4px;
-}
   
-/* Action buttons ----------------------------------------------------------- */
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
 
 .uni-form .action-primary {
   padding: 1em 2em;
@@ -146,24 +194,41 @@
 
 .uni-form .action-primary:active {
   background: #1d3c6d;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.5) inset;
   box-shadow: 0 1px 3px rgba(0,0,0,.5) inset;
 }
 
-.uni-form .action-secondary {
-  float: right;
-  color: #999;
-}
-
+.uni-form .action-secondary,
 .uni-form button.action-secondary,
 .uni-form input[type=submit].action-secondary {
+  float: right;
   background: transparent;
   border: none;
-  color: #999;
-  margin: 1em 0 0 0;
+  margin: 1.25em 0 0 0;
   padding: 0;
+  color: #999;
 }
 
-/* Required fields asterisk styling ----------------------------------------- */
+/* Disabled actions */
+
+.uni-form .action-disabled,
+.uni-form .action-disabled:link,
+.uni-form .action-disabled:visited,
+.uni-form .action-disabled:focus,
+.uni-form .action-disabled:hover,
+.uni-form .action-disabled:active {
+  background: #ccc;
+  border: 1px solid #aaa;
+  color: #999;
+  text-shadow: 1px 1px 0 rgba(255,255,255,.25);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  cursor: default;
+}
+
+/* ==========================================================================
+   Required fields asterisks
+   ========================================================================== */
 
 .uni-form .inline-labels label em,
 .uni-form .inline-labels .label em {
@@ -171,41 +236,21 @@
   font-weight: inherit;
 }
 
-/* Style input fields and textareas ----------------------------------------- */
+/* ==========================================================================
+   Smaller text
+   --------------------------------------------------------------------------
+   We are targeting the labels within grouped fields, and ctrls
+   ========================================================================== */
 
-.uni-form .input-text,
-.uni-form textarea {
-  padding: 5px;
-  border: 1px solid #aaa;
-  background: #fff;
-  border-radius: 2px;
-  -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,.15) inset;
-  box-shadow: 1px 1px 3px rgba(0,0,0,.15) inset;
-}
-
-.uni-form .input-text:focus,
-.uni-form textarea:focus {
-  border-color: #343434;
-}
-
-.uni-form textarea {
-  height: 12em;
-}
-
-/* Labels within grouped controls ------------------------------------------- */
-
+.uni-form .ctrl,
 .uni-form .ctrl-holder > ul label {
   margin-top: .35em; /* Compensate for the smaller font size */
   font-size: .85em;
 }
 
-/* Get rid of the 'glow' effect in WebKit, optional 
-.uni-form .ctrl-holder .input-text:focus,
-.uni-form .ctrl-holder textarea:focus {
-  outline: none
-}*/
-
-/* Form hints --------------------------------------------------------------- */
+/* ==========================================================================
+   Form hints
+   ========================================================================== */
 
 .uni-form .form-hint {
   padding-top: .3em; /* Compensate for the smaller font size */
@@ -221,7 +266,7 @@
    Messages
    ========================================================================== */
 
-/* Error message at the top of the form */
+/* Error message at the top of the form ------------------------------------- */
 
 .uni-form #errorMsg {
   background: #ffdfdf;
@@ -243,29 +288,30 @@
   .uni-form #errorMsg li {
     list-style: none;
     margin: 0 0 4px 0;
-    padding: 7px;
+    padding: 7px 14px;
     background: #f6bec1;
     position: relative;
     font-size: .85em;
     border-radius: 3px;
   }
 
+/* Holder errors ------------------------------------------------------------ */
+
 .uni-form .ctrl-holder.error,
 .uni-form .ctrl-holder.focused.error {
-  background: #ffdfdf;
+  background-color: #ffdfdf;
   border-color: #f3afb5;
 }
 
-    .uni-form .ctrl-holder.error input.error,
-    .uni-form .ctrl-holder.error select.error,
-    .uni-form .ctrl-holder.error textarea.error {
+    .uni-form .ctrl-holder.error .input-text.error,
+    .uni-form .ctrl-holder.error .input-file.error,
+    .uni-form .ctrl-holder.error .input-select.error,
+    .uni-form .ctrl-holder.error .input-textarea.error {
       color: #af4c4c;
-      margin: 0 0 6px 0;
-      padding: 4px;
-      border: 1px solid #c55f68;
+      border-color: #c55f68;
     }
 
-/* Success messages at the top of the form */
+/* Success messages at the top of the form ---------------------------------- */
 
 .uni-form #okMsg {
   background: #e1f4cd;
@@ -279,3 +325,44 @@
     .uni-form #okMsg p {
       margin: 0
     }
+
+/* Holder valid input ------------------------------------------------------- */
+
+.uni-form .ctrl-holder.valid {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAABpElEQVRIiWNgGAWDAfTvV+2vX6W0/v//UAN0OUZqWbLsoV7BodXv+mF8fUeexkzjGw0wPhM1LPn/v0LhyLp39chiF/d/qUf2GTM1LPqp/GT99y//NJDF2DiZHniZHa+E8Sn20bKHegUfXv1xQBefmGUeiMynyKL//0MNkOMFBvQdeRoZGVdfQBajKOi+yHzd/vvnfwlkMW5+5gvVPncj0dWS7aPpZzUavn78i5GMe1LMErGpJ8ui//9DDS7u/1KPLo4tyGAAI+j+/w81+Kn8bXndaiXGxU3PsWoiJchgAMVH//+HGmRPOL7/w6s/DusmvJq/649RAroGUoMMq0XZE47v//eXQQDGR7eMnCDDahE2ALPs///7AiVzTs1HlxcQYzmAXNTgAihlHSzokH2FbCB6xmRiZvgwtSDGkJGx4wEhi1B8xMi4+sLUAktHJmaGD+gKseV+myChRmIswbCIkGXIQECM5UCU/KUJxFiC1SJiLGNiZvjQHhuBN5URZREhy0gJMoIW4bKM1CAjCfz/H2pQv0ppfesW5fn//9/HSJGjgKYAAELOyUHrhNdJAAAAAElFTkSuQmCC);
+  background-position: 99% 1em;
+  background-repeat: no-repeat;
+  background-size: 18px auto;
+}
+
+.uni-form .inline-labels .ctrl-holder.valid {
+  background-position: 31% 1.75em;
+}
+  
+  .ctrl-holder.valid .input-text,
+  .ctrl-holder.valid .input-select,
+  .ctrl-holder.valid .input-textarea {
+    border-color: #88a24f;
+    color: #88a24f;
+  }
+
+/* ==========================================================================
+   Columns
+   ========================================================================== */
+
+/* Remove borders from .ctrl-holder */
+
+.uni-form-row > .ctrl-holder {
+  border: none;
+}
+
+/* Add borders to rows */
+
+.uni-form-row {
+  border: 1px solid #efefef;
+  border-width: 1px 0 0 0;
+}
+
+.uni-form-row:last-child {
+  border-bottom-width: 1px;
+}

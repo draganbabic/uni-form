@@ -23,6 +23,14 @@ a img {
   border: none
 }
 
+code {
+  font-size: .85em;
+  background: #f4f4f4;
+  border: 1px solid #dfdfdf;
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
 h1,
 h2,
 h3,
