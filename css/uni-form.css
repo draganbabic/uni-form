@@ -97,6 +97,7 @@
 
 /* Float the input elements */
 
+.uni-form .ctrl,
 .uni-form .input-text,
 .uni-form .input-file,
 .uni-form .input-select,
@@ -104,6 +105,10 @@
   float: left;
   width: 67%;
   margin: 0;
+}
+
+.uni-form .ctrl {
+  padding-right: 3%;
 }
 
 /* Make some spacing between the label and the input/list */
@@ -185,6 +190,7 @@
 
 /* Float the input elements */
 
+.uni-form .ctrl,
 .uni-form .inline-labels .input-text,
 .uni-form .inline-labels .input-file,
 .uni-form .inline-labels .input-select,

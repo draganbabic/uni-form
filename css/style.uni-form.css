@@ -113,6 +113,7 @@
 
 /* Fields in default layout */
 
+.uni-form .ctrl,
 .uni-form .input-text,
 .uni-form .input-file,
 .uni-form .input-select,
@@ -144,6 +145,7 @@
 
 /* Fields in alternate layout */
 
+.uni-form .ctrl,
 .uni-form .inline-labels .input-text,
 .uni-form .inline-labels .input-file,
 .uni-form .inline-labels .input-select,
@@ -235,9 +237,12 @@
 }
 
 /* ==========================================================================
-   Labels within grouped controls
+   Smaller text
+   --------------------------------------------------------------------------
+   We are targeting the labels within grouped fields, and ctrls
    ========================================================================== */
 
+.uni-form .ctrl,
 .uni-form .ctrl-holder > ul label {
   margin-top: .35em; /* Compensate for the smaller font size */
   font-size: .85em;
