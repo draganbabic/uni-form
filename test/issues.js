@@ -220,7 +220,27 @@
       $input.attr('data-default-value'),
       "A default value of 100.00 should display with decimal point intact."
     );
+  });
 
+  /**
+   * Case 17
+   *
+   * Support for input element names with a period
+   *
+   * @link https://github.com/LearningStation/uni-form/issues/issue/15
+   */
+  test("Case 17: Support for input element names with a period", function() {
+    var $inputs = $('input[name="color"]'),
+        $form = $('#qunit-form');
+
+    $inputs.attr({
+      name: "demographicInfo.gender"
+    });
+
+    $form.uniform();
+    $form.submit();
+
+    ok($form.hasClass("failedSubmit"), "Required form failure");
   });
 
 

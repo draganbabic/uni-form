@@ -1,4 +1,4 @@
-/*! Uni-Form - v1.5.0 - 2013-03-31
+/*! Uni-Form - v1.5.0 - 2013-04-03
 * http://sprawsm.com/uni-form/
 * Copyright (c) 2013 Dragan Babic; Licensed MIT */
 //
@@ -175,9 +175,9 @@
 
       // Set the form focus class and remove any classes other than the focus
       // class and then hide the default label text
-      $form.find(options.field_selector).on('focus', function (e) {
+      $form.find(options.field_selector).on('focus', function () {
         var $input = $(this);
-window.console.log(e);
+
         $form // Remove any other focus highlighting
           .find('.' + options.focused_class)
           .removeClass(options.focused_class);
@@ -405,23 +405,28 @@ window.console.log(e);
 
 (function ($) {
 
+  var escapeStr;
+
   $.uniform = $.uniform || {};
 
   // Hold a collection of the various form validators
   $.uniform.validators = {};
 
+  escapeStr = function (str) {
+   return (str) ? str.replace(/([ #;&,.+*~\':"!\^$\[\]()=>|\/@])/g,'\\$1'): str;
+  };
+
   // Value of field is not empty, whitespace will be counted as empty
   $.uniform.validators.required = function ($field, caption) {
     var name;
     if ($field.is(':radio')) {
-      name = $field.attr('name');
+      name = escapeStr($field.attr('name'));
       if ($("input[name=" + name + "]:checked").length) {
         return true;
       }
       return $.uniform.i18n('req_radio', caption);
     }
     if ($field.is(':checkbox')) {
-      name = $field.attr('name');
       if ($field.is(":checked")) { return true; }
       return $.uniform.i18n('req_checkbox', caption);
     }

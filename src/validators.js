@@ -2,23 +2,28 @@
 
 (function ($) {
 
+  var escapeStr;
+
   $.uniform = $.uniform || {};
 
   // Hold a collection of the various form validators
   $.uniform.validators = {};
 
+  escapeStr = function (str) {
+   return (str) ? str.replace(/([ #;&,.+*~\':"!\^$\[\]()=>|\/@])/g,'\\$1'): str;
+  };
+
   // Value of field is not empty, whitespace will be counted as empty
   $.uniform.validators.required = function ($field, caption) {
     var name;
     if ($field.is(':radio')) {
-      name = $field.attr('name');
+      name = escapeStr($field.attr('name'));
       if ($("input[name=" + name + "]:checked").length) {
         return true;
       }
       return $.uniform.i18n('req_radio', caption);
     }
     if ($field.is(':checkbox')) {
-      name = $field.attr('name');
       if ($field.is(":checked")) { return true; }
       return $.uniform.i18n('req_checkbox', caption);
     }

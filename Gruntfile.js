@@ -91,7 +91,7 @@ module.exports = function (grunt) {
       },
       src: {
         files: '<%= jshint.src.src %>',
-        tasks: ['jshint:src', 'concat', 'uglify'] //, 'qunit']
+        tasks: ['jshint:src', 'concat', 'uglify', 'qunit']
       },
       test: {
         files: '<%= jshint.test.src %>',
@@ -101,7 +101,7 @@ module.exports = function (grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', ['jshint',/*'qunit', */ 'clean', 'concat', 'cssmin', 'uglify']);
+  grunt.registerTask('default', ['jshint','qunit', 'clean', 'concat', 'cssmin', 'uglify']);
 
   // Alias this to make it standard across my repos. (Jasmine v. QUnit)
   grunt.registerTask('test', ['qunit']);

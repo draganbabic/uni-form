@@ -172,9 +172,9 @@
 
       // Set the form focus class and remove any classes other than the focus
       // class and then hide the default label text
-      $form.find(options.field_selector).on('focus', function (e) {
+      $form.find(options.field_selector).on('focus', function () {
         var $input = $(this);
-window.console.log(e);
+
         $form // Remove any other focus highlighting
           .find('.' + options.focused_class)
           .removeClass(options.focused_class);
