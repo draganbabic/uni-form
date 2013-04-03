@@ -95,6 +95,16 @@
 
 .uni-form .input-file {}
 
+/* Disabled inputs */
+
+.uni-form .input-disabled {
+  background-color: #f4f4f4;
+  border-color: #ccc;
+  color: #999;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 /* ==========================================================================
    Widths
    ========================================================================== */
@@ -195,6 +205,23 @@
   margin: 1.25em 0 0 0;
   padding: 0;
   color: #999;
+}
+
+/* Disabled actions */
+
+.uni-form .action-disabled,
+.uni-form .action-disabled:link,
+.uni-form .action-disabled:visited,
+.uni-form .action-disabled:focus,
+.uni-form .action-disabled:hover,
+.uni-form .action-disabled:active {
+  background: #ccc;
+  border: 1px solid #aaa;
+  color: #999;
+  text-shadow: 1px 1px 0 rgba(255,255,255,.25);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  cursor: default;
 }
 
 /* ==========================================================================

@@ -441,10 +441,32 @@
 
         </fieldset>
 
-        <div class="button-holder">
-          <button type="submit" class="action-secondary">Secondary action</button>
-          <button type="submit" class="action-primary">Primary Action</button>
-        </div>
+        <fieldset>
+
+          <h3>Disabled Fields</h3>
+
+          <div class="ctrl-holder">
+            <label for=""><em>*</em> Disabled input</label>
+            <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text input-disabled" disabled>
+            <p class="form-hint">This is a form hint.</p>
+          </div>
+
+          <div class="button-holder">
+            <button type="submit" class="action-primary action-disabled" disabled>Disabled Primary Action</button>
+          </div>
+
+        </fieldset>
+
+        <fieldset>
+
+          <h3>Actions</h3>
+
+          <div class="button-holder">
+            <button type="submit" class="action-secondary">Secondary action</button>
+            <button type="submit" class="action-primary">Primary Action</button>
+          </div>
+
+        </fieldset>
 
       </form>
 
