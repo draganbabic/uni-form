@@ -238,7 +238,7 @@
     .uni-form .inline-labels .ctrl-holder > ul .input-file,
     .uni-form .inline-labels .ctrl-holder > ul .input-textarea {
       float: none;
-      display: block;
+      display: inline-block;
       width: 100%;
     }
 
@@ -308,6 +308,7 @@
 .uni-form .auto {
   width: auto !important;
   height: auto !important;
+  display: inline-block !important;
 }
 
 .uni-form .small,
