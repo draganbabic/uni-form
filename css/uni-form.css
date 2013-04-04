@@ -311,9 +311,9 @@
   display: inline-block !important;
 }
 
-.uni-form .small,
-.uni-form .medium,
-.uni-form .auto {
+.uni-form .small + input,
+.uni-form .medium + input,
+.uni-form .auto + input {
   margin-right: 4px !important;
 }
 
