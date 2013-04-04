@@ -311,9 +311,14 @@
   display: inline-block !important;
 }
 
-.uni-form .small,
-.uni-form .medium,
-.uni-form .auto {
+/* Make spacing in between two inputs */
+
+.uni-form .small + input,
+.uni-form .medium + input,
+.uni-form .auto + input,
+.uni-form .small + select,
+.uni-form .medium + select,
+.uni-form .auto + select {
   margin-right: 4px !important;
 }
 
