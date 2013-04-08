@@ -103,6 +103,8 @@ module.exports = function (grunt) {
   // Default task.
   grunt.registerTask('default', ['jshint','qunit', 'clean', 'concat', 'cssmin', 'uglify']);
 
+  grunt.registerTask('travis', ['jshint', 'qunit']);
+
   // Alias this to make it standard across my repos. (Jasmine v. QUnit)
   grunt.registerTask('test', ['qunit']);
 

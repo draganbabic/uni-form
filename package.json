@@ -42,7 +42,7 @@
     }
   ],
   "scripts": {
-    "test": "grunt qunit"
+    "test": "grunt travis --verbose"
   },
   "engines": {
     "node": ">= 0.8.0"
