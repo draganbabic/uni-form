@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/there4/uni-form.png?branch=make-sense)](https://travis-ci.org/there4/uni-form)
+[![Build Status](https://travis-ci.org/there4/uni-form.png?branch=travis-test)](https://travis-ci.org/there4/uni-form)
 
 # [Uni-Form Markup](http://sprawsm.com/uni-form/): Making forms as simple as 1,2,3
 
