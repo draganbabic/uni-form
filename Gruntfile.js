@@ -101,7 +101,7 @@ module.exports = function (grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', ['jshint','qunit', 'clean', 'concat', 'cssmin', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'qunit', 'clean', 'concat', 'cssmin', 'uglify']);
 
   grunt.registerTask('travis', ['jshint', 'qunit']);
 
