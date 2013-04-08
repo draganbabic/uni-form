@@ -218,7 +218,7 @@
   margin: 0;
   padding: 0;
 }
-  
+
   .uni-form .inline-labels .ctrl-holder > ul li {
     margin: 0;
   }
@@ -247,7 +247,7 @@
 .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi li {
   margin-top: 0;
 }
-  
+
   .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-text,
   .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-select,
   .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-file,
@@ -371,7 +371,7 @@
    ========================================================================== */
 
 .uni-form-row {}
-  
+
   .uni-form-row > .ctrl-holder {
     float: left;
   }
