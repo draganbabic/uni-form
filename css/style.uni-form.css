@@ -1,26 +1,28 @@
 /* ==========================================================================
-   UNI-FORM DEFAULT STYLE by DRAGAN BABIC
+   UNI-FORM STYLE by DRAGAN BABIC
    --------------------------------------------------------------------------
    Copyright (c) 2013, Dragan Babic
    --------------------------------------------------------------------------
-   Permission is hereby granted, free of charge, to any person
-   obtaining a copy of this software and associated documentation
-   files (the "Software"), to deal in the Software without
-   restriction, including without limitation the rights to use,
-   copy, modify, merge, publish, distribute, sublicense, and/or sell
-   copies of the Software, and to permit persons to whom the
-   Software is furnished to do so, subject to the following
-   conditions:
-   The above copyright notice and this permission notice shall be
-   included in all copies or substantial portions of the Software.
-   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-   OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-   NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-   HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-   WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-   OTHER DEALINGS IN THE SOFTWARE.
+   Permission is hereby granted, free of charge, to any person obtaining a 
+   copy of this software and associated documentation files (the "Software"),
+   to deal in the Software without restriction, including without limitation 
+   the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+   and/or sell copies of the Software, and to permit persons to whom the 
+   Software is furnished to do so, subject to the following conditions: 
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software. 
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+   THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+   DEALINGS IN THE SOFTWARE.
+   --------------------------------------------------------------------------
+   NOTE ABOUT STYLING FORMS 
+   --------------------------------------------------------------------------
+   When styling your form make sure to copy the selector from uni-form.css
+   into this file and override it with your properties and values.
    ========================================================================== */
 
 .uni-form {
@@ -94,70 +96,6 @@
 .uni-form .input-select {}
 
 .uni-form .input-file {}
-
-/* ==========================================================================
-   Widths
-   ========================================================================== */
-
-/* Default layout widths ---------------------------------------------------- */
-
-/* Fields in default layout */
-
-.uni-form .input-text,
-.uni-form .input-file,
-.uni-form .input-select,
-.uni-form .input-textarea {
-  width: 65%;
-}
-
-/* Form hints in default layout */
-
-.uni-form .form-hint {
-  width: 33%;
-}
-
-/* Grouped buttons in default layout */
-
-.uni-form .ctrl-holder > ul {
-  width: 67%;
-}
-
-/* Alternate layout widths -------------------------------------------------- */
-
-/* Labels in alternate layout */
-
-.uni-form .inline-labels .ctrl-holder > label,
-.uni-form .inline-labels .ctrl-holder > .label {
-  width: 33%;
-  padding-right: 3%;
-}
-
-/* Fields in alternate layout */
-
-.uni-form .inline-labels .input-text,
-.uni-form .inline-labels .input-file,
-.uni-form .inline-labels .input-select,
-.uni-form .inline-labels .input-textarea {
-  width: 67%;
-}
-
-/* Form hints in alternate layout */
-
-.uni-form .inline-labels .form-hint {
-  margin-left: 33%;
-}
-
-/* Grouped fields in alternate layout */
-
-.uni-form .inline-labels .ctrl-holder > ul {
-  width: 67%;
-}
-
-/* Nolabel option for alternate layout */
-
-.uni-form .inline-labels .no-label ul {
-  margin-left: 33%;
-}
   
 /* ==========================================================================
    Buttons
@@ -211,8 +149,8 @@
    Labels within grouped controls
    ========================================================================== */
 
-.uni-form .ctrl-holder > ul label {
-  margin-top: .35em; /* Compensate for the smaller font size */
+.uni-form .multi label {
+  margin-top: .3em; /* Compensate for the smaller font size */
   font-size: .85em;
 }
 

@@ -1,24 +1,21 @@
 /* ==========================================================================
    Copyright (c) 2013, Dragan Babic
    --------------------------------------------------------------------------
-   Permission is hereby granted, free of charge, to any person
-   obtaining a copy of this software and associated documentation
-   files (the "Software"), to deal in the Software without
-   restriction, including without limitation the rights to use,
-   copy, modify, merge, publish, distribute, sublicense, and/or sell
-   copies of the Software, and to permit persons to whom the
-   Software is furnished to do so, subject to the following
-   conditions:
-   The above copyright notice and this permission notice shall be
-   included in all copies or substantial portions of the Software.
-   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-   OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-   NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-   HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-   WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-   OTHER DEALINGS IN THE SOFTWARE.
+   Permission is hereby granted, free of charge, to any person obtaining a 
+   copy of this software and associated documentation files (the "Software"),
+   to deal in the Software without restriction, including without limitation 
+   the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+   and/or sell copies of the Software, and to permit persons to whom the 
+   Software is furnished to do so, subject to the following conditions: 
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software. 
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+   THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+   FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+   DEALINGS IN THE SOFTWARE.
    --------------------------------------------------------------------------
    Generals
    ========================================================================== */
@@ -102,16 +99,16 @@
 .uni-form .input-select,
 .uni-form .input-textarea {
   float: left;
-  width: 67%;
+  width: 65%; /* 2% for spacing */
   margin: 0;
 }
 
 /* Make some spacing between the label and the input/list */
 
-.uni-form label  + .input-text,
-.uni-form label  + .input-file,
-.uni-form label  + .input-select,
-.uni-form label  + .input-textarea {
+.uni-form label + .input-text,
+.uni-form label + .input-file,
+.uni-form label + .input-select,
+.uni-form label + .input-textarea {
   margin-top: .5em;
 }
 
@@ -125,46 +122,53 @@
 
 /* Grouped controls (one below the other by default) */
 
-.uni-form .ctrl-holder > ul {
+.uni-form .multi {
   float: left;
   width: 67%;
   margin: 0;
   padding: 0 3% 0 0;
 }
 
-.uni-form .ctrl-holder > ul + .form-hint {
+.uni-form .multi + .form-hint {
   margin-top: .5em;
 }
 
-  .uni-form .ctrl-holder > ul li {
+  .uni-form .multi > li {
     margin: .5em 0;
     list-style: none;
   }
 
 /* Alternate layout for grouped controls (stacked inline) */
 
-.uni-form ul.uni-form-multi li {
-  display: inline-block;
+.uni-form .multi-inline > li {
+  float: left;
   margin: .5em 0 0 0;
 }
 
-.uni-form ul.uni-form-columns-2 li {
-  width: 49%;
+.uni-form .columns-2 > li {
+  width: 50%;
 }
 
-.uni-form ul.uni-form-columns-3 li {
-  width: 32%;
+.uni-form .columns-2 > li + li {
+  padding-left: 2%;
 }
 
-.uni-form ul .input-text,
-.uni-form ul .input-select,
-.uni-form ul select,
-.uni-form ul.uni-form-multi .input-text,
-.uni-form ul.uni-form-multi .input-select,
-.uni-form ul.uni-form-multi select {
+.uni-form .columns-3 > li {
+  width: 33.3%;
+}
+
+.uni-form .columns-3 > li + li,
+.uni-form .columns-3 > li + li + li {
+  padding-left: 2%;
+}
+
+.uni-form .multi .input-text,
+.uni-form .multi .input-select,
+.uni-form .multi select {
   display: inline-block;
   float: none;
-  width: 98%;
+  width: 100%;
+  margin-top: 0;
 }
 
 /* ==========================================================================
@@ -206,31 +210,31 @@
 
 /* Grouped controls (one below the other by default) */
 
-.uni-form .inline-labels .ctrl-holder > ul {
+.uni-form .inline-labels .multi {
   float: left;
   width: 67%;
   margin: 0;
   padding: 0;
 }
   
-  .uni-form .inline-labels .ctrl-holder > ul li {
+  .uni-form .inline-labels .multi > li {
     margin: 0;
   }
 
-  .uni-form .inline-labels .ctrl-holder > ul li + li {
+  .uni-form .inline-labels .multi > li + li {
     margin-top: .5em;
   }
 
-   .uni-form .inline-labels .ctrl-holder > ul label {
+   .uni-form .inline-labels .multi label {
      float: none;
      display: block;
      width: 100%;
    }
 
-    .uni-form .inline-labels .ctrl-holder > ul .input-text,
-    .uni-form .inline-labels .ctrl-holder > ul .input-select,
-    .uni-form .inline-labels .ctrl-holder > ul .input-file,
-    .uni-form .inline-labels .ctrl-holder > ul .input-textarea {
+    .uni-form .inline-labels .multi .input-text,
+    .uni-form .inline-labels .multi .input-select,
+    .uni-form .inline-labels .multi .input-file,
+    .uni-form .inline-labels .multi .input-textarea {
       float: none;
       display: block;
       width: 100%;
@@ -238,16 +242,9 @@
 
 /* Alternate layout for grouped controls (stacked inline) */
 
-.uni-form .inline-labels .ctrl-holder > ul.uni-form-multi li {
+.uni-form .inline-labels .multi-inline > li + li {
   margin-top: 0;
 }
-  
-  .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-text,
-  .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-select,
-  .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-file,
-  .uni-form .inline-labels .ctrl-holder > ul.uni-form-multi .input-textarea {
-    width: 98%;
-  }
 
 /* ==========================================================================
    Additional stuff
@@ -255,25 +252,9 @@
 
 /* When you don't want to use a label for grouped fields */
 
-.uni-form .inline-labels .no-label ul {
+.uni-form .inline-labels .no-label .multi {
   margin-left: 33%;
 }
-
-/*.uni-form label input {
-  float: none;
-  display: inline;
-  margin: 0;
-  padding: 0;
-  border: none;
-}*/
-
-/*.uni-form .button-holder label {
-  float: left;
-  margin: .5em 0 0 0;
-  width: auto;
-  max-width: 60%;
-  text-align: left;
-}*/
 
 /* Classes for control of the widths of the fields */
 
@@ -364,10 +345,10 @@
     float: left;
   }
 
-  .uni-form-columns-2 > .ctrl-holder {
+  .columns-2 > .ctrl-holder {
     width: 50%;
   }
 
-  .uni-form-columns-3 > .ctrl-holder {
+  .columns-3 > .ctrl-holder {
     width: 33.3%;
   }
