@@ -109,7 +109,7 @@
           <div class="ctrl-holder">
             <label for=""><em>*</em> Large text input</label>
             <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large"/>
-            <p class="form-hint">This is a form hint.</p>
+            <p class="form-hint">.large on .input-text, makes the .form-hint full width as well.</p>
           </div>
           
           <div class="ctrl-holder">
@@ -284,6 +284,16 @@
               <li><label for=""><input id="" name="" data-default-value="Placeholder text" type="checkbox"/> I have read and agree with the terms and conditions</label></li>
             </ul>
             <p class="form-hint">Laying out a single option checkbox without a label.</p>
+          </div>
+
+          <div class="ctrl-holder">
+            <p class="label">
+              Ctrl element
+            </p>
+            <div class="ctrl">
+              Use the .ctrl element for stuff that's not a Uni–Form field, but that needs to line up with the input fields (e.g. captchas, etc.)
+            </div>
+            <p class="form-hint">It can even have a form hint.</p>
           </div>
 
         </fieldset>
@@ -313,9 +323,8 @@
           </div>
 
           <div class="ctrl-holder">
-            <label for=""><em>*</em> Large text input</label>
             <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large"/>
-            <p class="form-hint">This is a form hint.</p>
+            <p class="form-hint">Using .large in .inline-labels is suitable for forms without labels. Hint: use the placeholder attribute as the label.</p>
           </div>
           
           <div class="ctrl-holder">
@@ -491,6 +500,16 @@
             </ul>
             <p class="form-hint">Laying out a single option checkbox without a label.</p>
           </div>
+
+          <div class="ctrl-holder">
+            <p class="label">
+              Ctrl element
+            </p>
+            <div class="ctrl">
+              Use the .ctrl element for stuff that's not a Uni–Form field, but that needs to line up with the input fields (e.g. captchas, etc.)
+            </div>
+            <p class="form-hint">It can even have a form hint.</p>
+          </div>
           
         </fieldset>
 
@@ -503,13 +522,13 @@
           <div class="uni-form-row columns-2">
 
             <div class="ctrl-holder">
-              <label for=""><em>*</em> Default text input</label>
+              <label for=""><em>*</em> Large text input</label>
               <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
               <p class="form-hint">This is a form hint.</p>
             </div>
 
             <div class="ctrl-holder">
-              <label for=""><em>*</em> Default text input</label>
+              <label for=""><em>*</em> Large text input</label>
               <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
               <p class="form-hint">This is a form hint.</p>
             </div>
@@ -519,19 +538,19 @@
           <div class="uni-form-row columns-3">
 
             <div class="ctrl-holder">
-              <label for=""><em>*</em> Default text input</label>
+              <label for=""><em>*</em> Large text input</label>
               <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
               <p class="form-hint">This is a form hint.</p>
             </div>
 
             <div class="ctrl-holder">
-              <label for=""><em>*</em> Default text input</label>
+              <label for=""><em>*</em> Large text input</label>
               <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
               <p class="form-hint">This is a form hint.</p>
             </div>
 
             <div class="ctrl-holder">
-              <label for=""><em>*</em> Default text input</label>
+              <label for=""><em>*</em> Large text input</label>
               <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text large">
               <p class="form-hint">This is a form hint.</p>
             </div>
@@ -540,10 +559,32 @@
 
         </fieldset>
 
-        <div class="button-holder">
-          <button type="submit" class="action-secondary">Secondary action</button>
-          <button type="submit" class="action-primary">Primary Action</button>
-        </div>
+        <fieldset>
+
+          <h3>Disabled Fields</h3>
+
+          <div class="ctrl-holder">
+            <label for=""><em>*</em> Disabled input</label>
+            <input name="" id="" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text input-disabled" disabled>
+            <p class="form-hint">This is a form hint.</p>
+          </div>
+
+          <div class="button-holder">
+            <button type="submit" class="action-primary action-disabled" disabled>Disabled Primary Action</button>
+          </div>
+
+        </fieldset>
+
+        <fieldset>
+
+          <h3>Actions</h3>
+
+          <div class="button-holder">
+            <button type="submit" class="action-secondary">Secondary action</button>
+            <button type="submit" class="action-primary">Primary Action</button>
+          </div>
+
+        </fieldset>
 
       </form>
 
