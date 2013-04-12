@@ -364,3 +364,61 @@
   .columns-3 > .ctrl-holder {
     width: 33.3%;
   }
+
+/* ==========================================================================
+   480 breakpoint
+   ========================================================================== */
+
+@media screen and (max-width: 480px) {
+
+  /* Default layout selectors */
+  .uni-form .ctrl-holder > label,
+  .uni-form .ctrl-holder > .label,
+  .uni-form .input-text,
+  .uni-form .input-select,
+  .uni-form .input-textarea,
+  .uni-form .input-file,
+  .uni-form .ctrl,
+  .uni-form .multi,
+  .uni-form .multi-inline > li,
+  .uni-form .form-hint,
+  /* Alternate layout selectors */
+  .uni-form .inline-labels .ctrl-holder > label,
+  .uni-form .inline-labels .ctrl-holder > .label,
+  .uni-form .inline-labels .input-text,
+  .uni-form .inline-labels .input-select,
+  .uni-form .inline-labels .input-textarea,
+  .uni-form .inline-labels .input-file,
+  .uni-form .inline-labels .ctrl,
+  .uni-form .multi,
+  .uni-form .inline-labels .multi-inline > li,
+  .uni-form .inline-labels .form-hint,
+  .uni-form .inline-labels .no-label .multi {
+    float: none;
+    width: 100%;
+  }
+
+  .uni-form .inline-labels label + .input-text,
+  .uni-form .inline-labels label + .input-file,
+  .uni-form .inline-labels label + .input-select,
+  .uni-form .inline-labels label + .input-textarea {
+    margin-top: .5em;
+  }
+
+  .uni-form .inline-labels .ctrl-holder > label,
+  .uni-form .inline-labels .ctrl-holder > .label,
+  .uni-form .multi,
+  .uni-form .multi-inline > li,
+  .uni-form .columns-2 > li + li,
+  .uni-form .columns-3 > li + li,
+  .uni-form .columns-3 > li + li + li {
+    padding: 0;
+  }
+
+  .uni-form .form-hint,
+  .uni-form .inline-labels .form-hint, 
+  .uni-form .inline-labels .no-label .multi{
+    margin-left: 0;
+  }
+
+}

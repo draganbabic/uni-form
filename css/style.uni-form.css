@@ -299,3 +299,22 @@
 .uni-form-row:last-child {
   border-bottom-width: 1px;
 }
+
+/* ==========================================================================
+   480 breakpoint
+   ========================================================================== */
+
+@media screen and (max-width: 480px) {
+
+  .uni-form .ctrl-holder,
+  .uni-form .inline-labels .ctrl-holder {
+    padding-top: 1em;
+    padding-bottom: 1.5em;
+  }
+  
+  .uni-form .ctrl-holder.valid,
+  .uni-form .inline-labels .ctrl-holder.valid {
+    background-position: 97% 1em;
+  }
+
+}
