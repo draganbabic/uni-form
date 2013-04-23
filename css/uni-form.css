@@ -290,6 +290,7 @@
   width: auto !important;
   height: auto !important;
   display: inline-block !important;
+  float: none !important;
 }
 
 /* Make spacing in between two inputs */
