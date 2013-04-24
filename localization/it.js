@@ -1,4 +1,4 @@
-// Italian localization by Pao6
+// Italian Localization by Pao6
 // http://twitter.com/paosix
 
 jQuery.fn.uniform.language = jQuery.extend(jQuery.fn.uniform.language, {

@@ -1,4 +1,4 @@
-// Dutch localization by Roy Lodder
+// Dutch Localization by Roy Lodder
 // http://roylodder.com/
 
 jQuery.fn.uniform.language = jQuery.extend(jQuery.fn.uniform.language, {

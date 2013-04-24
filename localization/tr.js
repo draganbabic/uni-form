@@ -1,4 +1,4 @@
-// Turkish localization by umut Fikret Gürkavcu
+// Turkish Localization by umut Fikret Gürkavcu
 // umut.gurkavcu@4primes.com
 
 jQuery.fn.uniform.language = jQuery.extend(jQuery.fn.uniform.language, {

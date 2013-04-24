@@ -1,4 +1,4 @@
-// French localization by Marc Friederich
+// French Localization by Marc Friederich
 // http://www.antistatique.net/
 
 jQuery.fn.uniform.language = jQuery.extend(jQuery.fn.uniform.language, {

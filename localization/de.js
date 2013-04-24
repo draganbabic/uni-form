@@ -1,4 +1,4 @@
-// German localization by Benjamin Steicke
+// German Localization by Benjamin Steicke
 // http://benjamin-steinke.de/
 
 jQuery.fn.uniform.language = jQuery.extend(jQuery.fn.uniform.language, {

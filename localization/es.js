@@ -1,3 +1,5 @@
+// Spanish Localization
+
 jQuery.fn.uniform.language = jQuery.extend(jQuery.fn.uniform.language, {
     required  : '%s es obligatorio.',
     minlength : '%s debe ser al menos %d caracteres de largo',
