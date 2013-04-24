@@ -1,12 +1,12 @@
 [![Build Status](https://travis-ci.org/there4/uni-form.png?branch=make-sense)](https://travis-ci.org/there4/uni-form)
 
-# [Uni-Form Markup](http://sprawsm.com/uni-form/): Making forms as simple as 1,2,3
+# [Uni-Form Markup][uni-form]: Making forms as simple as 1,2,3
 
 - - -
 
 Copyright (c) 2013, Dragan Babic
 
-All JS written and maintained by Craig Davis of LearningStation
+All JS written and maintained by Craig Davis of [There4 Development][t4]
 
 > Permission is hereby granted, free of charge, to any person
 > obtaining a copy of this software and associated documentation
@@ -34,9 +34,9 @@ All JS written and maintained by Craig Davis of LearningStation
 Uni-Form is a “framework” that standardizes form markup and styles it with CSS
 giving you two most widely used layout options to choose from. Anyone can get nice looking, well structured, highly customizable, accessible and usable forms. To put it simply: it makes a developer's life a lot easier.
 
-* [Uni-Form Homepage](http://sprawsm.com/uni-form/)
-* [Support at GitHub Issues](https://github.com/draganbabic/uni-form/issues)
-* [GitHub repository](https://github.com/draganbabic/uni-form/)
+* [Uni-Form Homepage][uni-form]
+* [Support at GitHub Issues][issues]
+* [GitHub repository][gh]
 
 ## How to Use?
 
@@ -146,3 +146,9 @@ This is why Uni–Form is kept small, and why it's so plainly styled by default.
 - - -
 
 Give respect and get it back.
+
+[uni-form]: http://sprawsm.com/uni-form/
+[issues]: https://github.com/draganbabic/uni-form/issues
+[gh]: https://github.com/draganbabic/uni-form/
+[t4]: http://there4development.com/
+
