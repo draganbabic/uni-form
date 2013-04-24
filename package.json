@@ -1,0 +1,64 @@
+{
+  "name": "uni-form",
+  "title": "Uni-Form",
+  "description": "Simpler web forms with beautiful styles.",
+  "version": "1.5.0",
+  "homepage": "http://sprawsm.com/uni-form/",
+  "author": {
+    "name": "Dragan Babic"
+  },
+  "contributors": [
+    {
+      "name": "Dragan Babic",
+      "web": "http://sprawsm.com"
+    },
+    {
+      "name": "Craig Davis",
+      "web": "http://there4development.com"
+    },
+    {
+      "name": "Ilija Studen"
+    },
+    {
+      "name": "Aris Karageorgos"
+    },
+    {
+      "name": "Toni Karlheinz"
+    },
+    {
+      "name": "Jason Brumwell"
+    }
+  ],
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/draganbabic/uni-form.git"
+  },
+  "bugs": "https://github.com/draganbabic/uni-form/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://sprawsm.com/uni-form//blob/master/LICENSE-MIT"
+    }
+  ],
+  "scripts": {
+    "test": "grunt travis --verbose"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "jquery": "*"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-qunit": "~0.1.1",
+    "grunt-contrib-concat": "~0.1.2",
+    "grunt-contrib-uglify": "~0.1.1",
+    "grunt-contrib-watch": "~0.2.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-mincss": "~0.3.2",
+    "grunt": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.5.0"
+  }
+}

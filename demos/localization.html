@@ -1,15 +1,14 @@
 <!doctype html>
-
 <html lang="en-us" dir="ltr">
 
   <head>
 
   <meta charset="utf-8">
 
-<!-- 
+<!--
 
    Copyright (c) 2010, Dragan Babic
-   
+
    Permission is hereby granted, free of charge, to any person
    obtaining a copy of this software and associated documentation
    files (the "Software"), to deal in the Software without
@@ -18,10 +17,10 @@
    copies of the Software, and to permit persons to whom the
    Software is furnished to do so, subject to the following
    conditions:
-   
+
    The above copyright notice and this permission notice shall be
    included in all copies or substantial portions of the Software.
-   
+
    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -34,11 +33,11 @@
 -->
 
     <title>Uni&ndash;Form</title>
-    
+
     <link href="../css/uni-form.css" media="screen" rel="stylesheet"/>
     <link href="../css/style.uni-form.css" media="screen" rel="stylesheet"/>
     <link href="./css/demo.css" media="screen" rel="stylesheet"/>
-    
+
     <!--[if lte ie 7]>
       <style type="text/css" media="screen">
         /* Move these to your IE6/7 specific stylesheet if possible */
@@ -51,32 +50,32 @@
   <body>
 
     <h1><a href="http://sprawsm.com/uni-form/" title="visit Uni–Form online"><img src="../img/uni-form-logo.png" alt=""/></a></h1>
-    
+
     <div class="uni-form-wrap">
 
       <form action="#" class="uni-form">
-              
+
         <fieldset>
           <h2 class="uni-form-title">Client side form demonstration</h2>
-          
+
           <div class="ctrl-holder">
             <label for=""><em>*</em> Your name</label>
             <input name="name" id="name" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text required"/>
             <p class="form-hint">Required element</p>
           </div>
-          
+
           <div class="ctrl-holder">
             <label for=""><em>*</em> Your email</label>
             <input name="email" id="email" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text required validateEmail"/>
             <p class="form-hint">A valid email address</p>
           </div>
-        
+
           <div class="ctrl-holder">
             <label for=""><em>*</em> Email confirm</label>
             <input name="email_confirm" id="email_confirm" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text required validateSameAs email"/>
             <p class="form-hint"></p>
           </div>
-          
+
           <div class="ctrl-holder">
             <label for=""><em>*</em> A number from 10 - 50</label>
             <input name="a_number" id="a_number" data-default-value="Placeholder text" size="35" maxlength="50" type="text" class="input-text required validateInteger validateMin val-10 validateMax val-50"/>
@@ -101,7 +100,7 @@
           </div>
 
         </fieldset>
-        
+
         <div class="button-holder">
           <button type="submit" class="action-secondary">← Cancel and go back</button>
           <button type="submit" class="action-primary">Submit</button>
@@ -116,8 +115,8 @@
     </div>
 
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/uni-form-validation.jquery.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../libs/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../dist/uni-form-validation.jquery.js" charset="utf-8"></script>
     <script type="text/javascript" src="../localization/es.js" charset="utf-8"></script>
     <script>
       $(function(){
@@ -128,5 +127,5 @@
     </script>
 
   </body>
-  
+
 </html>

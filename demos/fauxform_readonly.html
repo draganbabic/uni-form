@@ -1,15 +1,14 @@
 <!doctype html>
-
 <html lang="en-us" dir="ltr">
 
   <head>
 
   <meta charset="utf-8">
 
-<!-- 
+<!--
 
    Copyright (c) 2010, Dragan Babic
-   
+
    Permission is hereby granted, free of charge, to any person
    obtaining a copy of this software and associated documentation
    files (the "Software"), to deal in the Software without
@@ -18,10 +17,10 @@
    copies of the Software, and to permit persons to whom the
    Software is furnished to do so, subject to the following
    conditions:
-   
+
    The above copyright notice and this permission notice shall be
    included in all copies or substantial portions of the Software.
-   
+
    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -33,7 +32,7 @@
 
 -->
     <title>Uni&ndash;Form</title>
-    
+
     <link href="../css/uni-form.css" media="screen" rel="stylesheet"/>
     <link href="./css/demo.css" media="screen" rel="stylesheet"/>
     <link href="../css/style.uni-form.css" media="screen" rel="stylesheet"/>
@@ -50,39 +49,39 @@
   <body>
 
     <h1><a href="http://sprawsm.com/uni-form/" title="visit Uni–Form online"><img src="../img/uni-form-logo.png" alt=""/></a></h1>
-    
+
     <p class="intro">
       This is an example form data output demonstrating the read–only capabilities of Uni–Form
     </p>
-    
+
     <div class="uni-form-wrap">
 
       <form action="#" class="uni-form">
-        
+
         <div class="header">
           <h2>Default Style</h2>
           <p>Author: <a href="http://sprawsm.com/">Dragan Babić</a> <a href="http://sprawsm.com/uni-form/" class="cta">see more styles →</a></p>
         </div>
-        
+
         <div id="okMsg">
           <p>
             Looks like everything went OK! Check the data you entered and if everything is OK press the button to proceed.
           </p>
         </div>
-              
+
         <fieldset>
           <h2 class="uni-form-title">Default Form Field Layout</h2>
-          
+
           <div class="ctrl-holder">
             <h4 class="read-only-label">Label of the input field</h4>
             <div class="read-only">User–input value</div>
           </div>
-          
+
           <div class="ctrl-holder">
             <h4 class="read-only-label">Label of the textarea</h4>
             <div class="read-only">User–input value that contains a lot of text, like the output of a textarea that will have the text span multiple lines.</div>
           </div>
-          
+
           <div class="ctrl-holder">
             <h4 class="read-only-label">Label of the select box</h4>
             <div class="read-only">
@@ -90,7 +89,7 @@
               Selected option's text
             </div>
           </div>
-          
+
           <div class="ctrl-holder">
             <h4 class="read-only-label">Name of the checkbox group</h4>
             <div class="read-only">
@@ -98,7 +97,7 @@
               Label of the selected checkbox
             </div>
           </div>
-          
+
           <div class="ctrl-holder">
             <h4 class="read-only-label">Name of the radio group</h4>
             <div class="read-only">
@@ -106,7 +105,7 @@
               Label of the selected radio button
             </div>
           </div>
-          
+
           <div class="ctrl-holder">
             <h4 class="read-only-label">Name of the multifield group</h4>
             <div class="read-only">
@@ -122,22 +121,22 @@
               <span class="choice">User–Input value</span>
             </div>
           </div>
-          
+
         </fieldset>
-        
+
         <fieldset class="inline-labels">
           <h3>Alternate Form Fields Layout</h3>
-          
+
           <div class="ctrl-holder">
             <h4 class="read-only-label">Label of the input field</h4>
             <div class="read-only">User–input value</div>
           </div>
-          
+
           <div class="ctrl-holder">
             <h4 class="read-only-label">Label of the textarea</h4>
             <div class="read-only">User–input value that contains a lot of text, like the output of a textarea that will have the text span multiple lines.</div>
           </div>
-          
+
           <div class="ctrl-holder">
             <h4 class="read-only-label">Label of the select box</h4>
             <div class="read-only">
@@ -145,7 +144,7 @@
               Selected option's text
             </div>
           </div>
-          
+
           <div class="ctrl-holder">
             <h4 class="read-only-label">Name of the checkbox group</h4>
             <div class="read-only">
@@ -153,7 +152,7 @@
               Label of the selected checkbox
             </div>
           </div>
-          
+
           <div class="ctrl-holder">
             <h4 class="read-only-label">Name of the radio group</h4>
             <div class="read-only">
@@ -161,7 +160,7 @@
               Label of the selected radio button
             </div>
           </div>
-          
+
           <div class="ctrl-holder">
             <h4 class="read-only-label">Name of the multifield group</h4>
             <div class="read-only">
@@ -177,7 +176,7 @@
               <span class="choice">User–Input value</span>
             </div>
           </div>
-          
+
         </fieldset>
 
         <div class="button-holder">
@@ -194,13 +193,13 @@
     </div>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/uni-form.jquery.js"></script>
+    <script type="text/javascript" src="../dist/uni-form.jquery.js"></script>
     <script type="text/javascript">
       $(function(){
-        
+
         // init Uni-Form
         $('form.uni-form').uniform();
-        
+
       });
     </script>
 
