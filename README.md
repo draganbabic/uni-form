@@ -2,8 +2,9 @@
 
 ## Announcements:
 
-* __Please note that the jQuery plugins no longer automatically initialize.__
-  You must init them yourself with the code found in the section below 
+**This is the Uni–Form version 1.5, the version that most integrations used and is kept alive but is not being developed. For the latest version please check out the master branch.**
+
+**Please note that the jQuery plugins no longer automatically initialize.** You must init them yourself with the code found in the section below 
   titled "How to use?"
   
 
