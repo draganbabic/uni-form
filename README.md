@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/there4/uni-form.png?branch=make-sense)](https://travis-ci.org/there4/uni-form)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdraganbabic%2Funi-form.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdraganbabic%2Funi-form?ref=badge_shield)
 
 # [Uni-Form Markup][uni-form]: Making forms as simple as 1,2,3
 
@@ -152,3 +153,7 @@ Give respect and get it back.
 [gh]: https://github.com/draganbabic/uni-form/
 [t4]: http://there4development.com/
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdraganbabic%2Funi-form.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdraganbabic%2Funi-form?ref=badge_large)
